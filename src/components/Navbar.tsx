@@ -91,12 +91,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b-2 border-slate-800 text-white shadow-2xl transition-all duration-300 ${
-          isScrolled ? 'py-1 shadow-cyan-950/20' : 'py-2'
+        className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm transition-all duration-300 ${
+          isScrolled ? 'py-1 shadow-slate-200/50' : 'py-2'
         }`}
       >
         {/* Senior-Friendly Announcement Bar with High Contrast */}
-        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-slate-950 text-sm py-2 px-4 border-b border-slate-800 hidden sm:block">
+        <div className="bg-slate-900 text-sm py-2 px-4 border-b border-slate-800 hidden sm:block">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-slate-200">
             <div className="flex items-center space-x-6 font-semibold">
               <span className="flex items-center gap-1.5 text-cyan-300">
@@ -134,10 +134,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
               />
               <div className="hidden min-[380px]:block">
-                <span className="block text-sm sm:text-base font-black tracking-tight text-white leading-tight uppercase">
+                <span className="block text-sm sm:text-base font-black tracking-tight text-slate-900 leading-tight uppercase">
                   SANTA CATARINA
                 </span>
-                <span className="block text-[10px] sm:text-xs font-bold tracking-widest text-cyan-400 uppercase">
+                <span className="block text-[10px] sm:text-xs font-bold tracking-widest text-cyan-600 uppercase">
                   REFRIGERAÇÃO
                 </span>
               </div>
@@ -149,8 +149,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href="/"
                 className={`transition-colors py-2 border-b-2 ${
                   isCurrentRoute('/') && !location.hash
-                    ? 'border-cyan-400 text-cyan-400'
-                    : 'border-transparent text-slate-200 hover:text-cyan-300'
+                    ? 'border-cyan-600 text-cyan-700'
+                    : 'border-transparent text-slate-700 hover:text-cyan-600'
                 }`}
               >
                 Início
@@ -160,8 +160,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href="/conserto-de-geladeira/"
                 className={`transition-colors py-2 border-b-2 ${
                   isCurrentRoute('/conserto-de-geladeira')
-                    ? 'border-cyan-400 text-cyan-400'
-                    : 'border-transparent text-slate-200 hover:text-cyan-300'
+                    ? 'border-cyan-600 text-cyan-700'
+                    : 'border-transparent text-slate-700 hover:text-cyan-600'
                 }`}
               >
                 Geladeiras
@@ -171,8 +171,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href="/conserto-lava-e-seca-penha"
                 className={`transition-colors py-2 border-b-2 ${
                   isCurrentRoute('/conserto-lava-e-seca')
-                    ? 'border-cyan-400 text-cyan-400'
-                    : 'border-transparent text-slate-200 hover:text-cyan-300'
+                    ? 'border-cyan-600 text-cyan-700'
+                    : 'border-transparent text-slate-700 hover:text-cyan-600'
                 }`}
               >
                 Lava e Seca
@@ -182,8 +182,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href="/conserto-de-camara-fria/"
                 className={`transition-colors py-2 border-b-2 ${
                   isCurrentRoute('/conserto-de-camara-fria')
-                    ? 'border-cyan-400 text-cyan-400'
-                    : 'border-transparent text-slate-200 hover:text-cyan-300'
+                    ? 'border-cyan-600 text-cyan-700'
+                    : 'border-transparent text-slate-700 hover:text-cyan-600'
                 }`}
               >
                 Câmaras Frias
@@ -194,9 +194,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 <button
                   onClick={() => setIsDesktopCitiesOpen(!isDesktopCitiesOpen)}
                   onMouseEnter={() => setIsDesktopCitiesOpen(true)}
-                  className="flex items-center gap-1 border-b-2 border-transparent text-slate-200 hover:text-cyan-300 transition-colors py-2"
+                  className="flex items-center gap-1 border-b-2 border-transparent text-slate-700 hover:text-cyan-600 transition-colors py-2"
                 >
-                  <MapPin className="w-4 h-4 text-cyan-400" />
+                  <MapPin className="w-4 h-4 text-cyan-600" />
                   <span>Cidades e Regiões</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopCitiesOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -209,10 +209,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
                       onMouseLeave={() => setIsDesktopCitiesOpen(false)}
-                      className="absolute top-full left-0 w-80 bg-slate-900 border-2 border-slate-700 rounded-2xl shadow-2xl p-4 mt-2 space-y-3 z-50"
+                      className="absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 mt-2 space-y-3 z-50"
                     >
-                      <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
-                        <Globe className="w-4 h-4" />
+                      <div className="text-xs font-bold text-cyan-700 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100 pb-2">
+                        <Globe className="w-4 h-4 text-cyan-600" />
                         <span>Escolha sua Região ou Cidade</span>
                       </div>
 
@@ -221,9 +221,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                           <a
                             key={c.slug}
                             href={`/conserto-de-geladeira-em-${c.slug}`}
-                            className="p-2 rounded-xl bg-slate-950/80 hover:bg-cyan-950 hover:text-cyan-300 text-slate-200 font-semibold truncate flex items-center gap-1 transition-colors"
+                            className="p-2 rounded-xl bg-slate-50 hover:bg-cyan-50 hover:text-cyan-700 text-slate-700 font-semibold truncate flex items-center gap-1 transition-colors border border-slate-100"
                           >
-                            <ChevronRight className="w-3 h-3 text-cyan-400 shrink-0" />
+                            <ChevronRight className="w-3 h-3 text-cyan-600 shrink-0" />
                             <span className="truncate">{c.name}</span>
                           </a>
                         ))}
@@ -232,7 +232,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       <a
                         href="/#cobertura"
                         onClick={() => setIsDesktopCitiesOpen(false)}
-                        className="block text-center py-2 bg-slate-950 rounded-xl font-bold text-cyan-400 hover:bg-cyan-950 text-xs transition-colors border border-cyan-800/40"
+                        className="block text-center py-2 bg-slate-100 rounded-xl font-bold text-cyan-700 hover:bg-cyan-100 text-xs transition-colors border border-slate-200"
                       >
                         Ver todas as 40+ Cidades →
                       </a>
@@ -243,7 +243,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
               <a
                 href="/#faq"
-                className="border-b-2 border-transparent text-slate-200 hover:text-cyan-300 transition-colors py-2"
+                className="border-b-2 border-transparent text-slate-700 hover:text-cyan-600 transition-colors py-2"
               >
                 Dúvidas
               </a>
@@ -263,7 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-lg shadow-emerald-950/40 transition-transform active:scale-95 min-h-[48px]"
+                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[48px]"
               >
                 <MessageCircle className="w-5 h-5 shrink-0" />
                 <span>WhatsApp</span>
@@ -276,7 +276,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2.5 rounded-xl bg-emerald-500 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95 min-h-[44px]"
+                className="px-3.5 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95 min-h-[44px]"
               >
                 <MessageCircle className="w-4.5 h-4.5" />
                 <span>WhatsApp</span>
@@ -284,15 +284,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="px-3.5 py-2.5 rounded-xl bg-slate-900 border-2 border-slate-700 text-white hover:bg-slate-800 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
+                className="px-3.5 py-2.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 hover:bg-slate-200 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
                 aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-cyan-400" />
+                  <X className="w-6 h-6 text-cyan-600" />
                 ) : (
                   <>
-                    <Menu className="w-6 h-6 text-cyan-400" />
+                    <Menu className="w-6 h-6 text-cyan-600" />
                     <span className="hidden min-[360px]:inline">MENU</span>
                   </>
                 )}
@@ -325,11 +325,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 280 }}
-              className="relative w-full max-w-md bg-slate-950 border-l-2 border-slate-800 h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto"
+              className="relative w-full max-w-md bg-white border-l border-slate-200 h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto"
             >
               
               {/* Drawer Header */}
-              <div className="p-4 border-b border-slate-800 flex items-center justify-between sticky top-0 bg-slate-950/98 backdrop-blur-md z-10 shadow-md">
+              <div className="p-4 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/98 backdrop-blur-md z-10 shadow-sm">
                 <div className="flex items-center space-x-3">
                   <img
                     src={COMPANY_INFO.assets.logo}
@@ -337,10 +337,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                     className="h-10 w-auto object-contain"
                   />
                   <div>
-                    <span className="font-black text-sm text-white uppercase tracking-tight block">
+                    <span className="font-black text-sm text-slate-900 uppercase tracking-tight block">
                       SANTA CATARINA
                     </span>
-                    <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block">
+                    <span className="text-[10px] font-bold text-cyan-600 uppercase tracking-widest block">
                       REFRIGERAÇÃO
                     </span>
                   </div>
@@ -348,22 +348,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2.5 rounded-2xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 font-bold text-xs min-h-[44px]"
+                  className="p-2.5 rounded-2xl bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-200 transition-colors flex items-center gap-1 font-bold text-xs min-h-[44px]"
                   aria-label="Fechar menu"
                 >
-                  <X className="w-6 h-6 text-cyan-400" />
+                  <X className="w-6 h-6 text-cyan-600" />
                   <span>FECHAR</span>
                 </button>
               </div>
 
               {/* Senior-Friendly Quick Action Buttons inside Menu Top */}
-              <div className="p-4 bg-slate-900/90 border-b border-slate-800 grid grid-cols-2 gap-2.5">
+              <div className="p-4 bg-slate-50 border-b border-slate-200 grid grid-cols-2 gap-2.5">
                 <a
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-md min-h-[50px]"
+                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>WhatsApp</span>
@@ -389,31 +389,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center justify-between p-3.5 rounded-2xl font-bold transition-colors ${
                       isCurrentRoute('/') && !location.hash
-                        ? 'bg-cyan-950/80 text-cyan-300 border border-cyan-800'
-                        : 'text-white hover:bg-slate-900 hover:text-cyan-300'
+                        ? 'bg-cyan-50 text-cyan-800 border border-cyan-200'
+                        : 'text-slate-800 hover:bg-slate-100 hover:text-cyan-700'
                     }`}
                   >
                     <span>Início (Página Principal)</span>
-                    <ChevronRight className="w-5 h-5 text-cyan-400" />
+                    <ChevronRight className="w-5 h-5 text-cyan-600" />
                   </a>
                 </div>
 
                 {/* Accordion 1: Cidades e Regiões Atendidas (PÁGINAS DE REGIÕES) */}
-                <div className="border-2 border-cyan-500/40 rounded-2xl overflow-hidden bg-slate-900/80 shadow-md">
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
                   <button
                     onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-white font-black text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-black text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-300">
-                      <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-cyan-700">
+                      <MapPin className="w-5 h-5 text-cyan-600 shrink-0" />
                       <span>Páginas de Cidades & Regiões</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isCitiesAccordionOpen && (
-                    <div className="p-3 space-y-2 bg-slate-950/90 border-t border-slate-800 text-sm">
-                      <p className="text-xs text-slate-300 font-medium px-1">
+                    <div className="p-3 space-y-2 bg-white border-t border-slate-200 text-sm">
+                      <p className="text-xs text-slate-600 font-medium px-1">
                         Clique em qualquer cidade abaixo para ver detalhes de atendimento e orçamento rápido:
                       </p>
 
@@ -425,7 +425,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                           placeholder="Buscar cidade (ex: Penha, Itajaí)..."
                           value={citySearch}
                           onChange={(e) => setCitySearch(e.target.value)}
-                          className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 min-h-[44px]"
+                          className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-cyan-600 min-h-[44px]"
                         />
                       </div>
 
@@ -435,9 +435,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                             key={c.slug}
                             href={`/conserto-de-geladeira-em-${c.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2.5 rounded-xl bg-slate-900 text-slate-200 hover:bg-cyan-950 hover:text-cyan-300 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-800 min-h-[40px]"
+                            className="p-2.5 rounded-xl bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-200 min-h-[40px]"
                           >
-                            <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                            <ChevronRight className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                             <span className="truncate">{c.name}</span>
                           </a>
                         ))}
@@ -446,7 +446,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       <a
                         href="/#cobertura"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-center py-2.5 font-extrabold text-cyan-300 hover:underline text-xs pt-2 border-t border-slate-800"
+                        className="block text-center py-2.5 font-extrabold text-cyan-700 hover:underline text-xs pt-2 border-t border-slate-200"
                       >
                         Ver todas as 40+ Cidades Atendidas →
                       </a>
@@ -455,59 +455,59 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 </div>
 
                 {/* Accordion 2: Nossos Serviços */}
-                <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
                   <button
                     onClick={() => setIsServicesAccordionOpen(!isServicesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-300">
-                      <Navigation className="w-5 h-5 text-cyan-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-cyan-700">
+                      <Navigation className="w-5 h-5 text-cyan-600 shrink-0" />
                       <span>Nossos Serviços</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isServicesAccordionOpen && (
-                    <div className="p-2 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
+                    <div className="p-2 space-y-1.5 bg-white border-t border-slate-200 text-sm">
                       <a
                         href="/conserto-de-geladeira/"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Geladeiras & Frost Free
                       </a>
                       <a
                         href="/conserto-de-side-by-side/"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Geladeiras Side by Side & French Door
                       </a>
                       <a
                         href="/conserto-lava-e-seca-penha"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Lava e Seca
                       </a>
                       <a
                         href="/conserto-de-freezer/"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Freezers Verticais e Horizontais
                       </a>
                       <a
                         href="/conserto-de-camara-fria/"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Câmaras Frias & Balcões Comerciais
                       </a>
                       <a
                         href="/conserto-de-frigobar/"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Frigobares & Adegas
                       </a>
@@ -516,29 +516,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 </div>
 
                 {/* Accordion 3: Bairros em Destaque */}
-                <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
                   <button
                     onClick={() => setIsNeighborhoodsAccordionOpen(!isNeighborhoodsAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-300">
-                      <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-cyan-700">
+                      <MapPin className="w-5 h-5 text-cyan-600 shrink-0" />
                       <span>Bairros em Destaque</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isNeighborhoodsAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isNeighborhoodsAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isNeighborhoodsAccordionOpen && (
-                    <div className="p-3 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
+                    <div className="p-3 space-y-1.5 bg-white border-t border-slate-200 text-sm">
                       <div className="grid grid-cols-1 gap-1">
                         {featuredNeighborhoods.map((b, idx) => (
                           <a
                             key={idx}
                             href={`/bairros/${b.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2.5 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold flex items-center gap-2"
+                            className="p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold flex items-center gap-2"
                           >
-                            <ChevronRight className="w-4 h-4 text-cyan-400 shrink-0" />
+                            <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                             <span>{b.name}</span>
                           </a>
                         ))}
@@ -552,14 +552,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   <a
                     href="/#depoimentos"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
+                    className="block p-3.5 rounded-2xl text-slate-800 font-bold hover:bg-slate-100 hover:text-cyan-700"
                   >
                     Depoimentos de Clientes
                   </a>
                   <a
                     href="/#faq"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
+                    className="block p-3.5 rounded-2xl text-slate-800 font-bold hover:bg-slate-100 hover:text-cyan-700"
                   >
                     Perguntas Frequentes (FAQ)
                   </a>
@@ -568,19 +568,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </div>
 
               {/* Drawer Footer Actions (Senior CTAs) */}
-              <div className="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
+              <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     onOpenBookingModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-extrabold text-sm border-2 border-cyan-500/30 shadow-md min-h-[52px]"
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm border border-slate-800 shadow-md min-h-[52px]"
                 >
                   <Calendar className="w-5 h-5 text-cyan-400" />
                   <span>Agendar Visita Técnica Online</span>
                 </button>
 
-                <p className="text-xs text-slate-400 text-center font-medium pt-1">
+                <p className="text-xs text-slate-600 text-center font-medium pt-1">
                   Atendimento domiciliar rápido com garantia de 90 dias por escrito.
                 </p>
               </div>

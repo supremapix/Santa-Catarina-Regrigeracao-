@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
   return (
-    <section className="relative bg-slate-950 text-white overflow-hidden py-12 lg:py-20 border-b border-slate-800/80">
+    <section className="relative bg-white text-slate-900 overflow-hidden py-12 lg:py-20 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
@@ -26,13 +26,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs sm:text-sm font-medium"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
               <span>Base em Navegantes & Penha • Atendimento em Domicílio (Raio 200 km)</span>
             </motion.div>
 
@@ -41,10 +41,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-slate-900"
             >
               Assistência Técnica <br />
-              <span className="text-cyan-400">Especializada em Refrigeração</span>
+              <span className="text-cyan-700">Especializada em Refrigeração</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -52,9 +52,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
+              className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
             >
-              Atendimento rápido no mesmo dia para <strong className="text-white font-semibold">Geladeiras, Side by Side, Freezers, Frigobares, Câmaras Frias, Balcões Refrigerados e Lava e Seca</strong>. Técnicos qualificados com peças originais e garantia formal de 90 dias por escrito.
+              Atendimento rápido no mesmo dia para <strong className="text-slate-900 font-bold">Geladeiras, Side by Side, Freezers, Frigobares, Câmaras Frias, Balcões Refrigerados e Lava e Seca</strong>. Técnicos qualificados com peças originais e garantia formal de 90 dias por escrito.
             </motion.p>
 
             {/* Quick Benefits Pills */}
@@ -62,18 +62,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm text-slate-300 font-medium"
+              className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm text-slate-700 font-medium"
             >
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 Orçamento Sem Compromisso
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 Plantão 24h & Emergencial
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 Peças Originais de Fábrica
               </span>
             </motion.div>
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-950/40 transition-all hover:-translate-y-0.5 active:translate-y-0 group min-h-[52px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/20 transition-all hover:-translate-y-0.5 active:translate-y-0 group min-h-[52px]"
               >
                 <span>Chamar no WhatsApp Agora</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
 
               <button
                 onClick={() => onOpenBookingModal()}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 font-bold text-sm sm:text-base transition-all hover:border-slate-700 min-h-[52px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm sm:text-base transition-all min-h-[52px] shadow-md"
               >
                 <Calendar className="w-4 h-4 text-cyan-400" />
                 <span>Agendar Horário em Domicílio</span>
@@ -109,14 +109,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400"
+              className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-600 font-semibold"
             >
               <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
+                <ShieldCheck className="w-4 h-4 text-cyan-600" />
                 Garantia 90 dias por escrito
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-emerald-400" />
+                <Clock className="w-4 h-4 text-emerald-600" />
                 Atendimento no mesmo dia
               </span>
             </motion.div>
@@ -130,12 +130,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-5 relative flex justify-center"
           >
-            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl max-w-md w-full">
+            <div className="relative bg-slate-50 border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-xl max-w-md w-full">
               {/* Main Image */}
               <img
                 src={COMPANY_INFO.assets.heroEquipments}
                 alt="Equipamentos de Refrigeração - Santa Catarina Refrigeração"
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-auto object-contain rounded-2xl bg-white p-2 border border-slate-200"
               />
 
               {/* Warranty Badge Floating Seal */}
@@ -148,19 +148,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               </div>
 
               {/* Floating Bottom Info Card */}
-              <div className="mt-4 bg-slate-950 border border-slate-800 p-3.5 rounded-2xl flex items-center justify-between text-xs sm:text-sm">
+              <div className="mt-4 bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between text-xs sm:text-sm shadow-sm">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-slate-900 text-cyan-400 rounded-xl border border-slate-800">
+                  <div className="p-2.5 bg-cyan-50 text-cyan-700 rounded-xl border border-cyan-100">
                     <Wrench className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Técnicos Certificados</p>
-                    <p className="text-slate-400 text-xs">Visita domiciliar em Navegantes, Penha e região</p>
+                    <p className="font-bold text-slate-900">Técnicos Certificados</p>
+                    <p className="text-slate-500 text-xs">Visita domiciliar em Navegantes, Penha e região</p>
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="text-emerald-400 font-black text-base">4.9 ★</span>
-                  <p className="text-[10px] text-slate-400">180+ avaliações</p>
+                  <span className="text-emerald-600 font-black text-base">4.9 ★</span>
+                  <p className="text-[10px] text-slate-500 font-medium">180+ avaliações</p>
                 </div>
               </div>
             </div>

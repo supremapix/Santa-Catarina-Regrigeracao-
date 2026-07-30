@@ -112,17 +112,33 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<LavaESecaLandingView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
+            path="/conserto-lava-e-seca-penha/"
+            element={<LavaESecaLandingView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
             path="/assistencia-lava-e-seca-lg-penha"
+            element={<LgAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-lava-e-seca-lg-penha/"
             element={<LgAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
             path="/assistencia-lava-e-seca-samsung-penha"
             element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
           />
+          <Route
+            path="/assistencia-lava-e-seca-samsung-penha/"
+            element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
+          />
 
           {/* Blog Guide Route */}
           <Route
             path="/blog/lava-e-seca-penha-guia-completo"
+            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/blog/lava-e-seca-penha-guia-completo/"
             element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
@@ -132,7 +148,15 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
+            path="/conserto-de-geladeira-em-:citySlug/"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
             path="/cidades/:citySlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/cidades/:citySlug/"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
@@ -140,7 +164,15 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
+            path="/cidade/:citySlug/"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
             path="/bairros/:bairroSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/bairros/:bairroSlug/"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
@@ -148,11 +180,23 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
+            path="/bairro/:bairroSlug/"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
             path="/regioes/:regionSlug"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
+            path="/regioes/:regionSlug/"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
             path="/regiao/:regionSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/regiao/:regionSlug/"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
@@ -178,7 +222,7 @@ export function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
+      <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
         <Navbar onOpenBookingModal={handleOpenBookingModal} />
 
         <div className="flex-grow">

@@ -65,30 +65,30 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
         breadcrumbs={breadcrumbItems}
       />
 
-      <main className="bg-slate-950 text-white min-h-screen py-10">
+      <main className="bg-white text-slate-900 min-h-screen py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {/* Breadcrumbs */}
-          <nav className="flex items-center space-x-2 text-xs text-slate-400">
-            <a href="/" className="hover:text-cyan-400">Início</a>
-            <ChevronRight className="w-3 h-3 text-slate-600" />
-            <a href="/#servicos" className="hover:text-cyan-400">Serviços</a>
-            <ChevronRight className="w-3 h-3 text-slate-600" />
-            <span className="text-cyan-400 font-semibold">{service.shortTitle}</span>
+          <nav className="flex items-center space-x-2 text-xs text-slate-500">
+            <a href="/" className="hover:text-cyan-800">Início</a>
+            <ChevronRight className="w-3 h-3 text-slate-400" />
+            <a href="/#servicos" className="hover:text-cyan-800">Serviços</a>
+            <ChevronRight className="w-3 h-3 text-slate-400" />
+            <span className="text-cyan-800 font-bold">{service.shortTitle}</span>
           </nav>
 
           {/* Hero Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
             <div className="lg:col-span-7 space-y-6">
-              <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-bold uppercase">
+              <span className="px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 text-xs font-bold uppercase">
                 {service.category} • Atendimento Domiciliar
               </span>
               
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
                 {service.h1}
               </h1>
 
-              <p className="text-slate-300 text-base leading-relaxed">
+              <p className="text-slate-700 text-base leading-relaxed font-normal">
                 {service.fullDescription}
               </p>
 
@@ -97,31 +97,31 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                   href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg flex items-center justify-center gap-2"
+                  className="px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base shadow-md flex items-center justify-center gap-2 min-h-[48px]"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-5 h-5" />
                   <span>Orçamento no WhatsApp</span>
                 </a>
 
                 <button
                   onClick={() => onOpenBookingModal(service.shortTitle)}
-                  className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-sm flex items-center justify-center gap-2"
+                  className="px-6 py-4 rounded-xl bg-white hover:bg-slate-50 text-cyan-900 border border-cyan-300 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
                 >
-                  <Calendar className="w-4 h-4 text-cyan-400" />
+                  <Calendar className="w-5 h-5 text-cyan-700" />
                   <span>Agendar Horário</span>
                 </button>
               </div>
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 max-w-sm w-full">
+              <div className="bg-white p-6 rounded-3xl border border-slate-200 max-w-sm w-full shadow-xs">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-auto object-contain max-h-64 mx-auto drop-shadow-xl"
+                  className="w-full h-auto object-contain max-h-64 mx-auto drop-shadow-md"
                 />
-                <div className="mt-4 p-3 bg-slate-900 rounded-xl text-xs text-center text-slate-300 flex items-center justify-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="mt-4 p-3 bg-slate-50 rounded-xl text-xs font-bold text-center text-slate-800 flex items-center justify-center gap-1.5 border border-slate-200">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Garantia escrita de 90 dias com Nota</span>
                 </div>
               </div>
@@ -130,28 +130,28 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
 
           {/* Common Defects & Repairs */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <span>⚠️ Defeitos Mais Comuns em {service.shortTitle}</span>
               </h2>
               <ul className="space-y-2.5">
                 {service.commonDefects.map((defect, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                    <span className="text-amber-400 shrink-0 font-bold">•</span>
+                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-medium">
+                    <span className="text-amber-600 shrink-0 font-bold">•</span>
                     <span>{defect}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <span>🛠️ Reparos e Peças Trocadas no Local</span>
               </h2>
               <ul className="space-y-2.5">
                 {service.repairsExecuted.map((repair, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-medium">
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{repair}</span>
                   </li>
                 ))}
@@ -163,9 +163,9 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
           <FaqAccordion />
 
           {/* Bottom Action */}
-          <div className="bg-gradient-to-r from-blue-950 to-slate-900 border border-slate-800 rounded-3xl p-8 text-center space-y-4">
-            <h3 className="text-2xl font-bold text-white">Precisa de conserto para seu {service.shortTitle}?</h3>
-            <p className="text-slate-300 text-sm max-w-xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-50 to-slate-50 border border-slate-200 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+            <h3 className="text-2xl font-bold text-slate-900">Precisa de conserto para seu {service.shortTitle}?</h3>
+            <p className="text-slate-600 text-sm max-w-xl mx-auto font-medium">
               Atendemos Penha, Piçarras, Itajaí, Balneário Camboriú e região com visita no mesmo dia.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -173,15 +173,15 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                 href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-lg"
+                className="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md min-h-[48px] flex items-center justify-center"
               >
                 Chamar no WhatsApp Agora
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm flex items-center gap-2"
+                className="px-6 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xs min-h-[48px]"
               >
-                <Phone className="w-4 h-4 text-blue-400" />
+                <Phone className="w-4 h-4 text-blue-600" />
                 Ligar para {COMPANY_INFO.phone}
               </a>
             </div>

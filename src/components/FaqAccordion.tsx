@@ -41,17 +41,17 @@ export const FaqAccordion: React.FC = () => {
   ];
 
   return (
-    <section className="bg-slate-950 py-16 lg:py-24 text-white border-b border-slate-800" id="faq">
+    <section className="bg-white py-16 lg:py-24 text-slate-900 border-b border-slate-200" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-bold text-xs uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4" /> Dúvidas Frequentes
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
+            <HelpCircle className="w-4 h-4 text-cyan-700" /> Dúvidas Frequentes
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mt-3">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
             Perguntas Frequentes Sobre Nossos Serviços
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base mt-2">
+          <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal">
             Respostas claras sobre prazos, custos, garantia e formas de atendimento.
           </p>
         </div>
@@ -63,22 +63,22 @@ export const FaqAccordion: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden transition-colors"
+                className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full text-left p-5 flex items-center justify-between gap-4 focus:outline-none hover:bg-slate-800/60 transition-colors"
+                  className="w-full text-left p-5 flex items-center justify-between gap-4 focus:outline-none hover:bg-slate-100 transition-colors min-h-[48px]"
                 >
-                  <span className="font-bold text-sm sm:text-base text-white pr-2">
+                  <span className="font-bold text-sm sm:text-base text-slate-900 pr-2">
                     {item.question}
                   </span>
-                  <div className={`p-1.5 rounded-lg bg-slate-950 text-cyan-400 border border-slate-800 shrink-0 transition-transform ${isOpen ? 'rotate-180 bg-cyan-500 text-slate-950' : ''}`}>
+                  <div className={`p-1.5 rounded-lg border shrink-0 transition-transform ${isOpen ? 'rotate-180 bg-cyan-700 text-white border-cyan-700' : 'bg-white text-slate-700 border-slate-300'}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-200 pt-3 font-medium">
                     {item.answer}
                   </div>
                 )}
@@ -88,13 +88,13 @@ export const FaqAccordion: React.FC = () => {
         </div>
 
         {/* FAQ CTA Box */}
-        <div className="mt-10 p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center space-y-3">
-          <p className="text-sm text-slate-300 font-medium">Tem alguma outra dúvida sobre o conserto do seu aparelho?</p>
+        <div className="mt-10 p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3 shadow-sm">
+          <p className="text-sm text-slate-700 font-bold">Tem alguma outra dúvida sobre o conserto do seu aparelho?</p>
           <a
             href={COMPANY_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-all shadow-sm min-h-[48px]"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Falar com o Técnico no WhatsApp</span>

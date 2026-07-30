@@ -26,24 +26,24 @@ export const Footer: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm pt-12 pb-8 transition-all"
+      className="bg-slate-100 text-slate-700 border-t border-slate-200 text-sm pt-12 pb-8 transition-all"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Prominent High-Contrast Contact Card for Senior Accessibility */}
-        <div className="bg-slate-900 border-2 border-cyan-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div className="bg-white border-2 border-cyan-600 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             
             {/* Direct Contact Info */}
             <div className="space-y-2 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-bold uppercase tracking-wider">
-                <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase tracking-wider">
+                <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Atendimento Preferencial & Plantão 24h</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                 Precisa de Conserto Urgente de Geladeira?
               </h3>
-              <p className="text-slate-300 text-base max-w-2xl font-medium">
+              <p className="text-slate-600 text-base max-w-2xl font-medium">
                 Atendemos idosos e famílias com prioridade e carinho. Ligue ou mande mensagem no WhatsApp para agendar no mesmo dia com garantia de 90 dias!
               </p>
             </div>
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-base shadow-lg shadow-emerald-950/60 transition-transform active:scale-95 min-h-[52px]"
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[52px]"
               >
                 <MessageCircle className="w-6 h-6 shrink-0" />
                 <span>Falar no WhatsApp</span>
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base shadow-lg shadow-blue-950/60 transition-transform active:scale-95 min-h-[52px]"
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base shadow-lg shadow-blue-600/20 transition-transform active:scale-95 min-h-[52px]"
               >
                 <Phone className="w-6 h-6 shrink-0" />
                 <span>Ligar: {COMPANY_INFO.phone}</span>
@@ -84,26 +84,26 @@ export const Footer: React.FC = () => {
                 className="h-11 w-auto object-contain"
               />
               <div>
-                <span className="block font-black text-white text-base tracking-tight uppercase">
+                <span className="block font-black text-slate-900 text-base tracking-tight uppercase">
                   SANTA CATARINA
                 </span>
-                <span className="block text-xs font-bold text-cyan-400 uppercase tracking-widest">
+                <span className="block text-xs font-bold text-cyan-600 uppercase tracking-widest">
                   REFRIGERAÇÃO
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-300 text-sm leading-relaxed font-medium">
+            <p className="text-slate-600 text-sm leading-relaxed font-medium">
               Assistência técnica autorizada multimarcas com atendimento domiciliar em Navegantes, Penha e região num raio de até 200 km.
             </p>
 
             <div className="space-y-2 text-sm pt-1">
-              <div className="flex items-center gap-2 text-slate-200 font-semibold">
-                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2 text-slate-800 font-semibold">
+                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>Garantia de 90 dias por escrito</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-200 font-semibold">
-                <CreditCard className="w-5 h-5 text-cyan-400 shrink-0" />
+              <div className="flex items-center gap-2 text-slate-800 font-semibold">
+                <CreditCard className="w-5 h-5 text-cyan-600 shrink-0" />
                 <span>Aceitamos Cartões, PIX e Dinheiro</span>
               </div>
             </div>
@@ -111,43 +111,43 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Serviços Especializados */}
           <div className="space-y-3">
-            <h4 className="text-white font-black text-base uppercase tracking-wider border-b border-slate-800 pb-2">
+            <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
               Principais Serviços
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="/conserto-de-geladeira/" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-de-geladeira/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Geladeira Frost Free</span>
                 </a>
               </li>
               <li>
-                <a href="/conserto-de-side-by-side/" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-de-side-by-side/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Geladeiras Side by Side & French Door</span>
                 </a>
               </li>
               <li>
-                <a href="/conserto-lava-e-seca-penha" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-lava-e-seca-penha" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Máquinas Lava e Seca</span>
                 </a>
               </li>
               <li>
-                <a href="/conserto-de-freezer/" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-de-freezer/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Freezers Verticais e Horizontais</span>
                 </a>
               </li>
               <li>
-                <a href="/conserto-de-camara-fria/" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-de-camara-fria/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Câmaras Frias & Balcões Comerciais</span>
                 </a>
               </li>
               <li>
-                <a href="/conserto-de-frigobar/" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-4 h-4 text-cyan-500 shrink-0" />
+                <a href="/conserto-de-frigobar/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Frigobares e Adegas</span>
                 </a>
               </li>
@@ -156,7 +156,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Cidades & Regiões Atendidas */}
           <div className="space-y-3">
-            <h4 className="text-white font-black text-base uppercase tracking-wider border-b border-slate-800 pb-2">
+            <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
               Páginas de Regiões
             </h4>
             <ul className="space-y-2 text-sm">
@@ -164,15 +164,15 @@ export const Footer: React.FC = () => {
                 <li key={idx}>
                   <a
                     href={`/conserto-de-geladeira-em-${region.slug}`}
-                    className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-medium text-slate-300"
+                    className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                     <span>{region.name}</span>
                   </a>
                 </li>
               ))}
               <li className="pt-1">
-                <a href="/#cobertura" className="text-cyan-400 hover:underline font-bold text-sm inline-flex items-center gap-1">
+                <a href="/#cobertura" className="text-cyan-700 hover:underline font-bold text-sm inline-flex items-center gap-1">
                   <span>Ver todas as 40+ Cidades →</span>
                 </a>
               </li>
@@ -181,34 +181,34 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Informações de Contato e Endereço */}
           <div className="space-y-3">
-            <h4 className="text-white font-black text-base uppercase tracking-wider border-b border-slate-800 pb-2">
+            <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
               Endereço e Horários
             </h4>
-            <div className="space-y-3 text-sm text-slate-300">
+            <div className="space-y-3 text-sm text-slate-700">
               <p className="flex items-start gap-2">
-                <MapPin className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <span className="font-medium">{COMPANY_INFO.address.full}</span>
+                <MapPin className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
+                <span className="font-medium text-slate-800">{COMPANY_INFO.address.full}</span>
               </p>
               <p className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phoneClean}`} className="hover:text-white font-bold text-base text-emerald-300">
+                <Phone className="w-5 h-5 text-emerald-600 shrink-0" />
+                <a href={`tel:${COMPANY_INFO.phoneClean}`} className="hover:text-slate-900 font-extrabold text-base text-emerald-700">
                   {COMPANY_INFO.phone}
                 </a>
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-blue-400 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white font-medium">
+                <Mail className="w-5 h-5 text-blue-600 shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-slate-900 font-medium">
                   {COMPANY_INFO.email}
                 </a>
               </p>
               
-              <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 space-y-1 text-xs">
-                <p className="font-bold text-cyan-400 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" /> Horário de Funcionamento:
+              <div className="p-3.5 rounded-2xl bg-white border border-slate-300 shadow-sm space-y-1 text-xs">
+                <p className="font-bold text-cyan-800 flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5 text-cyan-600" /> Horário de Funcionamento:
                 </p>
-                <p className="text-slate-300">{COMPANY_INFO.businessHours.weekdays}</p>
-                <p className="text-slate-300">{COMPANY_INFO.businessHours.sunday}</p>
-                <p className="text-emerald-400 font-bold">{COMPANY_INFO.businessHours.emergency}</p>
+                <p className="text-slate-700 font-medium">{COMPANY_INFO.businessHours.weekdays}</p>
+                <p className="text-slate-700 font-medium">{COMPANY_INFO.businessHours.sunday}</p>
+                <p className="text-emerald-700 font-extrabold">{COMPANY_INFO.businessHours.emergency}</p>
               </div>
             </div>
           </div>
@@ -216,12 +216,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright and Technical Links */}
-        <div className="pt-8 border-t border-slate-900 text-center md:flex md:justify-between md:items-center text-xs text-slate-500 space-y-3 md:space-y-0">
+        <div className="pt-8 border-t border-slate-300 text-center md:flex md:justify-between md:items-center text-xs text-slate-500 space-y-3 md:space-y-0 font-medium">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Sede Navegantes & Penha, SC.</p>
           <div className="flex justify-center space-x-6">
-            <a href="/sitemap.xml" target="_blank" className="hover:text-slate-300">Mapa do Site (XML)</a>
-            <a href="/robots.txt" target="_blank" className="hover:text-slate-300">robots.txt</a>
-            <a href="/llms.txt" target="_blank" className="hover:text-slate-300">llms.txt</a>
+            <a href="/sitemap.xml" target="_blank" className="hover:text-slate-800">Mapa do Site (XML)</a>
+            <a href="/robots.txt" target="_blank" className="hover:text-slate-800">robots.txt</a>
+            <a href="/llms.txt" target="_blank" className="hover:text-slate-800">llms.txt</a>
           </div>
         </div>
 
