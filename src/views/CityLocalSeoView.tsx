@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { CITIES_DATA, CityLocalSEO } from '../data/cities';
 import { SeoHead } from '../components/SeoHead';
 import { COMPANY_INFO } from '../data/company';
@@ -12,14 +12,19 @@ interface CityLocalSeoViewProps {
 
 export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookingModal }) => {
   const params = useParams<{ citySlug?: string; cidade?: string; bairro?: string; bairroSlug?: string; regionSlug?: string; '*'?: string }>();
+  const location = useLocation();
 
-  // Extract raw parameter from any matched route key including wildcard splat
+  // Extract raw parameter from params or directly from location.pathname
+  const currentPath = decodeURIComponent(location.pathname);
   const splatParam = params['*'] || '';
-  const rawParam = params.citySlug || params.cidade || params.bairro || params.bairroSlug || params.regionSlug || splatParam || '';
+  const paramVal = params.citySlug || params.cidade || params.bairro || params.bairroSlug || params.regionSlug || splatParam || '';
+
+  const rawParam = paramVal || currentPath;
 
   // Clean slug removing typical prefixes/suffixes
   const cleanSlug = rawParam
     .toLowerCase()
+    .replace(/^\//, '')
     .replace(/^conserto-de-geladeira-em-/, '')
     .replace(/^cidades\//, '')
     .replace(/^cidade\//, '')

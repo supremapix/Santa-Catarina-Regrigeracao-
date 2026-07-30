@@ -133,31 +133,31 @@ export function App() {
 
             {/* Programmatic City, Region, and Neighborhood Routes */}
             <Route
-              path="/conserto-de-geladeira-em-*"
+              path="/conserto-de-geladeira-em-:citySlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/cidades/*"
+              path="/cidades/:citySlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/cidade/*"
+              path="/cidade/:citySlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/bairros/*"
+              path="/bairros/:bairroSlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/bairro/*"
+              path="/bairro/:bairroSlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/regioes/*"
+              path="/regioes/:regionSlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
             <Route
-              path="/regiao/*"
+              path="/regiao/:regionSlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
 
