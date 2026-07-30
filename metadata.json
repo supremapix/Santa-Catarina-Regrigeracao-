@@ -1,0 +1,6 @@
+{
+  "name": "Santa Catarina Refrigeração",
+  "description": "Assistência técnica especializada em refrigeração, geladeiras, freezers, lava e seca e câmaras frias em Penha, Piçarras, Itajaí, Balneário Camboriú e região.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

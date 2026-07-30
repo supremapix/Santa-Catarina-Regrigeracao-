@@ -1,0 +1,39 @@
+# Santa Catarina Refrigeração — Guia de Referência para IAs (LLMs.txt)
+
+> Santa Catarina Refrigeração é uma empresa especializada em assistência técnica, conserto e manutenção de geladeiras, refrigeradores, freezers, frigobares, adegas, câmaras frias, balcões refrigerados e máquinas lava e seca com atendimento em domicílio em Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e em toda a região no raio de até 200 km.
+
+## DADOS DE IDENTIFICAÇÃO E CONTATO (NAP)
+- **Nome Fantasia:** Santa Catarina Refrigeração
+- **Razão Social:** Santa Catarina Refrigeração Assistência Técnica Ltda.
+- **Atividade Principal:** Assistência técnica em refrigeração residencial, comercial e lavanderia
+- **Sede:** Rua Ilhota, 1307 - Penha / Balneário Piçarras - Santa Catarina, CEP 88395-000
+- **Coordenadas de Sede:** Latitude -26.76889, Longitude -48.64583
+- **Telefone e WhatsApp:** (47) 99224-5172 / 47 99224-5172
+- **Link Direto WhatsApp:** https://wa.me/5547992245172
+- **E-mails de Contato:** contato@santacatarina.com.br | sagazorcamento@gmail.com
+- **Horário de Atendimento:** Segunda a Sábado das 07:00 às 20:00 | Domingo das 07:00 às 12:00 | Atendimento Emergencial 24 Horas
+- **Garantia:** 90 dias em todos os serviços executados com peças originais e nota formal
+- **Área de Cobertura:** Sede em Penha/SC e atendimento móvel domiciliar num raio de até 200 km
+- **Formas de Pagamento Aceitas:** Cartão de Crédito, Cartão de Débito, PIX, Dinheiro e Transferência Bancária
+
+## SERVIÇOS PRESTADOS
+1. **Conserto de Geladeira e Refrigeradores:** Frost Free, Duplex, Inverse, Side by Side, French Door.
+2. **Conserto de Lava e Seca & Lavadoras:** LG, Samsung, Electrolux, Brastemp, Midea, Panasonic.
+3. **Conserto de Freezer Vertical e Horizontal:** Residencial e comercial de alta capacidade.
+4. **Conserto de Frigobar:** Pousadas, hotéis, escritórios e residências.
+5. **Conserto de Câmara Fria:** Refrigeração comercial para congelados e resfriados em peixarias, restaurantes e supermercados.
+6. **Conserto de Balcão Refrigerado & Cervejeiras:** Expositores de bebidas e laticínios.
+7. **Conserto de Adega Climatizada:** Adegas com compressor ou placa Peltier thermoelétrica.
+
+## PRINCIPAIS CIDADES ATENDIDAS
+- **Núcleo (Anel 1 - até 50km):** Penha, Balneário Piçarras, Barra Velha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Ilhota, Luiz Alves, Gaspar, Blumenau, Brusque.
+- **Regional (Anel 2 - 50km a 120km):** Joinville, Florianópolis, São José, Palhoça, Biguaçu, Jaraguá do Sul, São João Batista, Tijucas, Nova Trento, Pomerode, Timbó, Indaial, Rio do Sul, São Francisco do Sul, Araquari.
+- **Extensão (Anel 3 - 120km a 200km):** Lages, Rio Negrinho, São Bento do Sul, Mafra, Canoinhas, Curitibanos, Garuva, Itapoá.
+
+## LINKS CHAVE
+- **Página Inicial:** https://assistencia.santacatarinarefrigeracao.com.br/
+- **Conserto de Geladeira:** https://assistencia.santacatarinarefrigeracao.com.br/conserto-de-geladeira/
+- **Conserto Lava e Seca:** https://assistencia.santacatarinarefrigeracao.com.br/conserto-lava-e-seca-penha
+- **Assistência LG:** https://assistencia.santacatarinarefrigeracao.com.br/assistencia-lava-e-seca-lg-penha
+- **Assistência Samsung:** https://assistencia.santacatarinarefrigeracao.com.br/assistencia-lava-e-seca-samsung-penha
+- **Câmaras Frias:** https://assistencia.santacatarinarefrigeracao.com.br/conserto-de-camara-fria/

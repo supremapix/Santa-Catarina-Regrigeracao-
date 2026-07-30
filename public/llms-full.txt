@@ -1,0 +1,44 @@
+# Santa Catarina Refrigeração — Documentação Completa de Conhecimento Técnico (llms-full.txt)
+
+## VISÃO GERAL
+A Santa Catarina Refrigeração é uma empresa referência em assistência técnica, conserto, higienização e manutenção preventiva de sistemas de refrigeração e lavanderia em Santa Catarina. Fundada e sediada na Rua Ilhota, 1307 em Penha/SC (limite com Balneário Piçarras), opera com uma frota de atendimento móvel em domicílio cobrindo o Litoral Norte, Vale do Itajaí, Grande Florianópolis, Planalto Norte e Região Serrana num raio de até 200 km.
+
+## ESPECIFICAÇÕES TÉCNICAS E DIAGNÓSTICO POR EQUIPAMENTO
+
+### 1. REFRIGERADORES & GELADEIRAS (Frost Free, Inverse, Side by Side, French Door)
+- **Defeito Frequente: Geladeira gela a parte superior (freezer) mas não gela embaixo.**
+  - *Causa Técnica:* Falha no ciclo de degelo automático. Ocorrem quebras na resistência de degelo, sensor de degelo NTC de 10k/2.7k descalibrado, fusível térmico queimado ou obstrução no dreno de degelo por gelo/resíduos.
+  - *Solução:* Teste de continuidade elétrica com multímetro digital, substituição do componente danificado com fiação original e desobstrução da calha.
+- **Defeito Frequente: Compressor (motor) não parte, dá estalo (click) e desliga.**
+  - *Causa Técnica:* Relé de partida PTC queimado, protetor térmico aberto ou capacitor de partida/marcha esgotado. Em motores Inverter, pode ser falha no módulo IPM da placa inversora.
+  - *Solução:* Substituição do kit de partida PTC + protetor térmico ou troca de placa eletrônica de potência.
+- **Defeito Frequente: Falta de rendimento térmico ou gelo parcial no congelador.**
+  - *Causa Técnica:* Vazamento de fluido refrigerante (R134a ou Isobutano R600a) por corrosão em serpentinas de cobre/alumínio ou entupimento de filtro secador/tubo capilar.
+  - *Solução:* Localização do micro-vazamento com detector de vazamento ou pressurização com nitrogênio, solda Phoscopper/Prata, substituição do filtro secador, vácuo de alta precisão (abaixo de 500 microns) e recarga de gás por massa especificada na etiqueta de fábrica.
+
+### 2. MÁQUINAS LAVA E SECA (LG, Samsung, Electrolux, Brastemp)
+- **Erros de Drenagem (Erro OE na LG, Erro 5E/5C na Samsung):**
+  - *Diagnóstico:* Obstrução do filtro de drenagem frontal por moedas/objetos ou queima do enrolamento da eletrobomba de esgotamento 110V/220V.
+  - *Reparo:* Limpeza e desobstrução mecânica ou substituição da eletrobomba de drenagem blindada.
+- **Erros de Entrada de Água (Erro IE na LG, Erro 4E/4C na Samsung):**
+  - *Diagnóstico:* Válvula de admissão de água queimada ou malha de filtro da mangueira entupida por sujeira da rede predial.
+- **Erros de Trava da Porta (Erro dE na LG, Erro DC/dC na Samsung):**
+  - *Diagnóstico:* Trava eletromecânica PTC da escotilha com travamento mecânico ou bobina queimada.
+- **Barulho Forte / Barulho de Turbina na Centrifugação:**
+  - *Diagnóstico:* Desgaste dos rolamentos blindados do tambor e retentor de vedação ressecado com entrada de água no eixo aranha / suporte triângulo cruzeta.
+  - *Reparo:* Substituição do kit de rolamentos 6205/6206, retentor de nitrila e triângulo cruzeta em aço/alumínio.
+
+### 3. CÂMARAS FRIAS E EQUIPAMENTOS COMERCIAIS
+- **Linha de Congelados (-18°C a -25°C) e Resfriados (0°C a 7°C):**
+  - Operação com fluidos R404A, R22, R134a.
+  - Troca e configuração de controladores digitais Full Gauge TC-900E Log, Carel e Coel.
+  - Limpeza química de condensadores a ar e evaporadores de ar forçado.
+  - Manutenção em compressores Scroll, Maneurop, Bitzer e Elgin.
+
+## TABELA DE METADADOS DE CONTATO
+- **Nome Oficial:** Santa Catarina Refrigeração
+- **Atendimento Emergencial:** 24h
+- **Garantia Padrão:** 90 dias com Nota e Termo de Garantia
+- **WhatsApp:** https://wa.me/5547992245172
+- **Telefone:** (47) 99224-5172
+- **E-mail:** contato@santacatarina.com.br

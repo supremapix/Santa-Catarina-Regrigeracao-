@@ -1,0 +1,44 @@
+# robots.txt - Santa Catarina Refrigeração
+# Otimizado para buscadores tradicionais e crawlers de IA / LLMs
+
+User-agent: *
+Allow: /
+
+# Permissão explícita para bots de IA e AEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Arquivos técnicos de contexto de LLMs
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+
+# Sitemap oficial
+Sitemap: https://assistencia.santacatarinarefrigeracao.com.br/sitemap.xml
