@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ShieldCheck, Clock, MapPin, Calendar, Wrench, CheckCircle2, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 
@@ -13,31 +14,56 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column: Text & CTAs */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="lg:col-span-7 space-y-6 text-center lg:text-left"
+          >
             
             {/* Location & Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs sm:text-sm font-medium">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs sm:text-sm font-medium"
+            >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
               <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
               <span>Base em Navegantes & Penha • Atendimento em Domicílio (Raio 200 km)</span>
-            </div>
+            </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
+            >
               Assistência Técnica <br />
               <span className="text-cyan-400">Especializada em Refrigeração</span>
-            </h1>
+            </motion.h1>
 
             {/* Subtitle */}
-            <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
+            >
               Atendimento rápido no mesmo dia para <strong className="text-white font-semibold">Geladeiras, Side by Side, Freezers, Frigobares, Câmaras Frias, Balcões Refrigerados e Lava e Seca</strong>. Técnicos qualificados com peças originais e garantia formal de 90 dias por escrito.
-            </p>
+            </motion.p>
 
             {/* Quick Benefits Pills */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm text-slate-300 font-medium">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm text-slate-300 font-medium"
+            >
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 Orçamento Sem Compromisso
@@ -50,15 +76,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 Peças Originais de Fábrica
               </span>
-            </div>
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
+            >
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-950/40 transition-all hover:-translate-y-0.5 active:translate-y-0 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-950/40 transition-all hover:-translate-y-0.5 active:translate-y-0 group min-h-[52px]"
               >
                 <span>Chamar no WhatsApp Agora</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -66,15 +97,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
 
               <button
                 onClick={() => onOpenBookingModal()}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 font-bold text-sm sm:text-base transition-all hover:border-slate-700"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 font-bold text-sm sm:text-base transition-all hover:border-slate-700 min-h-[52px]"
               >
                 <Calendar className="w-4 h-4 text-cyan-400" />
                 <span>Agendar Horário em Domicílio</span>
               </button>
-            </div>
+            </motion.div>
 
             {/* Trust Footer line */}
-            <div className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400"
+            >
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
                 Garantia 90 dias por escrito
@@ -83,14 +119,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 <Clock className="w-4 h-4 text-emerald-400" />
                 Atendimento no mesmo dia
               </span>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Hero Equipment Card */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            
-            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-xl max-w-md w-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-5 relative flex justify-center"
+          >
+            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl max-w-md w-full">
               {/* Main Image */}
               <img
                 src={COMPANY_INFO.assets.heroEquipments}
@@ -124,8 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 </div>
               </div>
             </div>
-
-          </div>
+          </motion.div>
 
         </div>
       </div>

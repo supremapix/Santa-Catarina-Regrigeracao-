@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
@@ -25,6 +26,144 @@ const ScrollToTop = () => {
   return null;
 };
 
+function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (serviceName?: string) => void }) {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+      >
+        <Routes location={location}>
+          {/* Home Route */}
+          <Route path="/" element={<HomeView onOpenBookingModal={handleOpenBookingModal} />} />
+
+          {/* Service Pillars Routes */}
+          <Route
+            path="/conserto-de-geladeira"
+            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-geladeira/"
+            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-side-by-side"
+            element={<ServicePillarView serviceIdParam="side-by-side" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-side-by-side/"
+            element={<ServicePillarView serviceIdParam="side-by-side" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-frigobar"
+            element={<ServicePillarView serviceIdParam="frigobar" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-frigobar/"
+            element={<ServicePillarView serviceIdParam="frigobar" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-freezer"
+            element={<ServicePillarView serviceIdParam="freezer" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-freezer/"
+            element={<ServicePillarView serviceIdParam="freezer" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-camara-fria"
+            element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-camara-fria/"
+            element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-balcao-refrigerado"
+            element={<ServicePillarView serviceIdParam="balcao-refrigerado" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-balcao-refrigerado/"
+            element={<ServicePillarView serviceIdParam="balcao-refrigerado" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/conserto-de-adega"
+            element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-adega/"
+            element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Lava e Seca Landing Pages */}
+          <Route
+            path="/conserto-lava-e-seca-penha"
+            element={<LavaESecaLandingView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-lava-e-seca-lg-penha"
+            element={<LgAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-lava-e-seca-samsung-penha"
+            element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Blog Guide Route */}
+          <Route
+            path="/blog/lava-e-seca-penha-guia-completo"
+            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Programmatic City, Region, and Neighborhood Routes */}
+          <Route
+            path="/conserto-de-geladeira-em-:citySlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/cidades/:citySlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/cidade/:citySlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/bairros/:bairroSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/bairro/:bairroSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/regioes/:regionSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/regiao/:regionSlug"
+            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Fallback 404 Route */}
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState('Geladeira / Refrigerador');
@@ -43,127 +182,7 @@ export function App() {
         <Navbar onOpenBookingModal={handleOpenBookingModal} />
 
         <div className="flex-grow">
-          <Routes>
-            {/* Home Route */}
-            <Route path="/" element={<HomeView onOpenBookingModal={handleOpenBookingModal} />} />
-
-            {/* Service Pillars Routes */}
-            <Route
-              path="/conserto-de-geladeira"
-              element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-geladeira/"
-              element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-side-by-side"
-              element={<ServicePillarView serviceIdParam="side-by-side" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-side-by-side/"
-              element={<ServicePillarView serviceIdParam="side-by-side" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-frigobar"
-              element={<ServicePillarView serviceIdParam="frigobar" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-frigobar/"
-              element={<ServicePillarView serviceIdParam="frigobar" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-freezer"
-              element={<ServicePillarView serviceIdParam="freezer" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-freezer/"
-              element={<ServicePillarView serviceIdParam="freezer" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-camara-fria"
-              element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-camara-fria/"
-              element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-balcao-refrigerado"
-              element={<ServicePillarView serviceIdParam="balcao-refrigerado" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-balcao-refrigerado/"
-              element={<ServicePillarView serviceIdParam="balcao-refrigerado" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            <Route
-              path="/conserto-de-adega"
-              element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/conserto-de-adega/"
-              element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            {/* Lava e Seca Landing Pages */}
-            <Route
-              path="/conserto-lava-e-seca-penha"
-              element={<LavaESecaLandingView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/assistencia-lava-e-seca-lg-penha"
-              element={<LgAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/assistencia-lava-e-seca-samsung-penha"
-              element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            {/* Blog Guide Route */}
-            <Route
-              path="/blog/lava-e-seca-penha-guia-completo"
-              element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            {/* Programmatic City, Region, and Neighborhood Routes */}
-            <Route
-              path="/conserto-de-geladeira-em-:citySlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/cidades/:citySlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/cidade/:citySlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/bairros/:bairroSlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/bairro/:bairroSlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/regioes/:regionSlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-            <Route
-              path="/regiao/:regionSlug"
-              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-            />
-
-            {/* Fallback 404 Route */}
-            <Route path="*" element={<NotFoundView />} />
-          </Routes>
+          <AppRoutes handleOpenBookingModal={handleOpenBookingModal} />
         </div>
 
         <Footer />

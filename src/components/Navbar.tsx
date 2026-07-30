@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, ChevronRight, MessageCircle, Navigation, Search, Globe } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 import { CITIES_DATA } from '../data/cities';
@@ -15,8 +16,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   const [isNeighborhoodsAccordionOpen, setIsNeighborhoodsAccordionOpen] = useState(false);
   const [citySearch, setCitySearch] = useState('');
   const [isDesktopCitiesOpen, setIsDesktopCitiesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const location = useLocation();
+
+  // Scroll listener for compact sticky header
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close menu and restore scroll on route change
   useEffect(() => {
@@ -47,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isMobileMenuOpen]);
+  }, []);
 
   // Featured cities and regions for quick access
   const featuredCities = CITIES_DATA.slice(0, 16);
@@ -75,8 +90,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b-2 border-slate-800 text-white shadow-2xl transition-all">
-        
+      <header
+        className={`sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b-2 border-slate-800 text-white shadow-2xl transition-all duration-300 ${
+          isScrolled ? 'py-1 shadow-cyan-950/20' : 'py-2'
+        }`}
+      >
         {/* Senior-Friendly Announcement Bar with High Contrast */}
         <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-slate-950 text-sm py-2 px-4 border-b border-slate-800 hidden sm:block">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-slate-200">
@@ -106,20 +124,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
         {/* Main Navbar Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 sm:h-22">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             
             {/* Logo */}
             <a href="/" className="flex items-center space-x-3 group py-1" aria-label="Ir para a página inicial">
               <img
                 src={COMPANY_INFO.assets.logo}
                 alt="Santa Catarina Refrigeração Logo"
-                className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
               />
               <div className="hidden min-[380px]:block">
-                <span className="block text-base sm:text-lg font-black tracking-tight text-white leading-tight uppercase">
+                <span className="block text-sm sm:text-base font-black tracking-tight text-white leading-tight uppercase">
                   SANTA CATARINA
                 </span>
-                <span className="block text-xs font-bold tracking-widest text-cyan-400 uppercase">
+                <span className="block text-[10px] sm:text-xs font-bold tracking-widest text-cyan-400 uppercase">
                   REFRIGERAÇÃO
                 </span>
               </div>
@@ -183,38 +201,44 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopCitiesOpen ? 'rotate-180' : ''}`} />
                 </button>
 
-                {isDesktopCitiesOpen && (
-                  <div
-                    onMouseLeave={() => setIsDesktopCitiesOpen(false)}
-                    className="absolute top-full left-0 w-80 bg-slate-900 border-2 border-slate-700 rounded-2xl shadow-2xl p-4 mt-2 space-y-3 z-50 animate-fadeIn"
-                  >
-                    <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
-                      <Globe className="w-4 h-4" />
-                      <span>Escolha sua Região ou Cidade</span>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      {featuredCities.slice(0, 10).map((c) => (
-                        <a
-                          key={c.slug}
-                          href={`/conserto-de-geladeira-em-${c.slug}`}
-                          className="p-2 rounded-xl bg-slate-950/80 hover:bg-cyan-950 hover:text-cyan-300 text-slate-200 font-semibold truncate flex items-center gap-1 transition-colors"
-                        >
-                          <ChevronRight className="w-3 h-3 text-cyan-400 shrink-0" />
-                          <span className="truncate">{c.name}</span>
-                        </a>
-                      ))}
-                    </div>
-
-                    <a
-                      href="/#cobertura"
-                      onClick={() => setIsDesktopCitiesOpen(false)}
-                      className="block text-center py-2 bg-slate-950 rounded-xl font-bold text-cyan-400 hover:bg-cyan-950 text-xs transition-colors border border-cyan-800/40"
+                <AnimatePresence>
+                  {isDesktopCitiesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.15 }}
+                      onMouseLeave={() => setIsDesktopCitiesOpen(false)}
+                      className="absolute top-full left-0 w-80 bg-slate-900 border-2 border-slate-700 rounded-2xl shadow-2xl p-4 mt-2 space-y-3 z-50"
                     >
-                      Ver todas as 40+ Cidades →
-                    </a>
-                  </div>
-                )}
+                      <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
+                        <Globe className="w-4 h-4" />
+                        <span>Escolha sua Região ou Cidade</span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        {featuredCities.slice(0, 10).map((c) => (
+                          <a
+                            key={c.slug}
+                            href={`/conserto-de-geladeira-em-${c.slug}`}
+                            className="p-2 rounded-xl bg-slate-950/80 hover:bg-cyan-950 hover:text-cyan-300 text-slate-200 font-semibold truncate flex items-center gap-1 transition-colors"
+                          >
+                            <ChevronRight className="w-3 h-3 text-cyan-400 shrink-0" />
+                            <span className="truncate">{c.name}</span>
+                          </a>
+                        ))}
+                      </div>
+
+                      <a
+                        href="/#cobertura"
+                        onClick={() => setIsDesktopCitiesOpen(false)}
+                        className="block text-center py-2 bg-slate-950 rounded-xl font-bold text-cyan-400 hover:bg-cyan-950 text-xs transition-colors border border-cyan-800/40"
+                      >
+                        Ver todas as 40+ Cidades →
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <a
@@ -252,15 +276,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2.5 rounded-xl bg-emerald-500 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95"
+                className="px-3.5 py-2.5 rounded-xl bg-emerald-500 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95 min-h-[44px]"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4.5 h-4.5" />
                 <span>WhatsApp</span>
               </a>
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="px-3 py-2.5 rounded-xl bg-slate-900 border-2 border-slate-700 text-white hover:bg-slate-800 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
+                className="px-3.5 py-2.5 rounded-xl bg-slate-900 border-2 border-slate-700 text-white hover:bg-slate-800 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
                 aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
                 aria-expanded={isMobileMenuOpen}
               >
@@ -280,279 +304,291 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
       </header>
 
       {/* Off-Canvas Mobile Drawer Overlay & Content */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
-          
-          {/* Dark Backdrop Overlay */}
-          <div
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="fixed inset-0 bg-slate-950/85 backdrop-blur-md transition-opacity duration-300 animate-fadeIn"
-            aria-hidden="true"
-          />
-
-          {/* Sliding Drawer Container */}
-          <div className="relative w-full max-w-md bg-slate-950 border-l-2 border-slate-800 h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto animate-slideLeft">
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
             
-            {/* Drawer Header */}
-            <div className="p-4 border-b border-slate-800 flex items-center justify-between sticky top-0 bg-slate-950/98 backdrop-blur-md z-10 shadow-md">
-              <div className="flex items-center space-x-3">
-                <img
-                  src={COMPANY_INFO.assets.logo}
-                  alt="Santa Catarina Refrigeração"
-                  className="h-10 w-auto object-contain"
-                />
-                <div>
-                  <span className="font-black text-sm text-white uppercase tracking-tight block">
-                    SANTA CATARINA
-                  </span>
-                  <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block">
-                    REFRIGERAÇÃO
-                  </span>
-                </div>
-              </div>
+            {/* Dark Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
+              aria-hidden="true"
+            />
 
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2.5 rounded-2xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 font-bold text-xs"
-                aria-label="Fechar menu"
-              >
-                <X className="w-6 h-6 text-cyan-400" />
-                <span>FECHAR</span>
-              </button>
-            </div>
-
-            {/* Senior-Friendly Quick Action Buttons inside Menu Top */}
-            <div className="p-4 bg-slate-900/90 border-b border-slate-800 grid grid-cols-2 gap-2.5">
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-md min-h-[48px]"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span>WhatsApp</span>
-              </a>
-
-              <a
-                href={`tel:${COMPANY_INFO.phoneClean}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md min-h-[48px]"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Ligar Agora</span>
-              </a>
-            </div>
-
-            {/* Drawer Body Nav Links */}
-            <div className="p-4 space-y-4 text-base flex-1">
+            {/* Sliding Drawer Container */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 280 }}
+              className="relative w-full max-w-md bg-slate-950 border-l-2 border-slate-800 h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto"
+            >
               
-              {/* Quick Main Links */}
-              <div className="space-y-1.5">
-                <a
-                  href="/"
+              {/* Drawer Header */}
+              <div className="p-4 border-b border-slate-800 flex items-center justify-between sticky top-0 bg-slate-950/98 backdrop-blur-md z-10 shadow-md">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src={COMPANY_INFO.assets.logo}
+                    alt="Santa Catarina Refrigeração"
+                    className="h-10 w-auto object-contain"
+                  />
+                  <div>
+                    <span className="font-black text-sm text-white uppercase tracking-tight block">
+                      SANTA CATARINA
+                    </span>
+                    <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block">
+                      REFRIGERAÇÃO
+                    </span>
+                  </div>
+                </div>
+
+                <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-2xl font-bold transition-colors ${
-                    isCurrentRoute('/') && !location.hash
-                      ? 'bg-cyan-950/80 text-cyan-300 border border-cyan-800'
-                      : 'text-white hover:bg-slate-900 hover:text-cyan-300'
-                  }`}
+                  className="p-2.5 rounded-2xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 font-bold text-xs min-h-[44px]"
+                  aria-label="Fechar menu"
                 >
-                  <span>Início (Página Principal)</span>
-                  <ChevronRight className="w-5 h-5 text-cyan-400" />
+                  <X className="w-6 h-6 text-cyan-400" />
+                  <span>FECHAR</span>
+                </button>
+              </div>
+
+              {/* Senior-Friendly Quick Action Buttons inside Menu Top */}
+              <div className="p-4 bg-slate-900/90 border-b border-slate-800 grid grid-cols-2 gap-2.5">
+                <a
+                  href={COMPANY_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-md min-h-[50px]"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href={`tel:${COMPANY_INFO.phoneClean}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Ligar Agora</span>
                 </a>
               </div>
 
-              {/* Accordion 1: Cidades e Regiões Atendidas (PÁGINAS DE REGIÕES) */}
-              <div className="border-2 border-cyan-500/40 rounded-2xl overflow-hidden bg-slate-900/80 shadow-md">
+              {/* Drawer Body Nav Links */}
+              <div className="p-4 space-y-4 text-base flex-1">
+                
+                {/* Quick Main Links */}
+                <div className="space-y-1.5">
+                  <a
+                    href="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center justify-between p-3.5 rounded-2xl font-bold transition-colors ${
+                      isCurrentRoute('/') && !location.hash
+                        ? 'bg-cyan-950/80 text-cyan-300 border border-cyan-800'
+                        : 'text-white hover:bg-slate-900 hover:text-cyan-300'
+                    }`}
+                  >
+                    <span>Início (Página Principal)</span>
+                    <ChevronRight className="w-5 h-5 text-cyan-400" />
+                  </a>
+                </div>
+
+                {/* Accordion 1: Cidades e Regiões Atendidas (PÁGINAS DE REGIÕES) */}
+                <div className="border-2 border-cyan-500/40 rounded-2xl overflow-hidden bg-slate-900/80 shadow-md">
+                  <button
+                    onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
+                    className="w-full flex items-center justify-between p-4 text-left text-white font-black text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800 transition-colors min-h-[48px]"
+                  >
+                    <span className="flex items-center gap-2 text-cyan-300">
+                      <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
+                      <span>Páginas de Cidades & Regiões</span>
+                    </span>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {isCitiesAccordionOpen && (
+                    <div className="p-3 space-y-2 bg-slate-950/90 border-t border-slate-800 text-sm">
+                      <p className="text-xs text-slate-300 font-medium px-1">
+                        Clique em qualquer cidade abaixo para ver detalhes de atendimento e orçamento rápido:
+                      </p>
+
+                      {/* Filter City */}
+                      <div className="relative my-2">
+                        <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          placeholder="Buscar cidade (ex: Penha, Itajaí)..."
+                          value={citySearch}
+                          onChange={(e) => setCitySearch(e.target.value)}
+                          className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 min-h-[44px]"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
+                        {filteredCities.map((c) => (
+                          <a
+                            key={c.slug}
+                            href={`/conserto-de-geladeira-em-${c.slug}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="p-2.5 rounded-xl bg-slate-900 text-slate-200 hover:bg-cyan-950 hover:text-cyan-300 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-800 min-h-[40px]"
+                          >
+                            <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                            <span className="truncate">{c.name}</span>
+                          </a>
+                        ))}
+                      </div>
+
+                      <a
+                        href="/#cobertura"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block text-center py-2.5 font-extrabold text-cyan-300 hover:underline text-xs pt-2 border-t border-slate-800"
+                      >
+                        Ver todas as 40+ Cidades Atendidas →
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Accordion 2: Nossos Serviços */}
+                <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
+                  <button
+                    onClick={() => setIsServicesAccordionOpen(!isServicesAccordionOpen)}
+                    className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors min-h-[48px]"
+                  >
+                    <span className="flex items-center gap-2 text-cyan-300">
+                      <Navigation className="w-5 h-5 text-cyan-400 shrink-0" />
+                      <span>Nossos Serviços</span>
+                    </span>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {isServicesAccordionOpen && (
+                    <div className="p-2 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
+                      <a
+                        href="/conserto-de-geladeira/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Conserto de Geladeiras & Frost Free
+                      </a>
+                      <a
+                        href="/conserto-de-side-by-side/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Geladeiras Side by Side & French Door
+                      </a>
+                      <a
+                        href="/conserto-lava-e-seca-penha"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Conserto de Lava e Seca
+                      </a>
+                      <a
+                        href="/conserto-de-freezer/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Freezers Verticais e Horizontais
+                      </a>
+                      <a
+                        href="/conserto-de-camara-fria/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Câmaras Frias & Balcões Comerciais
+                      </a>
+                      <a
+                        href="/conserto-de-frigobar/"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
+                      >
+                        Conserto de Frigobares & Adegas
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Accordion 3: Bairros em Destaque */}
+                <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
+                  <button
+                    onClick={() => setIsNeighborhoodsAccordionOpen(!isNeighborhoodsAccordionOpen)}
+                    className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors min-h-[48px]"
+                  >
+                    <span className="flex items-center gap-2 text-cyan-300">
+                      <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
+                      <span>Bairros em Destaque</span>
+                    </span>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isNeighborhoodsAccordionOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {isNeighborhoodsAccordionOpen && (
+                    <div className="p-3 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
+                      <div className="grid grid-cols-1 gap-1">
+                        {featuredNeighborhoods.map((b, idx) => (
+                          <a
+                            key={idx}
+                            href={`/bairros/${b.slug}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="p-2.5 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold flex items-center gap-2"
+                          >
+                            <ChevronRight className="w-4 h-4 text-cyan-400 shrink-0" />
+                            <span>{b.name}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Other Section Links */}
+                <div className="space-y-1 pt-2">
+                  <a
+                    href="/#depoimentos"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
+                  >
+                    Depoimentos de Clientes
+                  </a>
+                  <a
+                    href="/#faq"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
+                  >
+                    Perguntas Frequentes (FAQ)
+                  </a>
+                </div>
+
+              </div>
+
+              {/* Drawer Footer Actions (Senior CTAs) */}
+              <div className="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
                 <button
-                  onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
-                  className="w-full flex items-center justify-between p-4 text-left text-white font-black text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800 transition-colors"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onOpenBookingModal();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-extrabold text-sm border-2 border-cyan-500/30 shadow-md min-h-[52px]"
                 >
-                  <span className="flex items-center gap-2 text-cyan-300">
-                    <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
-                    <span>Páginas de Cidades & Regiões</span>
-                  </span>
-                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
+                  <Calendar className="w-5 h-5 text-cyan-400" />
+                  <span>Agendar Visita Técnica Online</span>
                 </button>
 
-                {isCitiesAccordionOpen && (
-                  <div className="p-3 space-y-2 bg-slate-950/90 border-t border-slate-800 text-sm">
-                    <p className="text-xs text-slate-300 font-medium px-1">
-                      Clique em qualquer cidade abaixo para ver detalhes de atendimento e orçamento rápido:
-                    </p>
-
-                    {/* Filter City */}
-                    <div className="relative my-2">
-                      <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="text"
-                        placeholder="Buscar cidade (ex: Penha, Itajaí)..."
-                        value={citySearch}
-                        onChange={(e) => setCitySearch(e.target.value)}
-                        className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
-                      {filteredCities.map((c) => (
-                        <a
-                          key={c.slug}
-                          href={`/conserto-de-geladeira-em-${c.slug}`}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="p-2.5 rounded-xl bg-slate-900 text-slate-200 hover:bg-cyan-950 hover:text-cyan-300 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-800"
-                        >
-                          <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                          <span className="truncate">{c.name}</span>
-                        </a>
-                      ))}
-                    </div>
-
-                    <a
-                      href="/#cobertura"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-center py-2.5 font-extrabold text-cyan-300 hover:underline text-xs pt-2 border-t border-slate-800"
-                    >
-                      Ver todas as 40+ Cidades Atendidas →
-                    </a>
-                  </div>
-                )}
+                <p className="text-xs text-slate-400 text-center font-medium pt-1">
+                  Atendimento domiciliar rápido com garantia de 90 dias por escrito.
+                </p>
               </div>
 
-              {/* Accordion 2: Nossos Serviços */}
-              <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
-                <button
-                  onClick={() => setIsServicesAccordionOpen(!isServicesAccordionOpen)}
-                  className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors"
-                >
-                  <span className="flex items-center gap-2 text-cyan-300">
-                    <Navigation className="w-5 h-5 text-cyan-400 shrink-0" />
-                    <span>Nossos Serviços</span>
-                  </span>
-                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {isServicesAccordionOpen && (
-                  <div className="p-2 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
-                    <a
-                      href="/conserto-de-geladeira/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Conserto de Geladeiras & Frost Free
-                    </a>
-                    <a
-                      href="/conserto-de-side-by-side/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Geladeiras Side by Side & French Door
-                    </a>
-                    <a
-                      href="/conserto-lava-e-seca-penha"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Conserto de Lava e Seca
-                    </a>
-                    <a
-                      href="/conserto-de-freezer/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Freezers Verticais e Horizontais
-                    </a>
-                    <a
-                      href="/conserto-de-camara-fria/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Câmaras Frias & Balcões Comerciais
-                    </a>
-                    <a
-                      href="/conserto-de-frigobar/"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block p-3 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold"
-                    >
-                      Conserto de Frigobares & Adegas
-                    </a>
-                  </div>
-                )}
-              </div>
-
-              {/* Accordion 3: Bairros em Destaque */}
-              <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
-                <button
-                  onClick={() => setIsNeighborhoodsAccordionOpen(!isNeighborhoodsAccordionOpen)}
-                  className="w-full flex items-center justify-between p-4 text-left text-white font-bold text-sm uppercase tracking-wider bg-slate-900 hover:bg-slate-800/80 transition-colors"
-                >
-                  <span className="flex items-center gap-2 text-cyan-300">
-                    <MapPin className="w-5 h-5 text-cyan-400 shrink-0" />
-                    <span>Bairros em Destaque</span>
-                  </span>
-                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-400 ${isNeighborhoodsAccordionOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {isNeighborhoodsAccordionOpen && (
-                  <div className="p-3 space-y-1.5 bg-slate-950/80 border-t border-slate-800 text-sm">
-                    <div className="grid grid-cols-1 gap-1">
-                      {featuredNeighborhoods.map((b, idx) => (
-                        <a
-                          key={idx}
-                          href={`/bairros/${b.slug}`}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="p-2.5 rounded-xl text-slate-200 hover:bg-slate-900 hover:text-cyan-300 font-semibold flex items-center gap-2"
-                        >
-                          <ChevronRight className="w-4 h-4 text-cyan-400 shrink-0" />
-                          <span>{b.name}</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Other Section Links */}
-              <div className="space-y-1 pt-2">
-                <a
-                  href="/#depoimentos"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
-                >
-                  Depoimentos de Clientes
-                </a>
-                <a
-                  href="/#faq"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block p-3.5 rounded-2xl text-slate-200 font-bold hover:bg-slate-900 hover:text-cyan-300"
-                >
-                  Perguntas Frequentes (FAQ)
-                </a>
-              </div>
-
-            </div>
-
-            {/* Drawer Footer Actions (Senior CTAs) */}
-            <div className="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  onOpenBookingModal();
-                }}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-extrabold text-sm border-2 border-cyan-500/30 shadow-md min-h-[50px]"
-              >
-                <Calendar className="w-5 h-5 text-cyan-400" />
-                <span>Agendar Visita Técnica Online</span>
-              </button>
-
-              <p className="text-xs text-slate-400 text-center font-medium pt-1">
-                Atendimento domiciliar rápido com garantia de 90 dias por escrito.
-              </p>
-            </div>
-
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 };

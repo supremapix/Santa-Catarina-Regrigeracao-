@@ -1,7 +1,7 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle, Navigation, Calendar } from 'lucide-react';
+import { motion } from 'motion/react';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
-import { CITIES_DATA } from '../data/cities';
 
 export const Footer: React.FC = () => {
   // Key regional hubs for quick links in footer
@@ -21,7 +21,13 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm pt-12 pb-8 transition-all">
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm pt-12 pb-8 transition-all"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Prominent High-Contrast Contact Card for Senior Accessibility */}
@@ -220,6 +226,6 @@ export const Footer: React.FC = () => {
         </div>
 
       </div>
-    </footer>
+    </motion.footer>
   );
 };
