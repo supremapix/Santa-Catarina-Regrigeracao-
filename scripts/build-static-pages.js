@@ -74,7 +74,7 @@ for (const route of staticRoutes) {
   createPage(route, `Santa Catarina Refrigeração - ${route}`, 'Assistência técnica em refrigeração e eletrodomésticos com atendimento 24h em domicílio.');
 }
 
-// 2. City routes
+// 2. City and Region routes
 for (const slug of citySlugs) {
   const formattedCity = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   const title = `Conserto de Geladeira em ${formattedCity}/SC | Assistência Técnica 24h`;
@@ -83,6 +83,8 @@ for (const slug of citySlugs) {
   createPage(`conserto-de-geladeira-em-${slug}`, title, desc);
   createPage(`cidades/${slug}`, title, desc);
   createPage(`cidade/${slug}`, title, desc);
+  createPage(`regioes/${slug}`, title, desc);
+  createPage(`regiao/${slug}`, title, desc);
 }
 
 // 3. Neighborhood routes

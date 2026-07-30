@@ -11,10 +11,11 @@ interface CityLocalSeoViewProps {
 }
 
 export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookingModal }) => {
-  const params = useParams<{ citySlug?: string; cidade?: string; bairro?: string; bairroSlug?: string }>();
+  const params = useParams<{ citySlug?: string; cidade?: string; bairro?: string; bairroSlug?: string; regionSlug?: string; '*'?: string }>();
 
-  // Extract raw parameter from any matched route key
-  const rawParam = params.citySlug || params.cidade || params.bairro || params.bairroSlug || '';
+  // Extract raw parameter from any matched route key including wildcard splat
+  const splatParam = params['*'] || '';
+  const rawParam = params.citySlug || params.cidade || params.bairro || params.bairroSlug || params.regionSlug || splatParam || '';
 
   // Clean slug removing typical prefixes/suffixes
   const cleanSlug = rawParam
@@ -24,6 +25,9 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     .replace(/^cidade\//, '')
     .replace(/^bairros\//, '')
     .replace(/^bairro\//, '')
+    .replace(/^regioes\//, '')
+    .replace(/^regiao\//, '')
+    .replace(/\/$/, '')
     .trim();
 
   // Helper function to normalize strings for accent-insensitive comparison
