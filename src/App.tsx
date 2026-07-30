@@ -131,9 +131,37 @@ export function App() {
               element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
             />
 
-            {/* Programmatic City Routes */}
+            {/* Programmatic City and Neighborhood Routes */}
             <Route
               path="/conserto-de-geladeira-em-:citySlug"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/conserto-de-geladeira-em-:citySlug/"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/cidades/:citySlug"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/cidades/:citySlug/"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/cidade/:citySlug"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/bairros/:bairroSlug"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/bairros/:bairroSlug/"
+              element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+            />
+            <Route
+              path="/bairro/:bairroSlug"
               element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
             />
 

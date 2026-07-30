@@ -11,15 +11,47 @@ interface CityLocalSeoViewProps {
 }
 
 export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookingModal }) => {
-  const { citySlug } = useParams<{ citySlug?: string }>();
+  const params = useParams<{ citySlug?: string; cidade?: string; bairro?: string; bairroSlug?: string }>();
 
-  // Extract clean city slug
-  const cleanSlug = citySlug ? citySlug.replace(/^conserto-de-geladeira-em-/, '') : 'penha';
+  // Extract raw parameter from any matched route key
+  const rawParam = params.citySlug || params.cidade || params.bairro || params.bairroSlug || '';
 
-  // Match city from CITIES_DATA or fallback to Penha
-  const city: CityLocalSEO = CITIES_DATA.find(
-    (c) => c.slug === cleanSlug || c.slug === citySlug
-  ) || CITIES_DATA[0];
+  // Clean slug removing typical prefixes/suffixes
+  const cleanSlug = rawParam
+    .toLowerCase()
+    .replace(/^conserto-de-geladeira-em-/, '')
+    .replace(/^cidades\//, '')
+    .replace(/^cidade\//, '')
+    .replace(/^bairros\//, '')
+    .replace(/^bairro\//, '')
+    .trim();
+
+  // Helper function to normalize strings for accent-insensitive comparison
+  const normalize = (str: string) =>
+    str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "-");
+
+  const normalizedQuery = normalize(cleanSlug);
+
+  // 1. Try exact or normalized slug match for city
+  let matchedCity: CityLocalSEO | undefined = CITIES_DATA.find(
+    (c) => c.slug === cleanSlug || normalize(c.slug) === normalizedQuery || normalize(c.name) === normalizedQuery
+  );
+
+  // 2. If no city matched, check if parameter matches a neighborhood name in any city
+  let matchedNeighborhood = '';
+  if (!matchedCity && cleanSlug) {
+    for (const cityItem of CITIES_DATA) {
+      const foundBairro = cityItem.neighborhoods.find((n) => normalize(n) === normalizedQuery || normalize(n).includes(normalizedQuery));
+      if (foundBairro) {
+        matchedCity = cityItem;
+        matchedNeighborhood = foundBairro;
+        break;
+      }
+    }
+  }
+
+  // Fallback to Penha if no city found
+  const city: CityLocalSEO = matchedCity || CITIES_DATA[0];
 
   const canonicalUrl = `${COMPANY_INFO.subdomainUrl}/conserto-de-geladeira-em-${city.slug}`;
 
