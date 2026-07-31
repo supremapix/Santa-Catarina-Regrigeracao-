@@ -47,18 +47,16 @@ export function SupremaCredit() {
 export const Footer: React.FC = () => {
   // Key regional hubs for quick links in footer
   const mainRegions = [
-    { name: 'Navegantes (Sede Central)', slug: 'navegantes' },
+    { name: 'Balneário Piçarras (Sede Loja)', slug: 'balneario-picarras' },
     { name: 'Penha & Beto Carrero', slug: 'penha' },
-    { name: 'Balneário Piçarras', slug: 'balneario-picarras' },
+    { name: 'Navegantes & Região', slug: 'navegantes' },
     { name: 'Barra Velha & Itajuba', slug: 'barra-velha' },
     { name: 'Itajaí & Praia Brava', slug: 'itajai' },
     { name: 'Balneário Camboriú & Barra Sul', slug: 'balneario-camboriu' },
     { name: 'Itapema & Meia Praia', slug: 'itapema' },
     { name: 'Porto Belo & Perequê', slug: 'porto-belo' },
     { name: 'Bombinhas & Mariscal', slug: 'bombinhas' },
-    { name: 'Blumenau & Vale do Itajaí', slug: 'blumenau' },
-    { name: 'Joinville & Região Norte', slug: 'joinville' },
-    { name: 'Florianópolis & Grande Floripa', slug: 'florianopolis' },
+    { name: 'Brusque & Região', slug: 'brusque' },
   ];
 
   return (

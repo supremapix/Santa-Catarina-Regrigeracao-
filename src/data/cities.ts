@@ -32,7 +32,7 @@ export const CITIES_DATA: CityLocalSEO[] = [
     estimatedMinutes: 10,
     neighborhoods: ["Centro", "Itapocoróia", "Santo Antônio", "Nossa Senhora da Conceição", "Bela Vista"],
     popularLandmarks: ["Orla da Praia de Piçarras", "Molhe Norte", "Museu Oceanográfico Univali"],
-    customSnippet: "Deslocamento ultra rápido até Balneário Piçarras em menos de 15 minutos. Atendimento imediato em residências, edifícios da orla e comércios."
+    customSnippet: "Sede física e loja da Santa Catarina Refrigeração na Rua Ilhota, 1307 em Balneário Piçarras! Atendimento imediato em residências, edifícios da orla e comércios."
   },
   {
     slug: "barra-velha",
@@ -154,17 +154,6 @@ export const CITIES_DATA: CityLocalSEO[] = [
     neighborhoods: ["Centro", "Sete de Setembro", "Santa Terezinha", "Bela Vista", "Margem Esquerda"],
     popularLandmarks: ["Parque Aquático Cascaneia", "Igreja Matriz São Pedro Apóstolo"],
     customSnippet: "Atendimento especializado em Gaspar para refrigeração de padarias, supermercados e residências."
-  },
-  {
-    slug: "blumenau",
-    name: "Blumenau",
-    state: "SC",
-    ring: 1,
-    distanceKm: 58,
-    estimatedMinutes: 55,
-    neighborhoods: ["Centro", "Vila Nova", "Victor Konder", "Itoupava Norte", "Garcia", "Escola Agrícola", "Fortaleza", "Velha"],
-    popularLandmarks: ["Vila Germânica", "Rua XV de Novembro", "FURB", "Parque Ramiro Ruediger"],
-    customSnippet: "Atendimento completo em Blumenau para conserto de geladeiras Frost Free, cervejeiras, câmaras frias e lava e seca com garantia escrita."
   },
   {
     slug: "brusque",
@@ -301,17 +290,6 @@ export const CITIES_DATA: CityLocalSEO[] = [
     customSnippet: "Conserto de geladeiras e freezers agrícolas/comerciais em Massaranduba."
   },
   {
-    slug: "joinville",
-    name: "Joinville",
-    state: "SC",
-    ring: 2,
-    distanceKm: 72,
-    estimatedMinutes: 60,
-    neighborhoods: ["Centro", "Atiradores", "America", "Costa e Silva", "Pirabeiraba", "Saguaçu", "Aventureiro", "Glória"],
-    popularLandmarks: ["Mirante do Boa Vista", "Escola do Teatro Bolshoi", "Rua das Palmeiras", "Expoville"],
-    customSnippet: "Atendimento frequente em Joinville. Equipe especializada em geladeiras Frost Free, side by side, lava e seca e câmaras frias frigoríficas com orçamento sem taxa de deslocamento na aprovação do serviço."
-  },
-  {
     slug: "sao-francisco-do-sul",
     name: "São Francisco do Sul",
     state: "SC",
@@ -343,17 +321,6 @@ export const CITIES_DATA: CityLocalSEO[] = [
     neighborhoods: ["Centro", "Canta Galo", "Fundo Canoas", "Jardim América"],
     popularLandmarks: ["Catedral São João Batista", "Ponte dos Arcos"],
     customSnippet: "Agendamento de assistência técnica especializada em refrigeração em Rio do Sul e Alto Vale do Itajaí."
-  },
-  {
-    slug: "florianopolis",
-    name: "Florianópolis",
-    state: "SC",
-    ring: 2,
-    distanceKm: 110,
-    estimatedMinutes: 90,
-    neighborhoods: ["Centro", "Trindade", "Agronômica", "Canasvieiras", "Jurerê Internacional", "Ingleses", "Coqueiros", "Lagoa da Conceição"],
-    popularLandmarks: ["Ponte Hercílio Luz", "Jurerê Internacional", "Lagoa da Conceição", "Mercado Público"],
-    customSnippet: "Atendimento no Norte da Ilha, Centro e Continente em Florianópolis. Conserto de geladeiras importadas, Side by Side, adegas e câmaras frias."
   },
   {
     slug: "sao-jose",

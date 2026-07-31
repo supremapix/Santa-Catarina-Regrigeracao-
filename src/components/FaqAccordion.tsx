@@ -12,7 +12,7 @@ export const FaqAccordion: React.FC = () => {
     },
     {
       question: "Vocês cobram taxa de deslocamento para cidades vizinhas a Penha?",
-      answer: "Não cobramos taxa de deslocamento na aprovação do serviço para cidades do Anel 1 (Penha, Balneário Piçarras, Barra Velha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas). Para demais cidades da região (Joinville, Blumenau, Florianópolis), o valor do deslocamento é descontado do conserto aprovado."
+      answer: "Não cobramos taxa de deslocamento na aprovação do serviço para cidades da região de cobertura (Balneário Piçarras, Penha, Barra Velha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo e Bombinhas). O orçamento é apresentado de forma transparente no local."
     },
     {
       question: "Quanto tempo leva para o técnico chegar ao meu endereço?",

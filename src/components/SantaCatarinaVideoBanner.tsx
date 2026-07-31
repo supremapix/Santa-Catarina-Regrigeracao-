@@ -38,12 +38,12 @@ export const SantaCatarinaVideoBanner: React.FC = () => {
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
-              Frota de apoio técnico e laboratórios móveis prontos para atender residências, pousadas, hotéis, restaurantes e comércios no Litoral Norte, Vale do Itajaí e Grande Florianópolis.
+              Frota de apoio técnico e laboratórios móveis prontos para atender residências, pousadas, hotéis, restaurantes e comércios no Litoral Norte e Vale do Itajaí.
             </p>
 
             {/* Region Pills */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2 text-xs font-semibold">
-              {['Navegantes', 'Penha', 'Balneário Piçarras', 'Barra Velha', 'Itajaí', 'Balneário Camboriú', 'Itapema', 'Porto Belo', 'Bombinhas', 'Blumenau', 'Joinville', 'Florianópolis'].map((cityName, idx) => (
+              {['Balneário Piçarras', 'Penha', 'Navegantes', 'Barra Velha', 'Itajaí', 'Balneário Camboriú', 'Camboriú', 'Itapema', 'Porto Belo', 'Bombinhas'].map((cityName, idx) => (
                 <span
                   key={idx}
                   className="px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-200 flex items-center gap-1.5 backdrop-blur-sm"

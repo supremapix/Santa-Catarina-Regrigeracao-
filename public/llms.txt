@@ -6,14 +6,14 @@
 - **Nome Fantasia:** Santa Catarina Refrigeração
 - **Razão Social:** Santa Catarina Refrigeração Assistência Técnica Ltda.
 - **Atividade Principal:** Assistência técnica em refrigeração residencial, comercial e lavanderia
-- **Sede:** Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 – Centro, Navegantes – SC, CEP 88370-232
-- **Coordenadas de Sede:** Latitude -26.76889, Longitude -48.64583
+- **Sede:** Rua Ilhota, 1307 – Balneário Piçarras – SC, CEP 88395-000
+- **Coordenadas de Sede:** Latitude -26.7645, Longitude -48.6738
 - **Telefone e WhatsApp:** (47) 99224-5172 / 47 99224-5172
 - **Link Direto WhatsApp:** https://wa.me/5547992245172
 - **E-mails de Contato:** contato@santacatarina.com.br | sagazorcamento@gmail.com
 - **Horário de Atendimento:** Segunda a Sábado das 07:00 às 20:00 | Domingo das 07:00 às 12:00 | Atendimento Emergencial 24 Horas
 - **Garantia:** 90 dias em todos os serviços executados com peças originais e nota formal
-- **Área de Cobertura:** Sede em Penha/SC e atendimento móvel domiciliar num raio de até 200 km
+- **Área de Cobertura:** Sede em Balneário Piçarras/SC e atendimento móvel domiciliar
 - **Formas de Pagamento Aceitas:** Cartão de Crédito, Cartão de Débito, PIX, Dinheiro e Transferência Bancária
 
 ## SERVIÇOS PRESTADOS
@@ -26,9 +26,7 @@
 7. **Conserto de Adega Climatizada:** Adegas com compressor ou placa Peltier thermoelétrica.
 
 ## PRINCIPAIS CIDADES ATENDIDAS
-- **Núcleo (Anel 1 - até 50km):** Penha, Balneário Piçarras, Barra Velha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Ilhota, Luiz Alves, Gaspar, Blumenau, Brusque.
-- **Regional (Anel 2 - 50km a 120km):** Joinville, Florianópolis, São José, Palhoça, Biguaçu, Jaraguá do Sul, São João Batista, Tijucas, Nova Trento, Pomerode, Timbó, Indaial, Rio do Sul, São Francisco do Sul, Araquari.
-- **Extensão (Anel 3 - 120km a 200km):** Lages, Rio Negrinho, São Bento do Sul, Mafra, Canoinhas, Curitibanos, Garuva, Itapoá.
+- **Litoral Norte & Vale:** Balneário Piçarras, Penha, Barra Velha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Ilhota, Luiz Alves, Gaspar, Brusque.
 
 ## LINKS CHAVE
 - **Página Inicial:** https://assistencia.santacatarinarefrigeracao.com.br/
