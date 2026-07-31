@@ -108,6 +108,7 @@ function formatMetaHead({ title, description, canonicalUrl, schemas = [], breadc
   <meta name="description" content="${description}" />
   <meta name="keywords" content="conserto de geladeira, assistência técnica geladeira, conserto lava e seca, manutenção câmara fria, conserto freezer, ${city.toLowerCase()}, santa catarina" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="google-site-verification" content="eC0TaTVOSOzvkOgV8LKInsPwwJyXu_dO7rzRXm2Y8Z4" />
   <link rel="canonical" href="${fullCanonical}" />
   <meta name="language" content="Portuguese" />
   <meta name="geo.region" content="BR-SC" />

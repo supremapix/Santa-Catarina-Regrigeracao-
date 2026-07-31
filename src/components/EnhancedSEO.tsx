@@ -172,6 +172,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="google-site-verification" content="eC0TaTVOSOzvkOgV8LKInsPwwJyXu_dO7rzRXm2Y8Z4" />
       <link rel="canonical" href={fullCanonical} />
 
       {/* Language & Geo Tags */}
