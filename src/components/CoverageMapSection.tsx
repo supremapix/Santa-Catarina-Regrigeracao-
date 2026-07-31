@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CITIES_DATA, CityLocalSEO } from '../data/cities';
 import { MapPin, Navigation, Clock, Search, ExternalLink, ShieldAlert } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
@@ -132,13 +133,13 @@ export const CoverageMapSection: React.FC = () => {
               </div>
 
               <div className="pt-2 border-t border-slate-200 flex items-center justify-between gap-2">
-                <a
-                  href={`/conserto-de-geladeira-em-${city.slug}`}
+                <Link
+                  to={`/conserto-de-geladeira-em-${city.slug}`}
                   className="text-xs font-bold text-cyan-800 hover:text-cyan-900 flex items-center gap-1 group-hover:underline"
                 >
                   <span>Página {city.name}</span>
                   <ExternalLink className="w-3 h-3 text-cyan-600" />
-                </a>
+                </Link>
 
                 <a
                   href={`${COMPANY_INFO.whatsappUrl}%20para%20atendimento%20em%20${encodeURIComponent(city.name)}`}

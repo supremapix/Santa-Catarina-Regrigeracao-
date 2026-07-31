@@ -4,18 +4,18 @@ import { REAL_TESTIMONIALS } from '../data/testimonials';
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section className="bg-slate-50 py-16 lg:py-24 text-slate-900 border-b border-slate-200" id="depoimentos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-50 py-12 sm:py-16 text-slate-900 border-b border-slate-200" id="depoimentos">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
-            Reputação Comprovada
+        <div className="text-center max-w-3xl mx-auto space-y-2">
+          <span className="inline-block px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
+            Reputação Comprovada 5.0 ★
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-3">
-            O Que Dizem Nossos Clientes na Região
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            O Que Dizem Nossos Clientes em SC
           </h2>
-          <p className="text-slate-600 text-base mt-3 font-normal">
-            Avaliações reais de moradores, pousadas e comércios atendidos em Penha, Piçarras, Itajaí, Balneário Camboriú e cidades vizinhas.
+          <p className="text-slate-600 text-sm sm:text-base font-normal max-w-xl mx-auto">
+            Avaliações reais de clientes atendidos com prioridade, respeito e garantia em Penha, Navegantes, Itajaí e cidades vizinhas.
           </p>
         </div>
 

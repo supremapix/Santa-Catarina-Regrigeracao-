@@ -14,6 +14,7 @@ import { SamsungAssistenciaView } from './views/SamsungAssistenciaView';
 import { BlogGuideView } from './views/BlogGuideView';
 import { CityLocalSeoView } from './views/CityLocalSeoView';
 import { NotFoundView } from './views/NotFoundView';
+import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
@@ -144,59 +145,31 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
 
           {/* Programmatic City, Region, and Neighborhood Routes */}
           <Route
-            path="/conserto-de-geladeira-em-:citySlug"
+            path="/conserto-de-geladeira-em-*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/conserto-de-geladeira-em-:citySlug/"
+            path="/cidades/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/cidades/:citySlug"
+            path="/cidade/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/cidades/:citySlug/"
+            path="/bairros/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/cidade/:citySlug"
+            path="/bairro/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/cidade/:citySlug/"
+            path="/regioes/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
-            path="/bairros/:bairroSlug"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/bairros/:bairroSlug/"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/bairro/:bairroSlug"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/bairro/:bairroSlug/"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/regioes/:regionSlug"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/regioes/:regionSlug/"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/regiao/:regionSlug"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/regiao/:regionSlug/"
+            path="/regiao/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
@@ -228,6 +201,8 @@ export function App() {
         <div className="flex-grow">
           <AppRoutes handleOpenBookingModal={handleOpenBookingModal} />
         </div>
+
+        <SantaCatarinaVideoBanner />
 
         <Footer />
 

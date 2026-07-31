@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeoHead } from '../components/SeoHead';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { MessageCircle, Calendar, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
@@ -39,7 +39,7 @@ export const BlogGuideView: React.FC<BlogGuideViewProps> = ({ onOpenBookingModal
 
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title="Lava e Seca em Penha: Guia Completo de Uso, Economia e Conserto"
         description="Guia completo sobre Lava e Seca em Penha e região. Saiba como a umidade litorânea afeta suas roupas, comparativo com lavanderias self-service, dicas de sabão e onde consertar."
         canonicalUrl={`${COMPANY_INFO.subdomainUrl}/blog/lava-e-seca-penha-guia-completo`}

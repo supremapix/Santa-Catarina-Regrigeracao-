@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeoHead } from '../components/SeoHead';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { MessageCircle, Phone, Cpu, CheckCircle2 } from 'lucide-react';
 
@@ -16,7 +16,7 @@ export const SamsungAssistenciaView: React.FC<SamsungAssistenciaViewProps> = ({ 
 
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title="Assistência Técnica Lava e Seca Samsung em Penha | Peças Genuínas"
         description="Assistência técnica especializada em Lava e Seca Samsung EcoBubble e Digital Inverter em Penha e região. Reparo de Erros 5E, 5C, 4E, 4C, UE, DC e garantia formal de 90 dias."
         canonicalUrl={`${COMPANY_INFO.subdomainUrl}/assistencia-lava-e-seca-samsung-penha`}
@@ -26,36 +26,53 @@ export const SamsungAssistenciaView: React.FC<SamsungAssistenciaViewProps> = ({ 
       <main className="bg-slate-950 text-white min-h-screen py-10 space-y-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl space-y-6">
-            <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-bold uppercase">
-              Especialista em Tecnologia Samsung EcoBubble
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-              Assistência Técnica de Lava e Seca Samsung em Penha e Região
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Conserto especializado em motores Digital Inverter, sistema EcoBubble, AddWash e placas inversoras de Lava e Seca Samsung WD10, WD11, WD13. Atendimento em domicílio com garantia formal de 90 dias.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a
-                href={`${COMPANY_INFO.whatsappUrl}%20para%20Lava%20e%20Seca%20Samsung`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-xl flex items-center justify-center gap-2"
+          <div className="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl space-y-6 relative overflow-hidden">
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Chamar Técnico Samsung no WhatsApp</span>
-              </a>
+                <source src="https://img.supremasite.com.br/refrigeracao.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />
+            </div>
 
-              <button
-                onClick={() => onOpenBookingModal('Samsung Lava e Seca')}
-                className="px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-sm"
-              >
-                Agendar Horário para Samsung
-              </button>
+            <div className="relative z-10 space-y-6">
+              <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-bold uppercase">
+                Especialista em Tecnologia Samsung EcoBubble
+              </span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+                Assistência Técnica de Lava e Seca Samsung em Penha e Região
+              </h1>
+
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+                Conserto especializado em motores Digital Inverter, sistema EcoBubble, AddWash e placas inversoras de Lava e Seca Samsung WD10, WD11, WD13. Atendimento em domicílio com garantia formal de 90 dias.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <a
+                  href={`${COMPANY_INFO.whatsappUrl}%20para%20Lava%20e%20Seca%20Samsung`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-xl flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Chamar Técnico Samsung no WhatsApp</span>
+                </a>
+
+                <button
+                  onClick={() => onOpenBookingModal('Samsung Lava e Seca')}
+                  className="px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-sm"
+                >
+                  Agendar Horário para Samsung
+                </button>
+              </div>
             </div>
           </div>
 

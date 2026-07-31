@@ -104,20 +104,20 @@ export const QuickDiagnosisTool: React.FC = () => {
   const whatsappMessage = `${COMPANY_INFO.whatsappUrl}%20-%20Fiz%20o%20Diagn%C3%B3stico%20R%C3%A1pido%20no%20site:%0A-%20Equipamento:%20${encodeURIComponent(selectedEquipment)}%0A-%20Defeito:%20${encodeURIComponent(activeSymptomObj.symptom)}%0AQueria%20agendar%20o%20conserto%20em%20meu%20endere%C3%A7o.`;
 
   return (
-    <section className="bg-white py-16 lg:py-24 text-slate-900 border-b border-slate-200">
+    <section className="bg-white py-12 sm:py-16 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-md relative overflow-hidden">
+        <div className="bg-slate-50 border-2 border-slate-200 rounded-3xl p-6 sm:p-10 shadow-md relative overflow-hidden">
 
-          <div className="max-w-3xl mx-auto text-center mb-10">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
-              <HelpCircle className="w-4 h-4 text-cyan-700" /> Diagnóstico Rápido de Defeitos
+          <div className="max-w-3xl mx-auto text-center mb-8 space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
+              <HelpCircle className="w-4 h-4 text-cyan-700" /> Diagnóstico Rápido Interativo
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
-              Identifique o Problema do Seu Equipamento em 2 Clicks
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              Descubra o Problema em 2 Cliques
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal">
-              Selecione seu aparelho e o sintoma observado para entender a causa provável e falar direto com um técnico.
+            <p className="text-slate-600 text-sm sm:text-base font-normal max-w-xl mx-auto">
+              Selecione seu aparelho e o sintoma observado para entender a causa provável antes de agendar.
             </p>
           </div>
 
@@ -191,10 +191,10 @@ export const QuickDiagnosisTool: React.FC = () => {
                   href={whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all pt-2 min-h-[48px]"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md transition-all pt-2 min-h-[48px]"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Chamar Técnico no WhatsApp com este Diagnóstico</span>
+                  <span>Falar no WhatsApp com este Diagnóstico</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

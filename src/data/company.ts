@@ -45,10 +45,10 @@ export const COMPANY_INFO = {
   warranty: "90 dias em todos os serviços com nota e garantia formal por escrito",
   guaranteeDays: 90,
   gtmId: "GTM-N9JMRX3Q",
-  domain: "santacatarinarefrigeracao.com.br",
-  subdomainUrl: "https://assistencia.santacatarinarefrigeracao.com.br",
+  domain: "refrigeracaosc.com.br",
+  subdomainUrl: "https://www.refrigeracaosc.com.br",
   assets: {
-    logo: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/b64f2a59-6700-4acc-9e14-897c23efbcfb/logo-santa-catarina.png",
+    logo: "https://img.supremasite.com.br/sc.webp",
     heroEquipments: "https://assistencia.santacatarinarefrigeracao.com.br/assets/hero-equip-BLoXzlRJ.png",
     warrantyBadge: "https://assistencia.santacatarinarefrigeracao.com.br/assets/garantia-90-CRLO52dC.png",
     socialPreview: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/12fa7da5-6a0e-457b-9b09-5f49b54f77a8/id-preview-e0990460--1553341c-ac57-44a1-a277-5427d1841516.lovable.app-1779753087322.png",

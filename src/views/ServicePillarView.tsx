@@ -1,7 +1,7 @@
 import React from 'react';
-import { useParams } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { PILLAR_SERVICES } from '../data/services';
-import { SeoHead } from '../components/SeoHead';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone } from 'lucide-react';
 import { FaqAccordion } from '../components/FaqAccordion';
@@ -56,7 +56,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
 
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title={service.metaTitle}
         description={service.metaDescription}
         canonicalUrl={`${COMPANY_INFO.subdomainUrl}/${service.slug}/`}
@@ -70,25 +70,40 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
           
           {/* Breadcrumbs */}
           <nav className="flex items-center space-x-2 text-xs text-slate-500">
-            <a href="/" className="hover:text-cyan-800">Início</a>
+            <Link to="/" className="hover:text-cyan-800">Início</Link>
             <ChevronRight className="w-3 h-3 text-slate-400" />
             <a href="/#servicos" className="hover:text-cyan-800">Serviços</a>
             <ChevronRight className="w-3 h-3 text-slate-400" />
             <span className="text-cyan-800 font-bold">{service.shortTitle}</span>
           </nav>
 
-          {/* Hero Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
-            <div className="lg:col-span-7 space-y-6">
-              <span className="px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 text-xs font-bold uppercase">
+          {/* Hero Section with Video Background */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-950 text-white border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
+              >
+                <source src="https://img.supremasite.com.br/refrigeracao.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />
+            </div>
+
+            <div className="lg:col-span-7 space-y-6 relative z-10">
+              <span className="px-3.5 py-1.5 rounded-full bg-cyan-950/90 text-cyan-300 border border-cyan-700/80 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 {service.category} • Atendimento Domiciliar
               </span>
               
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight drop-shadow-md">
                 {service.h1}
               </h1>
 
-              <p className="text-slate-700 text-base leading-relaxed font-normal">
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-medium drop-shadow-sm">
                 {service.fullDescription}
               </p>
 

@@ -1,7 +1,48 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle, Heart } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { AnimatedFrostLogo } from './AnimatedFrostLogo';
+
+export function SupremaCredit() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-4 border-t border-slate-300 flex justify-center items-center">
+      <div className="bg-slate-950/90 border border-slate-800 rounded-full px-6 py-2.5 shadow-lg flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+        <p className="text-slate-200 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-bold flex flex-wrap items-center justify-center gap-2">
+          <span className="opacity-90">Desenvolvido com</span> 
+          
+          {/* Coração pulsante com efeito de sombra */}
+          <Heart 
+            size={14} 
+            className="text-red-500 animate-[pulse_1.5s_infinite] shrink-0 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.7)]" 
+          /> 
+          
+          <span className="opacity-90">por</span>
+          
+          {/* Link para o site da Suprema */}
+          <a 
+            id="developer-suprema-link"
+            href="https://supremasite.com.br" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-yellow-400 hover:text-yellow-300 transition-all font-black inline-flex items-center gap-2 cursor-pointer border-b border-dashed border-yellow-400/50 hover:border-yellow-300"
+          >
+            Suprema Sites Express
+            
+            {/* Logotipo oficial com efeito de iluminação */}
+            <img 
+              src="https://img.supremamidia.com/suprema-img.png" 
+              alt="Suprema" 
+              className="h-[18px] w-auto inline select-none shrink-0 filter drop-shadow-[0_0_2px_rgba(250,204,21,0.5)] transition-transform duration-300 hover:scale-110" 
+              referrerPolicy="no-referrer"
+            />
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export const Footer: React.FC = () => {
   // Key regional hubs for quick links in footer
@@ -77,21 +118,7 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Empresa & Sede */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <img
-                src={COMPANY_INFO.assets.logo}
-                alt="Santa Catarina Refrigeração Logo"
-                className="h-11 w-auto object-contain"
-              />
-              <div>
-                <span className="block font-black text-slate-900 text-base tracking-tight uppercase">
-                  SANTA CATARINA
-                </span>
-                <span className="block text-xs font-bold text-cyan-600 uppercase tracking-widest">
-                  REFRIGERAÇÃO
-                </span>
-              </div>
-            </div>
+            <AnimatedFrostLogo size="lg" />
 
             <p className="text-slate-600 text-sm leading-relaxed font-medium">
               Assistência técnica autorizada multimarcas com atendimento domiciliar em Navegantes, Penha e região num raio de até 200 km.
@@ -116,40 +143,40 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="/conserto-de-geladeira/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-geladeira/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Geladeira Frost Free</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/conserto-de-side-by-side/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-side-by-side/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Geladeiras Side by Side & French Door</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/conserto-lava-e-seca-penha" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-lava-e-seca-penha" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Máquinas Lava e Seca</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/conserto-de-freezer/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-freezer/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Freezers Verticais e Horizontais</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/conserto-de-camara-fria/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-camara-fria/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Câmaras Frias & Balcões Comerciais</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/conserto-de-frigobar/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-frigobar/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Frigobares e Adegas</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -162,13 +189,13 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               {mainRegions.map((region, idx) => (
                 <li key={idx}>
-                  <a
-                    href={`/conserto-de-geladeira-em-${region.slug}`}
+                  <Link
+                    to={`/conserto-de-geladeira-em-${region.slug}`}
                     className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700"
                   >
                     <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                     <span>{region.name}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-1">
@@ -224,6 +251,9 @@ export const Footer: React.FC = () => {
             <a href="/llms.txt" target="_blank" className="hover:text-slate-800">llms.txt</a>
           </div>
         </div>
+
+        {/* Developer Credit Footer Badge */}
+        <SupremaCredit />
 
       </div>
     </motion.footer>

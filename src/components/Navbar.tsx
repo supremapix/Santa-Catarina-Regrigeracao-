@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, ChevronRight, MessageCircle, Navigation, Search, Globe } from 'lucide-react';
+import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, ChevronRight, MessageCircle, Navigation, Search, Globe, Wrench } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 import { CITIES_DATA } from '../data/cities';
+import { AnimatedFrostLogo } from './AnimatedFrostLogo';
 
 interface NavbarProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   const [isNeighborhoodsAccordionOpen, setIsNeighborhoodsAccordionOpen] = useState(false);
   const [citySearch, setCitySearch] = useState('');
   const [isDesktopCitiesOpen, setIsDesktopCitiesOpen] = useState(false);
+  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
   const location = useLocation();
@@ -126,113 +128,129 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             
-            {/* Logo */}
-            <a href="/" className="flex items-center space-x-3 group py-1" aria-label="Ir para a página inicial">
-              <img
-                src={COMPANY_INFO.assets.logo}
-                alt="Santa Catarina Refrigeração Logo"
-                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-              />
-              <div className="hidden min-[380px]:block">
-                <span className="block text-sm sm:text-base font-black tracking-tight text-slate-900 leading-tight uppercase">
-                  SANTA CATARINA
-                </span>
-                <span className="block text-[10px] sm:text-xs font-bold tracking-widest text-cyan-600 uppercase">
-                  REFRIGERAÇÃO
-                </span>
-              </div>
-            </a>
+            {/* Animated Frost Logo */}
+            <AnimatedFrostLogo />
 
-            {/* Desktop Nav Links */}
-            <nav className="hidden lg:flex items-center space-x-6 text-base font-bold">
+            {/* Desktop Nav Links (Clean & Grouped to prevent wrapping on laptop screens) */}
+            <nav className="hidden lg:flex items-center space-x-5 text-sm xl:text-base font-bold">
               <a
                 href="/"
                 className={`transition-colors py-2 border-b-2 ${
                   isCurrentRoute('/') && !location.hash
-                    ? 'border-cyan-600 text-cyan-700'
-                    : 'border-transparent text-slate-700 hover:text-cyan-600'
+                    ? 'border-cyan-600 text-cyan-700 font-black'
+                    : 'border-transparent text-slate-800 hover:text-cyan-600'
                 }`}
               >
                 Início
               </a>
-              
-              <a
-                href="/conserto-de-geladeira/"
-                className={`transition-colors py-2 border-b-2 ${
-                  isCurrentRoute('/conserto-de-geladeira')
-                    ? 'border-cyan-600 text-cyan-700'
-                    : 'border-transparent text-slate-700 hover:text-cyan-600'
-                }`}
-              >
-                Geladeiras
-              </a>
 
-              <a
-                href="/conserto-lava-e-seca-penha"
-                className={`transition-colors py-2 border-b-2 ${
-                  isCurrentRoute('/conserto-lava-e-seca')
-                    ? 'border-cyan-600 text-cyan-700'
-                    : 'border-transparent text-slate-700 hover:text-cyan-600'
-                }`}
-              >
-                Lava e Seca
-              </a>
+              {/* Services Group Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsDesktopServicesOpen(!isDesktopServicesOpen)}
+                  onMouseEnter={() => setIsDesktopServicesOpen(true)}
+                  className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                    isCurrentRoute('/conserto-')
+                      ? 'border-cyan-600 text-cyan-700 font-black'
+                      : 'border-transparent text-slate-800 hover:text-cyan-600'
+                  }`}
+                >
+                  <Wrench className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Serviços</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
 
-              <a
-                href="/conserto-de-camara-fria/"
-                className={`transition-colors py-2 border-b-2 ${
-                  isCurrentRoute('/conserto-de-camara-fria')
-                    ? 'border-cyan-600 text-cyan-700'
-                    : 'border-transparent text-slate-700 hover:text-cyan-600'
-                }`}
-              >
-                Câmaras Frias
-              </a>
+                <AnimatePresence>
+                  {isDesktopServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      onMouseLeave={() => setIsDesktopServicesOpen(false)}
+                      className="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 mt-1 space-y-1 z-50"
+                    >
+                      <Link
+                        to="/conserto-de-geladeira/"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                        <span>Geladeiras e Refrigeração</span>
+                      </Link>
+                      <Link
+                        to="/conserto-lava-e-seca-penha"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <span>Lava e Seca</span>
+                      </Link>
+                      <Link
+                        to="/conserto-de-camara-fria/"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-blue-500" />
+                        <span>Câmaras Frias & Comerciais</span>
+                      </Link>
+                      <a
+                        href="/#servicos"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="block text-center py-2 bg-slate-50 hover:bg-cyan-100 rounded-xl font-bold text-cyan-800 text-xs transition-colors border border-slate-200 mt-1"
+                      >
+                        Ver Todos os Equipamentos →
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-              {/* Desktop Dropdown for Cities & Regions */}
+              {/* Cities Dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setIsDesktopCitiesOpen(!isDesktopCitiesOpen)}
                   onMouseEnter={() => setIsDesktopCitiesOpen(true)}
-                  className="flex items-center gap-1 border-b-2 border-transparent text-slate-700 hover:text-cyan-600 transition-colors py-2"
+                  className="flex items-center gap-1 border-b-2 border-transparent text-slate-800 hover:text-cyan-600 transition-colors py-2"
                 >
-                  <MapPin className="w-4 h-4 text-cyan-600" />
-                  <span>Cidades e Regiões</span>
+                  <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Cidades</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopCitiesOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
                   {isDesktopCitiesOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
+                      exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.15 }}
                       onMouseLeave={() => setIsDesktopCitiesOpen(false)}
-                      className="absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 mt-2 space-y-3 z-50"
+                      className="absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 mt-1 space-y-3 z-50"
                     >
-                      <div className="text-xs font-bold text-cyan-700 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100 pb-2">
+                      <div className="text-xs font-bold text-cyan-800 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100 pb-2">
                         <Globe className="w-4 h-4 text-cyan-600" />
-                        <span>Escolha sua Região ou Cidade</span>
+                        <span>Regiões Atendidas em SC</span>
                       </div>
 
                       <div className="grid grid-cols-2 gap-2 text-xs">
                         {featuredCities.slice(0, 10).map((c) => (
-                          <a
+                          <Link
                             key={c.slug}
-                            href={`/conserto-de-geladeira-em-${c.slug}`}
-                            className="p-2 rounded-xl bg-slate-50 hover:bg-cyan-50 hover:text-cyan-700 text-slate-700 font-semibold truncate flex items-center gap-1 transition-colors border border-slate-100"
+                            to={`/conserto-de-geladeira-em-${c.slug}`}
+                            onClick={() => setIsDesktopCitiesOpen(false)}
+                            className="p-2 rounded-xl bg-slate-50 hover:bg-cyan-50 hover:text-cyan-800 text-slate-800 font-bold truncate flex items-center gap-1 transition-colors border border-slate-100"
                           >
                             <ChevronRight className="w-3 h-3 text-cyan-600 shrink-0" />
                             <span className="truncate">{c.name}</span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
 
                       <a
                         href="/#cobertura"
                         onClick={() => setIsDesktopCitiesOpen(false)}
-                        className="block text-center py-2 bg-slate-100 rounded-xl font-bold text-cyan-700 hover:bg-cyan-100 text-xs transition-colors border border-slate-200"
+                        className="block text-center py-2 bg-slate-100 rounded-xl font-bold text-cyan-800 hover:bg-cyan-100 text-xs transition-colors border border-slate-200"
                       >
                         Ver todas as 40+ Cidades →
                       </a>
@@ -243,17 +261,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
               <a
                 href="/#faq"
-                className="border-b-2 border-transparent text-slate-700 hover:text-cyan-600 transition-colors py-2"
+                className="border-b-2 border-transparent text-slate-800 hover:text-cyan-600 transition-colors py-2"
               >
                 Dúvidas
               </a>
             </nav>
 
-            {/* Desktop Quick Contact Actions (Senior Accessible) */}
-            <div className="hidden sm:flex items-center space-x-3">
+            {/* Desktop Quick Contact Actions (Senior Accessible - Compact & Shortened) */}
+            <div className="hidden sm:flex items-center space-x-2.5">
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md transition-transform active:scale-95 min-h-[48px]"
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm sm:text-base shadow-md transition-transform active:scale-95 min-h-[48px]"
+                aria-label="Ligar para assistência técnica"
               >
                 <Phone className="w-4 h-4 shrink-0" />
                 <span>Ligar Agora</span>
@@ -263,7 +282,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[48px]"
+                className="flex items-center gap-2 px-4.5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[48px]"
+                aria-label="Conversar pelo WhatsApp"
               >
                 <MessageCircle className="w-5 h-5 shrink-0" />
                 <span>WhatsApp</span>
@@ -431,15 +451,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
                       <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
                         {filteredCities.map((c) => (
-                          <a
+                          <Link
                             key={c.slug}
-                            href={`/conserto-de-geladeira-em-${c.slug}`}
+                            to={`/conserto-de-geladeira-em-${c.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="p-2.5 rounded-xl bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-200 min-h-[40px]"
                           >
                             <ChevronRight className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                             <span className="truncate">{c.name}</span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
 
@@ -469,48 +489,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
                   {isServicesAccordionOpen && (
                     <div className="p-2 space-y-1.5 bg-white border-t border-slate-200 text-sm">
-                      <a
-                        href="/conserto-de-geladeira/"
+                      <Link
+                        to="/conserto-de-geladeira/"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Geladeiras & Frost Free
-                      </a>
-                      <a
-                        href="/conserto-de-side-by-side/"
+                      </Link>
+                      <Link
+                        to="/conserto-de-side-by-side/"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Geladeiras Side by Side & French Door
-                      </a>
-                      <a
-                        href="/conserto-lava-e-seca-penha"
+                      </Link>
+                      <Link
+                        to="/conserto-lava-e-seca-penha"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Lava e Seca
-                      </a>
-                      <a
-                        href="/conserto-de-freezer/"
+                      </Link>
+                      <Link
+                        to="/conserto-de-freezer/"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Freezers Verticais e Horizontais
-                      </a>
-                      <a
-                        href="/conserto-de-camara-fria/"
+                      </Link>
+                      <Link
+                        to="/conserto-de-camara-fria/"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Câmaras Frias & Balcões Comerciais
-                      </a>
-                      <a
-                        href="/conserto-de-frigobar/"
+                      </Link>
+                      <Link
+                        to="/conserto-de-frigobar/"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
                       >
                         Conserto de Frigobares & Adegas
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -532,15 +552,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                     <div className="p-3 space-y-1.5 bg-white border-t border-slate-200 text-sm">
                       <div className="grid grid-cols-1 gap-1">
                         {featuredNeighborhoods.map((b, idx) => (
-                          <a
+                          <Link
                             key={idx}
-                            href={`/bairros/${b.slug}`}
+                            to={`/bairros/${b.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold flex items-center gap-2"
                           >
                             <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                             <span>{b.name}</span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>

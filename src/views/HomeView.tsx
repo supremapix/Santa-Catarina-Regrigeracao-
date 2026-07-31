@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeoHead } from '../components/SeoHead';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { Hero } from '../components/Hero';
 import { DifferentialsBar } from '../components/DifferentialsBar';
 import { ServicesGrid } from '../components/ServicesGrid';
@@ -19,7 +19,7 @@ interface HomeViewProps {
 export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title="Santa Catarina Refrigeração | Conserto de Geladeira, Freezer, Câmara Fria e Lava e Seca"
         description="Assistência técnica especializada em refrigeração em Penha, Piçarras, Itajaí, Balneário Camboriú e região. Conserto no mesmo dia com garantia de 90 dias e peças originais."
         canonicalUrl={COMPANY_INFO.subdomainUrl}

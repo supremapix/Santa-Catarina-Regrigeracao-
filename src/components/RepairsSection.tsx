@@ -43,30 +43,30 @@ export const RepairsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 lg:py-24 text-slate-900 border-b border-slate-200" id="reparos">
+    <section className="bg-slate-50 py-12 sm:py-16 text-slate-900 border-b border-slate-200" id="reparos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column Text */}
-          <div className="lg:col-span-5 space-y-6">
-            <span className="px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
+          <div className="lg:col-span-5 space-y-5 text-center sm:text-left">
+            <span className="inline-block px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 font-black text-xs uppercase tracking-wider">
               Diagnóstico de Precisão
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              Reparos e Manutenção Técnica Executados em Domicílio
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              Reparos e Manutenção Técnica em Domicílio
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed">
-              Trabalhamos com dedicação e qualidade, oferecendo assistência técnica completa em geladeiras, freezers, frigobar, cervejeiras, adegas e lava e seca multimarcas.
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+              Assistência técnica completa em geladeiras, freezers, frigobares, cervejeiras, adegas e lava e seca multimarcas com atendimento imediato.
             </p>
 
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-              <div className="flex items-center gap-2 text-cyan-800 font-bold text-sm">
-                <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                <span>Garantia de Fábrica e Peças Originais</span>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 text-left shadow-sm">
+              <div className="flex items-center gap-2 text-cyan-900 font-extrabold text-sm">
+                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span>Garantia de 90 Dias por Escrito</span>
               </div>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Utilizamos exclusivamente componentes novos e certificados com nota e termo formal de garantia de 90 dias por escrito.
+                Utilizamos exclusivamente componentes novos e certificados com nota fiscal e garantia em Navegantes, Penha e região.
               </p>
             </div>
 
@@ -74,10 +74,10 @@ export const RepairsSection: React.FC = () => {
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base shadow-md transition-all min-h-[48px]"
             >
               <CheckCircle2 className="w-5 h-5" />
-              <span>Chamar Técnico no WhatsApp</span>
+              <span>Falar no WhatsApp</span>
             </a>
           </div>
 

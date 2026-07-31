@@ -479,3 +479,59 @@ export const CITIES_DATA: CityLocalSEO[] = [
     customSnippet: "Atendimento no litoral de Itapoá para imóveis de praia, supermercados e pousadas."
   }
 ];
+
+export interface NeighborhoodLocalSEO {
+  slug: string;
+  name: string;
+  citySlug: string;
+  cityName: string;
+  state: string;
+  distanceKm: number;
+  estimatedMinutes: number;
+  customSnippet: string;
+}
+
+export function normalizeSlug(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function getAllNeighborhoods(): NeighborhoodLocalSEO[] {
+  const list: NeighborhoodLocalSEO[] = [];
+  const seenSlugs = new Set<string>();
+
+  for (const city of CITIES_DATA) {
+    for (const nb of city.neighborhoods) {
+      let slug = normalizeSlug(nb);
+      if (seenSlugs.has(slug)) {
+        slug = `${slug}-${city.slug}`;
+      }
+      seenSlugs.add(slug);
+
+      list.push({
+        slug,
+        name: nb,
+        citySlug: city.slug,
+        cityName: city.name,
+        state: city.state,
+        distanceKm: city.distanceKm,
+        estimatedMinutes: city.estimatedMinutes,
+        customSnippet: `Atendimento técnico de emergência no bairro ${nb} em ${city.name}/${city.state}. Visita e orçamento sem compromisso, com peças originais e garantia formal de 90 dias.`
+      });
+    }
+  }
+
+  return list;
+}
+
+export function getNeighborhoodBySlug(targetSlug: string): NeighborhoodLocalSEO | undefined {
+  const clean = normalizeSlug(targetSlug);
+  const neighborhoods = getAllNeighborhoods();
+  return neighborhoods.find(
+    (n) => n.slug === clean || normalizeSlug(n.name) === clean
+  );
+}

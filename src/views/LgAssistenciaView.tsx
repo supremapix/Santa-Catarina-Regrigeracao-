@@ -1,5 +1,5 @@
 import React from 'react';
-import { SeoHead } from '../components/SeoHead';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { ShieldCheck, MessageCircle, Phone, Cpu, Wrench, CheckCircle2 } from 'lucide-react';
 
@@ -16,7 +16,7 @@ export const LgAssistenciaView: React.FC<LgAssistenciaViewProps> = ({ onOpenBook
 
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title="Assistência Técnica Lava e Seca LG em Penha | Peças Originais"
         description="Assistência técnica especializada em Lava e Seca LG Direct Drive e Smart ThinQ em Penha e região. Resolução de Erros OE, UE, dE, IE e troca de peças originais com 90 dias de garantia."
         canonicalUrl={`${COMPANY_INFO.subdomainUrl}/assistencia-lava-e-seca-lg-penha`}
@@ -26,7 +26,23 @@ export const LgAssistenciaView: React.FC<LgAssistenciaViewProps> = ({ onOpenBook
       <main className="bg-slate-950 text-white min-h-screen py-10 space-y-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl space-y-6">
+          <div className="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl space-y-6 relative overflow-hidden">
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
+              >
+                <source src="https://img.supremasite.com.br/refrigeracao.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />
+            </div>
+
+            <div className="relative z-10 space-y-6">
             <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-bold uppercase">
               Especialista em Tecnologia LG Direct Drive
             </span>
@@ -58,6 +74,7 @@ export const LgAssistenciaView: React.FC<LgAssistenciaViewProps> = ({ onOpenBook
               </button>
             </div>
           </div>
+        </div>
 
           {/* Solutions for LG Error Codes */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 space-y-6">

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SeoHead } from '../components/SeoHead';
+import { Link } from 'react-router-dom';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { CheckCircle2, ShieldCheck, Calendar, MessageCircle, Phone, Cpu, Wrench, HelpCircle, ArrowRight } from 'lucide-react';
 
@@ -50,19 +51,35 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
 
   return (
     <>
-      <SeoHead
+      <EnhancedSEO
         title="Conserto de Lava e Seca em Penha | Assistência LG, Samsung e mais"
         description="Conserto e assistência técnica especializada de Lava e Seca LG, Samsung, Electrolux e Brastemp em Penha e região. Erros OE, UE, 5E, 4E, Inverter e garantia de 90 dias."
         canonicalUrl={`${COMPANY_INFO.subdomainUrl}/conserto-lava-e-seca-penha`}
         breadcrumbs={breadcrumbs}
+        faqList={lavaFaqs.map(f => ({ question: f.q, answer: f.a }))}
       />
 
       <main className="bg-slate-950 text-white min-h-screen py-10 space-y-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          {/* Header Banner */}
-          <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden">
-            <div className="max-w-3xl space-y-6">
+          {/* Header Banner with High-Visibility Video Background */}
+          <div className="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden">
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
+              >
+                <source src="https://img.supremasite.com.br/refrigeracao.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />
+            </div>
+
+            <div className="max-w-3xl space-y-6 relative z-10">
               <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-bold uppercase">
                 Atendimento Domiciliar Especializado
               </span>
@@ -115,19 +132,19 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <a href="/assistencia-lava-e-seca-lg-penha" className="bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-2xl p-6 space-y-3 transition-all block">
+              <Link to="/assistencia-lava-e-seca-lg-penha" className="bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-2xl p-6 space-y-3 transition-all block">
                 <span className="text-xs font-bold text-cyan-400 uppercase">Tecnologia Direct Drive</span>
                 <h3 className="text-xl font-bold text-white">LG Lava e Seca</h3>
                 <p className="text-slate-400 text-xs">Assistência para LG Vivace, Smart ThinQ e modelos 8.5kg a 13kg. Resolução de Erros OE, UE, dE, IE.</p>
                 <span className="text-xs text-cyan-400 font-bold flex items-center gap-1">Ver página LG <ArrowRight className="w-3 h-3" /></span>
-              </a>
+              </Link>
 
-              <a href="/assistencia-lava-e-seca-samsung-penha" className="bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-2xl p-6 space-y-3 transition-all block">
+              <Link to="/assistencia-lava-e-seca-samsung-penha" className="bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-2xl p-6 space-y-3 transition-all block">
                 <span className="text-xs font-bold text-cyan-400 uppercase">Tecnologia EcoBubble</span>
                 <h3 className="text-xl font-bold text-white">Samsung Lava e Seca</h3>
                 <p className="text-slate-400 text-xs">Conserto de Samsung Digital Inverter, AddWash e WD11. Resolução de Erros 5E, 4E, UE, DC.</p>
                 <span className="text-xs text-cyan-400 font-bold flex items-center gap-1">Ver página Samsung <ArrowRight className="w-3 h-3" /></span>
-              </a>
+              </Link>
 
               <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
                 <span className="text-xs font-bold text-cyan-400 uppercase">Linha Front Load</span>
