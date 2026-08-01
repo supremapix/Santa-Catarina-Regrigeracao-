@@ -170,6 +170,7 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
           />
 
           {/* Fallback 404 Route */}
+          {/* ATENÇÃO: NÃO recrie uma rota "/algo-*" colada sem barra (ex: "/conserto-de-geladeira-em-*"). No React Router v6 isso NUNCA casa com URLs reais e sempre cai neste fallback como 404. Mantenha a verificação manual de location.pathname abaixo para prefixos concatenados a slugs. */}
           <Route path="*" element={location.pathname.toLowerCase().startsWith('/conserto-de-geladeira-em-') ? <CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} /> : <NotFoundView />} />
         </Routes>
       </motion.div>
