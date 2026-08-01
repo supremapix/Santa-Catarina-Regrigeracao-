@@ -78,6 +78,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Assistência Técnica Especializada em Refrigeradores Side by Side",
     summary: "Atendimento especializado para geladeiras de grande porte Side by Side e French Door com dispensador de água e gelo, motor Inverter e duplo evaporador.",
     image: COMPANY_INFO.assets.serviceSideBySide,
+    video: "https://img.supremasite.com.br/french-door.mp4",
     category: "Residencial",
     commonDefects: [
       "Dispensador de água e gelo na porta não funciona ou vazando",
@@ -115,6 +116,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Assistência Técnica e Conserto de Frigobar em Domicílio",
     summary: "Atendimento para frigobares de pousadas, hotéis, escritórios e residências. Troca de gás, conserto de termostato, borracha e motor com agilidade.",
     image: COMPANY_INFO.assets.serviceFrigobar,
+    video: "https://img.supremasite.com.br/frigobares.mp4",
     category: "Residencial",
     commonDefects: [
       "Frigobar não gela nada ou apenas esquenta a lateral",
