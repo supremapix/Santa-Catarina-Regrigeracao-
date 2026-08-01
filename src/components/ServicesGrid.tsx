@@ -124,8 +124,8 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }
                   </div>
                 </div>
 
-                {/* Footer Buttons (Senior Accessible, Concise & Aligned) */}
-                <div className="p-5 sm:p-6 pt-0 space-y-3">
+                {/* Footer Buttons (Clean 2-Button Grid) */}
+                <div className="p-5 sm:p-6 pt-0">
                   <div className="grid grid-cols-2 gap-2">
                     <a
                       href={pillarRoute}
@@ -135,24 +135,16 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }
                       <ArrowRight className="w-4 h-4 text-cyan-400" />
                     </a>
 
-                    <button
-                      onClick={() => onOpenBookingModal(service.shortTitle)}
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800 font-bold text-xs sm:text-sm transition-colors min-h-[48px]"
+                    <a
+                      href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm shadow-md transition-all min-h-[48px]"
                     >
-                      <Calendar className="w-4 h-4 text-cyan-400" />
-                      <span>Agendar Visita</span>
-                    </button>
+                      <MessageCircle className="w-4.5 h-4.5 shrink-0" />
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
-
-                  <a
-                    href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm shadow-lg shadow-emerald-500/20 transition-all min-h-[48px]"
-                  >
-                    <MessageCircle className="w-5 h-5 shrink-0" />
-                    <span>WhatsApp {service.shortTitle}</span>
-                  </a>
                 </div>
 
               </div>

@@ -53,11 +53,12 @@ export const COMPANY_INFO = {
     warrantyBadge: "https://assistencia.santacatarinarefrigeracao.com.br/assets/garantia-90-CRLO52dC.png",
     socialPreview: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/12fa7da5-6a0e-457b-9b09-5f49b54f77a8/id-preview-e0990460--1553341c-ac57-44a1-a277-5427d1841516.lovable.app-1779753087322.png",
     serviceGeladeira: "https://assistencia.santacatarinarefrigeracao.com.br/assets/hero-equip-BLoXzlRJ.png",
+    serviceSideBySide: "https://img.supremasite.com.br/sc.png",
     serviceFrigobar: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/063da0e2-0305-4e93-9b75-815ab1a9d219/frigobar.png",
     serviceFreezer: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/fd5a7a35-8255-46ad-a68d-d189af3c5522/freezer.png",
     serviceCamaraFria: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/41af4b5b-5a8f-4127-b22b-5a52d531fd2d/camara-fria.png",
     serviceBalcao: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/a337bc3d-eb77-4714-be80-f2207de8f54f/balcao.png",
-    serviceAdega: "https://assistencia.santacatarinarefrigeracao.com.br/__l5e/assets-v1/a3b26f6a-49ab-4067-8950-7e69d41d0103/serv-adega.png",
+    serviceAdega: "https://img.supremasite.com.br/sc-consertos.png",
     serviceLavaESeca: "https://img.supremasite.com.br/lava-e-seca-sc.webp",
   }
 };

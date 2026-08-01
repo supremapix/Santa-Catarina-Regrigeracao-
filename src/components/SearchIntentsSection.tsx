@@ -186,7 +186,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-lg shadow-emerald-500/20"
                   >
                     <MessageCircle className="w-5 h-5 shrink-0" />
-                    <span>Orçamento Lava e Seca via WhatsApp</span>
+                    <span>WhatsApp</span>
                   </a>
 
                   <button
@@ -194,7 +194,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 font-bold text-sm transition-all"
                   >
                     <Clock className="w-4 h-4 text-cyan-400" />
-                    <span>Agendar Visita Técnica</span>
+                    <span>Agendar</span>
                   </button>
                 </div>
 
@@ -268,7 +268,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-all shadow-md"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Resolver no WhatsApp</span>
+                  <span>WhatsApp</span>
                 </a>
               </div>
 

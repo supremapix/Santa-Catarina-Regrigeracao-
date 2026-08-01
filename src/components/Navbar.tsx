@@ -267,25 +267,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </a>
             </nav>
 
-            {/* Desktop Quick Contact Actions (Senior Accessible - Compact & Shortened) */}
+            {/* Desktop Quick Contact Actions */}
             <div className="hidden sm:flex items-center space-x-2.5">
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm sm:text-base shadow-md transition-transform active:scale-95 min-h-[48px]"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md transition-transform active:scale-95 min-h-[44px]"
                 aria-label="Ligar para assistência técnica"
               >
                 <Phone className="w-4 h-4 shrink-0" />
-                <span>Ligar Agora</span>
+                <span>Ligar</span>
               </a>
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4.5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[48px]"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md shadow-emerald-600/20 transition-transform active:scale-95 min-h-[44px]"
                 aria-label="Conversar pelo WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 shrink-0" />
+                <MessageCircle className="w-4.5 h-4.5 shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </div>

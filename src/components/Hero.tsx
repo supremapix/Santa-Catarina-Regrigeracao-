@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               </span>
             </motion.div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons - Clean & Shortened */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,19 +108,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-emerald-500/20 transition-all hover:-translate-y-0.5 active:translate-y-0 min-h-[52px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
               >
                 <MessageCircle className="w-5 h-5 shrink-0" />
-                <span>Atendimento WhatsApp</span>
+                <span>WhatsApp</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <button
                 onClick={() => onOpenBookingModal()}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-sm sm:text-base transition-all min-h-[52px] shadow-lg backdrop-blur-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white border border-slate-700 font-bold text-sm sm:text-base transition-all min-h-[48px] shadow-md backdrop-blur-sm"
               >
                 <Calendar className="w-5 h-5 text-cyan-400 shrink-0" />
-                <span>Agendar Visita</span>
+                <span>Agendar</span>
               </button>
             </motion.div>
 
@@ -170,7 +170,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 </div>
               </div>
 
-              {/* Technical Ratings & Call Bar */}
+              {/* Technical Ratings Bar */}
               <div className="bg-slate-950/90 border border-slate-800 p-4 rounded-2xl flex items-center justify-between text-xs sm:text-sm">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-cyan-950 text-cyan-400 rounded-xl border border-cyan-800/80 shrink-0">
@@ -178,7 +178,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                   </div>
                   <div>
                     <p className="font-extrabold text-white">Técnicos Certificados</p>
-                    <p className="text-slate-400 text-xs">Visitas diárias em Penha, Piçarras, Itajaí e região</p>
+                    <p className="text-slate-400 text-xs">Visita rápida no seu imóvel</p>
                   </div>
                 </div>
                 <div className="text-right shrink-0">
@@ -186,15 +186,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                   <p className="text-[10px] text-slate-400 font-medium">180+ avaliações</p>
                 </div>
               </div>
-
-              {/* Quick Direct Call Button inside Card */}
-              <a
-                href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="w-full py-3 rounded-xl bg-blue-600/90 hover:bg-blue-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border border-blue-500/40 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Ligar Diretamente: {COMPANY_INFO.phone}</span>
-              </a>
 
             </div>
           </motion.div>

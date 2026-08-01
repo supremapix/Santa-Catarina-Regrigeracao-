@@ -75,7 +75,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência especializada em refrigeradores Side by Side e French Door em Penha e região. Reparo de fábrica de geladeira de luxo Samsung, LG, Electrolux e Brastemp.",
     h1: "Assistência Técnica Especializada em Refrigeradores Side by Side",
     summary: "Atendimento especializado para geladeiras de grande porte Side by Side e French Door com dispensador de água e gelo, motor Inverter e duplo evaporador.",
-    image: COMPANY_INFO.assets.serviceGeladeira,
+    image: COMPANY_INFO.assets.serviceSideBySide,
     category: "Residencial",
     commonDefects: [
       "Dispensador de água e gelo na porta não funciona ou vazando",
