@@ -46,10 +46,10 @@ export const SantaCatarinaVideoBanner: React.FC = () => {
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-lg">
-            Atendimento Técnico Móvel em <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400">
-              Mais de 40 Municípios de SC
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug drop-shadow-lg [text-wrap:balance] max-w-3xl mx-auto">
+            <span className="inline-block">Atendimento Técnico Móvel</span>{' '}
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400">
+              em Mais de 40 Municípios de SC
             </span>
           </h2>
 
