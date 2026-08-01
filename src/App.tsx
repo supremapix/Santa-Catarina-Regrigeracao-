@@ -15,6 +15,7 @@ import { BlogGuideView } from './views/BlogGuideView';
 import { CityLocalSeoView } from './views/CityLocalSeoView';
 import { NotFoundView } from './views/NotFoundView';
 import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
+import { CITIES_DATA } from './data/cities';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
@@ -144,10 +145,17 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
           />
 
           {/* Programmatic City, Region, and Neighborhood Routes */}
-          <Route
-            path="/conserto-de-geladeira-em-*"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
+<Route
+        path="/conserto-de-geladeira-em-*"
+                element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+                      />
+                            {CITIES_DATA.map((city) => (
+                                    <Route
+                                              key={`geladeira-${city.slug}`}
+                                                        path={`/conserto-de-geladeira-em-${city.slug}`}
+                                                                  element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
+                                                                          />
+                                                                                ))}
           <Route
             path="/cidades/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
