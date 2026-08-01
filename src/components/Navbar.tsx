@@ -290,18 +290,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </a>
             </div>
 
-            {/* Mobile Navigation Trigger Button (Senior Friendly Large Target) */}
+            {/* Mobile Navigation Trigger Button */}
             <div className="flex items-center space-x-2 lg:hidden">
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95 min-h-[44px]"
-              >
-                <MessageCircle className="w-4.5 h-4.5" />
-                <span>WhatsApp</span>
-              </a>
-
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="px-3.5 py-2.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 hover:bg-slate-200 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
