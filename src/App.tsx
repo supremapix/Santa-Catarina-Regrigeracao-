@@ -145,10 +145,6 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
 
           {/* Programmatic City, Region, and Neighborhood Routes */}
           <Route
-            path="/conserto-de-geladeira-em-*"
-            element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
             path="/cidades/*"
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
@@ -174,7 +170,7 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
           />
 
           {/* Fallback 404 Route */}
-          <Route path="*" element={<NotFoundView />} />
+          <Route path="*" element={location.pathname.toLowerCase().startsWith('/conserto-de-geladeira-em-') ? <CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} /> : <NotFoundView />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
