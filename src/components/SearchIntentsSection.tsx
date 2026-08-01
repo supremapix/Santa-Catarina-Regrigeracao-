@@ -209,55 +209,55 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
           {filteredIntents.map((intent, idx) => (
             <div
               key={idx}
-              className="bg-slate-950 rounded-2xl p-6 border border-slate-800 hover:border-cyan-500/50 transition-all flex flex-col justify-between space-y-5 shadow-lg"
+              className="bg-slate-800/95 rounded-2xl p-6 border-2 border-slate-700/80 hover:border-cyan-400 transition-all flex flex-col justify-between space-y-5 shadow-2xl"
             >
               <div className="space-y-3">
                 {/* Header Badge & Search Intent string */}
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className={`px-3 py-1 rounded-full text-[11px] font-black border uppercase tracking-wider ${intent.badgeColor}`}>
+                  <span className={`px-3 py-1.5 rounded-full text-xs font-black border uppercase tracking-wider ${intent.badgeColor}`}>
                     {intent.badge}
                   </span>
-                  <span className="text-[11px] text-slate-400 font-mono italic">
+                  <span className="text-xs text-slate-300 font-mono italic">
                     {intent.intentQuery}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-white leading-snug">
+                <h3 className="text-lg sm:text-xl font-black text-white leading-snug">
                   {intent.title}
                 </h3>
 
                 {/* Problem vs Cause vs Solution */}
-                <div className="space-y-2.5 text-xs sm:text-sm pt-2">
-                  <div className="p-3 rounded-xl bg-red-950/40 border border-red-900/40 space-y-1">
-                    <div className="flex items-center gap-1.5 text-red-400 font-bold">
+                <div className="space-y-3 text-xs sm:text-sm pt-2">
+                  <div className="p-3.5 rounded-xl bg-slate-900/90 border-2 border-red-500/60 space-y-1">
+                    <div className="flex items-center gap-1.5 text-red-400 font-black text-sm">
                       <AlertTriangle className="w-4 h-4 shrink-0" />
                       <span>Sintoma & Dor do Cliente:</span>
                     </div>
-                    <p className="text-slate-300 font-normal pl-5">{intent.pain}</p>
+                    <p className="text-white font-medium pl-5 leading-relaxed">{intent.pain}</p>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                    <div className="flex items-center gap-1.5 text-cyan-400 font-bold">
+                  <div className="p-3.5 rounded-xl bg-slate-900/90 border-2 border-cyan-500/60 space-y-1">
+                    <div className="flex items-center gap-1.5 text-cyan-300 font-black text-sm">
                       <Zap className="w-4 h-4 shrink-0" />
                       <span>Causa Técnica Comum:</span>
                     </div>
-                    <p className="text-slate-300 font-normal pl-5">{intent.rootCause}</p>
+                    <p className="text-white font-medium pl-5 leading-relaxed">{intent.rootCause}</p>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-900/40 space-y-1">
-                    <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
+                  <div className="p-3.5 rounded-xl bg-slate-900/90 border-2 border-emerald-500/60 space-y-1">
+                    <div className="flex items-center gap-1.5 text-emerald-400 font-black text-sm">
                       <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>Solução Eficaz Santa Catarina Refrigeração:</span>
                     </div>
-                    <p className="text-slate-200 font-medium pl-5">{intent.effectiveSolution}</p>
+                    <p className="text-emerald-200 font-bold pl-5 leading-relaxed">{intent.effectiveSolution}</p>
                   </div>
                 </div>
               </div>
 
               {/* Action Bar */}
-              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-1 text-[11px] text-slate-400 font-bold">
-                  <Clock className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="pt-3 border-t border-slate-700 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-1.5 text-xs text-slate-200 font-extrabold">
+                  <Clock className="w-4 h-4 text-cyan-400" />
                   <span>{intent.timeToSolve}</span>
                 </div>
 

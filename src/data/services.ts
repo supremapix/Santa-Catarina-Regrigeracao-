@@ -148,6 +148,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Conserto de Freezer Vertical e Horizontal em Penha e Região",
     summary: "Especialistas no reparo de congeladores e freezers residenciais e comerciais. Diagnóstico rápido para evitar derretimento e perda de congelados.",
     image: COMPANY_INFO.assets.serviceFreezer,
+    video: "https://img.supremasite.com.br/congeladores.mp4",
     category: "Residencial",
     commonDefects: [
       "Freezer descongelando e alimentos estragando",
@@ -179,6 +180,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Assistência Técnica de Câmaras Frias Resfriadas e Congeladas",
     summary: "Manutenção preventiva e emergencial 24h em câmaras frigoríficas para restaurantes, peixarias, supermercados, açougues e distribuidoras da região.",
     image: COMPANY_INFO.assets.serviceCamaraFria,
+    video: "https://img.supremasite.com.br/frigor%C3%ADfica.mp4",
     category: "Comercial",
     commonDefects: [
       "Unidade condensadora travada ou desarmando no pressostato",
@@ -211,6 +213,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Manutenção de Balcões Expositores e Cervejeiras Comerciais",
     summary: "Reparo de balcões refrigerados de padarias, conveniências, lanchonetes e cervejeiras comerciais Metalfrio, Gelopar, Fricon e Hussmann.",
     image: COMPANY_INFO.assets.serviceBalcao,
+    video: "https://img.supremasite.com.br/expositor-de-bebidas.mp4",
     category: "Comercial",
     commonDefects: [
       "Bebidas e laticínios ficando quentes no expositor",
@@ -242,6 +245,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Conserto e Manutenção de Adegas Climatizadas de Vinhos",
     summary: "Assistência técnica para adegas de vinhos residenciais e restaurante. Controle preciso de temperatura e umidade para preservação dos rótulos.",
     image: COMPANY_INFO.assets.serviceAdega,
+    video: "https://img.supremasite.com.br/adega-climatizada.mp4",
     category: "Residencial",
     commonDefects: [
       "Adega esquentando e alterando a temperatura dos vinhos",

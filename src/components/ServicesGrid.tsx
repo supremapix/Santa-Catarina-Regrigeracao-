@@ -8,43 +8,43 @@ interface ServicesGridProps {
 }
 
 export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }) => {
-  // Color themes per service type to differentiate cards clearly
+  // Color themes per service type to differentiate cards clearly with high-contrast surfaces
   const getCardTheme = (id: string) => {
     switch (id) {
       case 'geladeiras':
         return {
-          cardBg: 'bg-slate-900 border-2 border-cyan-500/80 shadow-cyan-900/20',
-          badgeBg: 'bg-cyan-500 text-slate-950 font-black',
-          glowBorder: 'hover:border-cyan-400 hover:shadow-cyan-500/30',
-          accentText: 'text-cyan-400'
+          cardBg: 'bg-slate-800 border-2 border-cyan-400 shadow-xl shadow-cyan-950/40',
+          badgeBg: 'bg-cyan-400 text-slate-950 font-black',
+          glowBorder: 'hover:border-cyan-300 hover:shadow-cyan-400/40',
+          accentText: 'text-cyan-300'
         };
       case 'lava-e-seca':
         return {
-          cardBg: 'bg-slate-900 border-2 border-emerald-500/80 shadow-emerald-900/20',
-          badgeBg: 'bg-emerald-500 text-slate-950 font-black',
-          glowBorder: 'hover:border-emerald-400 hover:shadow-emerald-500/30',
-          accentText: 'text-emerald-400'
+          cardBg: 'bg-slate-800 border-2 border-emerald-400 shadow-xl shadow-emerald-950/40',
+          badgeBg: 'bg-emerald-400 text-slate-950 font-black',
+          glowBorder: 'hover:border-emerald-300 hover:shadow-emerald-400/40',
+          accentText: 'text-emerald-300'
         };
       case 'camaras-frias':
         return {
-          cardBg: 'bg-slate-900 border-2 border-blue-500/80 shadow-blue-900/20',
-          badgeBg: 'bg-blue-500 text-white font-black',
-          glowBorder: 'hover:border-blue-400 hover:shadow-blue-500/30',
-          accentText: 'text-blue-400'
+          cardBg: 'bg-slate-800 border-2 border-sky-400 shadow-xl shadow-sky-950/40',
+          badgeBg: 'bg-sky-400 text-slate-950 font-black',
+          glowBorder: 'hover:border-sky-300 hover:shadow-sky-400/40',
+          accentText: 'text-sky-300'
         };
       case 'freezers':
         return {
-          cardBg: 'bg-slate-900 border-2 border-sky-500/80 shadow-sky-900/20',
-          badgeBg: 'bg-sky-400 text-slate-950 font-black',
-          glowBorder: 'hover:border-sky-300 hover:shadow-sky-500/30',
-          accentText: 'text-sky-300'
+          cardBg: 'bg-slate-800 border-2 border-cyan-400 shadow-xl shadow-cyan-950/40',
+          badgeBg: 'bg-cyan-400 text-slate-950 font-black',
+          glowBorder: 'hover:border-cyan-300 hover:shadow-cyan-400/40',
+          accentText: 'text-cyan-300'
         };
       default:
         return {
-          cardBg: 'bg-slate-900 border-2 border-cyan-600/80 shadow-slate-900/40',
-          badgeBg: 'bg-cyan-600 text-white font-black',
-          glowBorder: 'hover:border-cyan-400 hover:shadow-cyan-500/30',
-          accentText: 'text-cyan-300'
+          cardBg: 'bg-slate-800 border-2 border-sky-400 shadow-xl shadow-slate-900/40',
+          badgeBg: 'bg-sky-400 text-slate-950 font-black',
+          glowBorder: 'hover:border-sky-300 hover:shadow-sky-400/40',
+          accentText: 'text-sky-300'
         };
     }
   };
@@ -119,15 +119,15 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }
                       {service.title}
                     </h3>
                     
-                    <p className="text-slate-300 text-xs sm:text-sm line-clamp-3 leading-relaxed font-normal">
+                    <p className="text-slate-100 text-xs sm:text-sm line-clamp-3 leading-relaxed font-medium">
                       {service.summary}
                     </p>
 
                     {/* Bullet Points */}
-                    <div className="space-y-2 pt-1 border-t border-slate-800/80">
-                      <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Serviços e Reparos Frequentes:</p>
+                    <div className="space-y-2 pt-1 border-t border-slate-700/80">
+                      <p className="text-[11px] font-black text-slate-300 uppercase tracking-wider">Serviços e Reparos Frequentes:</p>
                       {service.repairsExecuted.slice(0, 3).map((repair, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-200 font-medium">
+                        <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-white font-semibold">
                           <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span className="line-clamp-1">{repair}</span>
                         </div>
