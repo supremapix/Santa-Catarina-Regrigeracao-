@@ -88,9 +88,16 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
                 Conserto e Assistência Técnica de Lava e Seca em Penha e Região
               </h1>
 
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                Diagnóstico técnico e conserto de placas eletrônicas, motores Inverter Direct Drive, sensores de nível, bombas de drenagem e rolamentos no próprio imóvel em Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e região.
-              </p>
+              <div className="flex flex-col sm:flex-row items-center gap-6 bg-slate-900/90 border border-emerald-500/40 p-4 sm:p-5 rounded-2xl backdrop-blur-md">
+                <img
+                  src="https://img.supremasite.com.br/lava-e-seca-sc.webp"
+                  alt="Máquina Lava e Seca Conserto - Santa Catarina Refrigeração"
+                  className="w-28 sm:w-36 h-auto object-contain rounded-xl drop-shadow-[0_8px_16px_rgba(16,185,129,0.3)] shrink-0"
+                />
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  Diagnóstico técnico e conserto de placas eletrônicas, motores Inverter Direct Drive, sensores de nível, bombas de drenagem e rolamentos no próprio imóvel em Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e região.
+                </p>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a

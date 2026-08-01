@@ -268,7 +268,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica de Lava e Seca e máquina de lavar em Penha, Piçarras, Itajaí. Peças originais, erros OE, UE, 5E, 4E, Inverter e garantia de 90 dias.",
     h1: "Conserto e Assistência Técnica de Lava e Seca em Penha e Região",
     summary: "Especialistas em placas eletrônicas, motores Inverter, sensores, bombas e rolamentos de Lava e Seca LG, Samsung, Electrolux, Brastemp e Midea.",
-    image: COMPANY_INFO.assets.heroEquipments,
+    image: COMPANY_INFO.assets.serviceLavaESeca,
     category: "Lava e Seca",
     commonDefects: [
       "Máquina não liga ou desliga sozinha no meio do ciclo",

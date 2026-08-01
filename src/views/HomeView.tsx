@@ -10,6 +10,7 @@ import { QuickDiagnosisTool } from '../components/QuickDiagnosisTool';
 import { CoverageMapSection } from '../components/CoverageMapSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FaqAccordion } from '../components/FaqAccordion';
+import { SearchIntentsSection } from '../components/SearchIntentsSection';
 import { COMPANY_INFO } from '../data/company';
 
 interface HomeViewProps {
@@ -29,6 +30,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
         <Hero onOpenBookingModal={onOpenBookingModal} />
         <DifferentialsBar />
         <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
+        <SearchIntentsSection onOpenBookingModal={onOpenBookingModal} />
         <RepairsSection />
         <BrandsSection />
         <QuickDiagnosisTool />

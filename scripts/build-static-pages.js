@@ -110,6 +110,13 @@ function formatMetaHead({ title, description, canonicalUrl, schemas = [], breadc
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="google-site-verification" content="eC0TaTVOSOzvkOgV8LKInsPwwJyXu_dO7rzRXm2Y8Z4" />
   <meta name="msvalidate.01" content="274D1FA5C55C0D2283EAE94551589DFC" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0284c7" />
+  <meta name="apple-mobile-web-app-title" content="SC Refrigeração" />
   <link rel="canonical" href="${fullCanonical}" />
   <meta name="language" content="Portuguese" />
   <meta name="geo.region" content="BR-SC" />
