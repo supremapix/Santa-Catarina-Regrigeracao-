@@ -81,9 +81,9 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }
                 key={service.id}
                 className={`rounded-3xl overflow-hidden transition-all duration-300 shadow-xl flex flex-col justify-between group ${theme.cardBg} ${theme.glowBorder}`}
               >
-                {/* Image Header Container with Black Background */}
+                {/* Image/Video Header Container with Black Background */}
                 <div>
-                  <div className="relative h-60 bg-black p-6 flex items-center justify-center overflow-hidden border-b border-slate-800">
+                  <div className={`relative h-60 bg-black flex items-center justify-center overflow-hidden border-b border-slate-800 ${service.video ? 'p-0' : 'p-6'}`}>
                     {/* Category Pill */}
                     <span className={`absolute top-4 left-4 z-10 px-3.5 py-1 rounded-full text-xs shadow-md uppercase tracking-wider ${theme.badgeBg}`}>
                       {service.category}
@@ -93,12 +93,24 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBookingModal }
                       <ShieldCheck className="w-3.5 h-3.5" /> 90 Dias
                     </span>
 
-                    {/* Image with High Contrast Drop Shadow on Black */}
-                    <img
-                      src={service.image}
-                      alt={`${service.title} - Santa Catarina Refrigeração`}
-                      className="max-h-48 w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]"
-                    />
+                    {/* Video or Image with High Contrast Drop Shadow on Black */}
+                    {service.video ? (
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      >
+                        <source src={service.video} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img
+                        src={service.image}
+                        alt={`${service.title} - Santa Catarina Refrigeração`}
+                        className="max-h-48 w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]"
+                      />
+                    )}
                   </div>
 
                   {/* Body Content */}

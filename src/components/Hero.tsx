@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Clock, MapPin, Calendar, Wrench, CheckCircle2, ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { ShieldCheck, Clock, MapPin, Wrench, CheckCircle2, Phone, ExternalLink } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 
 interface HeroProps {
@@ -8,8 +8,69 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
+  const marqueeItems = [
+    {
+      type: 'badge',
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />,
+      content: <span>Orçamento Transparente no Local</span>,
+    },
+    {
+      type: 'badge',
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />,
+      content: <span>Plantão 24h & Emergencial</span>,
+    },
+    {
+      type: 'badge',
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />,
+      content: <span>Peças Originais com Nota</span>,
+    },
+    {
+      type: 'badge',
+      icon: <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />,
+      content: <span>Garantia de 90 dias por escrito</span>,
+    },
+    {
+      type: 'badge',
+      icon: <Clock className="w-4 h-4 text-emerald-400 shrink-0" />,
+      content: <span>Chegada em ~30 min</span>,
+    },
+    {
+      type: 'phone',
+      icon: <Phone className="w-4 h-4 text-emerald-400 animate-pulse shrink-0" />,
+      content: (
+        <a
+          href={`tel:${COMPANY_INFO.phoneClean}`}
+          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 hover:text-white hover:bg-emerald-500/40 transition-all font-bold group"
+          title="Ligar para Assistência Técnica"
+        >
+          <span>Ligar: {COMPANY_INFO.phone}</span>
+          <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100" />
+        </a>
+      ),
+    },
+    {
+      type: 'address',
+      icon: <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />,
+      content: (
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address.full)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 hover:text-white hover:bg-cyan-500/40 transition-all font-bold group"
+          title="Ver localização no Google Maps"
+        >
+          <span>Loja: {COMPANY_INFO.address.full}</span>
+          <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100" />
+        </a>
+      ),
+    },
+  ];
+
+  // Triplicate the items array to ensure a seamless continuous infinite loop
+  const duplicatedMarquee = [...marqueeItems, ...marqueeItems, ...marqueeItems];
+
   return (
-    <section className="relative bg-slate-950 text-white overflow-hidden py-16 lg:py-24 border-b border-slate-800">
+    <section className="relative bg-slate-950 text-white overflow-hidden pt-16 lg:pt-24 border-b border-slate-800">
       
       {/* Background Video Layer - High Visibility on Mobile & PC */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -27,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column: Text & Primary CTAs */}
@@ -71,44 +132,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               Visita rápida no mesmo dia para <strong className="text-white font-bold">Geladeiras, Side by Side, Freezers, Câmaras Frias, Balcões Refrigerados, Frigobares e Lava e Seca</strong> em toda a região com garantia formal de 90 dias e peças originais.
             </motion.p>
 
-            {/* Quick Benefits Pills */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
-              className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm text-slate-200 font-medium"
-            >
-              <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                Orçamento Transparente no Local
-              </span>
-              <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                Plantão 24h & Emergencial
-              </span>
-              <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                Peças Originais com Nota
-              </span>
-            </motion.div>
-
-            {/* Trust Footer line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs sm:text-sm text-slate-300 font-medium"
-            >
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4.5 h-4.5 text-cyan-400" />
-                Garantia de 90 dias por escrito
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4.5 h-4.5 text-emerald-400" />
-                Chegada em ~30 min
-              </span>
-            </motion.div>
-
           </motion.div>
 
           {/* Right Column: Hero Interactive Glass Card */}
@@ -138,12 +161,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                   Atendimento em SC
                 </div>
 
-                {/* Warranty Badge Floating Seal */}
-                <div className="absolute -top-3 -right-3 w-20 h-20 sm:w-24 sm:h-24 drop-shadow-xl pointer-events-none z-10">
+                {/* Warranty Badge Floating Seal - Positioned cleanly in bottom-right */}
+                <div className="absolute bottom-2.5 right-2.5 w-16 h-16 sm:w-20 sm:h-20 drop-shadow-2xl pointer-events-none z-10">
                   <img
                     src={COMPANY_INFO.assets.warrantyBadge}
                     alt="Selo de Garantia 90 Dias"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
                   />
                 </div>
               </div>
@@ -170,6 +193,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
 
         </div>
       </div>
+
+      {/* Animated Ticker / Letreiro Animado Bar (Below Hero) */}
+      <div className="relative z-20 bg-slate-950/95 border-t border-slate-800/80 py-3 overflow-hidden shadow-2xl backdrop-blur-md">
+        <div className="flex overflow-hidden select-none group">
+          <motion.div
+            className="flex items-center gap-8 whitespace-nowrap shrink-0 group-hover:[animation-play-state:paused]"
+            animate={{ x: ['0%', '-33.333%'] }}
+            transition={{
+              duration: 28,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          >
+            {duplicatedMarquee.map((item, index) => (
+              <div key={index} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-200">
+                {item.icon}
+                {item.content}
+                <span className="text-slate-700 mx-2">•</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
     </section>
   );
 };
+

@@ -8,6 +8,7 @@ export interface ServicePillar {
   h1: string;
   summary: string;
   image: string;
+  video?: string;
   category: 'Residencial' | 'Comercial' | 'Lava e Seca';
   commonDefects: string[];
   repairsExecuted: string[];
@@ -28,6 +29,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Conserto e Assistência Técnica de Geladeiras em Penha e Região",
     summary: "Conserto rápido e especializado de geladeiras de todas as marcas (Brastemp, Electrolux, Consul, Samsung, LG). Atendimento domiciliar no mesmo dia com peças originais.",
     image: COMPANY_INFO.assets.serviceGeladeira,
+    video: "https://img.supremasite.com.br/geladeiras-refrigeradores.mp4",
     category: "Residencial",
     commonDefects: [
       "Geladeira liga mas não gelando na parte de baixo",
