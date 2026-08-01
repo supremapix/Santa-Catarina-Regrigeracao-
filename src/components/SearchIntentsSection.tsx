@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, AlertTriangle, CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Flame, Wrench, Droplets, Zap, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Search, AlertTriangle, CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Flame, Wrench, Droplets, Zap, Clock, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 
 interface SearchIntentsSectionProps {
@@ -125,85 +126,151 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
           </div>
         </div>
 
-        {/* Lava e Seca Spotlight Card Banner */}
+        {/* Lava e Seca Spotlight Card Banner & Animated Task Bar */}
         { (activeTab === 'todos' || activeTab === 'lava-e-seca') && (
-          <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/80 rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/60 shadow-2xl overflow-hidden relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Video Container */}
-              <div className="lg:col-span-5 flex justify-center items-center relative">
-                <div className="relative bg-slate-950/90 rounded-2xl p-2 border border-emerald-500/40 w-full max-w-sm flex items-center justify-center shadow-xl group overflow-hidden">
-                  <span className="absolute top-3 left-3 bg-emerald-500 text-slate-950 font-black text-[10px] uppercase px-3 py-1 rounded-full shadow-md z-10">
-                    Sede & Atendimento Técnico
-                  </span>
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-56 sm:h-64 object-cover rounded-xl shadow-xl transform group-hover:scale-105 transition-transform duration-500"
-                  >
-                    <source src="https://img.supremasite.com.br/maquina-lavar.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-
-              {/* Text Info */}
-              <div className="lg:col-span-7 space-y-4 text-left">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
-                  <Wrench className="w-4 h-4 text-emerald-400" />
+          <div className="space-y-4">
+            {/* Spotlight Container (Clean & Innovative design without video) */}
+            <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/60 shadow-2xl relative overflow-hidden backdrop-blur-md">
+              <div className="space-y-4 text-left max-w-4xl mx-auto">
+                
+                {/* Badge Header */}
+                <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
+                  <Wrench className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Especialistas Multimarcas: LG, Samsung, Electrolux, Brastemp, Midea</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                {/* Main Headline (Clean 2-3 lines alignment) */}
+                <h3 className="text-2xl sm:text-3xl font-black text-white leading-snug">
                   Conserto de Lava e Seca e Máquinas de Lavar em Domicílio
                 </h3>
 
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
-                  Sua lava e seca não escoa a água, travou a porta, não seca as roupas ou está com barulho forte na centrifugação? Realizamos o reparo no seu imóvel em Balneário Piçarras, Penha, Navegantes, Itajaí, Balneário Camboriú e cidades próximas.
+                {/* Concise 2-3 line Description */}
+                <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
+                  Sua lava e seca não escoa a água, travou a porta, não seca as roupas ou está com barulho forte na centrifugação? Realizamos o diagnóstico rápido e conserto no seu imóvel em Penha, Piçarras, Navegantes, Itajaí e região com peças originais e garantia formal.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-200 pt-1">
-                  <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                {/* Highlights Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-200 pt-1">
+                  <div className="flex items-center gap-2 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Erros OE, 5E, UE, dE, 4E e 1E</span>
+                    <span className="font-semibold text-white">Erros OE, 5E, UE, dE</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-2 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Troca de Rolamentos & Cruzeta</span>
+                    <span className="font-semibold text-white">Rolamentos & Cruzeta</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-2 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Placas Inverter e Motores Direct Drive</span>
+                    <span className="font-semibold text-white">Placas Inverter & Motores</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-2 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Desobstrução do Duto de Secagem</span>
+                    <span className="font-semibold text-white">Limpeza de Dutos</span>
                   </div>
                 </div>
 
-                <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                {/* Action Buttons directly inside section */}
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                   <a
                     href={`${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-lg shadow-emerald-500/20"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-xl shadow-emerald-500/20 hover:scale-[1.02] active:scale-95"
                   >
-                    <MessageCircle className="w-5 h-5 shrink-0" />
-                    <span>WhatsApp</span>
+                    <MessageCircle className="w-5 h-5 shrink-0 fill-current" />
+                    <span>WhatsApp Técnico Direto</span>
                   </a>
 
                   <button
                     onClick={() => onOpenBookingModal('Lava e Seca')}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 font-bold text-sm transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/50 font-extrabold text-sm transition-all hover:scale-[1.02] active:scale-95"
                   >
-                    <Clock className="w-4 h-4 text-cyan-400" />
-                    <span>Agendar</span>
+                    <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <span>Agendar Visita Online</span>
                   </button>
+
+                  <a
+                    href={`tel:${COMPANY_INFO.phoneClean}`}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-extrabold text-sm transition-all hover:scale-[1.02]"
+                  >
+                    <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Ligar: {COMPANY_INFO.phone}</span>
+                  </a>
                 </div>
 
               </div>
+            </div>
 
+            {/* TASK BAR ANIMADA (Letreiro Passando Clicável) */}
+            <div className="relative bg-slate-900 border-2 border-slate-800 rounded-2xl p-3 shadow-xl overflow-hidden group">
+              <div className="flex items-center gap-3">
+                {/* Fixed Label Badge */}
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-black uppercase tracking-wider shrink-0 z-10 shadow-md">
+                  <Zap className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                  <span>Central Rápida:</span>
+                </div>
+
+                {/* Animated Marquee Container */}
+                <div className="overflow-hidden w-full relative">
+                  {/* Left & Right Fade Shadows */}
+                  <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
+
+                  <div className="animate-marquee flex items-center gap-3">
+                    {[
+                      { type: 'link', label: 'Assistência Lava e Seca LG Penha', url: '/assistencia-lava-e-seca-lg-penha', icon: '🌀' },
+                      { type: 'whatsapp', label: 'Consertar Erro OE / 5E / 4E', msg: 'Olá! Minha Lava e Seca está dando erro OE/5E.', icon: '⚡' },
+                      { type: 'link', label: 'Assistência Samsung Lava e Seca', url: '/assistencia-lava-e-seca-samsung-penha', icon: '🌀' },
+                      { type: 'booking', label: 'Agendar Visita Técnica no Imóvel', icon: '📅' },
+                      { type: 'whatsapp', label: 'Barulho Forte na Centrifugação', msg: 'Olá! Minha lava e seca está com barulho forte na centrifugação.', icon: '🛠️' },
+                      { type: 'link', label: 'Guia Completo Manutenção Lava e Seca', url: '/blog/lava-e-seca-penha-guia-completo', icon: '📖' },
+                      { type: 'whatsapp', label: 'Troca de Placa Inverter / Motor', msg: 'Olá! Preciso de orçamento para troca de placa/motor.', icon: '🔌' },
+                      { type: 'whatsapp', label: 'Atendimento Rápido no WhatsApp', msg: 'Olá! Preciso de atendimento para Lava e Seca.', icon: '💬' },
+
+                      // Duplicate set for infinite smooth looping
+                      { type: 'link', label: 'Assistência Lava e Seca LG Penha', url: '/assistencia-lava-e-seca-lg-penha', icon: '🌀' },
+                      { type: 'whatsapp', label: 'Consertar Erro OE / 5E / 4E', msg: 'Olá! Minha Lava e Seca está dando erro OE/5E.', icon: '⚡' },
+                      { type: 'link', label: 'Assistência Samsung Lava e Seca', url: '/assistencia-lava-e-seca-samsung-penha', icon: '🌀' },
+                      { type: 'booking', label: 'Agendar Visita Técnica no Imóvel', icon: '📅' },
+                      { type: 'whatsapp', label: 'Barulho Forte na Centrifugação', msg: 'Olá! Minha lava e seca está com barulho forte na centrifugação.', icon: '🛠️' },
+                      { type: 'link', label: 'Guia Completo Manutenção Lava e Seca', url: '/blog/lava-e-seca-penha-guia-completo', icon: '📖' },
+                      { type: 'whatsapp', label: 'Troca de Placa Inverter / Motor', msg: 'Olá! Preciso de orçamento para troca de placa/motor.', icon: '🔌' },
+                      { type: 'whatsapp', label: 'Atendimento Rápido no WhatsApp', msg: 'Olá! Preciso de atendimento para Lava e Seca.', icon: '💬' },
+                    ].map((item, idx) => (
+                      item.type === 'link' ? (
+                        <Link
+                          key={idx}
+                          to={item.url}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-400 text-xs font-bold text-slate-200 hover:text-cyan-300 transition-all shrink-0 shadow-sm"
+                        >
+                          <span>{item.icon}</span>
+                          <span>{item.label}</span>
+                        </Link>
+                      ) : item.type === 'whatsapp' ? (
+                        <a
+                          key={idx}
+                          href={`${COMPANY_INFO.whatsappUrl}%20-%20${encodeURIComponent(item.msg)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/50 text-xs font-black text-emerald-300 transition-all shrink-0 shadow-sm hover:scale-105"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 fill-current" />
+                          <span>{item.label}</span>
+                        </a>
+                      ) : (
+                        <button
+                          key={idx}
+                          onClick={() => onOpenBookingModal('Lava e Seca')}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/50 text-xs font-black text-cyan-300 transition-all shrink-0 shadow-sm hover:scale-105"
+                        >
+                          <Clock className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <span>{item.label}</span>
+                        </button>
+                      )
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
