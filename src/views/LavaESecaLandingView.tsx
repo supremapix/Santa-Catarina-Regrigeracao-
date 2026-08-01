@@ -73,7 +73,7 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
                 playsInline
                 className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
               >
-                <source src="https://img.supremasite.com.br/refrigeracao.mp4" type="video/mp4" />
+                <source src="https://img.supremasite.com.br/maquina-lavar.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />

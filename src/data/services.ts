@@ -277,6 +277,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     h1: "Conserto e Assistência Técnica de Lava e Seca em Penha e Região",
     summary: "Especialistas em placas eletrônicas, motores Inverter, sensores, bombas e rolamentos de Lava e Seca LG, Samsung, Electrolux, Brastemp e Midea.",
     image: COMPANY_INFO.assets.serviceLavaESeca,
+    video: "https://img.supremasite.com.br/maquina-lavar.mp4",
     category: "Lava e Seca",
     commonDefects: [
       "Máquina não liga ou desliga sozinha no meio do ciclo",

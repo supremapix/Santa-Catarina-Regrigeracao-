@@ -169,19 +169,29 @@ const allSitemapUrls = [
   { loc: COMPANY_INFO.subdomainUrl, priority: '1.0', changefreq: 'daily' }
 ];
 
-// 1. Static service & landing routes
+// 1. Static service, landing, brand & search intent routes
 const staticServices = [
-  { slug: 'conserto-de-geladeira', name: 'Conserto de Geladeiras' },
-  { slug: 'conserto-de-side-by-side', name: 'Conserto de Side by Side' },
-  { slug: 'conserto-de-frigobar', name: 'Conserto de Frigobar' },
-  { slug: 'conserto-de-freezer', name: 'Conserto de Freezer' },
-  { slug: 'conserto-de-camara-fria', name: 'Conserto de Câmara Fria' },
-  { slug: 'conserto-de-balcao-refrigerado', name: 'Conserto de Balcão Refrigerado' },
+  { slug: 'conserto-de-geladeira', name: 'Conserto de Geladeiras e Refrigeradores' },
+  { slug: 'conserto-de-side-by-side', name: 'Conserto de Geladeira Side by Side e French Door' },
+  { slug: 'conserto-de-frigobar', name: 'Conserto e Manutenção de Frigobar' },
+  { slug: 'conserto-de-freezer', name: 'Conserto de Freezer Vertical e Horizontal' },
+  { slug: 'conserto-de-camara-fria', name: 'Conserto e Manutenção de Câmara Fria e Frigorífica' },
+  { slug: 'conserto-de-balcao-refrigerado', name: 'Conserto de Balcão Refrigerado e Expositor de Bebidas' },
   { slug: 'conserto-de-adega', name: 'Conserto de Adegas Climatizadas' },
   { slug: 'conserto-lava-e-seca-penha', name: 'Conserto de Lava e Seca Penha' },
   { slug: 'assistencia-lava-e-seca-lg-penha', name: 'Assistência Lava e Seca LG Penha' },
   { slug: 'assistencia-lava-e-seca-samsung-penha', name: 'Assistência Lava e Seca Samsung Penha' },
-  { slug: 'blog/lava-e-seca-penha-guia-completo', name: 'Guia Completo Lava e Seca Penha' }
+  { slug: 'assistencia-geladeira-brastemp-penha', name: 'Assistência Técnica Geladeira Brastemp Penha' },
+  { slug: 'assistencia-geladeira-electrolux-penha', name: 'Assistência Técnica Geladeira Electrolux Penha' },
+  { slug: 'blog/lava-e-seca-penha-guia-completo', name: 'Guia Completo Lava e Seca Penha' },
+  { slug: 'mapa-do-site', name: 'Mapa do Site Completo' },
+  { slug: 'problemas/geladeira-nao-gela-parte-de-baixo', name: 'Solução: Geladeira gela no freezer mas NÃO gela parte de baixo' },
+  { slug: 'problemas/geladeira-apitando-piscando-motor-estalando', name: 'Solução: Geladeira apitando, piscando ou motor dando estalos' },
+  { slug: 'problemas/vazamento-de-agua-geladeira-troca-borracha', name: 'Solução: Vazamento de água sob a geladeira ou troca de borracha' },
+  { slug: 'problemas/lava-e-seca-erro-oe-5e-barulho-centrifugacao', name: 'Solução: Lava e Seca com erro OE / 5E ou barulho forte' },
+  { slug: 'problemas/camara-fria-cervejeira-perdendo-temperatura', name: 'Solução: Câmara Fria ou Cervejeira perdendo temperatura' },
+  { slug: 'problemas/frigobar-nao-gela-furo-no-congelador', name: 'Solução: Frigobar furado no congelador ou sem gelar' },
+  { slug: 'problemas/adega-climatizada-esquentando-vinhos', name: 'Solução: Adega climatizada esquentando e alterando vinhos' }
 ];
 
 for (const s of staticServices) {

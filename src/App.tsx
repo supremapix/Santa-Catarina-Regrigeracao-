@@ -13,6 +13,8 @@ import { LgAssistenciaView } from './views/LgAssistenciaView';
 import { SamsungAssistenciaView } from './views/SamsungAssistenciaView';
 import { BlogGuideView } from './views/BlogGuideView';
 import { CityLocalSeoView } from './views/CityLocalSeoView';
+import { SearchIntentView } from './views/SearchIntentView';
+import { SitemapView } from './views/SitemapView';
 import { NotFoundView } from './views/NotFoundView';
 import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
 
@@ -132,6 +134,26 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             path="/assistencia-lava-e-seca-samsung-penha/"
             element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
           />
+
+          {/* Brand Pages */}
+          <Route
+            path="/assistencia-geladeira-brastemp-penha"
+            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-geladeira-electrolux-penha"
+            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Search Intents & Problem Pages */}
+          <Route
+            path="/problemas/*"
+            element={<SearchIntentView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Sitemap Route */}
+          <Route path="/mapa-do-site" element={<SitemapView />} />
+          <Route path="/mapa-do-site/" element={<SitemapView />} />
 
           {/* Blog Guide Route */}
           <Route

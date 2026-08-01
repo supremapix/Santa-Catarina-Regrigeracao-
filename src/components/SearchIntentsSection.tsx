@@ -130,17 +130,21 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
           <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/80 rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/60 shadow-2xl overflow-hidden relative">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
-              {/* Image Container */}
+              {/* Video Container */}
               <div className="lg:col-span-5 flex justify-center items-center relative">
-                <div className="relative bg-slate-950/90 rounded-2xl p-4 border border-emerald-500/30 w-full max-w-sm flex items-center justify-center shadow-xl group">
+                <div className="relative bg-slate-950/90 rounded-2xl p-2 border border-emerald-500/40 w-full max-w-sm flex items-center justify-center shadow-xl group overflow-hidden">
                   <span className="absolute top-3 left-3 bg-emerald-500 text-slate-950 font-black text-[10px] uppercase px-3 py-1 rounded-full shadow-md z-10">
                     Sede & Atendimento Técnico
                   </span>
-                  <img
-                    src="https://img.supremasite.com.br/lava-e-seca-sc.webp"
-                    alt="Conserto de Máquinas Lava e Seca em Balneário Piçarras, Penha e Região - Santa Catarina Refrigeração"
-                    className="max-h-64 sm:max-h-72 w-auto object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_10px_25px_rgba(16,185,129,0.3)]"
-                  />
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-56 sm:h-64 object-cover rounded-xl shadow-xl transform group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="https://img.supremasite.com.br/maquina-lavar.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
 

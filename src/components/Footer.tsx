@@ -173,7 +173,19 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/conserto-de-frigobar/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Conserto de Frigobares e Adegas</span>
+                  <span>Conserto de Frigobares</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-adega" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Conserto de Adega Climatizada</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/mapa-do-site" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold text-cyan-800">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Ver Todos os Serviços & Mapa do Site</span>
                 </Link>
               </li>
             </ul>
@@ -244,7 +256,8 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-slate-300 text-center md:flex md:justify-between md:items-center text-xs text-slate-500 space-y-3 md:space-y-0 font-medium">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Sede Navegantes & Penha, SC.</p>
           <div className="flex justify-center space-x-6">
-            <a href="/sitemap.xml" target="_blank" className="hover:text-slate-800">Mapa do Site (XML)</a>
+            <Link to="/mapa-do-site" className="hover:text-cyan-800 font-bold text-slate-700">Mapa do Site</Link>
+            <a href="/sitemap.xml" target="_blank" className="hover:text-slate-800">Sitemap XML</a>
             <a href="/robots.txt" target="_blank" className="hover:text-slate-800">robots.txt</a>
             <a href="/llms.txt" target="_blank" className="hover:text-slate-800">llms.txt</a>
           </div>

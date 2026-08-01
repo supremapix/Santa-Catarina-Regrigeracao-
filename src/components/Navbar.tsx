@@ -194,13 +194,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                         <span className="w-2 h-2 rounded-full bg-blue-500" />
                         <span>Câmaras Frias & Comerciais</span>
                       </Link>
-                      <a
-                        href="/#servicos"
+                      <Link
+                        to="/mapa-do-site"
                         onClick={() => setIsDesktopServicesOpen(false)}
                         className="block text-center py-2 bg-slate-50 hover:bg-cyan-100 rounded-xl font-bold text-cyan-800 text-xs transition-colors border border-slate-200 mt-1"
                       >
-                        Ver Todos os Equipamentos →
-                      </a>
+                        Ver Mapa do Site Completo →
+                      </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>
