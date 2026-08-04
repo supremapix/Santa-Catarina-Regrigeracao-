@@ -13,6 +13,7 @@ export const BlogGuideView: React.FC<BlogGuideViewProps> = ({ onOpenBookingModal
     "@type": "BlogPosting",
     "headline": "Lava e Seca em Penha: Guia Completo — Uso Residencial, Lavanderias e Onde Consertar",
     "description": "Guia informativo completo sobre o impacto da umidade litorânea na secagem de roupas, comparativo lavanderia vs lava e seca própria, cuidados com sabão e quando acionar o conserto em Penha e região.",
+    "image": COMPANY_INFO.assets.socialPreview,
     "author": {
       "@type": "Organization",
       "name": COMPANY_INFO.name,

@@ -134,7 +134,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
 
           </motion.div>
 
-          {/* Right Column: Hero Interactive Glass Card */}
+          {/* Right Column: Hero Interactive Glass Card (Clean design without video card) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -143,31 +143,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
           >
             <div className="relative bg-slate-900/90 border border-slate-700/80 rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-md max-w-md w-full space-y-4">
               
-              {/* Video Showcase Container */}
-              <div className="relative aspect-video bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover rounded-xl"
-                >
-                  <source src="https://img.supremasite.com.br/santa-catarina.mp4" type="video/mp4" />
-                </video>
-
-                {/* Live Status Badge Overlay */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[11px] font-bold text-cyan-400 backdrop-blur-md flex items-center gap-1.5 z-10">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Atendimento em SC
+              {/* Header Info Box with Status & Warranty Seal */}
+              <div className="bg-slate-950/90 border border-slate-800 p-4 rounded-2xl flex items-center justify-between gap-3 relative overflow-hidden">
+                <div className="space-y-1.5">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/90 border border-cyan-800 text-[11px] font-bold text-cyan-300">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Atendimento Ativo em SC</span>
+                  </div>
+                  <p className="text-white font-extrabold text-sm sm:text-base leading-snug">
+                    Laboratório Móvel & Peças Originais
+                  </p>
+                  <p className="text-slate-400 text-xs">
+                    Atendimento rápido em Penha, Piçarras, BC, Itajaí e região
+                  </p>
                 </div>
 
-                {/* Warranty Badge Floating Seal - Positioned cleanly in bottom-right */}
-                <div className="absolute bottom-2.5 right-2.5 w-16 h-16 sm:w-20 sm:h-20 drop-shadow-2xl pointer-events-none z-10">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 drop-shadow-xl">
                   <img
                     src={COMPANY_INFO.assets.warrantyBadge}
                     alt="Selo de Garantia 90 Dias"
                     className="w-full h-full object-contain filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
                   />
+                </div>
+              </div>
+
+              {/* Quick Feature Highlights */}
+              <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-200">
+                <div className="flex items-center gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Garantia 90 Dias</span>
+                </div>
+                <div className="flex items-center gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+                  <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Plantão Rápido</span>
                 </div>
               </div>
 

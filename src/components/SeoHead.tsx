@@ -106,9 +106,108 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "184",
+        "ratingCount": "184",
         "bestRating": "5",
         "worstRating": "1"
       },
+      "review": [
+        {
+          "@type": "Review",
+          "name": "Conserto de Geladeira Brastemp",
+          "reviewBody": "Excelente atendimento! Minha geladeira Brastemp Inverse estava com problema no compressor e a equipe da Santa Catarina Refrigeração resolveu rapidamente no mesmo dia. Técnicos muito competentes, educados e preço justo.",
+          "datePublished": "2026-07-15",
+          "author": {
+            "@type": "Person",
+            "name": "Ana Maria S."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "name": "Manutenção de Freezer & Frigobares",
+          "reviewBody": "Meu freezer horizontal e dois frigobares das suítes pararam de funcionar na véspera do feriado. Pensei que teria que comprar novos. A equipe veio com agilidade e consertou com peças originais e garantia formal de 90 dias!",
+          "datePublished": "2026-06-20",
+          "author": {
+            "@type": "Person",
+            "name": "Roberto C."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "name": "Manutenção de Balcão Refrigerado e Cervejeira",
+          "reviewBody": "Atendimento via WhatsApp muito prático! O técnico veio à nossa loja em Itajaí no mesmo dia e resolveu o problema do balcão refrigerado e da cervejeira. Manteve todas as bebidas trincando. Super recomendo!",
+          "datePublished": "2026-07-10",
+          "author": {
+            "@type": "Person",
+            "name": "Juliana L."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "name": "Assistência Técnica em Câmara Fria Comercial",
+          "reviewBody": "A câmara fria de congelados do restaurante em BC apresentou ruído e perda de temperatura. O plantão 24h nos atendeu de madrugada e salvou todo o estoque de frutos do mar. Profissionalismo exemplar!",
+          "datePublished": "2026-05-18",
+          "author": {
+            "@type": "Person",
+            "name": "Marcos P."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "name": "Conserto de Lava e Seca LG",
+          "reviewBody": "Minha lava e seca LG apresentou o erro OE e travou com água dentro. Chamei pelo WhatsApp e o orçamento foi sem complicação. Trocaram a bomba de drenagem rapidamente. Nota 10!",
+          "datePublished": "2026-07-05",
+          "author": {
+            "@type": "Person",
+            "name": "Cláudia F."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "name": "Conserto de Adega Climatizada",
+          "reviewBody": "Minha adega climatizada de 48 garrafas parou de refrigerar. Fizeram a troca da placa do painel e do sensor de precisão. O vinho voltou à temperatura ideal sem ruído.",
+          "datePublished": "2026-04-12",
+          "author": {
+            "@type": "Person",
+            "name": "Luciana M."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      ],
       "sameAs": [
         COMPANY_INFO.whatsappUrl,
         `mailto:${COMPANY_INFO.email}`
