@@ -41,4 +41,4 @@ Allow: /llms-full.txt
 Allow: /sitemap.xml
 
 # Sitemap oficial
-Sitemap: https://assistencia.santacatarinarefrigeracao.com.br/sitemap.xml
+Sitemap: https://www.refrigeracaosc.com.br/sitemap.xml

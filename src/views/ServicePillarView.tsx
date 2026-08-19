@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { PILLAR_SERVICES } from '../data/services';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
-import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone } from 'lucide-react';
+import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone, Wrench, AlertTriangle, Cpu, DollarSign, HelpCircle, List, ArrowRight } from 'lucide-react';
 import { FaqAccordion } from '../components/FaqAccordion';
 
 interface ServicePillarViewProps {
@@ -25,6 +25,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "name": service.title,
     "serviceType": service.title,
     "provider": {
       "@type": "LocalBusiness",
@@ -33,12 +34,12 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
       "email": COMPANY_INFO.email,
       "address": COMPANY_INFO.address.full
     },
-    "areaServed": "Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e região (raio de 200 km)",
+    "areaServed": "Penha, Balneário Piçarras, Itajaí, Balneário Camboriú, Navegantes e Litoral de SC",
     "description": service.fullDescription,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Serviços de Refrigeração",
-      "itemListElement": service.repairsExecuted.map((rep, i) => ({
+      "itemListElement": service.repairsExecuted.map((rep) => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
@@ -143,8 +144,34 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
             </div>
           </div>
 
+          {/* Table of Contents / Sumário Rápido */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <h2 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
+              <List className="w-4 h-4 text-cyan-600" /> Sumário do Guia Técnico:
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs text-slate-700">
+              <a href="#como-funciona" className="hover:text-cyan-700 hover:underline">1. Como Funciona a Refrigeração</a>
+              <a href="#defeitos-frequentes" className="hover:text-cyan-700 hover:underline">2. Principais Defeitos e Causas</a>
+              <a href="#reparos-local" className="hover:text-cyan-700 hover:underline">3. Reparos Executados no Local</a>
+              <a href="#marcas-atendidas" className="hover:text-cyan-700 hover:underline">4. Marcas e Tecnologias Atendidas</a>
+              <a href="#precos-e-prazos" className="hover:text-cyan-700 hover:underline">5. Preços e Prazos Médios</a>
+              <a href="#dicas-manutencao" className="hover:text-cyan-700 hover:underline">6. Dicas de Prevenção e Uso</a>
+            </div>
+          </div>
+
+          {/* Section 1: Princípio e Diagnóstico */}
+          <section id="como-funciona" className="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
+            <h2 className="text-2xl font-black text-slate-950">1. Como Funciona o Sistema de Refrigeração em Geladeiras Frost Free e Inverter</h2>
+            <p>
+              O ciclo de refrigeração termodinâmico baseia-se na compressão e expansão de fluidos refrigerantes ecológicos (como R134a e R600a). O compressor bombeia o gás sob alta pressão para o condensador traseiro, onde o calor é rejeitado para o ambiente. Em seguida, o fluido passa pelo tubo capilar e filtro secador, expandindo bruscamente no evaporador em baixa temperatura, absorvendo o calor dos alimentos.
+            </p>
+            <p>
+              Nos sistemas modernos <strong>Frost Free</strong>, um ventilador forçado insufla ar gelado através de dutos controlados por dampers termostáticos ou eletrônicos. Um ciclo de degelo automático ocorre a cada 6 a 8 horas, ativando uma resistência blindada controlada por sensores NTC e bimetálicos para que o evaporador nunca acumule camadas grossas de gelo.
+            </p>
+          </section>
+
           {/* Common Defects & Repairs */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div id="defeitos-frequentes" className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <span>⚠️ Defeitos Mais Comuns em {service.shortTitle}</span>
@@ -157,9 +184,17 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                   </li>
                 ))}
               </ul>
+              <div className="pt-2">
+                <Link
+                  to="/geladeira-nao-gela-o-que-pode-ser"
+                  className="text-xs font-bold text-cyan-700 hover:text-cyan-800 inline-flex items-center gap-1"
+                >
+                  Ver diagnóstico completo de geladeira que não gela <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+            <div id="reparos-local" className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <span>🛠️ Reparos e Peças Trocadas no Local</span>
               </h2>
@@ -171,8 +206,50 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                   </li>
                 ))}
               </ul>
+              <div className="pt-2">
+                <Link
+                  to="/precos"
+                  className="text-xs font-bold text-cyan-700 hover:text-cyan-800 inline-flex items-center gap-1"
+                >
+                  Consultar tabela de preços e garantias <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
+
+          {/* Marcas Atendidas Linkage Section */}
+          <section id="marcas-atendidas" className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
+            <h2 className="text-xl font-bold text-slate-900">4. Assistência Especializada por Fabricante</h2>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Contamos com técnicos especializados nas arquiteturas eletrônicas e mecânicas das principais marcas do mercado:
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pt-2">
+              <Link to="/assistencia-tecnica-geladeira-brastemp" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Geladeira Brastemp
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-electrolux" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Geladeira Electrolux
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-consul" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Geladeira Consul
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-samsung" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Samsung Digital Inverter
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-lg" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                LG Linear Inverter
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-panasonic" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Panasonic Econavi
+              </Link>
+              <Link to="/assistencia-tecnica-geladeira-midea" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Midea Quattro
+              </Link>
+              <Link to="/assistencia-lava-e-seca-lg" className="p-3 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-800 hover:border-cyan-500 hover:text-cyan-700 transition-colors text-center">
+                Lava e Seca LG / Samsung
+              </Link>
+            </div>
+          </section>
 
           {/* FAQ Section */}
           <FaqAccordion />

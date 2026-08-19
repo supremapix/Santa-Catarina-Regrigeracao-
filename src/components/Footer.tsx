@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle, Heart } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle, Heart, DollarSign, BookOpen } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 import { AnimatedFrostLogo } from './AnimatedFrostLogo';
 
@@ -45,20 +45,6 @@ export function SupremaCredit() {
 }
 
 export const Footer: React.FC = () => {
-  // Key regional hubs for quick links in footer
-  const mainRegions = [
-    { name: 'Balneário Piçarras (Sede Loja)', slug: 'balneario-picarras' },
-    { name: 'Penha & Beto Carrero', slug: 'penha' },
-    { name: 'Navegantes & Região', slug: 'navegantes' },
-    { name: 'Barra Velha & Itajuba', slug: 'barra-velha' },
-    { name: 'Itajaí & Praia Brava', slug: 'itajai' },
-    { name: 'Balneário Camboriú & Barra Sul', slug: 'balneario-camboriu' },
-    { name: 'Itapema & Meia Praia', slug: 'itapema' },
-    { name: 'Porto Belo & Perequê', slug: 'porto-belo' },
-    { name: 'Bombinhas & Mariscal', slug: 'bombinhas' },
-    { name: 'Brusque & Região', slug: 'brusque' },
-  ];
-
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -69,7 +55,7 @@ export const Footer: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
-        {/* Prominent High-Contrast Contact Card for Senior Accessibility */}
+        {/* Prominent High-Contrast Contact Card */}
         <div className="bg-white border-2 border-cyan-600 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             
@@ -77,17 +63,17 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase tracking-wider">
                 <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Atendimento Preferencial & Plantão 24h</span>
+                <span>Atendimento Domiciliar com Plantão 24h</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                 Precisa de Conserto Urgente de Geladeira?
               </h3>
               <p className="text-slate-600 text-base max-w-2xl font-medium">
-                Atendemos idosos e famílias com prioridade e carinho. Ligue ou mande mensagem no WhatsApp para agendar no mesmo dia com garantia de 90 dias!
+                Atendimento rápido em Penha, Navegantes, Itajaí, Balneário Camboriú e região. Orçamento transparente no local com garantia de 90 dias por escrito.
               </p>
             </div>
 
-            {/* High Impact Big Touch Buttons for Seniors */}
+            {/* High Impact Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
               <a
                 href={COMPANY_INFO.whatsappUrl}
@@ -111,117 +97,193 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 4 Main Footer Columns */}
+        {/* 4 Main Footer Columns (Block C Specification) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
           
-          {/* Col 1: Empresa & Sede */}
-          <div className="space-y-4">
-            <AnimatedFrostLogo size="lg" />
-
-            <p className="text-slate-600 text-sm leading-relaxed font-medium">
-              Assistência técnica autorizada multimarcas com atendimento domiciliar em Navegantes, Penha e região num raio de até 200 km.
-            </p>
-
-            <div className="space-y-2 text-sm pt-1">
-              <div className="flex items-center gap-2 text-slate-800 font-semibold">
-                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span>Garantia de 90 dias por escrito</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-800 font-semibold">
-                <CreditCard className="w-5 h-5 text-cyan-600 shrink-0" />
-                <span>Aceitamos Cartões, PIX e Dinheiro</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Col 2: Serviços Especializados */}
+          {/* Col 1: Serviços & Especialidades */}
           <div className="space-y-3">
             <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
-              Principais Serviços
+              Serviços & Especialidades
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/conserto-de-geladeira/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-geladeira" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Conserto de Geladeira Frost Free</span>
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-side-by-side/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-side-by-side" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Geladeiras Side by Side & French Door</span>
+                  <span>Side by Side & French Door</span>
                 </Link>
               </li>
               <li>
                 <Link to="/conserto-lava-e-seca-penha" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Conserto de Máquinas Lava e Seca</span>
+                  <span>Conserto de Lava e Seca</span>
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-freezer/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-freezer" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Freezers Verticais e Horizontais</span>
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-camara-fria/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/refrigeracao-comercial" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Câmaras Frias & Balcões Comerciais</span>
+                  <span>Refrigeração Comercial & PMOC</span>
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-frigobar/" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-camara-fria" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Conserto de Frigobares</span>
+                  <span>Câmaras Frias & Balcões</span>
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-adega" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-cervejeira-e-expositor" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Conserto de Adega Climatizada</span>
+                  <span>Cervejeiras & Expositores</span>
                 </Link>
               </li>
               <li>
-                <Link to="/mapa-do-site" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold text-cyan-800">
-                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Ver Todos os Serviços & Mapa do Site</span>
+                <Link to="/precos" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold text-cyan-800">
+                  <DollarSign className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Tabela de Preços & Prazos</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Cidades & Regiões Atendidas */}
+          {/* Col 2: Cidades & Bairros Populares */}
           <div className="space-y-3">
             <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
-              Páginas de Regiões
+              Cidades & Bairros
             </h4>
             <ul className="space-y-2 text-sm">
-              {mainRegions.map((region, idx) => (
-                <li key={idx}>
-                  <Link
-                    to={`/conserto-de-geladeira-em-${region.slug}`}
-                    className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700"
-                  >
-                    <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
-                    <span>{region.name}</span>
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-1">
-                <a href="/#cobertura" className="text-cyan-700 hover:underline font-bold text-sm inline-flex items-center gap-1">
-                  <span>Ver todas as 40+ Cidades →</span>
-                </a>
+              <li>
+                <Link to="/conserto-de-geladeira-navegantes" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Navegantes - SC</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-gravata" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Bairro Gravatá (Navegantes)</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-penha" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Penha & Beto Carrero</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-itajai" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Itajaí - SC</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-praia-brava" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Praia Brava (Itajaí)</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-balneario-camboriu" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Balneário Camboriú</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-centro-balneario-camboriu" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Centro de Balneário Camboriú</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/conserto-de-geladeira-balneario-picarras" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                  <span>Balneário Piçarras</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/regioes-atendidas" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold text-cyan-800 pt-1">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Central de Regiões Atendidas →</span>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Informações de Contato e Endereço */}
+          {/* Col 3: Marcas & Blog */}
           <div className="space-y-3">
             <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
-              Endereço e Horários
+              Marcas & Conhecimento
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-brastemp" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Brastemp</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-electrolux" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Electrolux</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-consul" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Consul</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-samsung" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Samsung</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-lg" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência LG Inverter</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-panasonic" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Panasonic</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assistencia-tecnica-geladeira-midea" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Assistência Midea</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold text-cyan-800 pt-1">
+                  <BookOpen className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Blog Técnico & Dicas →</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Empresa, Garantia & Contato */}
+          <div className="space-y-3">
+            <h4 className="text-slate-900 font-black text-base uppercase tracking-wider border-b border-slate-300 pb-2">
+              Empresa & Contato
             </h4>
             <div className="space-y-3 text-sm text-slate-700">
+              <AnimatedFrostLogo size="sm" />
               <p className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
                 <span className="font-medium text-slate-800">{COMPANY_INFO.address.full}</span>
@@ -239,13 +301,12 @@ export const Footer: React.FC = () => {
                 </a>
               </p>
               
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-300 shadow-sm space-y-1 text-xs">
+              <div className="p-3 rounded-xl bg-white border border-slate-300 shadow-xs space-y-1 text-xs">
                 <p className="font-bold text-cyan-800 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-cyan-600" /> Horário de Funcionamento:
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Garantia de 90 Dias com Nota
                 </p>
-                <p className="text-slate-700 font-medium">{COMPANY_INFO.businessHours.weekdays}</p>
-                <p className="text-slate-700 font-medium">{COMPANY_INFO.businessHours.sunday}</p>
-                <p className="text-emerald-700 font-extrabold">{COMPANY_INFO.businessHours.emergency}</p>
+                <p className="text-slate-600 font-medium">Atendimento de Segunda a Sábado das 08h às 18h</p>
+                <p className="text-emerald-700 font-extrabold">Plantão Emergencial 24h para Restaurantes e B2B</p>
               </div>
             </div>
           </div>
@@ -254,7 +315,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright and Technical Links */}
         <div className="pt-8 border-t border-slate-300 text-center md:flex md:justify-between md:items-center text-xs text-slate-500 space-y-3 md:space-y-0 font-medium">
-          <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Sede Navegantes & Penha, SC.</p>
+          <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Penha & Navegantes, SC.</p>
           <div className="flex justify-center space-x-6">
             <Link to="/mapa-do-site" className="hover:text-cyan-800 font-bold text-slate-700">Mapa do Site</Link>
             <a href="/sitemap.xml" target="_blank" className="hover:text-slate-800">Sitemap XML</a>

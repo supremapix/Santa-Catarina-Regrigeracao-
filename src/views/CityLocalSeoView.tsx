@@ -1,9 +1,9 @@
 import React from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, Navigate } from 'react-router-dom';
 import { CITIES_DATA, CityLocalSEO, getNeighborhoodBySlug, normalizeSlug } from '../data/cities';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
-import { MapPin, Clock, CheckCircle2, MessageCircle, Calendar, Phone, ChevronRight, Navigation } from 'lucide-react';
+import { MapPin, Clock, CheckCircle2, MessageCircle, Calendar, Phone, ChevronRight, Navigation, ShieldCheck, DollarSign, ArrowRight } from 'lucide-react';
 import { FaqAccordion } from '../components/FaqAccordion';
 
 interface CityLocalSeoViewProps {
@@ -19,6 +19,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
   // Strip prefixes to find target slug
   const targetSlug = rawPath
     .replace(/^\/conserto-de-geladeira-em-/, '')
+    .replace(/^\/conserto-de-geladeira-/, '')
     .replace(/^\/cidades\//, '')
     .replace(/^\/cidade\//, '')
     .replace(/^\/bairros\//, '')
@@ -42,6 +43,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
   );
 
   let matchedNeighborhood = '';
+  let matchedNeighborhoodObj = null;
 
   // 2. If NO city matched, check if slug matches a Neighborhood
   if (!matchedCity && targetSlug) {
@@ -49,6 +51,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     if (targetNbObj) {
       matchedCity = CITIES_DATA.find((c) => c.slug === targetNbObj.citySlug);
       matchedNeighborhood = targetNbObj.name;
+      matchedNeighborhoodObj = targetNbObj;
     } else {
       for (const cityItem of CITIES_DATA) {
         const foundBairro = cityItem.neighborhoods.find(
@@ -66,23 +69,23 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
   // Fallback to Penha if no city found
   const city: CityLocalSEO = matchedCity || CITIES_DATA[0];
 
-  const canonicalUrl = matchedNeighborhood
-    ? `${COMPANY_INFO.subdomainUrl}/bairros/${normalizeSlug(matchedNeighborhood)}`
-    : `${COMPANY_INFO.subdomainUrl}/conserto-de-geladeira-em-${city.slug}`;
+  const canonicalUrl = matchedNeighborhoodObj
+    ? `/conserto-de-geladeira-${matchedNeighborhoodObj.slug}`
+    : `/conserto-de-geladeira-${city.slug}`;
 
   const pageTitle = matchedNeighborhood
     ? `Conserto de Geladeira no Bairro ${matchedNeighborhood} (${city.name}/SC) | Assistência 24h`
-    : `Conserto de Geladeira em ${city.name}/SC | Assistência Técnica 24h`;
+    : `Conserto de Geladeira em ${city.name}/SC | Assistência Técnica em Domicílio`;
 
   const pageDescription = matchedNeighborhood
-    ? `Atendimento domiciliar rápido e orçamento sem compromisso no bairro ${matchedNeighborhood} em ${city.name}/SC. Conserto de geladeiras, lava e seca, freezers e câmaras frias com peças originais e garantia 90 dias.`
-    : `Assistência técnica especializada em conserto de geladeira, freezer, câmara fria e lava e seca em ${city.name}/${city.state}. Atendimento domiciliar nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}. Garantia 90 dias.`;
+    ? `Atendimento domiciliar rápido no bairro ${matchedNeighborhood} em ${city.name}/SC. Conserto de geladeiras, lava e seca, freezers e câmaras frias com peças originais e garantia de 90 dias.`
+    : (city.customSnippet || `Assistência técnica de geladeiras em ${city.name}/SC. Atendimento domiciliar nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}. Orçamento no local com garantia formal.`);
 
   const citySchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": `${COMPANY_INFO.name} - ${matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name}/${city.state}`,
-    "image": COMPANY_INFO.assets.heroEquipments,
+    "image": COMPANY_INFO.assets.socialPreview,
     "telephone": COMPANY_INFO.phone,
     "email": COMPANY_INFO.email,
     "priceRange": "$$",
@@ -92,18 +95,22 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
       "addressRegion": city.state,
       "addressCountry": "BR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": city.coordinates?.latitude || -26.7712,
+      "longitude": city.coordinates?.longitude || -48.6475
+    },
     "areaServed": {
       "@type": matchedNeighborhood ? "AdministrativeArea" : "City",
-      "name": matchedNeighborhood ? `${matchedNeighborhood}, ${city.name}` : city.name,
-      "sameAs": `https://pt.wikipedia.org/wiki/${encodeURIComponent(city.name)}`
+      "name": matchedNeighborhood ? `${matchedNeighborhood}, ${city.name}` : city.name
     },
     "description": pageDescription
   };
 
   const breadcrumbs = [
-    { name: "Início", item: COMPANY_INFO.subdomainUrl },
-    { name: "Cidades Atendidas", item: `${COMPANY_INFO.subdomainUrl}/#cobertura` },
-    { name: city.name, item: `${COMPANY_INFO.subdomainUrl}/conserto-de-geladeira-em-${city.slug}` }
+    { name: "Início", item: "/" },
+    { name: "Regiões Atendidas", item: "/regioes-atendidas" },
+    { name: city.name, item: `/conserto-de-geladeira-${city.slug}` }
   ];
 
   if (matchedNeighborhood) {
@@ -132,9 +139,9 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
           <nav className="flex flex-wrap items-center space-x-2 text-xs text-slate-500">
             <Link to="/" className="hover:text-cyan-800">Início</Link>
             <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <a href="/#cobertura" className="hover:text-cyan-800">Cidades</a>
+            <Link to="/regioes-atendidas" className="hover:text-cyan-800">Regiões Atendidas</Link>
             <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <Link to={`/conserto-de-geladeira-em-${city.slug}`} className="hover:text-cyan-800">{city.name}</Link>
+            <Link to={`/conserto-de-geladeira-${city.slug}`} className="hover:text-cyan-800">{city.name}</Link>
             {matchedNeighborhood && (
               <>
                 <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
@@ -166,7 +173,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
                   <MapPin className="w-3.5 h-3.5 text-cyan-400" /> {matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name} / {city.state}
                 </span>
                 <span className="px-3 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-1 backdrop-blur-md">
-                  <Navigation className="w-3 h-3 text-cyan-400" /> {city.distanceKm} km da sede Penha
+                  <Navigation className="w-3 h-3 text-cyan-400" /> {city.distanceKm === 0 ? 'Sede Operacional' : `${city.distanceKm} km da sede`}
                 </span>
                 <span className="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-700 text-xs font-bold flex items-center gap-1 backdrop-blur-md">
                   <Clock className="w-3 h-3 text-emerald-400" /> Chegada em ~{city.estimatedMinutes} min
@@ -179,8 +186,8 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
                   : `Conserto de Geladeira em ${city.name} — Assistência Técnica em Domicílio`}
               </h1>
 
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-                {city.customSnippet} Dispomos de equipe móvel equipada para atender chamados de urgência residencial e comercial {matchedNeighborhood ? `no bairro ${matchedNeighborhood}` : `em ${city.name}`} com peças originais e garantia formal de 90 dias por escrito.
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal max-w-4xl">
+                {city.longDescription || city.customSnippet}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -201,10 +208,35 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
                   <Calendar className="w-5 h-5 text-cyan-400" />
                   <span>Agendar Visita</span>
                 </button>
+
+                <Link
+                  to="/precos"
+                  className="px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
+                >
+                  <DollarSign className="w-5 h-5 text-cyan-400" />
+                  <span>Ver Preços</span>
+                </Link>
               </div>
             </div>
           </div>
 
+          {/* City Highlights & Local Infrastructure */}
+          {city.highlights && city.highlights.length > 0 && (
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-cyan-700" />
+                <span>Destaques da Nossa Cobertura em {city.name}</span>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {city.highlights.map((hl, idx) => (
+                  <div key={idx} className="p-3.5 bg-white rounded-xl border border-slate-200 text-xs text-slate-800 flex items-center gap-2.5 font-medium shadow-xs">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{hl}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Neighborhoods Coverage Card */}
           <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
@@ -213,7 +245,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
               <span>Bairros Atendidos em {city.name}/{city.state}</span>
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm font-medium">
-              Sua casa ou empresa fica em {city.name}? Nossos técnicos realizam visitas diárias sem complicação nos seguintes bairros:
+              Sua casa ou comércio fica em {city.name}? Nossos técnicos realizam visitas diárias sem complicação nos seguintes bairros:
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pt-2">
@@ -236,19 +268,19 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 shadow-sm">
                 <span className="text-xs font-bold text-cyan-800 uppercase">Linha Branca Domiciliar</span>
                 <h3 className="text-xl font-extrabold text-slate-900">Conserto de Geladeiras</h3>
-                <p className="text-slate-600 text-xs leading-relaxed">Troca de motor compressor, recarga de gás R134a/R600a, placas e degelo Frost Free no local em {city.name}.</p>
+                <p className="text-slate-600 text-xs leading-relaxed">Troca de motor compressor Embraco, recarga de gás ecológico R134a/R600a, sensores e degelo Frost Free no local em {city.name}.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 shadow-sm">
                 <span className="text-xs font-bold text-cyan-800 uppercase">Lavanderia Residencial</span>
                 <h3 className="text-xl font-extrabold text-slate-900">Conserto de Lava e Seca</h3>
-                <p className="text-slate-600 text-xs leading-relaxed">Assistência para LG Direct Drive, Samsung EcoBubble e Electrolux com substituição de bombas, rolamentos e travas.</p>
+                <p className="text-slate-600 text-xs leading-relaxed">Assistência para LG Direct Drive, Samsung EcoBubble e Electrolux com substituição de bombas, amortecedores e placas.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 shadow-sm">
                 <span className="text-xs font-bold text-cyan-800 uppercase">Comercial & Industrial</span>
                 <h3 className="text-xl font-extrabold text-slate-900">Câmaras Frias & Balcões</h3>
-                <p className="text-slate-600 text-xs leading-relaxed">Manutenção preventiva e corretiva de refrigeração comercial para restaurantes e comércios em {city.name}.</p>
+                <p className="text-slate-600 text-xs leading-relaxed">Manutenção preventiva e corretiva de refrigeração comercial para restaurantes, peixarias e hotéis em {city.name}.</p>
               </div>
             </div>
           </div>

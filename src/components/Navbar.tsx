@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, ChevronRight, MessageCircle, Navigation, Search, Globe, Wrench } from 'lucide-react';
+import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, ChevronRight, MessageCircle, Navigation, Search, Globe, Wrench, DollarSign, BookOpen, Building2 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 import { CITIES_DATA } from '../data/cities';
 import { AnimatedFrostLogo } from './AnimatedFrostLogo';
@@ -13,11 +13,12 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesAccordionOpen, setIsServicesAccordionOpen] = useState(true);
-  const [isCitiesAccordionOpen, setIsCitiesAccordionOpen] = useState(true);
-  const [isNeighborhoodsAccordionOpen, setIsNeighborhoodsAccordionOpen] = useState(false);
+  const [isCitiesAccordionOpen, setIsCitiesAccordionOpen] = useState(false);
+  const [isBrandsAccordionOpen, setIsBrandsAccordionOpen] = useState(false);
   const [citySearch, setCitySearch] = useState('');
   const [isDesktopCitiesOpen, setIsDesktopCitiesOpen] = useState(false);
   const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
+  const [isDesktopBrandsOpen, setIsDesktopBrandsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
   const location = useLocation();
@@ -35,10 +36,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu and restore scroll on route change
+  // Close menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsDesktopCitiesOpen(false);
+    setIsDesktopServicesOpen(false);
+    setIsDesktopBrandsOpen(false);
     document.body.style.overflow = 'unset';
   }, [location.pathname]);
 
@@ -60,28 +63,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
       if (e.key === 'Escape') {
         setIsMobileMenuOpen(false);
         setIsDesktopCitiesOpen(false);
+        setIsDesktopServicesOpen(false);
+        setIsDesktopBrandsOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Featured cities and regions for quick access
   const featuredCities = CITIES_DATA.slice(0, 16);
   const filteredCities = citySearch
     ? CITIES_DATA.filter(c => c.name.toLowerCase().includes(citySearch.toLowerCase()) || c.neighborhoods.some(n => n.toLowerCase().includes(citySearch.toLowerCase()))).slice(0, 16)
     : featuredCities;
 
-  // Key neighborhoods
-  const featuredNeighborhoods = [
-    { name: 'Gravatá (Navegantes)', slug: 'gravata' },
-    { name: 'Armação (Penha)', slug: 'armacao' },
-    { name: 'Praia Brava (Itajaí)', slug: 'praia-brava' },
-    { name: 'Meia Praia (Itapema)', slug: 'meia-praia' },
-    { name: 'Itajuba (Barra Velha)', slug: 'itajuba' },
-    { name: 'Centro (Navegantes)', slug: 'centro' },
-    { name: 'Barra Sul (Baln. Camboriú)', slug: 'balneario-camboriu' },
-    { name: 'Praia Grande (Penha)', slug: 'penha' }
+  const brandsList = [
+    { name: 'Brastemp', slug: 'brastemp' },
+    { name: 'Electrolux', slug: 'electrolux' },
+    { name: 'Consul', slug: 'consul' },
+    { name: 'Samsung', slug: 'samsung' },
+    { name: 'LG Inverter', slug: 'lg' },
+    { name: 'Panasonic', slug: 'panasonic' },
+    { name: 'Midea', slug: 'midea' },
+    { name: 'Bosch / GE', slug: 'bosch' },
   ];
 
   const isCurrentRoute = (path: string) => {
@@ -97,17 +100,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
           isScrolled ? 'py-1 shadow-slate-200/50' : 'py-2'
         }`}
       >
-        {/* Senior-Friendly Announcement Bar with High Contrast */}
+        {/* Top Info Bar */}
         <div className="bg-slate-900 text-sm py-2 px-4 border-b border-slate-800 hidden sm:block">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-slate-200">
             <div className="flex items-center space-x-6 font-semibold">
               <span className="flex items-center gap-1.5 text-cyan-300">
                 <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Navegantes & Penha • Atendimento Raio 200 km</span>
+                <span>Navegantes, Penha, Itajaí, Baln. Camboriú & Região</span>
               </span>
               <span className="flex items-center gap-1.5 text-slate-200">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Plantão 24 Horas em Domicílio</span>
+                <span>Atendimento Domiciliar de Segunda a Sábado</span>
               </span>
             </div>
             <div className="flex items-center space-x-5">
@@ -131,18 +134,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             {/* Animated Frost Logo */}
             <AnimatedFrostLogo />
 
-            {/* Desktop Nav Links (Clean & Grouped to prevent wrapping on laptop screens) */}
-            <nav className="hidden lg:flex items-center space-x-5 text-sm xl:text-base font-bold">
-              <a
-                href="/"
+            {/* Desktop Nav Links */}
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm xl:text-base font-bold">
+              <Link
+                to="/"
                 className={`transition-colors py-2 border-b-2 ${
-                  isCurrentRoute('/') && !location.hash
+                  isCurrentRoute('/') && location.pathname === '/'
                     ? 'border-cyan-600 text-cyan-700 font-black'
                     : 'border-transparent text-slate-800 hover:text-cyan-600'
                 }`}
               >
                 Início
-              </a>
+              </Link>
 
               {/* Services Group Dropdown */}
               <div className="relative">
@@ -150,7 +153,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   onClick={() => setIsDesktopServicesOpen(!isDesktopServicesOpen)}
                   onMouseEnter={() => setIsDesktopServicesOpen(true)}
                   className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
-                    isCurrentRoute('/conserto-')
+                    isCurrentRoute('/conserto-') || isCurrentRoute('/refrigeracao-comercial')
                       ? 'border-cyan-600 text-cyan-700 font-black'
                       : 'border-transparent text-slate-800 hover:text-cyan-600'
                   }`}
@@ -171,12 +174,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       className="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 mt-1 space-y-1 z-50"
                     >
                       <Link
-                        to="/conserto-de-geladeira/"
+                        to="/conserto-de-geladeira"
                         onClick={() => setIsDesktopServicesOpen(false)}
                         className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
                       >
                         <span className="w-2 h-2 rounded-full bg-cyan-500" />
-                        <span>Geladeiras e Refrigeração</span>
+                        <span>Geladeiras Frost Free</span>
+                      </Link>
+                      <Link
+                        to="/conserto-de-side-by-side"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-indigo-500" />
+                        <span>Side by Side & French Door</span>
                       </Link>
                       <Link
                         to="/conserto-lava-e-seca-penha"
@@ -187,102 +198,130 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                         <span>Lava e Seca</span>
                       </Link>
                       <Link
-                        to="/conserto-de-camara-fria/"
+                        to="/refrigeracao-comercial"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-amber-500" />
+                        <span>Refrigeração Comercial & B2B</span>
+                      </Link>
+                      <Link
+                        to="/conserto-de-camara-fria"
                         onClick={() => setIsDesktopServicesOpen(false)}
                         className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
                       >
                         <span className="w-2 h-2 rounded-full bg-blue-500" />
-                        <span>Câmaras Frias & Comerciais</span>
+                        <span>Câmaras Frias & Balcões</span>
                       </Link>
                       <Link
-                        to="/mapa-do-site"
+                        to="/conserto-de-freezer"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="block text-center py-2 bg-slate-50 hover:bg-cyan-100 rounded-xl font-bold text-cyan-800 text-xs transition-colors border border-slate-200 mt-1"
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
                       >
-                        Ver Mapa do Site Completo →
+                        <span className="w-2 h-2 rounded-full bg-purple-500" />
+                        <span>Freezers Verticais & Horizontais</span>
                       </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* Cities Dropdown */}
+              {/* Preços Link */}
+              <Link
+                to="/precos"
+                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                  isCurrentRoute('/precos')
+                    ? 'border-cyan-600 text-cyan-700 font-black'
+                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                }`}
+              >
+                <DollarSign className="w-4 h-4 text-cyan-600 shrink-0" />
+                <span>Preços</span>
+              </Link>
+
+              {/* Marcas Dropdown */}
               <div className="relative">
                 <button
-                  onClick={() => setIsDesktopCitiesOpen(!isDesktopCitiesOpen)}
-                  onMouseEnter={() => setIsDesktopCitiesOpen(true)}
-                  className="flex items-center gap-1 border-b-2 border-transparent text-slate-800 hover:text-cyan-600 transition-colors py-2"
+                  onClick={() => setIsDesktopBrandsOpen(!isDesktopBrandsOpen)}
+                  onMouseEnter={() => setIsDesktopBrandsOpen(true)}
+                  className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                    isCurrentRoute('/assistencia-tecnica-geladeira-')
+                      ? 'border-cyan-600 text-cyan-700 font-black'
+                      : 'border-transparent text-slate-800 hover:text-cyan-600'
+                  }`}
                 >
-                  <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Cidades</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopCitiesOpen ? 'rotate-180' : ''}`} />
+                  <span>Marcas</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopBrandsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
-                  {isDesktopCitiesOpen && (
+                  {isDesktopBrandsOpen && (
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.15 }}
-                      onMouseLeave={() => setIsDesktopCitiesOpen(false)}
-                      className="absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 mt-1 space-y-3 z-50"
+                      onMouseLeave={() => setIsDesktopBrandsOpen(false)}
+                      className="absolute top-full left-0 w-60 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 mt-1 space-y-1 z-50"
                     >
-                      <div className="text-xs font-bold text-cyan-800 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100 pb-2">
-                        <Globe className="w-4 h-4 text-cyan-600" />
-                        <span>Regiões Atendidas em SC</span>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2 text-xs">
-                        {featuredCities.slice(0, 10).map((c) => (
-                          <Link
-                            key={c.slug}
-                            to={`/conserto-de-geladeira-em-${c.slug}`}
-                            onClick={() => setIsDesktopCitiesOpen(false)}
-                            className="p-2 rounded-xl bg-slate-50 hover:bg-cyan-50 hover:text-cyan-800 text-slate-800 font-bold truncate flex items-center gap-1 transition-colors border border-slate-100"
-                          >
-                            <ChevronRight className="w-3 h-3 text-cyan-600 shrink-0" />
-                            <span className="truncate">{c.name}</span>
-                          </Link>
-                        ))}
-                      </div>
-
-                      <a
-                        href="/#cobertura"
-                        onClick={() => setIsDesktopCitiesOpen(false)}
-                        className="block text-center py-2 bg-slate-100 rounded-xl font-bold text-cyan-800 hover:bg-cyan-100 text-xs transition-colors border border-slate-200"
-                      >
-                        Ver todas as 40+ Cidades →
-                      </a>
+                      {brandsList.map((brand) => (
+                        <Link
+                          key={brand.slug}
+                          to={`/assistencia-tecnica-geladeira-${brand.slug}`}
+                          onClick={() => setIsDesktopBrandsOpen(false)}
+                          className="flex items-center gap-2 p-2 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        >
+                          <ChevronRight className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                          <span>Assistência {brand.name}</span>
+                        </Link>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              <a
-                href="/#faq"
-                className="border-b-2 border-transparent text-slate-800 hover:text-cyan-600 transition-colors py-2"
+              {/* Regiões Hub Link */}
+              <Link
+                to="/regioes-atendidas"
+                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                  isCurrentRoute('/regioes-atendidas')
+                    ? 'border-cyan-600 text-cyan-700 font-black'
+                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                }`}
               >
-                Dúvidas
-              </a>
+                <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
+                <span>Regiões</span>
+              </Link>
+
+              {/* Blog Link */}
+              <Link
+                to="/blog"
+                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                  isCurrentRoute('/blog')
+                    ? 'border-cyan-600 text-cyan-700 font-black'
+                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                }`}
+              >
+                <BookOpen className="w-4 h-4 text-cyan-600 shrink-0" />
+                <span>Blog</span>
+              </Link>
             </nav>
 
             {/* Desktop Quick Contact Actions */}
             <div className="hidden sm:flex items-center space-x-2.5">
-              <a
-                href={`tel:${COMPANY_INFO.phoneClean}`}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md transition-transform active:scale-95 min-h-[44px]"
-                aria-label="Ligar para assistência técnica"
+              <button
+                onClick={() => onOpenBookingModal()}
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 shadow-sm transition-transform active:scale-95 min-h-[44px]"
               >
-                <Phone className="w-4 h-4 shrink-0" />
-                <span>Ligar</span>
-              </a>
+                <Calendar className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>Agendar Visita</span>
+              </button>
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md shadow-emerald-600/20 transition-transform active:scale-95 min-h-[44px]"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-transform active:scale-95 min-h-[44px]"
                 aria-label="Conversar pelo WhatsApp"
               >
                 <MessageCircle className="w-4.5 h-4.5 shrink-0" />
@@ -340,21 +379,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               
               {/* Drawer Header */}
               <div className="p-4 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/98 backdrop-blur-md z-10 shadow-sm">
-                <div className="flex items-center space-x-3">
-                  <img
-                    src={COMPANY_INFO.assets.logo}
-                    alt="Santa Catarina Refrigeração"
-                    className="h-10 w-auto object-contain"
-                  />
-                  <div>
-                    <span className="font-black text-sm text-slate-900 uppercase tracking-tight block">
-                      SANTA CATARINA
-                    </span>
-                    <span className="text-[10px] font-bold text-cyan-600 uppercase tracking-widest block">
-                      REFRIGERAÇÃO
-                    </span>
-                  </div>
-                </div>
+                <AnimatedFrostLogo size="sm" />
 
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -366,7 +391,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 </button>
               </div>
 
-              {/* Senior-Friendly Quick Action Buttons inside Menu Top */}
+              {/* Quick Action Buttons inside Menu Top */}
               <div className="p-4 bg-slate-50 border-b border-slate-200 grid grid-cols-2 gap-2.5">
                 <a
                   href={COMPANY_INFO.whatsappUrl}
@@ -390,209 +415,189 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </div>
 
               {/* Drawer Body Nav Links */}
-              <div className="p-4 space-y-4 text-base flex-1">
+              <div className="p-4 space-y-3 text-base flex-1">
                 
-                {/* Quick Main Links */}
-                <div className="space-y-1.5">
-                  <a
-                    href="/"
+                {/* Main Links */}
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center justify-between p-3.5 rounded-2xl font-bold transition-colors ${
-                      isCurrentRoute('/') && !location.hash
-                        ? 'bg-cyan-50 text-cyan-800 border border-cyan-200'
-                        : 'text-slate-800 hover:bg-slate-100 hover:text-cyan-700'
-                    }`}
+                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center"
                   >
-                    <span>Início (Página Principal)</span>
-                    <ChevronRight className="w-5 h-5 text-cyan-600" />
-                  </a>
+                    Início
+                  </Link>
+
+                  <Link
+                    to="/precos"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                  >
+                    <DollarSign className="w-4 h-4 text-cyan-600" />
+                    <span>Preços</span>
+                  </Link>
+
+                  <Link
+                    to="/regioes-atendidas"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                  >
+                    <MapPin className="w-4 h-4 text-cyan-600" />
+                    <span>Regiões</span>
+                  </Link>
+
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                  >
+                    <BookOpen className="w-4 h-4 text-cyan-600" />
+                    <span>Blog Técnico</span>
+                  </Link>
                 </div>
 
-                {/* Accordion 1: Cidades e Regiões Atendidas (PÁGINAS DE REGIÕES) */}
+                {/* Accordion 1: Nossos Serviços */}
                 <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
                   <button
-                    onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-black text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
-                  >
-                    <span className="flex items-center gap-2 text-cyan-700">
-                      <MapPin className="w-5 h-5 text-cyan-600 shrink-0" />
-                      <span>Páginas de Cidades & Regiões</span>
-                    </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  {isCitiesAccordionOpen && (
-                    <div className="p-3 space-y-2 bg-white border-t border-slate-200 text-sm">
-                      <p className="text-xs text-slate-600 font-medium px-1">
-                        Clique em qualquer cidade abaixo para ver detalhes de atendimento e orçamento rápido:
-                      </p>
-
-                      {/* Filter City */}
-                      <div className="relative my-2">
-                        <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          placeholder="Buscar cidade (ex: Penha, Itajaí)..."
-                          value={citySearch}
-                          onChange={(e) => setCitySearch(e.target.value)}
-                          className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-cyan-600 min-h-[44px]"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
-                        {filteredCities.map((c) => (
-                          <Link
-                            key={c.slug}
-                            to={`/conserto-de-geladeira-em-${c.slug}`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2.5 rounded-xl bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold truncate flex items-center gap-1.5 text-xs transition-colors border border-slate-200 min-h-[40px]"
-                          >
-                            <ChevronRight className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
-                            <span className="truncate">{c.name}</span>
-                          </Link>
-                        ))}
-                      </div>
-
-                      <a
-                        href="/#cobertura"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-center py-2.5 font-extrabold text-cyan-700 hover:underline text-xs pt-2 border-t border-slate-200"
-                      >
-                        Ver todas as 40+ Cidades Atendidas →
-                      </a>
-                    </div>
-                  )}
-                </div>
-
-                {/* Accordion 2: Nossos Serviços */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
-                  <button
                     onClick={() => setIsServicesAccordionOpen(!isServicesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
                   >
                     <span className="flex items-center gap-2 text-cyan-700">
-                      <Navigation className="w-5 h-5 text-cyan-600 shrink-0" />
-                      <span>Nossos Serviços</span>
+                      <Wrench className="w-4 h-4 text-cyan-600 shrink-0" />
+                      <span>Serviços Especializados</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isServicesAccordionOpen && (
-                    <div className="p-2 space-y-1.5 bg-white border-t border-slate-200 text-sm">
+                    <div className="p-2 space-y-1 bg-white border-t border-slate-200 text-sm">
                       <Link
-                        to="/conserto-de-geladeira/"
+                        to="/conserto-de-geladeira"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
                       >
                         Conserto de Geladeiras & Frost Free
                       </Link>
                       <Link
-                        to="/conserto-de-side-by-side/"
+                        to="/conserto-de-side-by-side"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
                       >
-                        Geladeiras Side by Side & French Door
+                        Side by Side & French Door
                       </Link>
                       <Link
                         to="/conserto-lava-e-seca-penha"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
                       >
                         Conserto de Lava e Seca
                       </Link>
                       <Link
-                        to="/conserto-de-freezer/"
+                        to="/refrigeracao-comercial"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                      >
+                        Refrigeração Comercial & B2B
+                      </Link>
+                      <Link
+                        to="/conserto-de-camara-fria"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                      >
+                        Câmaras Frias & Balcões
+                      </Link>
+                      <Link
+                        to="/conserto-de-freezer"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
                       >
                         Freezers Verticais e Horizontais
                       </Link>
-                      <Link
-                        to="/conserto-de-camara-fria/"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
-                      >
-                        Câmaras Frias & Balcões Comerciais
-                      </Link>
-                      <Link
-                        to="/conserto-de-frigobar/"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold"
-                      >
-                        Conserto de Frigobares & Adegas
-                      </Link>
                     </div>
                   )}
                 </div>
 
-                {/* Accordion 3: Bairros em Destaque */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+                {/* Accordion 2: Marcas */}
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
                   <button
-                    onClick={() => setIsNeighborhoodsAccordionOpen(!isNeighborhoodsAccordionOpen)}
-                    className="w-full flex items-center justify-between p-4 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                    onClick={() => setIsBrandsAccordionOpen(!isBrandsAccordionOpen)}
+                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
                   >
                     <span className="flex items-center gap-2 text-cyan-700">
-                      <MapPin className="w-5 h-5 text-cyan-600 shrink-0" />
-                      <span>Bairros em Destaque</span>
+                      <ShieldCheck className="w-4 h-4 text-cyan-600 shrink-0" />
+                      <span>Marcas Atendidas</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-cyan-600 ${isNeighborhoodsAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isBrandsAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
-                  {isNeighborhoodsAccordionOpen && (
-                    <div className="p-3 space-y-1.5 bg-white border-t border-slate-200 text-sm">
-                      <div className="grid grid-cols-1 gap-1">
-                        {featuredNeighborhoods.map((b, idx) => (
+                  {isBrandsAccordionOpen && (
+                    <div className="p-2 grid grid-cols-2 gap-1.5 bg-white border-t border-slate-200 text-xs">
+                      {brandsList.map((brand) => (
+                        <Link
+                          key={brand.slug}
+                          to={`/assistencia-tecnica-geladeira-${brand.slug}`}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="p-2 rounded-lg bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold"
+                        >
+                          {brand.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Accordion 3: Cidades */}
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
+                  <button
+                    onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
+                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                  >
+                    <span className="flex items-center gap-2 text-cyan-700">
+                      <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
+                      <span>Cidades Principais</span>
+                    </span>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {isCitiesAccordionOpen && (
+                    <div className="p-2 space-y-2 bg-white border-t border-slate-200 text-sm">
+                      <div className="grid grid-cols-2 gap-1.5 max-h-48 overflow-y-auto pr-1">
+                        {featuredCities.slice(0, 10).map((c) => (
                           <Link
-                            key={idx}
-                            to={`/bairros/${b.slug}`}
+                            key={c.slug}
+                            to={`/conserto-de-geladeira-${c.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold flex items-center gap-2"
+                            className="p-2 rounded-lg bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold truncate text-xs"
                           >
-                            <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                            <span>{b.name}</span>
+                            {c.name}
                           </Link>
                         ))}
                       </div>
+
+                      <Link
+                        to="/regioes-atendidas"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block text-center py-2 font-bold text-cyan-700 hover:underline text-xs"
+                      >
+                        Ver todas as regiões atendidas →
+                      </Link>
                     </div>
                   )}
-                </div>
-
-                {/* Other Section Links */}
-                <div className="space-y-1 pt-2">
-                  <a
-                    href="/#depoimentos"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block p-3.5 rounded-2xl text-slate-800 font-bold hover:bg-slate-100 hover:text-cyan-700"
-                  >
-                    Depoimentos de Clientes
-                  </a>
-                  <a
-                    href="/#faq"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block p-3.5 rounded-2xl text-slate-800 font-bold hover:bg-slate-100 hover:text-cyan-700"
-                  >
-                    Perguntas Frequentes (FAQ)
-                  </a>
                 </div>
 
               </div>
 
-              {/* Drawer Footer Actions (Senior CTAs) */}
+              {/* Drawer Footer Actions */}
               <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     onOpenBookingModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm border border-slate-800 shadow-md min-h-[52px]"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm border border-slate-800 shadow-md min-h-[50px]"
                 >
                   <Calendar className="w-5 h-5 text-cyan-400" />
-                  <span>Agendar Visita Técnica Online</span>
+                  <span>Agendar Visita Técnica</span>
                 </button>
-
-                <p className="text-xs text-slate-600 text-center font-medium pt-1">
-                  Atendimento domiciliar rápido com garantia de 90 dias por escrito.
-                </p>
               </div>
 
             </motion.div>

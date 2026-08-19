@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { SEARCH_INTENTS } from '../data/searchIntents';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
-import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone, AlertTriangle, Zap, Clock, Wrench, ExternalLink } from 'lucide-react';
+import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone, AlertTriangle, Zap, Clock, Wrench, ListChecks, DollarSign, ArrowRight } from 'lucide-react';
 import { FaqAccordion } from '../components/FaqAccordion';
 
 interface SearchIntentViewProps {
@@ -25,6 +25,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "name": intent.title,
     "serviceType": intent.title,
     "provider": {
       "@type": "LocalBusiness",
@@ -33,7 +34,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
       "email": COMPANY_INFO.email,
       "address": COMPANY_INFO.address.full
     },
-    "areaServed": "Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e região (raio de 200 km)",
+    "areaServed": "Penha, Balneário Piçarras, Itajaí, Balneário Camboriú, Navegantes e Litoral de SC",
     "description": intent.metaDescription,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -51,7 +52,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
   const breadcrumbItems = [
     { name: "Início", item: COMPANY_INFO.subdomainUrl },
     { name: "Dores Frequentes", item: `${COMPANY_INFO.subdomainUrl}/#solucoes-buscas` },
-    { name: intent.title, item: `${COMPANY_INFO.subdomainUrl}/problemas/${intent.slug}` }
+    { name: intent.title, item: `${COMPANY_INFO.subdomainUrl}/${intent.slug}` }
   ];
 
   return (
@@ -59,7 +60,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
       <EnhancedSEO
         title={intent.metaTitle}
         description={intent.metaDescription}
-        canonicalUrl={`${COMPANY_INFO.subdomainUrl}/problemas/${intent.slug}`}
+        canonicalUrl={`${COMPANY_INFO.subdomainUrl}/${intent.slug}`}
         ogImage={COMPANY_INFO.assets.socialPreview}
         schemas={[serviceSchema]}
         breadcrumbs={breadcrumbItems}
@@ -72,7 +73,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
           <nav className="flex items-center space-x-2 text-xs text-slate-400">
             <Link to="/" className="hover:text-cyan-400 transition-colors">Início</Link>
             <ChevronRight className="w-3 h-3 text-slate-600" />
-            <a href="/#solucoes-buscas" className="hover:text-cyan-400 transition-colors">Dores Frequentes</a>
+            <a href="/#solucoes-buscas" className="hover:text-cyan-400 transition-colors">Problemas Comuns</a>
             <ChevronRight className="w-3 h-3 text-slate-600" />
             <span className="text-cyan-300 font-bold truncate max-w-xs">{intent.title}</span>
           </nav>
@@ -92,7 +93,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
                   {intent.badge}
                 </span>
                 <span className="text-xs text-slate-400 font-mono italic">
-                  Query: {intent.intentQuery}
+                  Busca frequente: {intent.intentQuery}
                 </span>
               </div>
 
@@ -146,13 +147,13 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
                   <span>Agendar Visita Técnica</span>
                 </button>
 
-                <a
-                  href={`tel:${COMPANY_INFO.phoneClean}`}
+                <Link
+                  to="/precos"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-extrabold text-sm transition-all"
                 >
-                  <Phone className="w-4 h-4 text-emerald-400" />
-                  <span>Ligar: {COMPANY_INFO.phone}</span>
-                </a>
+                  <DollarSign className="w-4 h-4 text-cyan-400" />
+                  <span>Ver Tabela de Preços</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -161,10 +162,67 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Column: Symptoms & Repair Process */}
             <div className="lg:col-span-8 space-y-8">
+              
+              {/* Urgency Warning Banner */}
+              {intent.urgencyWarning && (
+                <div className="bg-amber-950/60 border border-amber-500/50 p-5 rounded-3xl flex items-start gap-3 text-amber-200 text-xs sm:text-sm">
+                  <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-amber-300 block mb-1 font-bold uppercase tracking-wider">Aviso de Segurança Técnica:</strong>
+                    <span>{intent.urgencyWarning}</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Causes Hierarchy */}
+              {intent.causesList && intent.causesList.length > 0 && (
+                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
+                    <Zap className="w-6 h-6 text-cyan-400" />
+                    Causas Principais em Ordem de Probabilidade
+                  </h2>
+                  <div className="space-y-3">
+                    {intent.causesList.map((c, idx) => (
+                      <div key={idx} className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-sm font-bold text-cyan-300">{idx + 1}. {c.title}</h3>
+                          <span className="text-[10px] font-bold px-2 py-0.5 bg-cyan-950 text-cyan-400 rounded border border-cyan-800">
+                            {c.level}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-300 leading-relaxed">{c.desc}</p>
+                        {c.priceRange && (
+                          <span className="inline-block text-[11px] text-emerald-400 font-semibold pt-1">Faixa estimada: {c.priceRange}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Before Calling Checklist */}
+              {intent.beforeCallingChecklist && intent.beforeCallingChecklist.length > 0 && (
+                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
+                    <ListChecks className="w-6 h-6 text-emerald-400" />
+                    O Que Você Pode Testar Antes de Chamar o Técnico
+                  </h2>
+                  <ul className="space-y-2.5">
+                    {intent.beforeCallingChecklist.map((chk, idx) => (
+                      <li key={idx} className="flex items-start gap-3 p-3 rounded-2xl bg-slate-950/80 border border-slate-800 text-xs sm:text-sm text-slate-200">
+                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{chk}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Symptoms List */}
               <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
                   <AlertTriangle className="w-6 h-6 text-amber-400" />
-                  Sintomas Principais
+                  Sinais e Sintomas Observados
                 </h2>
                 <div className="grid grid-cols-1 gap-3">
                   {intent.symptoms.map((symptom, idx) => (
@@ -176,6 +234,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
                 </div>
               </div>
 
+              {/* Steps to Solve */}
               <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
                   <Wrench className="w-6 h-6 text-emerald-400" />

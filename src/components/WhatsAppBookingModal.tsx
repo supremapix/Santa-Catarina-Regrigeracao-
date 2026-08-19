@@ -259,7 +259,7 @@ export const WhatsAppBookingModal: React.FC<WhatsAppBookingModalProps> = ({
                   <input
                     type="tel"
                     required
-                    placeholder="(47) 99999-9999"
+                    placeholder="(47) 9____-____"
                     value={clientPhone}
                     onChange={(e) => setClientPhone(e.target.value)}
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-900 focus:outline-none focus:border-cyan-600 min-h-[48px]"
