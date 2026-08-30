@@ -75,13 +75,13 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Machados", "Volta Grande", "Pedreiras", "Escalvados", "Porto Escalvado"
     ],
     popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave", "Ferry Boat", "Molhe Norte"],
-    customSnippet: "Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados em Navegantes. Conserto em domicílio com garantia de 90 dias e peças originais.",
-    longDescription: "Navegantes é um dos polos de maior volume de atendimento de nossa empresa. Com presença constante nas avenidas de Gravatá e Meia Praia, atendemos tanto moradores locais quanto proprietários de imóveis na orla e empresas do complexo portuário Portonave. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, máquinas Lava e Seca e câmaras frias comerciais com rapidez e diagnóstico transparente na hora.",
+    customSnippet: "Loja física da Santa Catarina Refrigeração no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191 – Sala 08). Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados com garantia de 90 dias.",
+    longDescription: "Sede de nossa loja física no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191 – Sala 08, CEP 88370-232). Navegantes é um dos principais polos de nossa operação em Santa Catarina. Com atendimento presencial em nossa loja e frota móvel nas avenidas de Gravatá e Meia Praia, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e empresas do complexo portuário Portonave. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, máquinas Lava and Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
     highlights: [
-      "Atendimento prioritário na orla de Gravatá e Meia Praia",
-      "Equipe técnica equipada para reparos no mesmo dia em Navegantes",
-      "Especialistas em refrigeração marítima, comercial e residencial",
-      "Facilidade de pagamento em até 12x no cartão e PIX à vista"
+      "Loja Física em Navegantes: Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro",
+      "Atendimento prioritário na orla de Gravatá, Meia Praia e Centro de Navegantes",
+      "Equipe técnica equipada para reparos no mesmo dia em Navegantes e região",
+      "Especialistas em refrigeração marítima, comercial e residencial com garantia de 90 dias"
     ]
   },
   {

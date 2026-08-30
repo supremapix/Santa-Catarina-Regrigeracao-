@@ -351,7 +351,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-center text-xs text-slate-300 flex flex-wrap items-center justify-center gap-2">
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>
-            Sede física em <strong>Balneário Piçarras (Rua Ilhota, 1307)</strong> com atendimento móvel urgente em Penha, Navegantes, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Barra Velha, Brusque e região.
+            <strong>Endereço da loja:</strong> Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro, Navegantes – SC, CEP 88370-232 com atendimento móvel urgente em Penha, Balneário Piçarras, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Barra Velha, Brusque e região.
           </span>
         </div>
 

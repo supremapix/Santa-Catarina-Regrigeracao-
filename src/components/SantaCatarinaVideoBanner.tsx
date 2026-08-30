@@ -6,8 +6,8 @@ import { COMPANY_INFO } from '../data/company';
 export const SantaCatarinaVideoBanner: React.FC = () => {
   const citiesList = [
     { name: 'Penha', slug: 'penha', badge: 'Base Sede' },
-    { name: 'Balneário Piçarras', slug: 'balneario-picarras', badge: 'Loja Física' },
-    { name: 'Navegantes', slug: 'navegantes', badge: 'Plantão Aeroporto' },
+    { name: 'Navegantes', slug: 'navegantes', badge: 'Loja Física' },
+    { name: 'Balneário Piçarras', slug: 'balneario-picarras', badge: 'Litoral Norte' },
     { name: 'Barra Velha', slug: 'barra-velha', badge: 'Atendimento Rápido' },
     { name: 'Itajaí', slug: 'itajai', badge: 'Porto & Centro' },
     { name: 'Balneário Camboriú', slug: 'balneario-camboriu', badge: 'Edifícios Orla' },

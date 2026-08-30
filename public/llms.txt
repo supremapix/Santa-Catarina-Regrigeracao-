@@ -6,14 +6,14 @@
 - **Nome Fantasia:** Santa Catarina Refrigeração
 - **Razão Social:** Santa Catarina Refrigeração Assistência Técnica Ltda.
 - **Atividade Principal:** Assistência técnica em refrigeração residencial, comercial e lavanderia
-- **Sede:** Rua Ilhota, 1307 – Balneário Piçarras – SC, CEP 88395-000
-- **Coordenadas de Sede:** Latitude -26.7645, Longitude -48.6738
+- **Endereço da Loja Física:** Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro, Navegantes – SC, CEP 88370-232
+- **Coordenadas da Loja:** Latitude -26.8986, Longitude -48.6543
 - **Telefone e WhatsApp:** (47) 99224-5172 / 47 99224-5172
 - **Link Direto WhatsApp:** https://wa.me/5547992245172
 - **E-mails de Contato:** contato@santacatarina.com.br | sagazorcamento@gmail.com
 - **Horário de Atendimento:** Segunda a Sábado das 07:00 às 20:00 | Domingo das 07:00 às 12:00 | Atendimento Emergencial 24 Horas
 - **Garantia:** 90 dias em todos os serviços executados com peças originais e nota formal
-- **Área de Cobertura:** Sede em Balneário Piçarras/SC e atendimento móvel domiciliar
+- **Área de Cobertura:** Loja física em Navegantes/SC e atendimento móvel domiciliar em Penha, Piçarras, Itajaí, BC e região
 - **Formas de Pagamento Aceitas:** Cartão de Crédito, Cartão de Débito, PIX, Dinheiro e Transferência Bancária
 
 ## SERVIÇOS PRESTADOS

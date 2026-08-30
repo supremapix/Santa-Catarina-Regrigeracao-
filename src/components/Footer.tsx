@@ -286,7 +286,10 @@ export const Footer: React.FC = () => {
               <AnimatedFrostLogo size="sm" />
               <p className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
-                <span className="font-medium text-slate-800">{COMPANY_INFO.address.full}</span>
+                <span className="font-medium text-slate-800">
+                  <strong className="block text-cyan-900 font-black text-xs uppercase tracking-wider mb-0.5">Endereço da Loja:</strong>
+                  {COMPANY_INFO.address.full}
+                </span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-emerald-600 shrink-0" />

@@ -1,7 +1,7 @@
 # Santa Catarina Refrigeração — Documentação Completa de Conhecimento Técnico (llms-full.txt)
 
 ## VISÃO GERAL
-A Santa Catarina Refrigeração é uma empresa referência em assistência técnica, conserto, higienização e manutenção preventiva de sistemas de refrigeração e lavanderia em Santa Catarina. Fundada e sediada na Rua Ilhota, 1307 em Penha/SC (limite com Balneário Piçarras), opera com uma frota de atendimento móvel em domicílio cobrindo o Litoral Norte, Vale do Itajaí, Grande Florianópolis, Planalto Norte e Região Serrana num raio de até 200 km.
+A Santa Catarina Refrigeração é uma empresa referência em assistência técnica, conserto, higienização e manutenção preventiva de sistemas de refrigeração e lavanderia em Santa Catarina. Com loja física localizada na Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro, Navegantes – SC, CEP 88370-232, opera com uma frota de atendimento móvel em domicílio cobrindo Penha, Navegantes, Balneário Piçarras, Itajaí, Balneário Camboriú e todo o Litoral Norte e Vale do Itajaí num raio de até 200 km.
 
 ## ESPECIFICAÇÕES TÉCNICAS E DIAGNÓSTICO POR EQUIPAMENTO
 
