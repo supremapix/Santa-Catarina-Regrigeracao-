@@ -563,14 +563,15 @@ export const CITIES_DATA: CityLocalSEO[] = [
       latitude: -26.4114,
       longitude: -49.0736
     },
-    neighborhoods: ["Centro", "Schroeder I", "Schroeder II", "Braço do Sul"],
-    popularLandmarks: ["Morro do Pelado", "Ponte Pênsil de Schroeder"],
-    customSnippet: "Manutenção de eletrodomésticos e equipamentos de refrigeração em Schroeder.",
-    longDescription: "Atendimento domiciliar para Schroeder com técnicos capacitados para resolver falhas em refrigeradores, freezers e máquinas lava e seca.",
+    neighborhoods: ["Centro", "Schroeder I", "Schroeder II", "Braço do Sul", "Tomaselli", "Santo Antônio"],
+    popularLandmarks: ["Morro do Pelado", "Ponte Pênsil de Schroeder", "Prefeitura de Schroeder"],
+    customSnippet: "Conserto de geladeiras, refrigeradores, freezers e lava e seca em Schroeder - SC. Atendimento rápido em domicílio com garantia de 90 dias e peças originais.",
+    longDescription: "Atendimento técnico em domicílio para a cidade de Schroeder. Nossos técnicos realizam diagnósticos e consertos rápidos de geladeiras Frost Free, refrigeradores Inverse, freezers verticais/horizontais e máquinas Lava e Seca. Atendemos com agilidade no Centro, Schroeder I, Schroeder II e bairros próximos com peças genuínas e garantia por escrito.",
     highlights: [
-      "Visitas técnicas pontuais",
-      "Garantia de 90 dias",
-      "Peças de reposição de fábrica"
+      "Conserto de geladeira em Schroeder com atendimento no mesmo dia",
+      "Especialistas em Frost Free, refrigeradores Inverter e Lava e Seca",
+      "Peças originais de fábrica para Brastemp, Electrolux, Consul, Samsung e LG",
+      "Garantia formal de 90 dias por escrito e pagamento facilitado"
     ]
   },
   {
@@ -718,6 +719,69 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Atendimento programado para residências e empresas",
       "Garantia de 90 dias por escrito",
       "Equipe qualificada"
+    ]
+  },
+  {
+    slug: "joinville",
+    name: "Joinville",
+    state: "SC",
+    ring: 2,
+    distanceKm: 80,
+    estimatedMinutes: 65,
+    coordinates: {
+      latitude: -26.3045,
+      longitude: -48.8487
+    },
+    neighborhoods: ["Centro", "America", "Aventureiro", "Costa e Silva", "Glória", "Pirabeiraba", "Santo Antônio", "Vila Nova"],
+    popularLandmarks: ["Mirante do Tópico", "Expoville", "Catarina Plaza", "Rua das Palmeiras", "Centreventos Cau Hansen"],
+    customSnippet: "Assistência técnica especializada em refrigeração em Joinville. Conserto de geladeiras, lava e seca, freezers e refrigeração comercial com garantia de 90 dias.",
+    longDescription: "A maior cidade de Santa Catarina conta com a excelência técnica da Santa Catarina Refrigeração. Atendemos Joinville em todos os bairros (Centro, América, Costa e Silva, Aventureiro, Pirabeiraba e região) com visitas agendadas para conserto de geladeiras Inverter e Frost Free, máquinas Lava e Seca, balcões expositores e adegas climatizadas.",
+    highlights: [
+      "Atendimento em domicílio em Joinville com hora marcada",
+      "Loja parceira e suporte para peças originais Brastemp, Electrolux, Consul, Samsung e LG",
+      "Atendimento a residências, condomínios e comércios com garantia de 90 dias"
+    ]
+  },
+  {
+    slug: "corupa",
+    name: "Corupá",
+    state: "SC",
+    ring: 2,
+    distanceKm: 98,
+    estimatedMinutes: 80,
+    coordinates: {
+      latitude: -26.4278,
+      longitude: -49.2439
+    },
+    neighborhoods: ["Centro", "Seminário", "Ano Bom", "Nuporanga", "Rio Novo", "João Tozini"],
+    popularLandmarks: ["Rota das Cachoeiras", "Seminário Sagrado Coração de Jesus", "Capital Catarinense da Banana"],
+    customSnippet: "Assistência técnica de geladeiras, freezers e lava e seca em Corupá - SC. Atendimento domiciliar com peças originais e garantia de 90 dias.",
+    longDescription: "Atendimento técnico em domicílio para os moradores, pousadas do turismo ecológico e estabelecimentos de Corupá. Realizamos manutenção de geladeiras Frost Free, freezers agrícolas e residenciais, cervejeiras e máquinas Lava e Seca com rapidez e transparência.",
+    highlights: [
+      "Atendimento domiciliar agendado em Corupá e região",
+      "Peças de reposição originais de fábrica com garantia de 90 dias",
+      "Orçamento transparente no local"
+    ]
+  },
+  {
+    slug: "ararangua",
+    name: "Araranguá",
+    state: "SC",
+    ring: 3,
+    distanceKm: 210,
+    estimatedMinutes: 130,
+    coordinates: {
+      latitude: -28.9356,
+      longitude: -49.4925
+    },
+    neighborhoods: ["Centro", "Cidade Alta", "Coloninha", "Urussanguinha", "Morro dos Conventos", "Alto Feliz"],
+    popularLandmarks: ["Morro dos Conventos", "Balneário Ilhas", "UFSC Araranguá", "Calçadão do Centro"],
+    customSnippet: "Atendimento especializado em refrigeração residencial, comercial e lava e seca em Araranguá e Morro dos Conventos com garantia de 90 dias.",
+    longDescription: "Suporte técnico programado e especializado em refrigeração para Araranguá e o litoral de Morro dos Conventos, atendendo comércios, restaurantes, residências e equipamentos Inverter com garantia formal de 90 dias.",
+    highlights: [
+      "Atendimento programado para Araranguá e região",
+      "Especialistas em câmaras frias, cervejeiras e refrigeradores Inverse",
+      "Garantia formal de 90 dias por escrito"
     ]
   }
 ];

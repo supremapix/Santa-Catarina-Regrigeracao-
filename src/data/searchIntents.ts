@@ -184,17 +184,17 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
     category: 'geladeiras',
     badge: 'Vedação & Drenagem',
     badgeColor: 'bg-blue-500/20 text-blue-700 border-blue-500/40',
-    title: 'Vazamento de água sob a geladeira ou troca de borracha',
-    metaTitle: 'Vazamento de Água e Troca de Borracha de Geladeira: causas e conserto | SC Refrigeração',
-    metaDescription: 'Geladeira vazando água no chão ou dentro da gaveta? Borracha ressecada ou dreno entupido? Conserto rápido em domicílio com garantia de 90 dias.',
-    h1: 'Vazamento de Água e Troca de Borracha da Geladeira',
-    intentQuery: 'geladeira vazando agua no chao troca borracha',
-    pain: 'Chão da cozinha molhado estufando móveis planejados, poça de água dentro da geladeira e borracha soltando ar frio.',
-    rootCause: 'Borracha (gaxeta) ressecada que permite entrada de ar úmido gerando condensação excessiva, ou dreno de degelo obstruído.',
+    title: 'Vazamento de água pela borracha da geladeira e alto consumo de luz',
+    metaTitle: 'Vazamento de Água pela Borracha da Geladeira & Consumo de Luz | SC Refrigeração',
+    metaDescription: 'Refrigerador com vazamento de água pela borracha de vedação e aumento no consumo de luz? Borracha ressecada ou dreno entupido? Conserto rápido com garantia 90 dias.',
+    h1: 'Vazamento de Água pela Borracha da Geladeira e Aumento no Consumo de Luz',
+    intentQuery: 'refrigerador com vazamento de agua pela borracha consumo de luz',
+    pain: 'Água escorrendo no chão e pelas gavetas, borracha ressecada permitindo entrada de ar úmido e conta de luz subindo porque o motor não desliga.',
+    rootCause: 'Gaxeta (borracha da porta) ressecada com vazamento de ar frio, gerando condensação constante de água e forçando o compressor a trabalhar 24h sem parar, elevando o consumo de eletricidade.',
     causesList: [
       { level: 'Mais simples', title: 'Bandeja de evaporação sobre o compressor trincada ou fora de posição', desc: 'A água do degelo pinga direto no chão em vez de evaporar com o calor do motor.', priceRange: 'R$ 120 - R$ 180' },
       { level: 'Causa frequente', title: 'Canal do dreno de degelo entupido com sujeira/lodo', desc: 'A água transborda para dentro do refrigerador por baixo das gavetas de legumes.', priceRange: 'R$ 140 - R$ 220' },
-      { level: 'Intermediária', title: 'Gaxeta de vedação da porta ressecada ou rasgada', desc: 'O ar quente de fora entra sem parar, provocando suor e escorrimento contínuo de água.', priceRange: 'R$ 150 - R$ 260' },
+      { level: 'Intermediária', title: 'Gaxeta de vedação da porta (borracha) ressecada ou racha no ímã', desc: 'O ar quente de fora entra sem parar, provocando suor e escorrimento contínuo de água, aumentando a conta de luz.', priceRange: 'R$ 150 - R$ 260' },
       { level: 'Mais complexa', title: 'Mangueira interna de abastecimento de água furada (Side by Side)', desc: 'Vazamento contínuo da linha de água do dispenser e fábrica de gelo.', priceRange: 'R$ 220 - R$ 380' }
     ],
     beforeCallingChecklist: [
@@ -202,31 +202,32 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
       'Verifique se os drenos internos não estão tampados por restos de alimentos ou folhas de verduras.',
       'Faça o teste da folha de papel na borracha da porta: feche a porta com a folha e tente puxar; se sair sem resistência, a borracha precisa de ajuste ou troca.'
     ],
-    urgencyWarning: 'Água constante no piso danifica rodapés de madeira e móveis planejados da cozinha, além de criar risco de curto-circuito caso atinja a fiação do motor.',
-    effectiveSolution: 'Desobstrução do dreno, troca de bandeja de evaporação e instalação de borracha original com ímã de alta fixação.',
+    urgencyWarning: 'O vazamento de ar frio pela borracha faz o compressor funcionar sem descanso, podendo aumentar a conta de luz em até 40% e queimar o motor por sobreaquecimento.',
+    effectiveSolution: 'Desobstrução do dreno, troca da borracha/gaxeta por modelo original magnético com vedação reforçada e regulagem das portas.',
     timeToSolve: 'Conserto no local em 30 a 60 minutos',
-    prefillMsg: 'Olá! Minha geladeira está vazando água / precisa trocar a borracha de vedação. Gostaria de um orçamento.',
+    prefillMsg: 'Olá! Meu refrigerador está com vazamento de água pela borracha e notando aumento no consumo de luz. Gostaria de um orçamento.',
     tagService: 'Geladeiras',
     symptoms: [
       'Poça de água no chão na frente ou atrás da geladeira',
       'Água acumulada embaixo da gaveta de frutas e legumes',
       'Paredes internas suando e pingando sobre os alimentos',
-      'Borracha da porta solta, rasgada ou com mofo preto'
+      'Borracha da porta solta, rasgada ou com mofo preto',
+      'Conta de energia elétrica mais alta com o motor funcionando direto'
     ],
     stepsToSolve: [
-      'Localização do ponto de vazamento térmico ou hidráulico',
+      'Localização do ponto de vazamento térmico ou hidráulico com teste de fumaça e papel',
       'Limpeza pressurizada do duto de dreno com bactericida',
-      'Substituição da gaxeta magnética sob medida',
+      'Substituição da gaxeta magnética sob medida de alta vedação',
       'Alinhamento e nivelamento das portas'
     ],
     faqs: [
       {
-        question: 'Posso usar secador de cabelo para ajeitar a borracha da geladeira?',
-        answer: 'O secador ajuda a amolecer pequenas dobras temporariamente, mas se a borracha estiver ressecada ou com o ímã enfraquecido, ela continuará vazando ar frio e aumentando o consumo de energia.'
+        question: 'Refrigerador com vazamento de água pela borracha realmente aumenta o consumo de luz?',
+        answer: 'Sim! Quando a borracha não veda, o ar frio escapa e o ar quente da cozinha entra continuamente. O termostato detecta que a geladeira está quente e mantém o compressor ligado 24 horas por dia, podendo aumentar a conta de energia elétrica em 30% a 50%.'
       },
       {
-        question: 'Trocar a borracha reduz a conta de luz?',
-        answer: 'Sim! Uma borracha bem vedada reduz o tempo de funcionamento do motor em até 30%, gerando economia direta na conta de energia.'
+        question: 'Trocar a borracha resolve o vazamento de água no chão?',
+        answer: 'Se o vazamento for provocado por suor/condensação de ar externo entrando pela borracha estragada, sim! Caso a água venha de dentro da gaveta, o técnico também desobstrui o canal de dreno no mesmo atendimento.'
       }
     ]
   },
@@ -1032,6 +1033,302 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
       {
         question: 'Qual a diferença entre adega com pastilha Peltier e adega com compressor?',
         answer: 'Adegas termoelétricas (Peltier) são mais silenciosas e recomendadas para ambientes com temperatura de até 25°C. Adegas com compressor suportam o calor do verão litorâneo mantendo os vinhos perfeitamente entre 12°C e 16°C com precisão.'
+      }
+    ]
+  },
+  {
+    slug: 'freezer-funciona-sem-protetor-termico',
+    category: 'geladeiras',
+    badge: 'Alerta de Segurança',
+    badgeColor: 'bg-red-500/20 text-red-700 border-red-500/40',
+    title: 'Freezer gela sem o protetor térmico? Riscos e Reparo Correto',
+    metaTitle: 'Freezer Gela Sem o Protetor Térmico? Perigos e Troca | SC Refrigeração',
+    metaDescription: 'Freezer gela sem o protetor térmico ligado? Entenda os riscos graves de queima do motor, curto-circuito e derretimento de fiação. Solicite troca de peça original.',
+    h1: 'Freezer Gela Sem o Protetor Térmico? Riscos, Danos ao Motor e Conserto',
+    intentQuery: 'freeze gela sem o protetor termico freezer funciona sem protetor termico',
+    pain: 'Dúvida se é seguro manter o freezer funcionando sem o protetor térmico ou medo de danificar irremediavelmente o compressor.',
+    rootCause: 'O protetor térmico (Klixon/PTC) é um bimetal de proteção obrigatório. Sem ele, se o freezer sofrer uma queda de energia ou pico de tensão, a bobina de partida do compressor não desarma e queima em poucos segundos.',
+    causesList: [
+      { level: 'Incompatibilidade / Risco', title: 'Ligação direta no compressor sem protetor térmico', desc: 'O motor pode até funcionar e gelar temporariamente, mas ficará 100% desprotegido contra surtos elétricos.', priceRange: 'Substituição recomendada urgente' },
+      { level: 'Causa frequente', title: 'Protetor térmico original queimado ou estalando', desc: 'O componente desgastou e interrompe a energia repetidamente sem deixar o motor partir.', priceRange: 'R$ 140 - R$ 240' },
+      { level: 'Intermediária', title: 'Relé de partida PTC em curto-circuito', desc: 'A pastilha cerâmica interna do relé esfarelou, impedindo o auxílio na partida.', priceRange: 'R$ 150 - R$ 260' }
+    ],
+    beforeCallingChecklist: [
+      'NUNCA deixe um freezer funcionando com ligação direta sem o protetor térmico instalado!',
+      'Se o motor estalar e desligar em segundos, desligue da tomada imediatamente.',
+      'Verifique se a voltagem da tomada corresponde à do equipamento (127V ou 220V).'
+    ],
+    urgencyWarning: 'Rodar um freezer sem o protetor térmico pode provocar sobreaquecimento extremo superior a 120°C, derretimento do isolamento dos cabos elétricos e risco real de incêndio!',
+    effectiveSolution: 'Instalação imediata do conjunto protetor térmico e relé de partida adequado para a amperagem e potência HP exatas do compressor.',
+    timeToSolve: 'Troca no local em 30 a 45 minutos',
+    prefillMsg: 'Olá! Preciso de avaliação/troca do protetor térmico do meu freezer com peças originais.',
+    tagService: 'Freezers',
+    symptoms: [
+      'Motor funcionando mas esquentando excessivamente a carcaça traseira',
+      'Cheiro sutil de verniz aquecido ou plástico queimado',
+      'Compressores dando estalos metálicos em intervalos curtos',
+      'Freezer congelando mas desligando a chave geral do imóvel'
+    ],
+    stepsToSolve: [
+      'Teste de isolamento elétrico e resistência ôhmica das bobinas do compressor (C, R, S)',
+      'Remoção de ligações diretas incorretas de emergência',
+      'Instalação de protetor térmico Klixon genuíno calibrado para a potência do motor',
+      'Teste de amperagem e curva de consumo no alicate amperímetro'
+    ],
+    faqs: [
+      {
+        question: 'O freezer consegue gelar sem o protetor térmico?',
+        answer: 'Sim, se for feita uma ligação direta o motor pode rodar e gelar. No entanto, sem o bimetal de proteção, qualquer oscilação de luz ou travamento mecânico temporário fará a bobina interna derreter e queimar o motor definitivamente, além do risco de incêndio.'
+      },
+      {
+        question: 'Quanto custa trocar o protetor térmico do freezer?',
+        answer: 'A substituição do protetor térmico com peça genuína e mão de obra técnica varia entre R$ 140 e R$ 240 conforme a potência do freezer. Um compressor novo custaria mais de R$ 800, portanto vale muito a pena trocar a peça de proteção.'
+      }
+    ]
+  },
+  {
+    slug: 'lava-e-seca-significado-bc-baixo-consumo-erro-bc',
+    category: 'lava-e-seca',
+    badge: 'Diagnóstico de Painel',
+    badgeColor: 'bg-indigo-500/20 text-indigo-700 border-indigo-500/40',
+    title: 'Significado de BC na Lava e Seca: Baixo Consumo ou Erro bC?',
+    metaTitle: 'Significado de BC na Lava e Seca: Baixo Consumo ou Erro bC? | SC Refrigeração',
+    metaDescription: 'Sua lava e seca mostra BC no visor? Entenda o significado de Baixo Consumo e como resolver o Código de Erro bC / bC1 / bC2 de botão preso com garantia 90 dias.',
+    h1: 'Significado de BC na Lava e Seca: Baixo Consumo de Água ou Erro bC?',
+    intentQuery: 'significado de bc na lava e seca o que significa baixo consumo de agua',
+    pain: 'Visor da máquina indicando as letras BC/bC, incerteza se é um modo de economia ativado ou um defeito técnico travando a lavagem.',
+    rootCause: 'Nas lava e seca modernas (Samsung, LG e Midea), BC pode indicar a tecnologia Eco / Baixo Consumo de água, mas quando surge como mensagem piscando ou apitando, trata-se do Código de Erro bC (Button Check), sinalizando que um botão do painel ficou preso ou sofreu umidade na placa lógica.',
+    causesList: [
+      { level: 'Informativa / Modo Normal', title: 'Ciclo de Baixo Consumo (Eco)', desc: 'Indica que a lavadora está dosando água e energia no nível econômico inteligente.', priceRange: 'R$ 0 (Operação padrão)' },
+      { level: 'Causa frequente de Erro', title: 'Erro bC / bC1 / bC2 (Button Check - Botão Preso)', desc: 'Um dos botões da interface tátil/física travou pressionado por sujeira, sabão seco ou desgaste da mola.', priceRange: 'R$ 160 - R$ 280' },
+      { level: 'Intermediária', title: 'Umidade ou oxidação nos contatos da placa de comando', desc: 'A maresia ou vapor de água da lavanderia oxidou as trilhas do circuito impresso.', priceRange: 'R$ 220 - R$ 390' }
+    ],
+    beforeCallingChecklist: [
+      'Limpe o painel com um pano levemente umedecido e aperte delicadamente todos os botões para verificar se algum está afundado.',
+      'Desconecte a lava e seca da tomada por 10 minutos para reiniciar o microprocessador.',
+      'Verifique se a função Eco / Baixo Consumo foi selecionada no seletor rotativo de programas.'
+    ],
+    urgencyWarning: 'Se o erro bC persistir apitando continuamente, não force o acionamento repetido das teclas para não danificar a placa de interface tátil.',
+    effectiveSolution: 'Desmontagem e higienização dos botões da placa de interface, desoxidação química com limpa-contatos e substituição de micro-switches avariados.',
+    timeToSolve: 'Conserto no local em 40 a 70 minutos',
+    prefillMsg: 'Olá! Minha lava e seca está indicando BC no painel. Preciso de suporte para diagnóstico.',
+    tagService: 'Lava e Seca',
+    symptoms: [
+      'Visor exibindo bC, bC1, bC2 ou BC piscando',
+      'Máquina apitando sem responder aos comandos dos botões',
+      'Ciclo de lavagem não inicia após apertar o botão Iniciar/Pausar',
+      'Luzes do painel acendendo e apagando de forma desordenada'
+    ],
+    stepsToSolve: [
+      'Inspeção do painel tátil e verificação do estado mecânico dos botões',
+      'Aferição de voltagem nos seletores e barramentos da placa de interface',
+      'Limpeza de contatos elétricos e aplicação de resina protetora contra umidade',
+      'Troca do módulo de interface ou teclado de membrana por peças originais'
+    ],
+    faqs: [
+      {
+        question: 'O que significa BC no visor da lava e seca?',
+        answer: 'Pode significar duas coisas: 1) Em condições normais de programa Eco, representa "Baixo Consumo" de água e energia; 2) Se o aparelho travar e apitar com bC no display, trata-se do código de erro Button Check (falha em botão do painel preso ou com oxidação).'
+      },
+      {
+        question: 'Como destravar o erro bC da lava e seca Samsung ou LG?',
+        answer: 'Muitas vezes, passar um pano limpo para desentupir resíduos de sabão em volta do botão resolve. Se for oxidação interna da placa, o técnico realiza a manutenção ou substituição do módulo com garantia.'
+      }
+    ]
+  },
+  {
+    slug: 'beer-cave-conserto-expositor-bebidas',
+    category: 'comercial',
+    badge: 'Refrigeração Comercial & Bares',
+    badgeColor: 'bg-amber-500/20 text-amber-700 border-amber-500/40',
+    title: 'Beer Cave, Balcões Expositores e Cervejeiras Comercial: Conserto',
+    metaTitle: 'Beer Cave, Expositores de Bebidas & Cervejeiras Comercial | SC Refrigeração',
+    metaDescription: 'Conserto de Beer Cave, balcões expositores, cervejeiras de conveniência e expositores de bebidas. Atendimento urgente 24h para comércios e bares em SC.',
+    h1: 'Conserto de Beer Cave, Expositores de Bebidas e Cervejeiras Comerciais',
+    intentQuery: 'beer cave traducao conserto de expositor de bebidas refrigeração comercial',
+    pain: 'Cervejas e bebidas quentes em dias de pico comercial, Beer Cave não baixando para -4°C e prejuízos com perda de clientes e vendas.',
+    rootCause: 'Beer Cave (tradução literal: "caverna de cerveja", câmara frigorífica expositora com portas de vidro walk-in) e expositores exigem troca de calor constante. Sujeira no condensador, perda de carga de gás R404a/R134a ou defeito no micromotor provocam aquecimento imediato.',
+    causesList: [
+      { level: 'Causa mais comum', title: 'Condensador aletado obstruído por poeira e gordura', desc: 'Impede a troca térmica e faz o compressor trabalhar superaquecido.', priceRange: 'R$ 180 - R$ 280 (Manutenção Preventiva)' },
+      { level: 'Frequente em Bares', title: 'Vazamento de fluido refrigerante na linha de sucção', desc: 'A serpentina congela só no início e não atinge a temperatura negativa ideal.', priceRange: 'R$ 280 - R$ 550' },
+      { level: 'Intermediária', title: 'Micromotor do evaporador ou controlador digital de temperatura travado', desc: 'O ar frio não circula entre as garrafas e latas da Beer Cave.', priceRange: 'R$ 250 - R$ 480' }
+    ],
+    beforeCallingChecklist: [
+      'Verifique se as portas de vidro da Beer Cave estão vedando perfeitamente.',
+      'Confira se o controlador digital de temperatura (TC-900 / Full Gauge) exibe mensagens de alarme (HI / LO).',
+      'Desentupa as entradas de ar do condensador traseiro ou inferior.'
+    ],
+    urgencyWarning: 'Manter a Beer Cave trabalhando quente pode queimar compressores trifásicos/monofásicos de alto valor comercial. Solicite plantão técnico imediato.',
+    effectiveSolution: 'Higienização química de condensadores, carga de gás com balança de precisão, troca de micromotores e regulagem de controladores eletrônicos.',
+    timeToSolve: 'Atendimento de emergência comercial no mesmo dia',
+    prefillMsg: 'Olá! Preciso de assistência urgente para Beer Cave / expositor de bebidas comercial.',
+    tagService: 'Comercial',
+    symptoms: [
+      'Cerveja servida morna acima de 2°C',
+      'Portas de vidro da Beer Cave ou expositor embaciadas por fora',
+      'Controlador Full Gauge apitando alarme de alta temperatura',
+      'Compressor ligado direto fazendo ronco alto'
+    ],
+    stepsToSolve: [
+      'Análise de pressões de alta e baixa com manifold digital',
+      'Limpeza pressurizada das aletas do condensador',
+      'Substituição de filtro secador, válvula de expansão ou capilar',
+      'Calibração de degelo por resistência ou gás quente'
+    ],
+    faqs: [
+      {
+        question: 'O que é Beer Cave e qual a tradução?',
+        answer: 'Beer Cave (tradução: "caverna de cerveja") é uma câmara fria walk-in com portas de vidro reforçadas usada em postos de combustível, conveniências, adegas e supermercados para manter centenas de caixas e fardos de cerveja trincando de geladas entre -2°C e -4°C.'
+      },
+      {
+        question: 'Vocês atendem emergências de bares e restaurantes aos finais de semana?',
+        answer: 'Sim! Possuímos plantão comercial de urgência para atendimento imediato em Balneário Camboriú, Itajaí, Penha, Navegantes, Piçarras, Itapema e toda a região.'
+      }
+    ]
+  },
+  {
+    slug: 'wine-fridge-marine-refrigeration',
+    category: 'adegas-e-frigobares',
+    badge: 'Adegas & Refrigeração Náutica',
+    badgeColor: 'bg-cyan-500/20 text-cyan-700 border-cyan-500/40',
+    title: 'Wine Fridge Repair & Marine Refrigeration: Adegas e Refrigeração Náutica',
+    metaTitle: 'Wine Fridge Repair & Marine Refrigeration em SC | SC Refrigeração',
+    metaDescription: 'Specialized Wine Fridge repair and Marine Refrigeration services for yachts, boats, and luxury residences in Balneário Camboriú, Itajaí, Penha and SC coast.',
+    h1: 'Wine Fridge Repair & Marine Refrigeration: Assistência Técnica Náutica e Adegas',
+    intentQuery: 'wine fridge repair near me marine refrigeration repair near me refrigeração nautica',
+    pain: 'Adega climatizada de vinhos (Wine Fridge) ou geladeira náutica de iates/lanchas (Marine Refrigeration) sem gelar no litoral catarinense.',
+    rootCause: 'Sistemas de refrigeração náutica (12V/24V Danfoss/Secop BD35F e BD50F) e Wine Fridges importados sofrem com a maresia salina, variação no banco de baterias e necessidade de ventilação especial em nichos de embarcações.',
+    causesList: [
+      { level: 'Frequente em Barcos', title: 'Módulo eletrônico de partida 12V/24V (Secop/Danfoss) queimado por oscilação', desc: 'O compressor náutico não parte devido a queda de tensão nas baterias.', priceRange: 'R$ 280 - R$ 520' },
+      { level: 'Adegas de Vinho', title: 'Placa de controle digital ou pastilha de refrigeração de precisão avariada', desc: 'A Wine Fridge perde o controle exato de umidade e temperatura.', priceRange: 'R$ 240 - R$ 450' },
+      { level: 'Náutica & Lanchas', title: 'Vazamento de gás refrigerante por corrosão galvânica no evaporador', desc: 'A maresia perfura serpentinas de alumínio expostas em marinas.', priceRange: 'R$ 320 - R$ 680' }
+    ],
+    beforeCallingChecklist: [
+      'Check marine battery voltage (must be above 12.4V DC for BD35F compressors to start).',
+      'Verify if the Wine Fridge ventilation slots are clear from dust or obstruction.',
+      'Check if marine circuit breaker / fuse is active.'
+    ],
+    urgencyWarning: 'Don\'t leave fine wines in high temperatures or boat refrigerators running with low battery voltage. Call our marine refrigeration specialists.',
+    effectiveSolution: 'Replacement of 12V/24V electronic control modules, gas leak repair with silver brazing, and Wine Fridge board restoration.',
+    timeToSolve: 'Same-day service at marinas, boatyards, or residences',
+    prefillMsg: 'Hello! I need Wine Fridge / Marine Refrigeration repair for my residence or boat in SC.',
+    tagService: 'Adegas',
+    symptoms: [
+      'Wine Fridge temperature rising above 18°C',
+      'Boat refrigerator clicking every few minutes on 12V/24V system',
+      'Evo evaporators forming thick ice on marine fridges',
+      'Corrosion signs on cooling copper lines'
+    ],
+    stepsToSolve: [
+      'Diagnostic test on Secop/Danfoss 101N0212 or 101N0500 electronic units',
+      'Pressure testing with dry nitrogen',
+      'Gas recharge using R134a eco-friendly refrigerant',
+      'Sealing against salt spray corrosion'
+    ],
+    faqs: [
+      {
+        question: 'Do you offer Marine Refrigeration repair directly at marinas and boatyards?',
+        answer: 'Yes! We serve yachts, boats, and vessels directly at marinas in Itajaí, Balneário Camboriú, Penha, Piçarras, and Porto Belo, specializing in 12V/24V/220V marine refrigeration systems.'
+      },
+      {
+        question: 'Vocês realizam conserto de adegas Wine Fridge importadas em domicílio?',
+        answer: 'Sim! Atendemos adegas das marcas Gourmet, Cuisinart, Electrolux, Brastemp Gourmand, Baccano e modelos importados com peças e componentes eletrônicos de precisão.'
+      }
+    ]
+  },
+  {
+    slug: 'loja-de-pecas-de-refrigeracao-perto-de-mim',
+    category: 'comercial',
+    badge: 'Peças & Loja Física',
+    badgeColor: 'bg-emerald-500/20 text-emerald-700 border-emerald-500/40',
+    title: 'Loja de Peças de Refrigeração Perto de Mim: Venda e Suporte Técnico',
+    metaTitle: 'Loja de Peças de Refrigeração Perto de Mim | Santa Catarina Refrigeração',
+    metaDescription: 'Procurando loja de peças de refrigeração perto de você em SC? Loja física em Navegantes com peças originais Brastemp, Electrolux, Consul, Samsung e LG.',
+    h1: 'Loja de Peças de Refrigeração Perto de Mim e Atendimento Técnico',
+    intentQuery: 'loja de peças de refrigeração perto de mim peças para geladeira mais próximo casa de refrigeração',
+    pain: 'Necessidade de encontrar peças de refrigeração originais (sensores, gaxetas, relés, compressores, placas) com pronta entrega ou conserto no local.',
+    rootCause: 'A utilização de peças universais paralelas pode danificar a placa eletrônica do eletrodoméstico. Oferecemos estoque completo de peças 100% genuínas de fábrica em nossa loja física e atendimento domiciliar.',
+    causesList: [
+      { level: 'Peças para Conserto', title: 'Kits de Degelo, Sensores NTC e Termofusíveis', desc: 'Linha completa para geladeiras Frost Free Brastemp, Electrolux e Consul.', priceRange: 'Atendimento e venda com garantia' },
+      { level: 'Inverter & Eletrônica', title: 'Placas Eletrônicas de Potência e Interface', desc: 'Módulos originais programados de fábrica para Samsung, LG, Consul e Brastemp.', priceRange: 'Garantia formal de 90 dias' },
+      { level: 'Compressores & Gás', title: 'Compressores Embraco/Tecumseh e Fluido R600a/R134a/R404a', desc: 'Motores selados e insumos para refrigeração residencial e comercial.', priceRange: 'Orçamento sem compromisso' }
+    ],
+    beforeCallingChecklist: [
+      'Tenha em mãos o modelo exato do seu aparelho (localizado na etiqueta atrás da geladeira ou na parede interna).',
+      'Confira a voltagem do seu eletrodoméstico (127V ou 220V).',
+      'Consulte nosso WhatsApp para confirmar a disponibilidade da peça no balcão de Navegantes ou agendar o técnico.'
+    ],
+    urgencyWarning: 'Cuidado com peças falsificadas na internet que não possuem proteção contra surtos de tensão e estragam em poucas semanas.',
+    effectiveSolution: 'Loja física no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191 – Sala 08) e suporte móvel com peças de fábrica.',
+    timeToSolve: 'Atendimento presencial no balcão ou técnico em domicílio no mesmo dia',
+    prefillMsg: 'Olá! Gostaria de consultar a disponibilidade de peças de refrigeração / agendar um conserto.',
+    tagService: 'Comercial',
+    symptoms: [
+      'Procura por borracha de geladeira sob medida',
+      'Necessidade de substituição urgente de sensor de temperatura',
+      'Compra de relé de partida ou capacitor de motor',
+      'Placa de lava e seca queimada precisando de troca'
+    ],
+    stepsToSolve: [
+      'Identificação da peça pelo código PST/PN do fabricante',
+      'Conferência de compatibilidade com o número de série',
+      'Fornecimento com garantia formal e suporte técnico de instalação'
+    ],
+    faqs: [
+      {
+        question: 'Onde fica a loja de peças e refrigeração em Navegantes?',
+        answer: 'Nossa loja física e centro técnico está localizada na Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro, Navegantes – SC, CEP 88370-232, com atendimento para toda a região.'
+      },
+      {
+        question: 'Vocês vendem peças e também fazem a instalação no local?',
+        answer: 'Sim! Você pode adquirir as peças em nossa loja ou solicitar a visita do técnico qualificado para fazer a instalação com garantia por escrito de 90 dias.'
+      }
+    ]
+  },
+  {
+    slug: 'quem-compra-geladeira-usada-ou-conserta',
+    category: 'geladeiras',
+    badge: 'Avaliação & Custo-Benefício',
+    badgeColor: 'bg-teal-500/20 text-teal-700 border-teal-500/40',
+    title: 'Quem Compra Geladeira Usada Perto de Mim? Vale a Pena Consertar?',
+    metaTitle: 'Quem Compra Geladeira Usada Perto de Mim? Conserto x Venda | SC Refrigeração',
+    metaDescription: 'Procurando quem compra geladeira usada perto de você? Descubra se vale a pena consertar por uma fração do preço de uma nova com garantia 90 dias.',
+    h1: 'Quem Compra Geladeira Usada Perto de Mim? Vale a Pena Consertar ou Vender?',
+    intentQuery: 'quem compra geladeira usada perto de mim conserto vs venda',
+    pain: 'Dúvida se vale a pena vender a geladeira quebrada por um valor irrisório para sucata ou investir no conserto com garantia.',
+    rootCause: 'Muitas pessoas acreditam que a geladeira queimou totalmente quando na verdade o defeito é um pequeno componente de R$ 180 a R$ 280 (como relé, sensor ou kit de degelo). Consertar custa em média menos de 15% do valor de um refrigerador novo equivalente.',
+    causesList: [
+      { level: 'Economia de até 85%', title: 'Conserto com Peças Originais e Garantia de 90 Dias', desc: 'Recupera o desempenho de fábrica da sua geladeira sem precisar gastar R$ 3.500 a R$ 6.000 em um modelo novo.', priceRange: 'Orçamento transparente no local' },
+      { level: 'Descarte Ecológico', title: 'Orientação e Avaliação Técnica do Equipamento', desc: 'Diagnóstico honesto sobre a viabilidade de reparo do motor e estrutura do gabinete.', priceRange: 'Avaliação sem compromisso' }
+    ],
+    beforeCallingChecklist: [
+      'Solicite uma avaliação técnica antes de vender sua geladeira por preço de sucata.',
+      'Na maioria esmagadora dos casos, o defeito é simples e o conserto devolve o funcionamento por muitos anos.',
+      'Compare o valor do orçamento do conserto com o custo de comprar uma geladeira nova da mesma categoria.'
+    ],
+    urgencyWarning: 'Vender uma geladeira Frost Free seminova que só precisa de troca de sensor por valores baixíssimos causa grande prejuízo financeiro.',
+    effectiveSolution: 'Diagnóstico técnico transparente em domicílio para devolver sua geladeira ao estado de nova com 90 dias de garantia por escrito.',
+    timeToSolve: 'Avaliação e conserto no mesmo dia no seu imóvel',
+    prefillMsg: 'Olá! Gostaria de uma avaliação para saber se vale a pena consertar minha geladeira usada.',
+    tagService: 'Geladeiras',
+    symptoms: [
+      'Geladeira parou de gelar e há dúvida se vale a pena arrumar',
+      'Aparelho em bom estado estético com defeito no motor ou placa',
+      'Procura por opções econômicas antes de decidir comprar um aparelho novo'
+    ],
+    stepsToSolve: [
+      'Inspeção detalhada de compressores, gaxetas, circuito frigorífico e placas',
+      'Cálculo transparente do custo-benefício para o cliente',
+      'Execução do reparo imediato caso aprovado, com emissão de garantia'
+    ],
+    faqs: [
+      {
+        question: 'Vale a pena consertar uma geladeira usada em vez de comprar outra?',
+        answer: 'Sim, em mais de 85% dos casos! Geladeiras de boas marcas (Brastemp, Electrolux, Consul, Samsung, LG) possuem estrutura altamente durável. Trocar uma peça defeituosa custa uma fração pequena do preço de uma nova e garante o funcionamento perfeito por anos com nossa garantia de 90 dias.'
+      },
+      {
+        question: 'Vocês atendem em domicílio para fazer o diagnóstico da geladeira usada?',
+        answer: 'Sim! Nossos técnicos vão até a sua residência em Penha, Navegantes, Piçarras, Itajaí, Balneário Camboriú e região, avaliam o problema na sua frente e apresentam o valor exato.'
       }
     ]
   }
