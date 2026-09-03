@@ -409,6 +409,264 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>HE / HC:</strong> Falha no aquecedor de água ou secagem.</li>
       </ul>
     `
+  },
+  {
+    slug: "camara-fria-nao-gela-causas",
+    title: "Câmara fria não gela: conheça as possíveis causas e como agir rapidamente",
+    metaTitle: "Câmara Fria Não Gela: Principais Causas e Soluções | SC Refrigeração",
+    metaDescription: "Sua câmara frigorífica perdeu rendimento ou parou de congelar? Veja as causas comuns (pressão, válvulas, sujeira no condensador, gás) e solucione com urgência.",
+    category: "Câmaras Frias B2B",
+    datePublished: "2026-08-01",
+    dateModified: "2026-08-20",
+    readTime: "7 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Identifique rapidamente por que a câmara fria do seu supermercado, peixaria ou restaurante em SC não está atingindo a temperatura desejada.",
+    takeaways: [
+      "Acúmulo de sujeira nas aletas do condensador é responsável por mais de 50% dos casos de perda de rendimento em câmaras frias.",
+      "Falha no ciclo de degelo automático gera bloqueio de gelo no evaporador e impede o fluxo de ar.",
+      "Vazamentos de gás refrigerante devem ser detectados com nitrogênio sob pressão para evitar queimas do compressor."
+    ],
+    faqs: [
+      {
+        question: "O que fazer imediatamente quando a câmara fria para de gelar?",
+        answer: "Mantenha as portas estritamente fechadas para conservar o frio residual, verifique se o disjuntor do quadro elétrico não caiu e chame imediatamente assistência técnica com plantão de urgência."
+      }
+    ],
+    contentHtml: `
+      <h2>1. Sujeira no Condensador Externo</h2>
+      <p>Em áreas comerciais e praianas do Litoral Catarinense (Penha, Navegantes, Itajaí, Balneário Camboriú), a poeira e o salitre acumulados nas aletas de alumínio do condensador travam a troca térmica. Isso eleva a pressão de descarga do compressor, fazendo o protetor de alta pressão armar e desligar o sistema.</p>
+      <h2>2. Congelamento do Evaporador (Bloqueio por Gelo)</h2>
+      <p>Se as resistências elétricas ou o sistema de degelo por gás quente falharem, o gelo envolve totalmente o evaporador. O ar dos forçadores não consegue atravessar a colmeia e a temperatura da câmara sobe.</p>
+      <h2>3. Desregulagem da Válvula de Expansão Termostática</h2>
+      <p>A válvula de expansão dosifica o fluido refrigerante que entra no evaporador. Se houver descalibração do bulbo ou entupimento por umidade/sujeira no elemento filtrante, o fluxo de gás cai drásticamente.</p>
+    `
+  },
+  {
+    slug: "quando-fazer-manutencao-preventiva-camara-fria",
+    title: "Quando fazer manutenção preventiva em câmara fria? Periodicidade e Checklist",
+    metaTitle: "Quando Fazer Manutenção Preventiva em Câmara Fria? | SC Refrigeração",
+    metaDescription: "Saiba a frequência exata recomendada para revisão preventiva em câmaras frias comerciais e evite a perda imprevista de estoques perecíveis.",
+    category: "Câmaras Frias B2B",
+    datePublished: "2026-07-25",
+    dateModified: "2026-08-18",
+    readTime: "6 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Conheça o cronograma de manutenção mensal, trimestral e anual exigido por normas sanitárias para câmaras de congelados e resfriados.",
+    takeaways: [
+      "A inspeção mensal dos filtros e condensadores previne até 80% das quebras na alta temporada.",
+      "O teste de isolamento elétrico das bobinas do compressor evita curto-circuitos repentinos.",
+      "Mantenha o livro de registro do PMOC atualizado para fiscalizações da Vigilância Sanitária."
+    ],
+    faqs: [
+      {
+        question: "Qual o intervalo ideal para revisão de câmaras frias em restaurantes e peixarias?",
+        answer: "O plano mensal é o mais indicado para estabelecimentos comerciais com uso intensivo, garantindo higienização de forçadores e aferição de carga de gás."
+      }
+    ],
+    contentHtml: `
+      <h2>A Periodicidade Certa para Cada Tipo de Operação</h2>
+      <p>Para câmaras frigoríficas operando em supermercados, indústrias de pescados e distribuição de alimentos, a manutenção preventiva mensal é essential para garantir a segurança alimentar e evitar paradas que causam prejuízos milionários.</p>
+    `
+  },
+  {
+    slug: "maquina-de-gelo-nao-produz-gelo",
+    title: "Máquina de gelo não produz gelo: 5 causas frequentes e como reparar",
+    metaTitle: "Máquina de Gelo Não Faz Gelo: 5 Causas e Reparo | SC Refrigeração",
+    metaDescription: "Sua máquina de gelo comercial liga mas não produz cubos ou escamas? Entenda problemas na entrada de água, gás, sensores e sonda de colheita.",
+    category: "Equipamentos Comerciais",
+    datePublished: "2026-07-10",
+    dateModified: "2026-08-15",
+    readTime: "6 min de leitura",
+    author: "Equipe Técnica Santa Catarina Refrigeração",
+    excerpt: "Saiba o que checar na sua máquina de gelo Macom, Everest, Scotsman ou Manitowoc quando o ciclo de congelamento falha.",
+    takeaways: [
+      "Filtros de água entupidos cortam o fluxo para a bandeja de evaporação e paralisam a máquina.",
+      "Calcificação nas placas de evaporador impede o descarte automático dos cubos de gelo.",
+      "Falha na válvula de gás quente impede a soltura do gelo pronto no ciclo de colheita."
+    ],
+    faqs: [
+      {
+        question: "Por que os cubos de gelo saem finos e ocos?",
+        answer: "Cubos ocos ou finos costumam indicar baixa carga de gás refrigerante, condensador extremamente sujo ou baixa vazão de água na entrada."
+      }
+    ],
+    contentHtml: `
+      <h2>1. Falha na Válvula Solenóide de Entrada de Água ou Filtro Entupido</h2>
+      <p>Sem vazão suficiente de água potável, a máquina interrompe o ciclo por segurança. A substituição periódica dos elementos filtrantes de carvão ativado é indispensável.</p>
+      <h2>2. Acúmulo de Calcário na Placa do Evaporador</h2>
+      <p>A água mineralizada deposita sais na placa evaporadora. Essa incrustação isola o frio e impede que a lâmina de água congelada deslize para a gaveta no momento do ciclo de desmolde.</p>
+    `
+  },
+  {
+    slug: "manutencao-maquina-de-gelo-comercial",
+    title: "Manutenção de máquina de gelo comercial: higienização e prevenção",
+    metaTitle: "Manutenção de Máquina de Gelo Comercial em SC | SC Refrigeração",
+    metaDescription: "Manutenção técnica profissional e desinfecção de máquinas de gelo comerciais para hotéis, bares, peixarias e restaurantes em Santa Catarina.",
+    category: "Equipamentos Comerciais",
+    datePublished: "2026-06-28",
+    dateModified: "2026-08-12",
+    readTime: "5 min de leitura",
+    author: "Equipe Técnica Santa Catarina Refrigeração",
+    excerpt: "Procedimento passo a passo para sanitarização e manutenção mecânica em produtoras de gelo comerciais.",
+    takeaways: [
+      "A higienização do reservatório e bicos injetores deve ocorrer trimestralmente para evitar biofilme de bactérias.",
+      "Troca dos filtros de água a cada 6 meses mantém o gelo transparente e sem sabor alterado.",
+      "Revisão da bomba de circulação de água evita a queima mecânica por travamento."
+    ],
+    faqs: [
+      {
+        question: "Qual produto usar para limpar o reservatório da máquina de gelo?",
+        answer: "Devem ser utilizados desincrustantes e sanificantes de grau alimentício aprovados pela Anvisa, que removem incrustações minerais sem deixar resíduos tóxicos."
+      }
+    ],
+    contentHtml: `
+      <h2>Sanitarização Exigida pela Anvisa para Produção de Gelo</h2>
+      <p>O gelo é um alimento e seu reservatório requer rigoroso controle sanitário. Bares, peixarias e hotéis de SC devem realizar limpezas químicas periódicas para evitar a formação de limo e algas nos dutos de recirculação.</p>
+    `
+  },
+  {
+    slug: "problemas-comuns-refrigeracao-comercial",
+    title: "Os 7 problemas mais comuns em equipamentos de refrigeração comercial",
+    metaTitle: "Problemas Comuns em Refrigeração Comercial | SC Refrigeração",
+    metaDescription: "Conheça os defeitos mais frequentes em balcões expositores, cervejeiras, ilhas de congelados e geladeiras comerciais em estabelecimentos de SC.",
+    category: "Refrigeração Comercial",
+    datePublished: "2026-06-15",
+    dateModified: "2026-08-05",
+    readTime: "6 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Descubra como evitar os defeitos mais caros em sistemas comerciais de refrigeração.",
+    takeaways: [
+      "Excesso de carga de produtos bloqueia as saídas de ar dos balcões expositores.",
+      "Vedações e gaxetas danificadas geram infiltração contínua de ar úmido.",
+      "Desregulagem de termostatos digitais provoca ciclos intermináveis do compressor."
+    ],
+    faqs: [
+      {
+        question: "Por que a cervejeira do bar não atinge a temperatura negativa ideal?",
+        answer: "Isso ocorre por falta de ventilação no condensador traseiro, respiro de ar bloqueado por garrafas mal dispostas ou vazamento sutil de gás no microcanal."
+      }
+    ],
+    contentHtml: `
+      <h2>1. Bloqueio da Circulação de Ar por Alocação Incorreta de Produtos</h2>
+      <p>Forçar mercadorias além do limite do balcão tampa a grelha de insuflamento de ar frio, gerando zonas quentes nas prateleiras superiores e sobrecarregando os compressores.</p>
+    `
+  },
+  {
+    slug: "diferenca-refrigeracao-comercial-e-industrial",
+    title: "Diferenças entre refrigeração comercial e industrial: capacidade e componentes",
+    metaTitle: "Refrigeração Comercial vs Industrial: Entenda as Diferenças | SC Refrigeração",
+    metaDescription: "Entenda os conceitos técnicos que diferenciam a refrigeração comercial (balcões, câmaras médias) da refrigeração industrial (amônia, rack de compressores).",
+    category: "Conceitos Técnicos",
+    datePublished: "2026-05-30",
+    dateModified: "2026-07-20",
+    readTime: "6 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Guia explicativo sobre compressores semi-herméticos, rosca, amônia (R717) e CO2 para sistemas comerciais e industriais.",
+    takeaways: [
+      "A refrigeração comercial foca no varejo, restaurantes e conservação de curto/médio prazo em MTR (Média Temperatura).",
+      "A refrigeração industrial atende abatedouros, túneis de congelamento rápido e processamento em grande escala.",
+      "Sistemas industriais costumam utilizar tubulações de aço com amônia ou sistemas de central de compressores em paralelo."
+    ],
+    faqs: [
+      {
+        question: "Qual tipo de fluído refrigerante é mais comum na refrigeração comercial?",
+        answer: "A refrigeração comercial utiliza predominantemente R404A, R134a, R452A e R290 (propano ecológico), enquanto a industrial emprega R717 (Amônia) e CO2."
+      }
+    ],
+    contentHtml: `
+      <h2>Arquitetura de Refrigeração Comercial vs Industrial</h2>
+      <p>Enquanto a refrigeração comercial atende supermercados, padarias e peixarias com unidades condensadoras fracionadas (1 HP a 15 HP), a refrigeração industrial utiliza centrais frigoríficas e racks de grande porte para túneis de congelamento contínuo.</p>
+    `
+  },
+  {
+    slug: "manutencao-preventiva-vs-corretiva-refrigeracao",
+    title: "Manutenção preventiva vs corretiva em refrigeração: qual economiza mais?",
+    metaTitle: "Manutenção Preventiva x Corretiva em Refrigeração | SC Refrigeração",
+    metaDescription: "Descubra o impacto financeiro de esperar o equipamento quebrar (corretiva) versus investir em revisões periódicas planejadas (preventiva).",
+    category: "Gestão & Economia B2B",
+    datePublished: "2026-05-12",
+    dateModified: "2026-07-10",
+    readTime: "5 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Comparativo prático de custos, tempo de paralisação e durabilidade dos compressores.",
+    takeaways: [
+      "A manutenção corretiva emergencial custa em média 3x a 5x mais que o plano preventivo regular.",
+      "Equipamentos bem regulados consomem até 25% menos energia elétrica no final do mês.",
+      "A prevenção evita perdas irrecuperáveis de alimentos durante finais de semana e feriados."
+    ],
+    faqs: [
+      {
+        question: "Como calcular o retorno sobre o investimento (ROI) da manutenção preventiva?",
+        answer: "O ROI é calculated somando a economia de energia mensal + custos evitado de peças graves + o valor dos estoques mantidos sem perda por quebra."
+      }
+    ],
+    contentHtml: `
+      <h2>O Verdadeiro Custo da Quebra Inesperada</h2>
+      <p>Esperar o compressor travar em pleno domingo de verão significa pagar taxas emergenciais, enfrentar descarte de insumos e perder clientes. O contrato preventivo elimina esse risco de surpresa desagradável.</p>
+    `
+  },
+  {
+    slug: "como-evitar-parada-equipamentos-refrigeracao",
+    title: "Como evitar a parada repentina de equipamentos de refrigeração no verão",
+    metaTitle: "Como Evitar Parada de Equipamentos de Refrigeração no Verão | SC Refrigeração",
+    metaDescription: "Dicas de engenharia para preparar geladeiras comerciais, câmaras frias e chopeiras para os picos de calor do verão catarinense.",
+    category: "Prevenção & Verão",
+    datePublished: "2026-04-28",
+    dateModified: "2026-06-30",
+    readTime: "6 min de leitura",
+    author: "Engenharia de Refrigeração Comercial SC",
+    excerpt: "Prepare seu comércio para os meses de maior movimento em Penha, Piçarras, BC e Litoral Norte de SC.",
+    takeaways: [
+      "No verão, as temperaturas ambientes elevadas exigem condensadores perfeitamente limpos e desobstruídos.",
+      "Verifique as proteções elétricas contra picos de tensão comuns em tempestades tropicais.",
+      "Tenha um canal de suporte técnico com atendimento priorizado no mesmo dia."
+    ],
+    faqs: [
+      {
+        question: "Por que os equipamentos de refrigeração quebram mais entre Dezembro e Março?",
+        answer: "A combinação de alta temperatura ambiente + umidade elevada do ar + uso intensivo e portas abrindo constantemente exige capacidade máxima do compressor, expondo falhas pré-existentes de manutenção."
+      }
+    ],
+    contentHtml: `
+      <h2>Preparação Antecipada do Parque de Refrigeração</h2>
+      <p>No Litoral Catarinense, a população das cidades litorâneas triplica na temporada. Fazer a revisão do sistema de refrigeração em Outubro/Novembro garante que seu negócio fature 100% no verão sem sustos mecânicos.</p>
+    `
+  },
+  {
+    slug: "quando-chamar-assistencia-tecnica-refrigeracao",
+    title: "Quando chamar a assistência técnica de refrigeração? 8 sinais de alerta",
+    metaTitle: "Quando Chamar Assistência Técnica de Refrigeração? 8 Sinais | SC Refrigeração",
+    metaDescription: "Aprenda a reconhecer barulhos estranhos, acúmulo de água, estalos ou estufamento de alimentos antes que o equipamento pare totalmente de funcionar.",
+    category: "Diagnóstico Rápido",
+    datePublished: "2026-04-10",
+    dateModified: "2026-06-20",
+    readTime: "5 min de leitura",
+    author: "Equipe Técnica Santa Catarina Refrigeração",
+    excerpt: "Saiba identificar pequenos indícios de falha e acione o suporte técnico a tempo de salvar peças valiosas.",
+    takeaways: [
+      "Barulho de estalo constante (click) a cada 2 minutos indica relé de partida ou protetor térmico desarmando.",
+      "Poça de água no chão ou dentro das gavetas indica dreno entupido ou travamento do degelo.",
+      "Gelo acumulado no fundo da placa traseira sinaliza falta de gás ou vedações danificadas."
+    ],
+    faqs: [
+      {
+        question: "É normal a geladeira esquentar bastante nas laterais?",
+        answer: "Em geladeiras modernas com condensador embutido nas paredes laterais, é normal que esquentem. Porém, se ficarem fervendo a ponto de não conseguir encostar a mão, limpe o motor e verifique se as laterais têm respiro suficiente."
+      }
+    ],
+    contentHtml: `
+      <h2>Os 8 Sinais de Alerta que Exigem Atendimento Profissional</h2>
+      <ol>
+        <li>1. Motor funcionando de forma ininterrupta sem desligar no termostato.</li>
+        <li>2. Estalo 'click' repetitivo com o compressor tentando partir sem sucesso.</li>
+        <li>3. Formação de placa de gelo espessa em apenas um canto da serpentina.</li>
+        <li>4. Vazamento contínuo de água sob o móvel ou na base do equipamento.</li>
+        <li>5. Alimentos estragando rápido mesmo com a regulagem no máximo.</li>
+        <li>6. Ruído forte de vibração metálica ao ligar ou desligar o compressor.</li>
+        <li>7. Disjuntor da residência ou comércio caindo ao ligar o aparelho.</li>
+        <li>8. Visor digital exibindo código de erro ou alarme sonoro ativado.</li>
+      </ol>
+    `
   }
 ];
 

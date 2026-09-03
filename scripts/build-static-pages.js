@@ -333,17 +333,17 @@ addSitemapUrl('/', '1.0', 'daily');
 
 // 5. Pillar Services
 for (const pillar of PILLAR_SERVICES) {
-  const title = `Assistência Técnica em ${pillar.name} | Santa Catarina Refrigeração`;
-  const description = `Conserto especializado em ${pillar.name} com atendimento em domicílio em SC. Peças originais, técnicos certificados e garantia formal de 90 dias.`;
+  const title = pillar.metaTitle || `Assistência Técnica em ${pillar.title} | Santa Catarina Refrigeração`;
+  const description = pillar.metaDescription || `Conserto especializado em ${pillar.title} com atendimento em domicílio em SC. Peças originais, técnicos certificados e garantia formal de 90 dias.`;
   const canonicalUrl = `/${pillar.slug}`;
   const bodyHtml = `
     <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
-      <h1 class="text-3xl sm:text-5xl font-black text-slate-900">${escapeHtml(pillar.name)}</h1>
-      <p class="text-slate-600 text-base max-w-3xl">${escapeHtml(pillar.shortDescription || pillar.description)}</p>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900">${escapeHtml(pillar.h1 || pillar.title)}</h1>
+      <p class="text-slate-600 text-base max-w-3xl">${escapeHtml(pillar.summary || pillar.fullDescription)}</p>
       <div class="p-6 bg-slate-50 border rounded-2xl space-y-4">
-        <h2 class="text-xl font-bold text-slate-900">Como Funciona o Conserto no Local:</h2>
+        <h2 class="text-xl font-bold text-slate-900">Reparos Executados no Local:</h2>
         <ul class="space-y-2 text-sm text-slate-700">
-          ${(pillar.features || []).map(f => `<li>✓ ${escapeHtml(f)}</li>`).join('')}
+          ${(pillar.repairsExecuted || []).map(f => `<li>✓ ${escapeHtml(f)}</li>`).join('')}
         </ul>
       </div>
       <div class="text-center pt-4">
@@ -614,7 +614,7 @@ for (const nb of HIGH_VOLUME_NEIGHBORHOODS) {
         <div>
           <h2 class="font-bold text-slate-900 text-lg mb-3">Serviços Principais</h2>
           <ul class="space-y-1.5 text-xs text-cyan-800">
-            ${PILLAR_SERVICES.map(p => `<li><a href="/${p.slug}" class="hover:underline">${escapeHtml(p.name)}</a></li>`).join('')}
+            ${PILLAR_SERVICES.map(p => `<li><a href="/${p.slug}" class="hover:underline">${escapeHtml(p.title)}</a></li>`).join('')}
             <li><a href="/precos" class="hover:underline">Tabela de Preços</a></li>
             <li><a href="/refrigeracao-comercial" class="hover:underline">Refrigeração Comercial</a></li>
           </ul>

@@ -36,139 +36,156 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
 }) => {
   const fullCanonical = canonicalUrl || `${COMPANY_INFO.subdomainUrl}${typeof window !== 'undefined' ? window.location.pathname : ''}`;
 
-  // 1. Base LocalBusiness + HVACBusiness Schema
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "HVACBusiness"],
-    "@id": `${COMPANY_INFO.subdomainUrl}/#organization`,
-    "name": COMPANY_INFO.name,
-    "legalName": COMPANY_INFO.legalName,
-    "url": COMPANY_INFO.subdomainUrl,
-    "logo": COMPANY_INFO.assets.logo,
-    "image": COMPANY_INFO.assets.socialPreview,
-    "telephone": COMPANY_INFO.phone,
-    "email": COMPANY_INFO.email,
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
-      "addressLocality": city || COMPANY_INFO.address.city,
-      "addressRegion": COMPANY_INFO.address.state,
-      "postalCode": COMPANY_INFO.address.zipCode,
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": COMPANY_INFO.geo.latitude,
-      "longitude": COMPANY_INFO.geo.longitude
-    },
-    "openingHoursSpecification": COMPANY_INFO.businessHours.openingHoursSpecification,
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
+  // Build Connected @graph JSON-LD
+  const graphEntities: any[] = [
+    // 1. Organization / LocalBusiness Entity
+    {
+      "@type": ["LocalBusiness", "HVACBusiness"],
+      "@id": `${COMPANY_INFO.subdomainUrl}/#organization`,
+      "name": COMPANY_INFO.name,
+      "legalName": COMPANY_INFO.legalName,
+      "url": COMPANY_INFO.subdomainUrl,
+      "logo": COMPANY_INFO.assets.logo,
+      "image": COMPANY_INFO.assets.socialPreview,
+      "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
+        "addressLocality": city || COMPANY_INFO.address.city,
+        "addressRegion": COMPANY_INFO.address.state,
+        "postalCode": COMPANY_INFO.address.zipCode,
+        "addressCountry": "BR"
+      },
+      "geo": {
         "@type": "GeoCoordinates",
         "latitude": COMPANY_INFO.geo.latitude,
         "longitude": COMPANY_INFO.geo.longitude
       },
-      "geoRadius": 200000
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Assistência Técnica e Refrigeração",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Conserto de Geladeiras e Refrigeração Domiciliar"
-          }
+      "openingHoursSpecification": COMPANY_INFO.businessHours.openingHoursSpecification,
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": COMPANY_INFO.geo.latitude,
+          "longitude": COMPANY_INFO.geo.longitude
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Conserto e Manutenção de Lava e Seca"
+        "geoRadius": 200000
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Assistência Técnica e Refrigeração",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Assistência Técnica e Conserto de Geladeiras"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Refrigeração Comercial e Manutenção PMOC"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Instalação e Manutenção de Câmaras Frias"
+            }
           }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Instalação e Manutenção de Câmaras Frias"
-          }
-        }
+        ]
+      },
+      "sameAs": [
+        COMPANY_INFO.whatsappUrl,
+        `mailto:${COMPANY_INFO.email}`
       ]
     },
-    "sameAs": [
-      COMPANY_INFO.whatsappUrl,
-      `mailto:${COMPANY_INFO.email}`
-    ]
-  };
-
-  // 2. Service Schema
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": title,
-    "provider": {
-      "@type": "LocalBusiness",
-      "@id": `${COMPANY_INFO.subdomainUrl}/#organization`,
+    // 2. WebSite Entity
+    {
+      "@type": "WebSite",
+      "@id": `${COMPANY_INFO.subdomainUrl}/#website`,
+      "url": COMPANY_INFO.subdomainUrl,
       "name": COMPANY_INFO.name,
-      "telephone": COMPANY_INFO.phone,
-      "email": COMPANY_INFO.email,
-      "priceRange": "$$"
+      "publisher": {
+        "@id": `${COMPANY_INFO.subdomainUrl}/#organization`
+      },
+      "inLanguage": "pt-BR"
     },
-    "areaServed": {
-      "@type": neighborhood ? "AdministrativeArea" : "City",
-      "name": neighborhood ? `${neighborhood}, ${city || 'Penha'}` : (city || "Santa Catarina")
+    // 3. WebPage Entity
+    {
+      "@type": "WebPage",
+      "@id": `${fullCanonical}#webpage`,
+      "url": fullCanonical,
+      "name": title,
+      "description": description,
+      "isPartOf": {
+        "@id": `${COMPANY_INFO.subdomainUrl}/#website`
+      },
+      "about": {
+        "@id": `${COMPANY_INFO.subdomainUrl}/#organization`
+      },
+      "inLanguage": "pt-BR"
     },
-    "description": description,
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Refrigeração",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Conserto de Geladeiras e Refrigeração Domiciliar"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Conserto e Manutenção de Lava e Seca"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Instalação e Manutenção de Câmaras Frias"
-          }
-        }
-      ]
+    // 4. Service Entity
+    {
+      "@type": "Service",
+      "@id": `${fullCanonical}#service`,
+      "name": title,
+      "description": description,
+      "provider": {
+        "@id": `${COMPANY_INFO.subdomainUrl}/#organization`
+      },
+      "areaServed": {
+        "@type": neighborhood ? "AdministrativeArea" : "City",
+        "name": neighborhood ? `${neighborhood}, ${city || 'Penha'}` : (city || "Santa Catarina")
+      }
     }
-  };
+  ];
 
-  // 3. BreadcrumbList Schema
-  let breadcrumbSchema = null;
+  // 5. BreadcrumbList
   if (breadcrumbs && breadcrumbs.length > 0) {
-    breadcrumbSchema = {
-      "@context": "https://schema.org",
+    graphEntities.push({
       "@type": "BreadcrumbList",
+      "@id": `${fullCanonical}#breadcrumb`,
       "itemListElement": breadcrumbs.map((bc, idx) => ({
         "@type": "ListItem",
         "position": idx + 1,
         "name": bc.name,
         "item": bc.item.startsWith('http') ? bc.item : `${COMPANY_INFO.subdomainUrl}${bc.item}`
       }))
-    };
+    });
   }
 
-  const allSchemas = [localBusinessSchema, serviceSchema, ...schemas];
-  if (breadcrumbSchema) allSchemas.push(breadcrumbSchema);
+  // 6. FAQPage if eligible
+  if (faqList && faqList.length > 0) {
+    graphEntities.push({
+      "@type": "FAQPage",
+      "@id": `${fullCanonical}#faq`,
+      "mainEntity": faqList.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    });
+  }
+
+  // Custom additional schemas provided as props
+  if (schemas && schemas.length > 0) {
+    graphEntities.push(...schemas);
+  }
+
+  const jsonLdGraph = {
+    "@context": "https://schema.org",
+    "@graph": graphEntities
+  };
 
   return (
     <Helmet>
@@ -209,11 +226,9 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta name="twitter:image" content={ogImage} />
 
       {/* JSON-LD Structured Data */}
-      {allSchemas.map((sch, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(sch)}
-        </script>
-      ))}
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLdGraph)}
+      </script>
 
       {/* Service Worker Registration script */}
       <script type="text/javascript">

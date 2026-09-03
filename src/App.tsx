@@ -109,6 +109,79 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
           />
 
+          {/* New Commercial & Industrial Service Routes */}
+          <Route
+            path="/assistencia-tecnica-refrigeracao"
+            element={<ServicePillarView serviceIdParam="assistencia-tecnica-refrigeracao" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-refrigeracao/"
+            element={<ServicePillarView serviceIdParam="assistencia-tecnica-refrigeracao" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/refrigeracao-comercial"
+            element={<ServicePillarView serviceIdParam="refrigeracao-comercial" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/refrigeracao-comercial/"
+            element={<ServicePillarView serviceIdParam="refrigeracao-comercial" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/refrigeracao-industrial"
+            element={<ServicePillarView serviceIdParam="refrigeracao-industrial" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/refrigeracao-industrial/"
+            element={<ServicePillarView serviceIdParam="refrigeracao-industrial" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/manutencao-refrigeracao"
+            element={<ServicePillarView serviceIdParam="manutencao-refrigeracao" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/manutencao-refrigeracao/"
+            element={<ServicePillarView serviceIdParam="manutencao-refrigeracao" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/camara-fria"
+            element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/camara-fria/"
+            element={<ServicePillarView serviceIdParam="camara-fria" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/maquina-de-gelo"
+            element={<ServicePillarView serviceIdParam="maquina-de-gelo" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/maquina-de-gelo/"
+            element={<ServicePillarView serviceIdParam="maquina-de-gelo" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/maquina-de-sorvete"
+            element={<ServicePillarView serviceIdParam="maquina-de-sorvete" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/maquina-de-sorvete/"
+            element={<ServicePillarView serviceIdParam="maquina-de-sorvete" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          <Route
+            path="/chopeiras"
+            element={<ServicePillarView serviceIdParam="chopeiras" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/chopeiras/"
+            element={<ServicePillarView serviceIdParam="chopeiras" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
           {/* Lava e Seca Landing Pages */}
           <Route
             path="/conserto-lava-e-seca-penha"

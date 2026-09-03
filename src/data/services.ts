@@ -314,5 +314,211 @@ export const PILLAR_SERVICES: ServicePillar[] = [
         answer: "Sim! Somos especialistas na troca do kit completo de rolamentos blindados, retentor de silicone e triângulo cruzeta de suporte do tambor com alinhamento perfeito sem ruído."
       }
     ]
+  },
+  {
+    id: "assistencia-tecnica-refrigeracao",
+    slug: "assistencia-tecnica-refrigeracao",
+    title: "Assistência Técnica em Refrigeração Residencial, Comercial e Industrial",
+    shortTitle: "Assistência Refrigeração",
+    metaTitle: "Assistência Técnica em Refrigeração em SC | Santa Catarina Refrigeração",
+    metaDescription: "Assistência técnica especializada em refrigeração comercial, industrial e residencial em Navegantes, Penha, Itajaí, Balneário Camboriú e região. Atendimento 24h.",
+    h1: "Assistência Técnica em Refrigeração Comercial, Industrial e Residencial em SC",
+    summary: "Serviço completo de manutenção corretiva, preventiva e instalação de equipamentos de refrigeração para residências e empresas de Santa Catarina.",
+    image: COMPANY_INFO.assets.serviceGeladeira,
+    category: "Comercial",
+    commonDefects: [
+      "Perda de rendimento e temperatura elevada nos equipamentos",
+      "Compressores apresentando estalos, alta corrente ou aquecimento",
+      "Vazamentos de fluido refrigerante e congelamento de serpentinas",
+      "Falhas em controladores digitais, termostatos e quadros de comando"
+    ],
+    repairsExecuted: [
+      "Diagnóstico completo de ciclo frigorífico com manômetros digitais",
+      "Recarga de gás refrigerante ecologicamente correto com teste de estanqueidade",
+      "Substituição e retrofit de compressores e unidades condensadoras",
+      "Elaboração de planos PMOC para estabelecimentos comerciais e industriais"
+    ],
+    fullDescription: "A Santa Catarina Refrigeração é referência técnica em assistência de sistemas de refrigeração no Litoral e Vale do Itajaí. Atendemos desde pequenos comércios até indústrias alimentícias, oferecendo soluções ágeis para garantir que seus equipamentos operem em máxima eficiência energética e conformidade com as normas da Anvisa.",
+    faqs: [
+      {
+        question: "Qual o prazo de atendimento para chamados de assistência técnica?",
+        answer: "Atendemos no mesmo dia para chamados residenciais e oferecemos atendimento emergencial prioritário em até 2 horas para clientes comerciais B2B."
+      }
+    ]
+  },
+  {
+    id: "refrigeracao-comercial",
+    slug: "refrigeracao-comercial",
+    title: "Refrigeração Comercial e Manutenção Preventiva PMOC",
+    shortTitle: "Refrigeração Comercial",
+    metaTitle: "Refrigeração Comercial em SC | Assistência e Manutenção PMOC",
+    metaDescription: "Assistência técnica de refrigeração comercial para restaurantes, peixarias, supermercados, açougues e hotéis. Manutenção preventiva e contratos PMOC.",
+    h1: "Refrigeração Comercial e Contratos de Manutenção Preventiva PMOC",
+    summary: "Atendimento especializado para balcões expositores, cervejeiras, ilhas de congelados, visicoolers e escritórios comerciais.",
+    image: COMPANY_INFO.assets.serviceBalcao,
+    category: "Comercial",
+    commonDefects: [
+      "Expositores de bebidas e alimentos aquecendo na alta temporada",
+      "Bloqueio de gelo no evaporador e falha nos ciclos de degelo",
+      "Ruído excessivo e falhas de ventilação nos condensadores"
+    ],
+    repairsExecuted: [
+      "Limpeza e higienização química de aletas de condensadores",
+      "Troca de micromotores e hélices de ventilação",
+      "Substituição de gaxetas magnéticas de vedação",
+      "Instalação e parametrização de controladores Full Gauge/Carel"
+    ],
+    fullDescription: "Sua empresa não pode parar por falha no sistema de frio. Atendemos supermercados, padarias, peixarias e restaurantes em todo o Litoral Norte Catarinense com contratos flexíveis e suporte 24h.",
+    faqs: [
+      {
+        question: "Vocês emitem laudo e ART para fiscalização sanitária?",
+        answer: "Sim, emitimos laudo técnico, livro de registro PMOC e garantia formal para fiscalizações da Vigilância Sanitária e Órgãos Reguladores."
+      }
+    ]
+  },
+  {
+    id: "refrigeracao-industrial",
+    slug: "refrigeracao-industrial",
+    title: "Refrigeração Industrial, Chillers e Centrais Frigoríficas",
+    shortTitle: "Refrigeração Industrial",
+    metaTitle: "Refrigeração Industrial em SC | Chillers e Centrais Frigoríficas",
+    metaDescription: "Manutenção e suporte para refrigeração industrial, túneis de congelamento, chillers e centrais frigoríficas em Santa Catarina.",
+    h1: "Refrigeração Industrial e Manutenção de Centrais Frigoríficas",
+    summary: "Engenharia e assistência técnica para indústrias frigoríficas, processadoras de pescado e centrais de distribuição.",
+    image: COMPANY_INFO.assets.serviceCamaraFria,
+    category: "Comercial",
+    commonDefects: [
+      "Desarme de segurança por alta pressão no rack de compressores",
+      "Desgaste mecânico em compressores semi-herméticos e Scroll",
+      "Vazamentos em tubulações industriais de refrigeração"
+    ],
+    repairsExecuted: [
+      "Manutenção e substituição de compressores de grande porte",
+      "Inspecção e teste de estanqueidade com nitrogênio seco",
+      "Revisão de válvulas solenóide e de segurança em centrais"
+    ],
+    fullDescription: "Prestamos assistência de engenharia para sistemas industriais de alta e baixa temperatura, focando na redução do consumo elétrico e na prevenção de paradas em linhas de produção.",
+    faqs: [
+      {
+        question: "Atendem emergências em indústrias de pescados em Navegantes e Itajaí?",
+        answer: "Sim! Nossa localização estratégica permite atendimento ultra-rápido para indústrias no polo pesqueiro e industrial do litoral catarinense."
+      }
+    ]
+  },
+  {
+    id: "manutencao-refrigeracao",
+    slug: "manutencao-refrigeracao",
+    title: "Manutenção Preventiva e Corretiva em Refrigeração",
+    shortTitle: "Manutenção Refrigeração",
+    metaTitle: "Manutenção Preventiva e Corretiva em Refrigeração | SC Refrigeração",
+    metaDescription: "Evite prejuízos e paradas imprevistas com nossos planos de manutenção preventiva e corretiva para equipamentos frigoríficos.",
+    h1: "Manutenção Preventiva e Corretiva de Equipamentos de Refrigeração",
+    summary: "Planos periódicos de revisão e reparos ágeis para maximizar a vida útil e eficiência dos seus equipamentos frigoríficos.",
+    image: COMPANY_INFO.assets.serviceGeladeira,
+    category: "Comercial",
+    commonDefects: [
+      "Aumento injustificado na conta de energia elétrica",
+      "Ciclos de funcionamento contínuos do compressor",
+      "Acúmulo de gelo e vazamentos de água no piso"
+    ],
+    repairsExecuted: [
+      "Higienização completa e desinfecção de serpentinas",
+      "Medição de corrente elétrica e tensão de trabalho do motor",
+      "Troca preventiva de relés, capacitores e protetores térmicos"
+    ],
+    fullDescription: "A manutenção preventiva periódica reduz em até 40% o consumo de energia dos equipamentos e previne 80% das quebras emergenciais durante períodos de alta demanda.",
+    faqs: [
+      {
+        question: "Qual a diferença entre manutenção preventiva e corretiva?",
+        answer: "A preventiva ajusta e limpa o sistema periodicamente antes que ele quebre. A corretiva repara a peça avariada após a paralisação do equipamento."
+      }
+    ]
+  },
+  {
+    id: "maquina-de-gelo",
+    slug: "maquina-de-gelo",
+    title: "Conserto e Manutenção de Máquinas de Gelo Comercial e Industrial",
+    shortTitle: "Máquinas de Gelo",
+    metaTitle: "Conserto de Máquina de Gelo em SC | Everest, Scotsman, Macom",
+    metaDescription: "Assistência técnica especializada em máquinas de gelo comerciais em cubos ou escamas para hotéis, bares, peixarias e restaurantes em SC.",
+    h1: "Conserto e Manutenção de Máquinas de Gelo em Cubo e Escama",
+    summary: "Reparo rápido e higienização de máquinas de gelo Everest, Macom, Scotsman, Manitowoc e marcas nacionais e importadas.",
+    image: COMPANY_INFO.assets.serviceFreezer,
+    category: "Comercial",
+    commonDefects: [
+      "Máquina liga mas não solta os cubos de gelo",
+      "Gelo saindo fino, oco ou deformado",
+      "Vazamento de água e mofo no reservatório"
+    ],
+    repairsExecuted: [
+      "Desincrustação química e sanitização de placas evaporações",
+      "Troca de bombas de água, válvulas de gás quente e sonda de colheita",
+      "Substituição de filtros de água de carvão ativado"
+    ],
+    fullDescription: "Garantimos produção contínua de gelo cristalino e higienizado para estabelecimentos gastronômicos, hoteleiros e pesqueiros em toda a região.",
+    faqs: [
+      {
+        question: "De quanto em quanto tempo devo fazer a higienização da máquina de gelo?",
+        answer: "A limpeza e desinfecção do reservatório deve ocorrer a cada 3 a 6 meses para atender às exibições da Anvisa."
+      }
+    ]
+  },
+  {
+    id: "maquina-de-sorvete",
+    slug: "maquina-de-sorvete",
+    title: "Conserto e Manutenção de Máquinas de Sorvete e Açaí",
+    shortTitle: "Máquinas de Sorvete",
+    metaTitle: "Conserto de Máquina de Sorvete Express e Açaí | SC Refrigeração",
+    metaDescription: "Assistência técnica de máquinas de sorvete expresso, soft e açaí para sorveterias, lanchonetes e quiosques em SC.",
+    h1: "Assistência Técnica de Máquinas de Sorvete Expresso e Açaí",
+    summary: "Manutenção mecânica e de refrigeração para cilindros e batedores de máquinas de sorvete soft e açaí.",
+    image: COMPANY_INFO.assets.serviceFrigobar,
+    category: "Comercial",
+    commonDefects: [
+      "Massa do sorvete saindo mole ou congelando demais no cilindro",
+      "Barulho forte nos batedores internos ou raspadores",
+      "Vazamento de calda pelas raspadeiras"
+    ],
+    repairsExecuted: [
+      "Ajuste da expansão de gás no cilindro de congelamento",
+      "Troca de raspadores de teflon e vedações de gaxeta",
+      "Revisão do sistema elétrico e motores de raspagem"
+    ],
+    fullDescription: "Sua sorveteria ou quiosque no litoral catarinense precisa de equipamentos perfeitamente regulados na alta temporada. Atendemos com agilidade e peças de reposição.",
+    faqs: [
+      {
+        question: "Vocês atendem sorveterias na praia no verão?",
+        answer: "Sim, temos plantão técnico rápido para quiosques e sorveterias em Penha, Piçarras, BC, Itajaí e região."
+      }
+    ]
+  },
+  {
+    id: "chopeiras",
+    slug: "chopeiras",
+    title: "Conserto e Manutenção de Chopeiras Comerciais e Najas",
+    shortTitle: "Chopeiras",
+    metaTitle: "Conserto e Manutenção de Chopeiras e Najas em SC | SC Refrigeração",
+    metaDescription: "Assistência técnica de chopeiras elétricas, a gelo, torres Naja e pré-resfriadores para bares, pubs e eventos em SC.",
+    h1: "Conserto e Manutenção de Chopeiras Elétricas e Torres Naja",
+    summary: "Manutenção preventiva, sanitização de linhas e reparo em compressores e bancos de gelo de chopeiras comerciais.",
+    image: COMPANY_INFO.assets.serviceBalcao,
+    category: "Comercial",
+    commonDefects: [
+      "Chopp saindo quente ou apenas com espuma (espumando demais)",
+      "Banco de gelo do pré-resfriador derretido",
+      "Vazamento de glicol ou água na torre Naja"
+    ],
+    repairsExecuted: [
+      "Sanitização química de serpentinas e linhas de Chopp",
+      "Troca de agitadores, bombas de glicol e termostatos",
+      "Recarga de gás e substituição de compressores de chopeira"
+    ],
+    fullDescription: "Chopp trincando de gelado exige chopeira com banco de gelo perfeito e linhas limpas. Atendemos pubs, cervejarias e restaurantes em toda a região com suporte ágil.",
+    faqs: [
+      {
+        question: "Por que a chopeira está soltando só espuma?",
+        answer: "Isso acontece quando o banco de gelo derrete por falha no compressor ou quando a pressão de CO2 está desregulada para a temperatura da serpentina."
+      }
+    ]
   }
 ];
