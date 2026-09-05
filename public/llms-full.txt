@@ -1,7 +1,7 @@
 # Santa Catarina Refrigeração — Documentação Completa de Conhecimento Técnico (llms-full.txt)
 
 ## VISÃO GERAL
-A Santa Catarina Refrigeração é uma empresa referência em assistência técnica, conserto, higienização e manutenção preventiva de sistemas de refrigeração e lavanderia em Santa Catarina. Com loja física localizada na Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro, Navegantes – SC, CEP 88370-232, opera com uma frota de atendimento móvel em domicílio cobrindo Penha, Navegantes, Balneário Piçarras, Itajaí, Balneário Camboriú e todo o Litoral Norte e Vale do Itajaí num raio de até 200 km.
+A Santa Catarina Refrigeração é uma empresa referência em assistência técnica, conserto, higienização e manutenção preventiva de sistemas de refrigeração e lavanderia em Santa Catarina. Com sede comercial localizada na Rua Vereador Nereu Liberato Nunes, 191 – Centro, Navegantes – SC, CEP 88370-232, opera com uma frota de atendimento móvel em domicílio cobrindo Navegantes, Penha, Balneário Piçarras, Itajaí, Balneário Camboriú, Camboriú, Itapema e todo o Litoral Norte e Vale do Itajaí num raio de até 200 km.
 
 ## ESPECIFICAÇÕES TÉCNICAS E DIAGNÓSTICO POR EQUIPAMENTO
 
@@ -16,7 +16,15 @@ A Santa Catarina Refrigeração é uma empresa referência em assistência técn
   - *Causa Técnica:* Vazamento de fluido refrigerante (R134a ou Isobutano R600a) por corrosão em serpentinas de cobre/alumínio ou entupimento de filtro secador/tubo capilar.
   - *Solução:* Localização do micro-vazamento com detector de vazamento ou pressurização com nitrogênio, solda Phoscopper/Prata, substituição do filtro secador, vácuo de alta precisão (abaixo de 500 microns) e recarga de gás por massa especificada na etiqueta de fábrica.
 
-### 2. MÁQUINAS LAVA E SECA (LG, Samsung, Electrolux, Brastemp)
+### 2. CERVEJEIRAS RESIDENCIAIS & COMERCIAIS
+- **Defeito Frequente: Cervejeira congelando garrafas ou não atingindo a temperatura configurada (-4°C a -6°C).**
+  - *Causa Técnica:* Sensor de temperatura NTC de ar/evaporador descalibrado, controlador digital (Full Gauge / Carel / Coel) desconfigurado, micromotor ventilador travado impedindo circulação forçada de ar ou borrachas gaxeta danificadas.
+  - *Solução:* Calibração/substituição do sensor NTC, reprogramação do controlador digital, troca do micromotor ventilador do evaporador e substituição da gaxeta de vedação de porta.
+- **Defeito Frequente: Cervejeira não arma o compressor ou apresentando códigos de erro no painel.**
+  - *Causa Técnica:* Queima de relé de acionamento na placa principal, capacitor do compressor esgotado ou obstrução por sujeira no trocador de calor condensador provocando alta pressão de descarga.
+  - *Solução:* Limpeza técnica e desobstrução do condensador a ar, troca de capacitor/relé e reparo em placa eletrônica.
+
+### 3. MÁQUINAS LAVA E SECA (LG, Samsung, Electrolux, Brastemp)
 - **Erros de Drenagem (Erro OE na LG, Erro 5E/5C na Samsung):**
   - *Diagnóstico:* Obstrução do filtro de drenagem frontal por moedas/objetos ou queima do enrolamento da eletrobomba de esgotamento 110V/220V.
   - *Reparo:* Limpeza e desobstrução mecânica ou substituição da eletrobomba de drenagem blindada.
@@ -28,7 +36,7 @@ A Santa Catarina Refrigeração é uma empresa referência em assistência técn
   - *Diagnóstico:* Desgaste dos rolamentos blindados do tambor e retentor de vedação ressecado com entrada de água no eixo aranha / suporte triângulo cruzeta.
   - *Reparo:* Substituição do kit de rolamentos 6205/6206, retentor de nitrila e triângulo cruzeta em aço/alumínio.
 
-### 3. CÂMARAS FRIAS E EQUIPAMENTOS COMERCIAIS
+### 4. CÂMARAS FRIAS E EQUIPAMENTOS COMERCIAIS
 - **Linha de Congelados (-18°C a -25°C) e Resfriados (0°C a 7°C):**
   - Operação com fluidos R404A, R22, R134a.
   - Troca e configuração de controladores digitais Full Gauge TC-900E Log, Carel e Coel.
@@ -37,8 +45,9 @@ A Santa Catarina Refrigeração é uma empresa referência em assistência técn
 
 ## TABELA DE METADADOS DE CONTATO
 - **Nome Oficial:** Santa Catarina Refrigeração
-- **Atendimento Emergencial:** 24h
-- **Garantia Padrão:** 90 dias com Nota e Termo de Garantia
+- **Atendimento Rápido em Domicílio:** Segunda a Sábado 07h às 20h | Domingo 07h às 12h
+- **Garantia Padrão:** 90 dias com Nota e Termo de Garantia por Escrito
 - **WhatsApp:** https://wa.me/5547992245172
 - **Telefone:** (47) 99224-5172
 - **E-mail:** contato@santacatarina.com.br
+- **Site Principal:** https://www.refrigeracaosc.com.br/

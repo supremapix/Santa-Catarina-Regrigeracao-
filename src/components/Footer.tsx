@@ -143,9 +143,9 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/conserto-de-cervejeira-e-expositor" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-cervejeira" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Cervejeiras & Expositores</span>
+                  <span>Conserto de Cervejeira</span>
                 </Link>
               </li>
               <li>

@@ -109,6 +109,23 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<ServicePillarView serviceIdParam="adega" onOpenBookingModal={handleOpenBookingModal} />}
           />
 
+          <Route
+            path="/conserto-de-cervejeira"
+            element={<ServicePillarView serviceIdParam="cervejeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-cervejeira/"
+            element={<ServicePillarView serviceIdParam="cervejeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-cervejeira-e-expositor"
+            element={<ServicePillarView serviceIdParam="cervejeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-de-cervejeira-e-expositor/"
+            element={<ServicePillarView serviceIdParam="cervejeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
           {/* New Commercial & Industrial Service Routes */}
           <Route
             path="/assistencia-tecnica-refrigeracao"

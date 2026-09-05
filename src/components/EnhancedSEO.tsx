@@ -142,7 +142,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       },
       "areaServed": {
         "@type": neighborhood ? "AdministrativeArea" : "City",
-        "name": neighborhood ? `${neighborhood}, ${city || 'Penha'}` : (city || "Santa Catarina")
+        "name": neighborhood ? `${neighborhood}, ${city || 'Navegantes'}` : (city || "Santa Catarina")
       }
     }
   ];
@@ -201,7 +201,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       {/* Language & Geo Tags */}
       <meta name="language" content="Portuguese" />
       <meta name="geo.region" content="BR-SC" />
-      <meta name="geo.placename" content={city || "Penha"} />
+      <meta name="geo.placename" content={city || "Navegantes"} />
       <meta name="geo.position" content={`${COMPANY_INFO.geo.latitude};${COMPANY_INFO.geo.longitude}`} />
       <meta name="ICBM" content={`${COMPANY_INFO.geo.latitude}, ${COMPANY_INFO.geo.longitude}`} />
 

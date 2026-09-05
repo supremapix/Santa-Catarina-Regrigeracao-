@@ -520,5 +520,82 @@ export const PILLAR_SERVICES: ServicePillar[] = [
         answer: "Isso acontece quando o banco de gelo derrete por falha no compressor ou quando a pressão de CO2 está desregulada para a temperatura da serpentina."
       }
     ]
+  },
+  {
+    id: "cervejeira",
+    slug: "conserto-de-cervejeira",
+    title: "Conserto de Cervejeira em Navegantes, Penha e Região",
+    shortTitle: "Conserto de Cervejeira",
+    metaTitle: "Conserto de Cervejeira em Navegantes, Penha e Região | Santa Catarina Refrigeração",
+    metaDescription: "Assistência técnica, diagnóstico e conserto de cervejeiras residenciais e comerciais em Navegantes, Penha e região. Solicite atendimento pelo WhatsApp.",
+    h1: "Conserto e Assistência Técnica para Cervejeiras",
+    summary: "Assistência técnica e conserto especializado de cervejeiras residenciais e comerciais em Navegantes, Penha, Itajaí, Balneário Camboriú e região.",
+    image: COMPANY_INFO.assets.serviceBalcao,
+    category: "Comercial",
+    commonDefects: [
+      "Cervejeira não gela ou gelando pouco",
+      "Cervejeira congelando as bebidas",
+      "Cervejeira não liga ou não desliga",
+      "Cervejeira fazendo barulho excessivo ou estalos no compressor",
+      "Cervejeira vazando água na base ou com dreno entupido",
+      "Cervejeira com código de erro no painel ou temperatura oscilando",
+      "Problema no compressor, termostato, sensor ou placa eletrônica",
+      "Falha no sistema de degelo, ventilação ou vedação da borracha"
+    ],
+    repairsExecuted: [
+      "Diagnóstico técnico completo do sistema elétrico, eletrônico e frigorífico",
+      "Substituição de sensores NTC, controladores digitais (Full Gauge / Carel / Coel) e placas eletrônicas",
+      "Troca de micromotores ventiladores, hélices e placas de degelo",
+      "Conserto de vedação de gaxeta, alinhamento de porta e desobstrução de dreno",
+      "Eliminação de microvazamentos de gás e recarga de fluido refrigerante ecológico",
+      "Substituição de relés de partida, protetores térmicos e compressores de refrigeração"
+    ],
+    fullDescription: "A Santa Catarina Refrigeração realiza diagnóstico transparente e conserto de cervejeiras residenciais (varandas gourmet, casas de praia) e comerciais em Navegantes, Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e toda a região. Atendemos bares, restaurantes, lanchonetes, conveniências, mercados, padarias, hotéis, pousadas, clubes e salões de festas. Importante: a falta de refrigeração não significa obrigatoriamente falta de gás. Nosso técnico avalia a alimentação elétrica, sensores, controladores digitais, placa eletrônica, ventilador, condensador, evaporador, sistema de degelo, vedação da porta, dreno, relés e compressor antes de qualquer reparo no próprio local.",
+    faqs: [
+      {
+        question: "Quem conserta cervejeira em Navegantes e Penha?",
+        answer: "A Santa Catarina Refrigeração atende em domicílio e estabelecimentos comerciais em Navegantes, Penha e toda a região com equipe técnica especializada."
+      },
+      {
+        question: "Quais tipos de cervejeira são atendidos?",
+        answer: "Atendemos cervejeiras residenciais gourmet e comerciais de todas as marcas e capacidades (Metalfrio, Gelopar, Fricon, Venax, Consumax, Hussmann, Imbera, Consul, Midea, etc.)."
+      },
+      {
+        question: "Cervejeira que não gela tem conserto?",
+        answer: "Sim! O problema pode ser falha no sensor, micro-motor ventilador, placa eletrônica, bloqueio de gelo no evaporador ou vazamento no circuito frigorífico. Fazemos o diagnóstico no local."
+      },
+      {
+        question: "Por que a cervejeira está congelando as bebidas?",
+        answer: "Pode ser desregulagem do controlador digital, sensor de temperatura descalibrado ou relé travado mantendo o compressor ligado continuamente."
+      },
+      {
+        question: "O que causa oscilação de temperatura na cervejeira?",
+        answer: "Pode ocorrer devido a borracha de vedação gasta, sensor NTC defeituoso ou sujeira obstruindo o trocador de calor condensador."
+      },
+      {
+        question: "Cervejeira que não liga pode ser problema na placa eletrônica?",
+        answer: "Sim, falhas na placa de comando, fusíveis ou capacitores impedem o funcionamento do painel e do motor."
+      },
+      {
+        question: "Quando o compressor precisa ser avaliado?",
+        answer: "Quando a cervejeira apresenta ruídos fortes, estalos ao tentar partir, aquecimento elevado ou perda de compressão no ciclo frigorífico."
+      },
+      {
+        question: "Vocês fazem manutenção preventiva em cervejeiras?",
+        answer: "Sim! Fazemos higienização de serpentinas, desobstrução de dreno e regulagem de controladores para evitar quebras na alta temporada."
+      },
+      {
+        question: "Fazem recarga de fluido refrigerante em cervejeira?",
+        answer: "Sim, com identificação e correção prévia da causa do vazamento para garantir durabilidade."
+      },
+      {
+        question: "O reparo da cervejeira pode ser feito no local?",
+        answer: "Sim, nossos técnicos levam ferramental completo e peças de reposição para executar o conserto no local com garantia de 90 dias."
+      },
+      {
+        question: "Como solicitar atendimento pelo WhatsApp e quais informações enviar?",
+        answer: "Basta enviar uma mensagem no WhatsApp (47) 99224-5172 informando a marca da cervejeira, modelo, cidade/bairro e o defeito observado para agendamento imediato."
+      }
+    ]
   }
 ];

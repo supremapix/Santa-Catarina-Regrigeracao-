@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
     {
       type: 'badge',
       icon: <Clock className="w-4 h-4 text-emerald-400 shrink-0" />,
-      content: <span>Chegada em ~30 min</span>,
+      content: <span>Agendamento no Mesmo Dia</span>,
     },
     {
       type: 'phone',
@@ -106,31 +106,35 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white"
             >
-              Assistência Técnica <br />
-              <motion.span
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 bg-[length:200%_auto] drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] inline-block"
-              >
-                Especializada em Refrigeração
-              </motion.span>
+              Assistência Técnica em Refrigeração Residencial, Comercial e Industrial em SC
             </motion.h1>
 
-            {/* Subtitle with Premium Blur-Slide Animation */}
+            {/* Subtitle explaining company, services, location and contact */}
             <motion.p
               initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
             >
-              Visita rápida no mesmo dia para <strong className="text-white font-bold">Geladeiras, Side by Side, Freezers, Câmaras Frias, Balcões Refrigerados, Frigobares e Lava e Seca</strong> em toda a região com garantia formal de 90 dias e peças originais.
+              A <strong className="text-white font-bold">Santa Catarina Refrigeração</strong> é especializada em manutenção preventiva e corretiva de equipamentos de frio com sede comercial em Navegantes/SC. Atendemos residências, restaurantes, comércios e indústrias em Navegantes, Penha, Balneário Piçarras, Itajaí, Barra Velha, Balneário Camboriú e região.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-slate-300 text-sm space-y-3 bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-left"
+            >
+              <p>
+                <strong className="text-cyan-400 font-bold">Equipamentos Atendidos:</strong> Geladeiras Frost Free, Side by Side, French Door, Cervejeiras, Freezers, Frigobares, Adegas Climatizadas, Câmaras Frias, Balcões Refrigerados, Expositores de Bebidas, Máquinas de Gelo, Máquinas de Sorvete, Chopeiras e Lava e Seca.
+              </p>
+              <p>
+                <strong className="text-emerald-400 font-bold">Diferença de Manutenção:</strong> A <strong className="text-white font-semibold">preventiva</strong> ajusta e higieniza os componentes periodicamente para evitar paradas e economizar energia. A <strong className="text-white font-semibold">corretiva</strong> atua no diagnóstico e reparo imediato quando o equipamento apresenta falhas de temperatura ou paralisação.
+              </p>
+              <p className="text-xs text-slate-400 pt-1">
+                📍 <strong className="text-slate-300">Base Comercial:</strong> {COMPANY_INFO.address.full} | Solicite atendimento com triagem pelo WhatsApp (47) 99224-5172.
+              </p>
+            </motion.div>
 
           </motion.div>
 

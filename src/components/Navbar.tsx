@@ -206,12 +206,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                         <span>Refrigeração Comercial & B2B</span>
                       </Link>
                       <Link
-                        to="/conserto-de-camara-fria"
+                        to="/conserto-de-balcao-refrigerado"
                         onClick={() => setIsDesktopServicesOpen(false)}
                         className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
                       >
                         <span className="w-2 h-2 rounded-full bg-blue-500" />
                         <span>Câmaras Frias & Balcões</span>
+                      </Link>
+                      <Link
+                        to="/conserto-de-cervejeira"
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-amber-600" />
+                        <span>Conserto de Cervejeiras</span>
                       </Link>
                       <Link
                         to="/conserto-de-freezer"
@@ -504,6 +512,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                         className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
                       >
                         Câmaras Frias & Balcões
+                      </Link>
+                      <Link
+                        to="/conserto-de-cervejeira"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                      >
+                        Conserto de Cervejeiras
                       </Link>
                       <Link
                         to="/conserto-de-freezer"
