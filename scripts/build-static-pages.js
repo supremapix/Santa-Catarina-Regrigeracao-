@@ -80,7 +80,7 @@ function renderFooterHtml() {
           <div>
             <h4 class="font-black text-slate-900 uppercase text-xs tracking-wider mb-3">Cidades & Bairros</h4>
             <ul class="space-y-2 text-xs">
-              <li><a href="/conserto-de-geladeira-navegantes" class="hover:text-cyan-700">Navegantes - SC</a></li>
+              <li><a href="/conserto-de-geladeira-em-navegantes" class="hover:text-cyan-700">Navegantes - SC</a></li>
               <li><a href="/conserto-de-geladeira-gravata" class="hover:text-cyan-700">Gravatá (Navegantes)</a></li>
               <li><a href="/conserto-de-geladeira-penha" class="hover:text-cyan-700">Penha & Beto Carrero</a></li>
               <li><a href="/conserto-de-geladeira-itajai" class="hover:text-cyan-700">Itajaí - SC</a></li>
@@ -148,7 +148,7 @@ function buildFullHtml({ title, description, canonicalUrl, schemas = [], breadcr
     "address": {
       "@type": "PostalAddress",
       "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
-      "addressLocality": "Penha",
+      "addressLocality": COMPANY_INFO.address.city,
       "addressRegion": COMPANY_INFO.address.state,
       "postalCode": COMPANY_INFO.address.zipCode,
       "addressCountry": "BR"
@@ -318,7 +318,7 @@ addSitemapUrl('/', '1.0', 'daily');
       <p class="text-slate-600 text-base max-w-3xl">Técnicos com vans de oficina móvel circulando diariamente por todo o Litoral Norte e Vale do Itajaí.</p>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         ${CITIES_DATA.map(c => `
-          <a href="/conserto-de-geladeira-${c.slug}" class="p-4 bg-slate-50 border hover:border-cyan-600 rounded-xl block">
+          <a href="${c.slug === 'navegantes' ? '/conserto-de-geladeira-em-navegantes' : `/conserto-de-geladeira-${c.slug}`}" class="p-4 bg-slate-50 border hover:border-cyan-600 rounded-xl block">
             <strong class="text-sm text-slate-900 block">${escapeHtml(c.name)}</strong>
             <span class="text-xs text-slate-500">${c.distanceKm === 0 ? 'Sede' : `~${c.distanceKm} km`} • ${c.estimatedMinutes} min</span>
           </a>
@@ -549,14 +549,19 @@ for (const post of BLOG_POSTS) {
 
 // 9. City Pages & High-Volume Neighborhoods
 for (const city of CITIES_DATA) {
-  const title = `Conserto de Geladeira em ${city.name}/SC | Assistência Técnica em Domicílio`;
-  const description = `Assistência técnica de geladeiras, freezers, lava e seca e câmaras frias em ${city.name}/SC. Atendimento domiciliar nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}. Garantia 90 dias.`;
-  const canonicalUrl = `/conserto-de-geladeira-${city.slug}`;
+  const isNavegantes = city.slug === 'navegantes';
+  const canonicalUrl = isNavegantes ? '/conserto-de-geladeira-em-navegantes' : `/conserto-de-geladeira-${city.slug}`;
+  const title = isNavegantes
+    ? `Conserto de Geladeira em Navegantes SC | ${COMPANY_INFO.name}`
+    : `Conserto de Geladeira em ${city.name} SC | ${COMPANY_INFO.name}`;
+  const description = isNavegantes
+    ? `Assistência técnica para geladeiras e refrigeração em Navegantes e região. Atendimento residencial e comercial nos bairros Centro, Gravatá, Meia Praia e São Pedro.`
+    : `Assistência técnica para geladeiras, freezers e refrigeração em ${city.name} e região. Atendimento residencial e comercial nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}.`;
 
   const bodyHtml = `
     <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
       <span class="px-3 py-1 bg-cyan-100 text-cyan-900 rounded-full font-bold text-xs">${city.name} - SC • Chegada em ~${city.estimatedMinutes} min</span>
-      <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Geladeira em ${escapeHtml(city.name)}/SC</h1>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Geladeira em ${escapeHtml(city.name)} — Assistência Técnica em Domicílio</h1>
       <p class="text-slate-700 text-base max-w-3xl leading-relaxed">${escapeHtml(city.longDescription || city.customSnippet)}</p>
       
       <div class="p-6 bg-slate-50 border rounded-2xl space-y-4">
@@ -574,11 +579,10 @@ for (const city of CITIES_DATA) {
 
   const html = buildFullHtml({ title, description, canonicalUrl, bodyHtml });
   createPageFile(`conserto-de-geladeira-${city.slug}`, html);
-  // Also create legacy prefix /conserto-de-geladeira-em-${city.slug}
   createPageFile(`conserto-de-geladeira-em-${city.slug}`, html);
   createPageFile(`cidades/${city.slug}`, html);
 
-  addSitemapUrl(canonicalUrl, '0.8', 'weekly');
+  addSitemapUrl(canonicalUrl, isNavegantes ? '0.9' : '0.8', 'weekly');
 }
 
 // 10. High-Volume Neighborhoods

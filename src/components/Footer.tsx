@@ -164,7 +164,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/conserto-de-geladeira-navegantes" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                <Link to="/conserto-de-geladeira-em-navegantes" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <MapPin className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
                   <span>Navegantes - SC</span>
                 </Link>

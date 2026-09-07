@@ -50,10 +50,10 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Vila Nova", "São Nicolau", "Monjolo"
     ],
     popularLandmarks: ["Beto Carrero World", "Praia da Armação", "Praia Grande", "Capela de São João Batista", "Ponta da Vigia"],
-    customSnippet: "Base de operações da Santa Catarina Refrigeração em Penha-SC. Atendimento prioritário e de emergência em até 30 minutos em todos os bairros com peças originais e garantia formal.",
-    longDescription: "Sede operacional e base dos técnicos da Santa Catarina Refrigeração. Em Penha/SC, oferecemos o atendimento mais rápido de toda a região, cobrindo residências, condomínios fechados, pousadas e o forte comércio gastronômico do entorno do Parque Beto Carrero World e das praias. Nossas vans de oficina móvel circulam diariamente por Armação, Praia Grande, Santa Lídia e Centro com estoque de kits de degelo, placas eletrônicas, sensores e compressores para solucionar defeitos no mesmo dia sem necessidade de retirar o eletrodoméstico da sua residência.",
+    customSnippet: "Atendimento técnico em domicílio da Santa Catarina Refrigeração em Penha-SC. Atendimento rápido em todos os bairros com peças originais e garantia formal de 90 dias.",
+    longDescription: "Atendimento técnico em domicílio para moradores e estabelecimentos de Penha/SC. Oferecemos suporte ágil em toda a região, cobrindo residências, condomínios fechados, pousadas e o forte comércio gastronômico do entorno do Parque Beto Carrero World e das praias. Nossas vans de oficina móvel circulam diariamente por Armação, Praia Grande, Santa Lídia, Gravatá de Penha e Centro com estoque de kits de degelo, placas eletrônicas, sensores e compressores para solucionar defeitos no mesmo dia sem necessidade de retirar o eletrodoméstico da sua residência.",
     highlights: [
-      "Base de atendimento em Penha com chegada média em 20 a 30 minutos",
+      "Atendimento diário em Penha com agendamento e chegada rápida",
       "Especialistas em conserto de geladeiras de pousadas e casas de temporada",
       "Peças originais de fábrica para Brastemp, Electrolux, Consul, Samsung e LG",
       "Garantia formal de 90 dias com emissão de recibo e nota técnica"
@@ -75,10 +75,10 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Machados", "Volta Grande", "Pedreiras", "Escalvados", "Porto Escalvado"
     ],
     popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave", "Ferry Boat", "Molhe Norte"],
-    customSnippet: "Loja física da Santa Catarina Refrigeração no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191 – Sala 08). Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados com garantia de 90 dias.",
-    longDescription: "Sede de nossa loja física no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191 – Sala 08, CEP 88370-232). Navegantes é um dos principais polos de nossa operação em Santa Catarina. Com atendimento presencial em nossa loja e frota móvel nas avenidas de Gravatá e Meia Praia, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e empresas do complexo portuário Portonave. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, máquinas Lava and Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
+    customSnippet: "Endereço comercial da Santa Catarina Refrigeração no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191). Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados com garantia de 90 dias.",
+    longDescription: "Sede de nosso endereço comercial no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191, CEP 88370-232). Navegantes é o polo principal de nossa operação em Santa Catarina. Com atendimento móvel nas avenidas de Gravatá, Meia Praia e Centro, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e empresas do complexo portuário Portonave. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, cervejeiras, freezers, máquinas Lava e Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
     highlights: [
-      "Loja Física em Navegantes: Rua Vereador Nereu Liberato Nunes, 191 – Sala 08 - Centro",
+      "Endereço comercial em Navegantes: Rua Vereador Nereu Liberato Nunes, 191 - Centro",
       "Atendimento prioritário na orla de Gravatá, Meia Praia e Centro de Navegantes",
       "Equipe técnica equipada para reparos no mesmo dia em Navegantes e região",
       "Especialistas em refrigeração marítima, comercial e residencial com garantia de 90 dias"

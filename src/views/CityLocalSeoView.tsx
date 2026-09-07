@@ -71,15 +71,21 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
 
   const canonicalUrl = matchedNeighborhoodObj
     ? `/conserto-de-geladeira-${matchedNeighborhoodObj.slug}`
+    : city.slug === 'navegantes'
+    ? `/conserto-de-geladeira-em-navegantes`
     : `/conserto-de-geladeira-${city.slug}`;
 
   const pageTitle = matchedNeighborhood
-    ? `Conserto de Geladeira no Bairro ${matchedNeighborhood} (${city.name}/SC) | Assistência 24h`
-    : `Conserto de Geladeira em ${city.name}/SC | Assistência Técnica em Domicílio`;
+    ? `Conserto de Geladeira no Bairro ${matchedNeighborhood} em ${city.name} SC | ${COMPANY_INFO.name}`
+    : city.slug === 'navegantes'
+    ? `Conserto de Geladeira em Navegantes SC | ${COMPANY_INFO.name}`
+    : `Conserto de Geladeira em ${city.name} SC | ${COMPANY_INFO.name}`;
 
   const pageDescription = matchedNeighborhood
-    ? `Atendimento domiciliar rápido no bairro ${matchedNeighborhood} em ${city.name}/SC. Conserto de geladeiras, lava e seca, freezers e câmaras frias com peças originais e garantia de 90 dias.`
-    : (city.customSnippet || `Assistência técnica de geladeiras em ${city.name}/SC. Atendimento domiciliar nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}. Orçamento no local com garantia formal.`);
+    ? `Assistência técnica para geladeiras e refrigeradores no bairro ${matchedNeighborhood} em ${city.name}/SC. Atendimento em domicílio com peças originais e garantia de 90 dias.`
+    : city.slug === 'navegantes'
+    ? `Assistência técnica para geladeiras e refrigeração em Navegantes e região. Atendimento residencial e comercial nos bairros Centro, Gravatá, Meia Praia e São Pedro.`
+    : (city.customSnippet || `Assistência técnica para geladeiras, freezers e refrigeração em ${city.name} e região. Atendimento residencial e comercial nos bairros ${city.neighborhoods.slice(0, 4).join(', ')}.`);
 
   const citySchema = {
     "@context": "https://schema.org",
@@ -110,7 +116,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
   const breadcrumbs = [
     { name: "Início", item: "/" },
     { name: "Regiões Atendidas", item: "/regioes-atendidas" },
-    { name: city.name, item: `/conserto-de-geladeira-${city.slug}` }
+    { name: city.name, item: city.slug === 'navegantes' ? '/conserto-de-geladeira-em-navegantes' : `/conserto-de-geladeira-${city.slug}` }
   ];
 
   if (matchedNeighborhood) {
@@ -141,7 +147,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
             <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
             <Link to="/regioes-atendidas" className="hover:text-cyan-800">Regiões Atendidas</Link>
             <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <Link to={`/conserto-de-geladeira-${city.slug}`} className="hover:text-cyan-800">{city.name}</Link>
+            <Link to={city.slug === 'navegantes' ? '/conserto-de-geladeira-em-navegantes' : `/conserto-de-geladeira-${city.slug}`} className="hover:text-cyan-800">{city.name}</Link>
             {matchedNeighborhood && (
               <>
                 <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
