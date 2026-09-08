@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { FloatingActions } from './components/FloatingActions';
 import { WhatsAppBookingModal } from './components/WhatsAppBookingModal';
 
 import { HomeView } from './views/HomeView';
@@ -14,6 +14,7 @@ import { SamsungAssistenciaView } from './views/SamsungAssistenciaView';
 import { BlogGuideView } from './views/BlogGuideView';
 import { CityLocalSeoView } from './views/CityLocalSeoView';
 import { SearchIntentView } from './views/SearchIntentView';
+import { CervejeiraNavegantesView } from './views/CervejeiraNavegantesView';
 import { SitemapView } from './views/SitemapView';
 import { NotFoundView } from './views/NotFoundView';
 import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
@@ -124,6 +125,14 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
           <Route
             path="/conserto-de-cervejeira-e-expositor/"
             element={<ServicePillarView serviceIdParam="cervejeira" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-cervejeira-navegantes-sc"
+            element={<CervejeiraNavegantesView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/conserto-cervejeira-navegantes-sc/"
+            element={<CervejeiraNavegantesView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
           {/* New Commercial & Industrial Service Routes */}
@@ -315,7 +324,7 @@ export function App() {
 
         <Footer />
 
-        <FloatingWhatsApp onOpenBookingModal={() => handleOpenBookingModal()} />
+        <FloatingActions onOpenBookingModal={() => handleOpenBookingModal()} />
 
         <WhatsAppBookingModal
           isOpen={isBookingModalOpen}

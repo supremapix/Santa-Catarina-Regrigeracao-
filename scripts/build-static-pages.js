@@ -308,6 +308,133 @@ addSitemapUrl('/', '1.0', 'daily');
   addSitemapUrl('/refrigeracao-comercial', '0.9', 'weekly');
 }
 
+// 3b. Cervejeiras em Navegantes SC (/conserto-cervejeira-navegantes-sc)
+{
+  const title = "Conserto de Cervejeira em Navegantes SC | Santa Catarina Refrigeração";
+  const description = "Conserto e manutenção de cervejeiras em Navegantes SC. Assistência técnica para cervejeira que não gela, não liga, apresenta ruídos ou problemas de refrigeração. Solicite atendimento.";
+  const canonicalUrl = "/conserto-cervejeira-navegantes-sc";
+
+  const faqs = [
+    {
+      question: "Onde consertar cervejeira em Navegantes SC?",
+      answer: "A Santa Catarina Refrigeração realiza atendimento de refrigeração em Navegantes e região. Para verificar disponibilidade para sua cervejeira, entre em contato informando marca, modelo e problema apresentado."
+    },
+    {
+      question: "Minha cervejeira não está gelando. O que pode ser?",
+      answer: "Existem diferentes causas possíveis. O diagnóstico técnico deve verificar o funcionamento do sistema antes de definir o reparo necessário."
+    },
+    {
+      question: "Vocês consertam cervejeira que não liga?",
+      answer: "Informar que esse tipo de falha pode ser avaliado pela assistência técnica, sem prometer causa ou reparo antes do diagnóstico."
+    },
+    {
+      question: "Vocês atendem cervejeiras comerciais?",
+      answer: "Atendemos cervejeiras comerciais e expositores de bebidas para bares, restaurantes, lanchonetes, comércios e estabelecimentos gastronômicos em Navegantes e região."
+    },
+    {
+      question: "Quanto custa o conserto de uma cervejeira em Navegantes?",
+      answer: "Explicar que o valor depende do defeito, modelo, peças e serviço necessário e que o orçamento deve ser realizado após avaliação."
+    }
+  ];
+
+  const customSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${COMPANY_INFO.subdomainUrl}/conserto-cervejeira-navegantes-sc#service`,
+      "name": "Conserto de Cervejeira em Navegantes SC",
+      "serviceType": "Conserto e Manutenção de Cervejeiras",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": `${COMPANY_INFO.subdomainUrl}/#organization`,
+        "name": COMPANY_INFO.name
+      },
+      "areaServed": "Navegantes, Santa Catarina, Brasil",
+      "description": "Assistência técnica e conserto especializado de cervejeiras residenciais e comerciais em Navegantes SC."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ];
+
+  const bodyHtml = `
+    <div class="max-w-7xl mx-auto px-4 py-12 space-y-10">
+      <!-- AIO / GEO Block -->
+      <div class="p-6 bg-slate-50 border-l-4 border-cyan-600 rounded-r-2xl border text-slate-800 text-base leading-relaxed">
+        Procura conserto de cervejeira em Navegantes SC? A <strong>Santa Catarina Refrigeração</strong> oferece assistência em refrigeração para diagnóstico e manutenção de cervejeiras e outros equipamentos atendidos pela empresa. Entre em contato informando o equipamento e o problema apresentado para verificar o atendimento.
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 space-y-4">
+          <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Cervejeira em Navegantes SC</h1>
+          <p class="text-slate-700 text-base leading-relaxed">Diagnóstico, manutenção e conserto especializado de cervejeiras residenciais e comerciais em Navegantes, Gravatá, Centro e região do litoral norte de Santa Catarina.</p>
+          <div class="pt-2">
+            <a href="${COMPANY_INFO.whatsappUrl}" class="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-lg inline-block">Solicitar Atendimento no WhatsApp</a>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <img src="https://img.supremasite.com.br/technician_repairing_cervejeira.jpg" alt="Conserto de cervejeira em Navegantes SC - Santa Catarina Refrigeração" class="w-full h-auto rounded-2xl border shadow-md object-cover" />
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Assistência Técnica para Cervejeiras em Navegantes</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">O serviço envolve diagnóstico técnico do sistema de refrigeração e identificação da causa do problema antes da manutenção.</p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Problemas em cervejeiras que podem exigir assistência técnica</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Cervejeira não gela</strong><p class="text-slate-600 mt-1">Gás, compressor ou ventilação.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Cervejeira não liga</strong><p class="text-slate-600 mt-1">Placa, alimentação ou relé.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Cervejeira não mantém a temperatura</strong><p class="text-slate-600 mt-1">Sensor NTC, borracha de porta.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Cervejeira gelando pouco</strong><p class="text-slate-600 mt-1">Sujeira no condensador, gás baixo.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Cervejeira fazendo barulho</strong><p class="text-slate-600 mt-1">Ventilador ou coxins de motor.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Formação excessiva de gelo</strong><p class="text-slate-600 mt-1">Falha no ciclo de degelo.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Funcionamento intermitente</strong><p class="text-slate-600 mt-1">Protetor térmico acionando.</p></div>
+          <div class="p-4 bg-slate-50 border rounded-xl"><strong>Problemas no sistema de refrigeração</strong><p class="text-slate-600 mt-1">Ciclo frigorífico selado.</p></div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Manutenção de cervejeiras residenciais e comerciais</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">Atendimento especializado para bares, restaurantes, lanchonetes, comércios, estabelecimentos gastronômicos e residências (varandas gourmet e áreas de lazer).</p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Conserto de cervejeira em Navegantes e região</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">Atendimento prioritário em Navegantes, Gravatá, Centro de Navegantes, região de Navegantes e todo o litoral norte de Santa Catarina (incluindo Penha, Balneário Piçarras, Itajaí e Balneário Camboriú).</p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Por que procurar assistência técnica quando a cervejeira não está gelando?</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">Falhas de refrigeração podem possuir diferentes causas. Um diagnóstico adequado evita a troca desnecessária de componentes e garante a eficiência do equipamento.</p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">Solicite atendimento para sua cervejeira</h2>
+        <p class="text-slate-700 text-sm">Fale conosco pelo WhatsApp ou telefone para agendar o diagnóstico da sua cervejeira.</p>
+        <div>
+          <a href="${COMPANY_INFO.whatsappUrl}" class="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-lg inline-block">Chamar no WhatsApp: ${COMPANY_INFO.phone}</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const html = buildFullHtml({ title, description, canonicalUrl, schemas: customSchemas, bodyHtml });
+  createPageFile('conserto-cervejeira-navegantes-sc', html);
+  addSitemapUrl(canonicalUrl, '0.9', 'weekly');
+}
+
 // 4. Regions Hub (/regioes-atendidas)
 {
   const title = "Regiões Atendidas: Conserto de Geladeiras no Litoral e Vale do Itajaí";

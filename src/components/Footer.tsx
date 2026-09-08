@@ -143,9 +143,15 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/conserto-cervejeira-navegantes-sc" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
+                  <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
+                  <span>Cervejeira em Navegantes</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/conserto-de-cervejeira" className="hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-medium text-slate-700">
                   <ChevronRight className="w-4 h-4 text-cyan-600 shrink-0" />
-                  <span>Conserto de Cervejeira</span>
+                  <span>Conserto de Cervejeiras (Geral)</span>
                 </Link>
               </li>
               <li>
