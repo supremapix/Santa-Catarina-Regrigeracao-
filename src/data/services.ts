@@ -530,7 +530,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica, diagnóstico e conserto de cervejeiras residenciais e comerciais em Navegantes, Penha e região. Solicite atendimento pelo WhatsApp.",
     h1: "Conserto e Assistência Técnica para Cervejeiras",
     summary: "Assistência técnica e conserto especializado de cervejeiras residenciais e comerciais em Navegantes, Penha, Itajaí, Balneário Camboriú e região.",
-    image: COMPANY_INFO.assets.serviceBalcao,
+    image: COMPANY_INFO.assets.serviceCervejeira,
     category: "Comercial",
     commonDefects: [
       "Cervejeira não gela ou gelando pouco",

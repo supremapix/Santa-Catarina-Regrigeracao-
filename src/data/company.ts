@@ -61,5 +61,6 @@ export const COMPANY_INFO = {
     serviceBalcao: "https://img.supremasite.com.br/sc-consertos.png",
     serviceAdega: "https://img.supremasite.com.br/sc-consertos.png",
     serviceLavaESeca: "https://img.supremasite.com.br/lava-e-seca-sc.webp",
+    serviceCervejeira: "https://img.supremasite.com.br/technician_repairing_cervejeira.jpg",
   }
 };
