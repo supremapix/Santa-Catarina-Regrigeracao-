@@ -74,14 +74,14 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Centro", "Gravatá", "São Pedro", "Meia Praia", "São Domingos",
       "Machados", "Volta Grande", "Pedreiras", "Escalvados", "Porto Escalvado"
     ],
-    popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave", "Ferry Boat", "Molhe Norte"],
+    popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave (Ponto de Referência)", "Ferry Boat", "Molhe Norte"],
     customSnippet: "Endereço comercial da Santa Catarina Refrigeração no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191). Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados com garantia de 90 dias.",
-    longDescription: "Sede de nosso endereço comercial no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191, CEP 88370-232). Navegantes é o polo principal de nossa operação em Santa Catarina. Com atendimento móvel nas avenidas de Gravatá, Meia Praia e Centro, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e empresas do complexo portuário Portonave. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, cervejeiras, freezers, máquinas Lava e Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
+    longDescription: "Sede de nosso endereço comercial no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191, CEP 88370-232). Navegantes é o polo principal de nossa operação em Santa Catarina. Com atendimento móvel nas avenidas de Gravatá, Meia Praia e Centro, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e estabelecimentos comerciais locais. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, cervejeiras, freezers, máquinas Lava e Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
     highlights: [
       "Endereço comercial em Navegantes: Rua Vereador Nereu Liberato Nunes, 191 - Centro",
       "Atendimento prioritário na orla de Gravatá, Meia Praia e Centro de Navegantes",
       "Equipe técnica equipada para reparos no mesmo dia em Navegantes e região",
-      "Especialistas em refrigeração marítima, comercial e residencial com garantia de 90 dias"
+      "Especialistas em refrigeração comercial e residencial com garantia de 90 dias"
     ]
   },
   {
@@ -103,9 +103,9 @@ export const CITIES_DATA: CityLocalSEO[] = [
     customSnippet: "Assistência técnica de refrigeração em Piçarras e Itacolomi. Chegada rápida, orçamento sem compromisso e conserto com garantia por escrito.",
     longDescription: "Vizinha de Penha, Balneário Piçarras conta com suporte diário de nossa equipe de assistência técnica. Cobrimos toda a extensão da orla da Bandeira Azul, desde o Centro até o bairro Itacolomi e a divisa com Barra Velha. Realizamos manutenção preventiva e corretiva em geladeiras Side by Side, French Door, cervejeiras de quiosques e bares da orla e refrigeradores de condomínios residenciais.",
     highlights: [
-      "Deslocamento rápido em até 20 minutos para qualquer bairro de Piçarras",
+      "Deslocamento rápido para os bairros de Piçarras",
       "Atendimento a condomínios à beira-mar com proteção contra maresia",
-      "Técnicos certificados com mais de 10 anos de experiência prática",
+      "Técnicos qualificados com ampla experiência prática",
       "Orçamento transparente no local antes de iniciar o conserto"
     ]
   },
@@ -155,7 +155,7 @@ export const CITIES_DATA: CityLocalSEO[] = [
     longDescription: "Principal polo econômico da foz do Rio Itajaí, a cidade conta com rota diária de nossa frota técnica. Atendemos com máxima pontualidade os sofisticados apartamentos da Praia Brava e Cabeçudas, assim como os populosos bairros de São Vicente, Cordeiros, Vila Operária e Fazenda. Temos ampla expertise em equipamentos inverter de alta tecnologia das marcas Samsung, LG, Electrolux e Brastemp, além de suporte robusto a estabelecimentos comerciais da Beira-Rio.",
     highlights: [
       "Equipe dedicada para a região nobre da Praia Brava e Fazenda",
-      "Atendimento comercial 24h para supermercados e peixarias do Porto",
+      "Atendimento comercial para supermercados, peixarias e restaurantes",
       "Reparo especializado em placas eletrônicas e compressores Inverter",
       "Diagnóstico preciso e orçamento sem compromisso no local"
     ]
@@ -797,7 +797,7 @@ export const HIGH_VOLUME_NEIGHBORHOODS: NeighborhoodHighVolume[] = [
       latitude: -26.8654,
       longitude: -48.6289
     },
-    snippet: "Assistência técnica de geladeiras, refrigeradores e lava e seca no bairro Gravatá em Navegantes. Atendimento domiciliar em até 30 minutos com garantia de 90 dias.",
+    snippet: "Assistência técnica de geladeiras, refrigeradores e lava e seca no bairro Gravatá em Navegantes. Atendimento domiciliar ágil com garantia de 90 dias.",
     longDescription: "O bairro Gravatá é o principal polo litorâneo e residencial de Navegantes, com alta concentração de edifícios residenciais, casas de praia, pousadas e comércio gastronômico na Avenida Prefeito Cirino Adolfo Cabral. Nossa equipe técnica possui rota contínua no bairro, realizando consertos de geladeiras Frost Free que não gelam a parte de baixo, substituição de kits de degelo, recarga de gás ecológico R600a, troca de borrachas com vedação reforçada contra a maresia e reparo em máquinas Lava e Seca Samsung e LG com erro de drenagem ou centrifugação.",
     popularPlaces: ["Avenida Prefeito Cirino Adolfo Cabral", "Pedra da Miraguaia", "Praça do Gravatá", "Corredor Gastronômico da Praia"]
   },
@@ -812,7 +812,7 @@ export const HIGH_VOLUME_NEIGHBORHOODS: NeighborhoodHighVolume[] = [
       longitude: -48.6312
     },
     snippet: "Conserto de refrigeradores premium Side by Side, French Door e Adegas na Praia Brava em Itajaí. Técnicos especializados com atendimento no mesmo dia e garantia 90 dias.",
-    longDescription: "A Praia Brava em Itajaí destaca-se por seus empreendimentos imobiliários de alto padrão, beach clubs e residências nobres na Brava Norte e Brava Sul. Nossos profissionais são especialistas certificados no diagnóstico e conserto de refrigeradores importados e nacionais topo de linha, como Samsung Family Hub, LG InstaView, Brastemp Gourmand e adegas termoelétricas ou com compressor. Trabalhamos com protetores de piso, ferramentas limpas e peças 100% genuínas com garantia de 90 dias.",
+    longDescription: "A Praia Brava em Itajaí destaca-se por seus empreendimentos imobiliários de alto padrão, beach clubs e residências nobres na Brava Norte e Brava Sul. Nossos profissionais são técnicos experientes no diagnóstico e conserto de refrigeradores importados e nacionais topo de linha, como Samsung Family Hub, LG InstaView, Brastemp Gourmand e adegas termoelétricas ou com compressor. Trabalhamos com protetores de piso, ferramentas limpas e peças 100% genuínas com garantia de 90 dias.",
     popularPlaces: ["Avenida José Medeiros Vieira", "Brava Beach Internacional", "Mirante da Praia Brava", "Shopping Brava Mall"]
   },
   {

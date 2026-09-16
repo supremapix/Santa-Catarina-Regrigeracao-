@@ -25,6 +25,7 @@
 6. **Conserto de Câmara Fria:** Refrigeração comercial para congelados e resfriados em peixarias, restaurantes e supermercados.
 7. **Conserto de Balcão Refrigerado & Chopeiras:** Expositores de bebidas e laticínios, torres Naja e pré-resfriadores.
 8. **Conserto de Adega Climatizada:** Adegas com compressor ou placa Peltier termoelétrica.
+9. **Manutenção de Contêiner Reefer Refrigerado:** Unidades frigoríficas de contêineres para armazenagem estática e entrepostos em SC.
 
 ## PRINCIPAIS CIDADES ATENDIDAS
 - **Litoral Norte & Vale:** Navegantes, Penha, Balneário Piçarras, Barra Velha, Itajaí, Balneário Camboriú, Camboriú, Itapema, Porto Belo, Bombinhas, Ilhota, Luiz Alves, Gaspar, Brusque, Blumenau, Indaial.

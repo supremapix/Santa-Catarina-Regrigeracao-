@@ -208,6 +208,15 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<ServicePillarView serviceIdParam="chopeiras" onOpenBookingModal={handleOpenBookingModal} />}
           />
 
+          <Route
+            path="/manutencao-container-reefer"
+            element={<ServicePillarView serviceIdParam="container-reefer" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/manutencao-container-reefer/"
+            element={<ServicePillarView serviceIdParam="container-reefer" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
           {/* Lava e Seca Landing Pages */}
           <Route
             path="/conserto-lava-e-seca-penha"

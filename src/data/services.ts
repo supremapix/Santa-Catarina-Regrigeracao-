@@ -324,7 +324,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica especializada em refrigeração comercial, industrial e residencial em Navegantes, Penha, Itajaí, Balneário Camboriú e região. Atendimento 24h.",
     h1: "Assistência Técnica em Refrigeração Comercial, Industrial e Residencial em SC",
     summary: "Serviço completo de manutenção corretiva, preventiva e instalação de equipamentos de refrigeração para residências e empresas de Santa Catarina.",
-    image: COMPANY_INFO.assets.serviceGeladeira,
+    image: COMPANY_INFO.assets.serviceRefrigeracaoComercial,
     category: "Comercial",
     commonDefects: [
       "Perda de rendimento e temperatura elevada nos equipamentos",
@@ -385,7 +385,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Manutenção e suporte para refrigeração industrial, túneis de congelamento, chillers e centrais frigoríficas em Santa Catarina.",
     h1: "Refrigeração Industrial e Manutenção de Centrais Frigoríficas",
     summary: "Engenharia e assistência técnica para indústrias frigoríficas, processadoras de pescado e centrais de distribuição.",
-    image: COMPANY_INFO.assets.serviceCamaraFria,
+    image: COMPANY_INFO.assets.serviceRefrigeracaoIndustrial,
     category: "Comercial",
     commonDefects: [
       "Desarme de segurança por alta pressão no rack de compressores",
@@ -414,7 +414,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Evite prejuízos e paradas imprevistas com nossos planos de manutenção preventiva e corretiva para equipamentos frigoríficos.",
     h1: "Manutenção Preventiva e Corretiva de Equipamentos de Refrigeração",
     summary: "Planos periódicos de revisão e reparos ágeis para maximizar a vida útil e eficiência dos seus equipamentos frigoríficos.",
-    image: COMPANY_INFO.assets.serviceGeladeira,
+    image: COMPANY_INFO.assets.serviceManutencaoPreventiva,
     category: "Comercial",
     commonDefects: [
       "Aumento injustificado na conta de energia elétrica",
@@ -443,7 +443,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica especializada em máquinas de gelo comerciais em cubos ou escamas para hotéis, bares, peixarias e restaurantes em SC.",
     h1: "Conserto e Manutenção de Máquinas de Gelo em Cubo e Escama",
     summary: "Reparo rápido e higienização de máquinas de gelo Everest, Macom, Scotsman, Manitowoc e marcas nacionais e importadas.",
-    image: COMPANY_INFO.assets.serviceFreezer,
+    image: COMPANY_INFO.assets.serviceMaquinaGelo,
     category: "Comercial",
     commonDefects: [
       "Máquina liga mas não solta os cubos de gelo",
@@ -472,7 +472,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica de máquinas de sorvete expresso, soft e açaí para sorveterias, lanchonetes e quiosques em SC.",
     h1: "Assistência Técnica de Máquinas de Sorvete Expresso e Açaí",
     summary: "Manutenção mecânica e de refrigeração para cilindros e batedores de máquinas de sorvete soft e açaí.",
-    image: COMPANY_INFO.assets.serviceFrigobar,
+    image: COMPANY_INFO.assets.serviceMaquinaSorvete,
     category: "Comercial",
     commonDefects: [
       "Massa do sorvete saindo mole ou congelando demais no cilindro",
@@ -501,7 +501,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaDescription: "Assistência técnica de chopeiras elétricas, a gelo, torres Naja e pré-resfriadores para bares, pubs e eventos em SC.",
     h1: "Conserto e Manutenção de Chopeiras Elétricas e Torres Naja",
     summary: "Manutenção preventiva, sanitização de linhas e reparo em compressores e bancos de gelo de chopeiras comerciais.",
-    image: COMPANY_INFO.assets.serviceBalcao,
+    image: COMPANY_INFO.assets.serviceChopeira,
     category: "Comercial",
     commonDefects: [
       "Chopp saindo quente ou apenas com espuma (espumando demais)",
@@ -595,6 +595,51 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       {
         question: "Como solicitar atendimento pelo WhatsApp e quais informações enviar?",
         answer: "Basta enviar uma mensagem no WhatsApp (47) 99224-5172 informando a marca da cervejeira, modelo, cidade/bairro e o defeito observado para agendamento imediato."
+      }
+    ]
+  },
+  {
+    id: "container-reefer",
+    slug: "manutencao-container-reefer",
+    title: "Manutenção de Contêiner Reefer Refrigerado",
+    shortTitle: "Contêiner Reefer",
+    metaTitle: "Manutenção de Contêiner Reefer em SC | Santa Catarina Refrigeração",
+    metaDescription: "Assistência técnica e manutenção em unidades frigoríficas de contêiner reefer para armazenamento estático, logística e distribuição refrigerada em SC.",
+    h1: "Manutenção de Contêiner Reefer e Unidades Frigoríficas em SC",
+    summary: "Diagnóstico e manutenção de unidades frigoríficas de contêineres reefer utilizados em armazenagem estática, entrepostos e logística de cadeia do frio.",
+    image: COMPANY_INFO.assets.serviceContainerReefer,
+    category: "Comercial",
+    commonDefects: [
+      "Oscilação de temperatura fora da faixa de setpoint programada",
+      "Alarmes e códigos de erro no controlador microprocessado da máquina reefer",
+      "Perda de rendimento térmico por vazamento de fluido refrigerante",
+      "Bloqueio de gelo na serpentina evaporadora ou falha no ciclo de degelo",
+      "Falha nos motores dos ventiladores do condensador ou evaporador",
+      "Compressor desarmando por alta ou baixa pressão no circuito",
+      "Comprometimento de gaxetas e vedação das portas térmicas do contêiner"
+    ],
+    repairsExecuted: [
+      "Diagnóstico eletrônico do controlador e checagem de sensores de temperatura",
+      "Inspeção e teste de estanqueidade do circuito frigorífico com nitrogênio seco",
+      "Recarga e balanceamento de fluido refrigerante conforme especificação do fabricante",
+      "Substituição de válvulas de expansão, filtros secadores e pressostatos",
+      "Manutenção corretiva e preventiva em compressores semi-herméticos e scroll",
+      "Revisão do sistema elétrico de força, contatores e conexões de alimentação",
+      "Apoio técnico em rotinas de inspeção pré-embarque (PTI) para armazenagem"
+    ],
+    fullDescription: "A Santa Catarina Refrigeração presta suporte técnico especializado na manutenção preventiva e corretiva de unidades frigoríficas de contêineres reefer. Atendemos empresas com armazenagem estática, cooperativas, entrepostos de pescados, distribuidores de congelados e operações logísticas que dependem de controle rigoroso de temperatura em Santa Catarina. Nosso foco é assegurar a integridade dos produtos através do diagnóstico preciso de compressores, controladores microprocessados, ventiladores e circuitos de expansão.",
+    faqs: [
+      {
+        question: "Vocês atendem contêineres reefer utilizados para armazenagem estática ou galpões?",
+        answer: "Sim. Prestamos assistência técnica para empresas, indústrias, peixarias e distribuidores que utilizam contêineres refrigerados como câmara frigorífica ou entreposto temporário em seus próprios pátios e instalações."
+      },
+      {
+        question: "Quais são as falhas mais frequentes em sistemas de refrigeração reefer?",
+        answer: "As ocorrências mais comuns envolvem descalibração de sensores de temperatura, falha nos ciclos de degelo automático por resistência ou gás quente, queima de motores de ventilação, vazamento de fluido refrigerante e desarme por pressostato de alta pressão devido a condensadores sujos."
+      },
+      {
+        question: "Como solicitar suporte técnico para contêiner reefer?",
+        answer: "Basta entrar em contato pelo WhatsApp informando a localização do equipamento, o modelo da unidade frigorífica, o setpoint de trabalho e os sintomas ou códigos de erro observados no painel."
       }
     ]
   }

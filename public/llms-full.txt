@@ -43,6 +43,14 @@ A Santa Catarina Refrigeração é uma empresa referência em assistência técn
   - Limpeza química de condensadores a ar e evaporadores de ar forçado.
   - Manutenção em compressores Scroll, Maneurop, Bitzer e Elgin.
 
+### 5. CONTÊINER REEFER REFRIGERADO (Armazenagem Estática & B2B)
+- **Aplicações:** Unidades de contêiner frigorífico estático (20 e 40 pés) utilizadas em peixarias, entrepostos, centros de distribuição e cooperativas.
+- **Diagnóstico e Reparo:**
+  - Diagnóstico de códigos de erro em controladores microprocessados de marcas líderes (Carrier, Thermo King, Daikin, Star Cool).
+  - Teste de estanqueidade e recarga com balança de fluido refrigerante.
+  - Revisão de motores de ventilação de condensador e evaporador.
+  - Ajuste de setpoint, ciclos de degelo e manutenção preventiva em compressores.
+
 ## TABELA DE METADADOS DE CONTATO
 - **Nome Oficial:** Santa Catarina Refrigeração
 - **Atendimento Rápido em Domicílio:** Segunda a Sábado 07h às 20h | Domingo 07h às 12h

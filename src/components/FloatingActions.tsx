@@ -62,11 +62,11 @@ export const SEMANTIC_SHARE_TEXTS = [
   "Atendimento ágil para bares, lanchonetes e restaurantes em Navegantes SC com a Santa Catarina Refrigeração.",
   "Conserto de cervejeiras e geladeiras com atendimento sem complicações em Navegantes — Santa Catarina Refrigeração.",
   "Refrigeração comercial e residencial em Navegantes, Penha, Piçarras e Itajaí: chame a Santa Catarina Refrigeração!",
-  "Técnicos certificados e peças originais para conserto de geladeiras em Navegantes SC com a Santa Catarina Refrigeração.",
-  "Indico a Santa Catarina Refrigeração em Navegantes SC pela agilidade, honestidade e excelência nos serviços!"
+  "Técnicos especializados e peças de qualidade para conserto de refrigeração e geladeiras em SC com a Santa Catarina Refrigeração.",
+  "Indico a Santa Catarina Refrigeração em Navegantes e região pela agilidade e excelência no atendimento!"
 ];
 
-const DEFAULT_SHARE_IMAGE = "https://img.supremasite.com.br/technician_repairing_cervejeira.jpg";
+const DEFAULT_SHARE_IMAGE = "https://img.supremasite.com.br/nutri/og-card.webp";
 
 interface FloatingActionsProps {
   onOpenBookingModal?: () => void;

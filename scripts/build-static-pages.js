@@ -207,6 +207,8 @@ ${jsonLdScripts}
   pageContent = pageContent.replace(/<title>.*?<\/title>/gi, '');
   pageContent = pageContent.replace(/<meta\s+name="description"\s+content=".*?"\s*\/?>/gi, '');
   pageContent = pageContent.replace(/<link\s+rel="canonical"\s+href=".*?"\s*\/?>/gi, '');
+  pageContent = pageContent.replace(/<meta\s+property="og:.*?"\s+content=".*?"\s*\/?>/gi, '');
+  pageContent = pageContent.replace(/<meta\s+name="twitter:.*?"\s+content=".*?"\s*\/?>/gi, '');
   pageContent = pageContent.replace('</head>', `${headInject}\n</head>`);
 
   const fullAppBody = `
@@ -245,7 +247,75 @@ function addSitemapUrl(urlPath, priority = '0.8', changefreq = 'weekly') {
 }
 
 // 1. Homepage
-addSitemapUrl('/', '1.0', 'daily');
+{
+  const title = "Santa Catarina Refrigeração | Assistência Técnica em Refrigeração Residencial, Comercial e Industrial em SC";
+  const description = "Assistência técnica e conserto de geladeiras, cervejeiras, freezers, câmaras frias, balcões e contêiner reefer em Navegantes, Penha, Piçarras, Itajaí, BC e região.";
+  const canonicalUrl = "/";
+
+  const homeSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${COMPANY_INFO.subdomainUrl}/#website`,
+      "url": COMPANY_INFO.subdomainUrl,
+      "name": "Santa Catarina Refrigeração",
+      "description": "Assistência técnica em refrigeração residencial, comercial e industrial em Santa Catarina",
+      "publisher": {
+        "@id": `${COMPANY_INFO.subdomainUrl}/#organization`
+      }
+    }
+  ];
+
+  const bodyHtml = `
+    <div class="max-w-7xl mx-auto px-4 py-12 space-y-12">
+      <div class="space-y-4 text-center sm:text-left">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+          Assistência Técnica em Refrigeração Residencial, Comercial e Industrial em SC
+        </h1>
+        <p class="text-lg text-slate-700 max-w-3xl leading-relaxed">
+          A <strong>Santa Catarina Refrigeração</strong> é especializada em manutenção preventiva e corretiva de equipamentos de frio com sede comercial em Navegantes/SC. Atendemos residências, restaurantes, comércios e indústrias em Navegantes, Penha, Balneário Piçarras, Itajaí, Barra Velha, Balneário Camboriú e região.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="${COMPANY_INFO.whatsappUrl}" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-2xl shadow-lg transition-all inline-block">
+            Solicitar Atendimento no WhatsApp: ${COMPANY_INFO.phone}
+          </a>
+          <a href="/precos" class="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl transition-all inline-block">
+            Ver Tabela de Preços
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Refrigeração Residencial</h2>
+          <p class="text-sm text-slate-600">Conserto de geladeiras Frost Free, Duplex, Inverse, Side by Side, French Door, freezers e máquinas Lava e Seca em domicílio.</p>
+          <a href="/conserto-de-geladeira" class="text-cyan-700 font-bold text-sm inline-block">Ver serviços residenciais →</a>
+        </div>
+        <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Refrigeração Comercial</h2>
+          <p class="text-sm text-slate-600">Atendimento prioritário para cervejeiras, câmaras frias, balcões expositores, ilhas de congelados e chopeiras em bares e restaurantes.</p>
+          <a href="/refrigeracao-comercial" class="text-cyan-700 font-bold text-sm inline-block">Ver serviços comerciais →</a>
+        </div>
+        <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+          <h2 class="text-xl font-bold text-slate-900">Contêiner Reefer & Logística</h2>
+          <p class="text-sm text-slate-600">Assistência técnica para unidades de refrigeração de contêineres reefer para armazenagem estática e entrepostos em Santa Catarina.</p>
+          <a href="/manutencao-container-reefer" class="text-cyan-700 font-bold text-sm inline-block">Ver manutenção de reefer →</a>
+        </div>
+      </div>
+
+      <div class="p-6 bg-cyan-50 border border-cyan-200 rounded-2xl space-y-2">
+        <h3 class="font-bold text-cyan-950">Endereço Comercial e Base Operacional:</h3>
+        <p class="text-sm text-cyan-900">
+          ${COMPANY_INFO.address.full} | Atendimento ágil com frotas de suporte técnico equipadas para conserto no local com garantia formal de 90 dias.
+        </p>
+      </div>
+    </div>
+  `;
+
+  const html = buildFullHtml({ title, description, canonicalUrl: '/', schemas: homeSchemas, bodyHtml });
+  createPageFile('', html);
+  addSitemapUrl('/', '1.0', 'daily');
+}
 
 // 2. Pricing Page (/precos)
 {

@@ -24,12 +24,12 @@ export const COMMERCIAL_SERVICES: CommercialService[] = [
     category: "Comercial / B2B",
     badge: "Plantão Emergencial 24h",
     summary: "Atendimento prioritário para o setor de alimentação fora do lar, redes hoteleiras e varejo alimentar em todo o Litoral Norte e Vale do Itajaí.",
-    description: "A Santa Catarina Refrigeração oferece soluções completas de engenharia e manutenção para sistemas frigoríficos comerciais. Atendemos estabelecimentos que não podem parar, como peixarias no Porto de Itajaí e Navegantes, cozinhas industriais, restaurantes e hotéis em Balneário Camboriú, Penha e Itapema. Nossos técnicos realizam diagnósticos rápidos de compressores semi-herméticos, unidades condensadoras remotas, válvulas de expansão e controladores digitais com peças a pronta-entrega.",
+    description: "A Santa Catarina Refrigeração oferece soluções de manutenção para sistemas frigoríficos comerciais. Atendemos estabelecimentos que dependem de temperatura controlada, como peixarias, cozinhas industriais, restaurantes e hotéis em Balneário Camboriú, Penha, Piçarras, Navegantes e Itajaí. Nossos técnicos realizam diagnósticos rápidos de compressores, unidades condensadoras remotas, válvulas de expansão e controladores digitais.",
     benefits: [
-      "Plantão de atendimento emergencial 24h com prioridade para estabelecimentos gastronômicos",
-      "Emissão de laudos técnicos para vigilância sanitária e órgãos reguladores",
+      "Atendimento prioritário para estabelecimentos gastronômicos e comerciais",
+      "Emissão de laudos técnicos e ordens de serviço formais",
       "Garantia formal de 90 dias com faturamento facilitado para empresas",
-      "Técnicos certificados pelo Senai e fabricantes líderes do mercado"
+      "Equipe técnica qualificada para sistemas comerciais de refrigeração"
     ],
     equipmentServiced: [
       "Câmaras frigoríficas de congelados e resfriados",
@@ -46,12 +46,12 @@ export const COMMERCIAL_SERVICES: CommercialService[] = [
     ],
     faqs: [
       {
-        question: "Qual o tempo médio de resposta para chamados emergenciais comerciais?",
-        answer: "Para clientes comerciais com produtos perecíveis em risco, nossa equipe chega ao local em 30 a 60 minutos nas cidades do Anel 1 (Penha, Piçarras, Navegantes, Itajaí e BC)."
+        question: "Qual o prazo de atendimento para chamados emergenciais comerciais?",
+        answer: "Para clientes comerciais com produtos perecíveis, nossa equipe prioriza o atendimento com rotas diárias estruturadas em Penha, Piçarras, Navegantes, Itajaí e Balneário Camboriú."
       },
       {
         question: "Vocês atendem faturado para empresas com CNPJ?",
-        answer: "Sim! Trabalhamos com faturamento em boleto bancário para empresas e condomínios cadastrados, além de cartão de crédito em até 12x e PIX."
+        answer: "Sim! Trabalhamos com faturamento para empresas cadastradas, além de cartão de crédito em até 12x e PIX."
       }
     ]
   },
@@ -122,6 +122,41 @@ export const COMMERCIAL_SERVICES: CommercialService[] = [
       {
         question: "Por que a cervejeira não consegue atingir -4°C?",
         answer: "As causas mais comuns são sujeira espessa na colmeia do condensador traseiro, micro-vazamento de gás ou ventilador do evaporador com rotação lenta."
+      }
+    ]
+  },
+  {
+    slug: "manutencao-container-reefer",
+    title: "Manutenção de Contêiner Reefer e Unidades Frigoríficas",
+    metaTitle: "Manutenção de Contêiner Reefer em SC | Santa Catarina Refrigeração",
+    metaDescription: "Assistência técnica especializada em contêineres reefer, unidades de refrigeração para armazenagem estática e logística da cadeia do frio em SC.",
+    h1: "Manutenção de Contêiner Reefer em Santa Catarina",
+    category: "Logística & Frio B2B",
+    badge: "Armazenamento Estático",
+    summary: "Suporte especializado para contêineres refrigerados utilizados como câmara fria estática ou entreposto em Santa Catarina.",
+    description: "Atendimento técnico para verificação de circuitos elétricos, recarga de gás, reparos em compressores, ventiladores e controladores de contêineres reefer estáticos em pátios industriais, cooperativas e distribuidores.",
+    benefits: [
+      "Diagnóstico preciso de códigos de erro de controladores microprocessados",
+      "Teste de estanqueidade e recarga com gás refrigerante adequado",
+      "Peças de reposição para compressores e ventiladores de condensador",
+      "Garantia formal de 90 dias em peças e mão de obra executada"
+    ],
+    equipmentServiced: [
+      "Contêineres reefer de 20 e 40 pés operando como câmara estática",
+      "Unidades de refrigeração Carrier, Thermo King, Daikin e Star Cool",
+      "Quadros elétricos de comando e transformadores de alimentação",
+      "Sistemas de degelo e ventilação forçada"
+    ],
+    preventivePlanIncluded: [
+      "Inspeção visual e teste elétrico de isolamento do compressor",
+      "Limpeza e desobstrução das serpentinas de condensação",
+      "Verificação do balanceamento de pressões do ciclo frigorífico",
+      "Checagem da calibração de sensores de temperatura interna"
+    ],
+    faqs: [
+      {
+        question: "Vocês atendem contêiner reefer em pátios e empresas?",
+        answer: "Sim, atendemos unidades reefer instaladas de forma estática para armazenagem em empresas, peixarias, galpões e cooperativas no Litoral de Santa Catarina."
       }
     ]
   }

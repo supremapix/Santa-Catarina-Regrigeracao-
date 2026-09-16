@@ -126,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               className="text-slate-300 text-sm space-y-3 bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-left"
             >
               <p>
-                <strong className="text-cyan-400 font-bold">Equipamentos Atendidos:</strong> Geladeiras Frost Free, Side by Side, French Door, Cervejeiras, Freezers, Frigobares, Adegas Climatizadas, Câmaras Frias, Balcões Refrigerados, Expositores de Bebidas, Máquinas de Gelo, Máquinas de Sorvete, Chopeiras e Lava e Seca.
+                <strong className="text-cyan-400 font-bold">Equipamentos Atendidos:</strong> Geladeiras Frost Free, Side by Side, French Door, Cervejeiras, Freezers, Frigobares, Adegas Climatizadas, Câmaras Frias, Balcões Refrigerados, Expositores de Bebidas, Máquinas de Gelo, Máquinas de Sorvete, Chopeiras, Contêiner Reefer e Lava e Seca.
               </p>
               <p>
                 <strong className="text-emerald-400 font-bold">Diferença de Manutenção:</strong> A <strong className="text-white font-semibold">preventiva</strong> ajusta e higieniza os componentes periodicamente para evitar paradas e economizar energia. A <strong className="text-white font-semibold">corretiva</strong> atua no diagnóstico e reparo imediato quando o equipamento apresenta falhas de temperatura ou paralisação.
@@ -136,33 +136,73 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               </p>
             </motion.div>
 
+            {/* Primary CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2"
+            >
+              <a
+                href={COMPANY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-xl shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2 text-sm transition-all"
+              >
+                <span>Solicitar Técnico no WhatsApp</span>
+              </a>
+              <button
+                type="button"
+                onClick={() => onOpenBookingModal()}
+                className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl border border-slate-700 flex items-center justify-center gap-2 text-sm transition-all"
+              >
+                <Wrench className="w-4 h-4 text-cyan-400" />
+                <span>Agendar Diagnóstico Online</span>
+              </button>
+            </motion.div>
+
           </motion.div>
 
-          {/* Right Column: Hero Interactive Glass Card (Clean design without video card) */}
+          {/* Right Column: Hero Commercial/Industrial Photography Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-5 relative flex justify-center"
           >
-            <div className="relative bg-slate-900/90 border border-slate-700/80 rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-md max-w-md w-full space-y-4">
+            <div className="relative bg-slate-900/90 border border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-2xl backdrop-blur-md max-w-lg w-full space-y-4">
               
+              {/* Commercial & Industrial Main Photo */}
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700 aspect-video shadow-md">
+                <img
+                  src={COMPANY_INFO.assets.heroCommercial}
+                  alt="Refrigeração Comercial e Industrial em Santa Catarina - Santa Catarina Refrigeração"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-slate-950/80 border border-cyan-500/60 text-[11px] font-bold text-cyan-300 backdrop-blur-sm flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Comercial, Industrial & Residencial</span>
+                </div>
+              </div>
+
               {/* Header Info Box with Status & Warranty Seal */}
               <div className="bg-slate-950/90 border border-slate-800 p-4 rounded-2xl flex items-center justify-between gap-3 relative overflow-hidden">
                 <div className="space-y-1.5">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/90 border border-cyan-800 text-[11px] font-bold text-cyan-300">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Atendimento Ativo em SC</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span>Equipe Especializada em SC</span>
                   </div>
                   <p className="text-white font-extrabold text-sm sm:text-base leading-snug">
-                    Laboratório Móvel & Peças Originais
+                    Laboratório Móvel & Peças de Qualidade
                   </p>
                   <p className="text-slate-400 text-xs">
-                    Atendimento rápido em Penha, Piçarras, BC, Itajaí e região
+                    Atendimento ágil em Penha, Navegantes, Piçarras, Itajaí, BC e região
                   </p>
                 </div>
 
-                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 drop-shadow-xl">
+                <div className="w-16 h-16 shrink-0 drop-shadow-xl">
                   <img
                     src={COMPANY_INFO.assets.warrantyBadge}
                     alt="Selo de Garantia 90 Dias"
@@ -179,24 +219,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 </div>
                 <div className="flex items-center gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
                   <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Plantão Rápido</span>
+                  <span>Atendimento Ágil</span>
                 </div>
               </div>
 
-              {/* Technical Ratings Bar */}
-              <div className="bg-slate-950/90 border border-slate-800 p-4 rounded-2xl flex items-center justify-between text-xs sm:text-sm">
+              {/* Technical Standards Bar (Sanitized Factual Data) */}
+              <div className="bg-slate-950/90 border border-slate-800 p-3.5 rounded-2xl flex items-center justify-between text-xs sm:text-sm">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-cyan-950 text-cyan-400 rounded-xl border border-cyan-800/80 shrink-0">
                     <Wrench className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-extrabold text-white">Técnicos Certificados</p>
-                    <p className="text-slate-400 text-xs">Visita rápida no seu imóvel</p>
+                    <p className="font-extrabold text-white">Equipe Especializada</p>
+                    <p className="text-slate-400 text-xs">Diagnóstico transparente no local</p>
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="text-amber-400 font-black text-base">4.9 ★</span>
-                  <p className="text-[10px] text-slate-400 font-medium">180+ avaliações</p>
+                  <span className="text-emerald-400 font-bold text-xs">Nota & Recibo</span>
+                  <p className="text-[10px] text-slate-400 font-medium">Garantia formal</p>
                 </div>
               </div>
 
