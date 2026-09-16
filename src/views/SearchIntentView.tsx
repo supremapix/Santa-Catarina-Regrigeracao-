@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { SEARCH_INTENTS } from '../data/searchIntents';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
@@ -16,10 +16,12 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
   intentSlugParam,
 }) => {
   const { slug } = useParams<{ slug?: string }>();
+  const location = useLocation();
+  const pathSlug = location.pathname.replace(/^\/+|\/+$/g, '').replace(/^problemas\//, '');
 
-  // Match intent item by param or URL slug
+  // Match intent item by param, URL param, or path slug
   const intent = SEARCH_INTENTS.find(
-    (item) => item.slug === intentSlugParam || item.slug === slug
+    (item) => item.slug === intentSlugParam || item.slug === slug || item.slug === pathSlug
   ) || SEARCH_INTENTS[0];
 
   const serviceSchema = {

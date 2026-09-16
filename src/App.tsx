@@ -11,6 +11,11 @@ import { ServicePillarView } from './views/ServicePillarView';
 import { LavaESecaLandingView } from './views/LavaESecaLandingView';
 import { LgAssistenciaView } from './views/LgAssistenciaView';
 import { SamsungAssistenciaView } from './views/SamsungAssistenciaView';
+import { BrandDetailView } from './views/BrandDetailView';
+import { RegionsHubView } from './views/RegionsHubView';
+import { PricingView } from './views/PricingView';
+import { BlogIndexView } from './views/BlogIndexView';
+import { BlogArticleView } from './views/BlogArticleView';
 import { BlogGuideView } from './views/BlogGuideView';
 import { CityLocalSeoView } from './views/CityLocalSeoView';
 import { SearchIntentView } from './views/SearchIntentView';
@@ -18,6 +23,7 @@ import { CervejeiraNavegantesView } from './views/CervejeiraNavegantesView';
 import { SitemapView } from './views/SitemapView';
 import { NotFoundView } from './views/NotFoundView';
 import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
+import { SEARCH_INTENTS } from './data/searchIntents';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
@@ -33,6 +39,44 @@ const ScrollToTop = () => {
 function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (serviceName?: string) => void }) {
   const location = useLocation();
 
+  // Helper for dynamic fallback routing
+  const renderFallbackRoute = () => {
+    const rawPath = location.pathname.toLowerCase().replace(/\/$/, '') || '/';
+    const cleanSlug = rawPath.replace(/^\//, '');
+
+    // 1. Check if matches city / neighborhood pattern
+    if (
+      rawPath.startsWith('/conserto-de-geladeira-') ||
+      rawPath.startsWith('/conserto-de-geladeira-em-') ||
+      rawPath.startsWith('/cidades') ||
+      rawPath.startsWith('/cidade') ||
+      rawPath.startsWith('/bairros') ||
+      rawPath.startsWith('/bairro') ||
+      rawPath.startsWith('/regioes') ||
+      rawPath.startsWith('/regiao')
+    ) {
+      return <CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />;
+    }
+
+    // 2. Check if matches Brand slug
+    if (rawPath.startsWith('/assistencia-tecnica-geladeira-') || rawPath.startsWith('/assistencia-geladeira-')) {
+      return <BrandDetailView onOpenBookingModal={handleOpenBookingModal} />;
+    }
+
+    // 3. Check if matches Blog article
+    if (rawPath.startsWith('/blog/')) {
+      return <BlogArticleView onOpenBookingModal={handleOpenBookingModal} />;
+    }
+
+    // 4. Check if matches any Search Intent
+    if (SEARCH_INTENTS.some((item) => item.slug === cleanSlug)) {
+      return <SearchIntentView onOpenBookingModal={handleOpenBookingModal} />;
+    }
+
+    // 5. Default 404
+    return <NotFoundView />;
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -45,6 +89,102 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
         <Routes location={location}>
           {/* Home Route */}
           <Route path="/" element={<HomeView onOpenBookingModal={handleOpenBookingModal} />} />
+
+          {/* Pricing Route */}
+          <Route path="/precos" element={<PricingView onOpenBookingModal={handleOpenBookingModal} />} />
+          <Route path="/precos/" element={<PricingView onOpenBookingModal={handleOpenBookingModal} />} />
+          <Route path="/tabela-de-precos" element={<PricingView onOpenBookingModal={handleOpenBookingModal} />} />
+          <Route path="/tabela-de-precos/" element={<PricingView onOpenBookingModal={handleOpenBookingModal} />} />
+
+          {/* Regions Hub Route */}
+          <Route path="/regioes-atendidas" element={<RegionsHubView onOpenBookingModal={handleOpenBookingModal} />} />
+          <Route path="/regioes-atendidas/" element={<RegionsHubView onOpenBookingModal={handleOpenBookingModal} />} />
+
+          {/* Blog Routes */}
+          <Route path="/blog" element={<BlogIndexView />} />
+          <Route path="/blog/" element={<BlogIndexView />} />
+          <Route
+            path="/blog/lava-e-seca-penha-guia-completo"
+            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/blog/lava-e-seca-penha-guia-completo/"
+            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/blog/:slug"
+            element={<BlogArticleView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/blog/:slug/"
+            element={<BlogArticleView onOpenBookingModal={handleOpenBookingModal} />}
+          />
+
+          {/* Brand Pages */}
+          <Route
+            path="/assistencia-tecnica-geladeira-brastemp"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-brastemp" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-brastemp/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-brastemp" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-electrolux"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-electrolux" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-electrolux/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-electrolux" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-consul"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-consul" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-consul/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-consul" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-samsung"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-samsung" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-samsung/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-samsung" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-lg"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-lg" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-lg/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-lg" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-panasonic"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-panasonic" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-panasonic/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-panasonic" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-midea"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-midea" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-tecnica-geladeira-midea/"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-midea" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-geladeira-brastemp-penha"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-brastemp" onOpenBookingModal={handleOpenBookingModal} />}
+          />
+          <Route
+            path="/assistencia-geladeira-electrolux-penha"
+            element={<BrandDetailView brandSlugParam="assistencia-tecnica-geladeira-electrolux" onOpenBookingModal={handleOpenBookingModal} />}
+          />
 
           {/* Service Pillars Routes */}
           <Route
@@ -243,16 +383,6 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<SamsungAssistenciaView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
-          {/* Brand Pages */}
-          <Route
-            path="/assistencia-geladeira-brastemp-penha"
-            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/assistencia-geladeira-electrolux-penha"
-            element={<ServicePillarView serviceIdParam="geladeira" onOpenBookingModal={handleOpenBookingModal} />}
-          />
-
           {/* Search Intents & Problem Pages */}
           <Route
             path="/problemas/*"
@@ -262,16 +392,6 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
           {/* Sitemap Route */}
           <Route path="/mapa-do-site" element={<SitemapView />} />
           <Route path="/mapa-do-site/" element={<SitemapView />} />
-
-          {/* Blog Guide Route */}
-          <Route
-            path="/blog/lava-e-seca-penha-guia-completo"
-            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
-          />
-          <Route
-            path="/blog/lava-e-seca-penha-guia-completo/"
-            element={<BlogGuideView onOpenBookingModal={handleOpenBookingModal} />}
-          />
 
           {/* Programmatic City, Region, and Neighborhood Routes */}
           <Route
@@ -299,9 +419,8 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
             element={<CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
-          {/* Fallback 404 Route */}
-          {/* ATENÇÃO: NÃO recrie uma rota "/algo-*" colada sem barra (ex: "/conserto-de-geladeira-em-*"). No React Router v6 isso NUNCA casa com URLs reais e sempre cai neste fallback como 404. Mantenha a verificação manual de location.pathname abaixo para prefixos concatenados a slugs. */}
-          <Route path="*" element={location.pathname.toLowerCase().startsWith('/conserto-de-geladeira-em-') ? <CityLocalSeoView onOpenBookingModal={handleOpenBookingModal} /> : <NotFoundView />} />
+          {/* Dynamic Fallback Catch-all Route */}
+          <Route path="*" element={renderFallbackRoute()} />
         </Routes>
       </motion.div>
     </AnimatePresence>
