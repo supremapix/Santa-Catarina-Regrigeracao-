@@ -240,7 +240,7 @@ const today = new Date().toISOString().split('T')[0];
 
 function addSitemapUrl(urlPath, priority = '0.8', changefreq = 'weekly') {
   const clean = urlPath.startsWith('/') ? urlPath : `/${urlPath}`;
-  const loc = `${COMPANY_INFO.subdomainUrl}${clean === '/' ? '' : clean}`;
+  const loc = clean === '/' ? `${COMPANY_INFO.subdomainUrl}/` : `${COMPANY_INFO.subdomainUrl}${clean}`;
   if (!allSitemapUrls.some(u => u.loc === loc)) {
     allSitemapUrls.push({ loc, priority, changefreq });
   }
@@ -775,9 +775,7 @@ for (const city of CITIES_DATA) {
   `;
 
   const html = buildFullHtml({ title, description, canonicalUrl, bodyHtml });
-  createPageFile(`conserto-de-geladeira-${city.slug}`, html);
-  createPageFile(`conserto-de-geladeira-em-${city.slug}`, html);
-  createPageFile(`cidades/${city.slug}`, html);
+  createPageFile(canonicalUrl.replace(/^\//, ''), html);
 
   addSitemapUrl(canonicalUrl, isNavegantes ? '0.9' : '0.8', 'weekly');
 }
@@ -799,8 +797,7 @@ for (const nb of HIGH_VOLUME_NEIGHBORHOODS) {
     </div>
   `;
   const html = buildFullHtml({ title, description, canonicalUrl, bodyHtml });
-  createPageFile(`conserto-de-geladeira-${nb.slug}`, html);
-  createPageFile(`bairros/${nb.slug}`, html);
+  createPageFile(canonicalUrl.replace(/^\//, ''), html);
   addSitemapUrl(canonicalUrl, '0.75', 'weekly');
 }
 
