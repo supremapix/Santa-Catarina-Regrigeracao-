@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Outer rim gold gradient -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="35%" stop-color="#EAB308" />
+      <stop offset="70%" stop-color="#CA8A04" />
+      <stop offset="100%" stop-color="#A16207" />
+    </linearGradient>
+
+    <!-- Inner badge green / emerald gradient -->
+    <linearGradient id="emeraldShield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064E3B" />
+    </linearGradient>
+
+    <!-- Ribbon gradient -->
+    <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Ribbon tails behind badge -->
+  <polygon points="56,150 40,192 72,176 84,152" fill="#B45309" filter="url(#badgeShadow)" />
+  <polygon points="144,150 160,192 128,176 116,152" fill="#92400E" filter="url(#badgeShadow)" />
+
+  <!-- Outer Serrated / Starburst Gold Seal Base -->
+  <g filter="url(#badgeShadow)">
+    <circle cx="100" cy="92" r="82" fill="url(#goldRim)" />
+    <!-- Inner concentric ring -->
+    <circle cx="100" cy="92" r="74" fill="#064E3B" stroke="#FEF08A" stroke-width="2" />
+    <!-- Shield / Core background -->
+    <circle cx="100" cy="92" r="70" fill="url(#emeraldShield)" />
+  </g>
+
+  <!-- Stars on Top Arch -->
+  <g fill="#FDE047" transform="translate(100, 48)">
+    <polygon points="0,-7 2,-2 7,-2 3,2 5,7 0,4 -5,7 -3,2 -7,-2 -2,-2" transform="translate(-32, 4) scale(0.7)" />
+    <polygon points="0,-7 2,-2 7,-2 3,2 5,7 0,4 -5,7 -3,2 -7,-2 -2,-2" transform="translate(-16, 0) scale(0.85)" />
+    <polygon points="0,-7 2,-2 7,-2 3,2 5,7 0,4 -5,7 -3,2 -7,-2 -2,-2" transform="translate(0, -2) scale(1)" />
+    <polygon points="0,-7 2,-2 7,-2 3,2 5,7 0,4 -5,7 -3,2 -7,-2 -2,-2" transform="translate(16, 0) scale(0.85)" />
+    <polygon points="0,-7 2,-2 7,-2 3,2 5,7 0,4 -5,7 -3,2 -7,-2 -2,-2" transform="translate(32, 4) scale(0.7)" />
+  </g>
+
+  <!-- Main "90" Display Text -->
+  <!-- Subtle 3D shadow for 90 -->
+  <text x="100" y="99"
+        text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="900"
+        font-size="44"
+        letter-spacing="-1"
+        fill="#022C22">
+    90
+  </text>
+  <text x="100" y="97"
+        text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="900"
+        font-size="44"
+        letter-spacing="-1"
+        fill="#FFFFFF">
+    90
+  </text>
+
+  <!-- Subtitle: DIAS -->
+  <text x="100" y="112"
+        text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="800"
+        font-size="14"
+        letter-spacing="3"
+        fill="#FEF08A">
+    DIAS
+  </text>
+
+  <!-- Lower Ribbon Banner for "GARANTIA" -->
+  <g filter="url(#badgeShadow)">
+    <!-- Ribbon shape -->
+    <path d="M 28 142 L 172 142 L 162 164 L 38 164 Z" fill="url(#ribbonGrad)" stroke="#FEF08A" stroke-width="1.5" />
+    <text x="100" y="158"
+          text-anchor="middle"
+          font-family="system-ui, -apple-system, sans-serif"
+          font-weight="900"
+          font-size="14"
+          letter-spacing="2.5"
+          fill="#FFFFFF">
+      GARANTIA
+    </text>
+  </g>
+</svg>

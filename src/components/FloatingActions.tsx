@@ -66,7 +66,7 @@ export const SEMANTIC_SHARE_TEXTS = [
   "Indico a Santa Catarina Refrigeração em Navegantes e região pela agilidade e excelência no atendimento!"
 ];
 
-const DEFAULT_SHARE_IMAGE = "https://img.supremasite.com.br/nutri/og-card.webp";
+const DEFAULT_SHARE_IMAGE = COMPANY_INFO.assets.socialPreview;
 
 interface FloatingActionsProps {
   onOpenBookingModal?: () => void;

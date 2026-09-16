@@ -52,8 +52,8 @@ export const COMPANY_INFO = {
     logo: "https://img.supremasite.com.br/sc.webp",
     heroEquipments: "https://img.supremasite.com.br/sc-consertos.png",
     heroCommercial: "/images/hero/refrigeracao-comercial-industrial.webp",
-    warrantyBadge: "https://img.supremasite.com.br/garantia-90-dias.png",
-    socialPreview: "https://img.supremasite.com.br/nutri/og-card.webp",
+    warrantyBadge: "/selo-garantia-90-dias.svg",
+    socialPreview: "https://www.refrigeracaosc.com.br/images/og/santa-catarina-refrigeracao-og.webp",
     // Serviços com fotografias auditadas existentes
     serviceGeladeira: "https://img.supremasite.com.br/sc-consertos.png",
     serviceSideBySide: "https://img.supremasite.com.br/sc.png",
