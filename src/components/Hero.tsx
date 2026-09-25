@@ -41,6 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
       content: (
         <a
           href={`tel:${COMPANY_INFO.phoneClean}`}
+          onClick={() => trackContactClick({ channel: 'phone', location: 'hero_ticker_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
           className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 hover:text-white hover:bg-emerald-500/40 transition-all font-bold group"
           title="Ligar para Assistência Técnica"
         >

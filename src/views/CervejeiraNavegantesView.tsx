@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Phone, Wrench, ShieldCheck, CheckCircle2, AlertTriangle, MapPin, Clock, HelpCircle, MessageSquare } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface CervejeiraNavegantesViewProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -165,6 +166,7 @@ export const CervejeiraNavegantesView: React.FC<CervejeiraNavegantesViewProps> =
                     href={whatsappUrlWithMsg}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackContactClick({ channel: 'whatsapp', location: 'cervejeira_navegantes_hero_whatsapp', target: whatsappUrlWithMsg })}
                     className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm rounded-xl shadow-lg transition-all flex items-center gap-2"
                   >
                     <MessageSquare className="w-4 h-4" />
@@ -172,6 +174,7 @@ export const CervejeiraNavegantesView: React.FC<CervejeiraNavegantesViewProps> =
                   </a>
                   <a
                     href={`tel:${COMPANY_INFO.phoneClean}`}
+                    onClick={() => trackContactClick({ channel: 'phone', location: 'cervejeira_navegantes_hero_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
                     className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm rounded-xl transition-all flex items-center gap-2"
                   >
                     <Phone className="w-4 h-4 text-emerald-400" />
@@ -399,6 +402,7 @@ export const CervejeiraNavegantesView: React.FC<CervejeiraNavegantesViewProps> =
                 href={whatsappUrlWithMsg}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({ channel: 'whatsapp', location: 'cervejeira_navegantes_footer_whatsapp', target: whatsappUrlWithMsg })}
                 className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-5 h-5" />
@@ -406,6 +410,7 @@ export const CervejeiraNavegantesView: React.FC<CervejeiraNavegantesViewProps> =
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({ channel: 'phone', location: 'cervejeira_navegantes_footer_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
                 className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-base rounded-2xl transition-all flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5 text-emerald-400" />

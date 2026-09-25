@@ -248,8 +248,8 @@ function addSitemapUrl(urlPath, priority = '0.8', changefreq = 'weekly') {
 
 // 1. Homepage
 {
-  const title = "Santa Catarina Refrigeração | Assistência Técnica em Refrigeração Residencial, Comercial e Industrial em SC";
-  const description = "Assistência técnica e conserto de geladeiras, cervejeiras, freezers, câmaras frias, balcões e contêiner reefer em Navegantes, Penha, Piçarras, Itajaí, BC e região.";
+  const title = "Santa Catarina Refrigeração | Conserto de Geladeira em SC";
+  const description = "Assistência técnica e conserto de geladeira, freezer, câmara fria e lava e seca em SC. Atendimento domiciliar com garantia de 90 dias e peças originais.";
   const canonicalUrl = "/";
 
   const homeSchemas = [

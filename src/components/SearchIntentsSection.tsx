@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, AlertTriangle, CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Flame, Wrench, Droplets, Zap, Clock, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface SearchIntentsSectionProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -175,6 +176,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
                     href={`${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackContactClick({ channel: 'whatsapp', location: 'search_intents_lavaseca_whatsapp', target: `${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca` })}
                     className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-xl shadow-emerald-500/20 hover:scale-[1.02] active:scale-95"
                   >
                     <MessageCircle className="w-5 h-5 shrink-0 fill-current" />
@@ -191,6 +193,7 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = ({ onOp
 
                   <a
                     href={`tel:${COMPANY_INFO.phoneClean}`}
+                    onClick={() => trackContactClick({ channel: 'phone', location: 'search_intents_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-extrabold text-sm transition-all hover:scale-[1.02]"
                   >
                     <Phone className="w-4 h-4 text-emerald-400 shrink-0" />

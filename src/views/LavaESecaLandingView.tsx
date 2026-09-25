@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 import { CheckCircle2, ShieldCheck, Calendar, MessageCircle, Phone, Cpu, Wrench, HelpCircle, ArrowRight } from 'lucide-react';
 
 interface LavaESecaLandingViewProps {
@@ -104,6 +105,7 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
                   href={`${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackContactClick({ channel: 'whatsapp', location: 'lavaseca_hero_whatsapp', target: `${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca` })}
                   className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-xl flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -221,12 +223,14 @@ export const LavaESecaLandingView: React.FC<LavaESecaLandingViewProps> = ({ onOp
                 href={`${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({ channel: 'whatsapp', location: 'lavaseca_footer_whatsapp', target: `${COMPANY_INFO.whatsappUrl}%20para%20Conserto%20de%20Lava%20e%20Seca` })}
                 className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-lg"
               >
                 Chamar no WhatsApp
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({ channel: 'phone', location: 'lavaseca_footer_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
                 className="px-6 py-4 rounded-2xl bg-slate-800 text-slate-200 font-bold text-sm flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-blue-400" />

@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, ShieldCheck, CreditCard, ChevronRight, MessageCircle, Heart, DollarSign, BookOpen } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 import { AnimatedFrostLogo } from './AnimatedFrostLogo';
+import { trackContactClick } from '../utils/analytics';
 
 export function SupremaCredit() {
   return (
@@ -79,6 +80,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({ channel: 'whatsapp', location: 'footer_cta_whatsapp', target: COMPANY_INFO.whatsappUrl })}
                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[52px]"
               >
                 <MessageCircle className="w-6 h-6 shrink-0" />
@@ -87,6 +89,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({ channel: 'phone', location: 'footer_cta_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base shadow-lg shadow-blue-600/20 transition-transform active:scale-95 min-h-[52px]"
               >
                 <Phone className="w-6 h-6 shrink-0" />
@@ -299,7 +302,11 @@ export const Footer: React.FC = () => {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-emerald-600 shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phoneClean}`} className="hover:text-slate-900 font-extrabold text-base text-emerald-700">
+                <a
+                  href={`tel:${COMPANY_INFO.phoneClean}`}
+                  onClick={() => trackContactClick({ channel: 'phone', location: 'footer_address_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
+                  className="hover:text-slate-900 font-extrabold text-base text-emerald-700"
+                >
                   {COMPANY_INFO.phone}
                 </a>
               </p>

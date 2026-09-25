@@ -1,8 +1,9 @@
 /**
  * Centralized Analytics Utility for Google Analytics 4 (GA4) and Google Tag Manager (GTM)
  *
- * Configures contact click measurement (WhatsApp, Phone) as contact interaction events
- * without fabricating false measurement IDs or classifying them as completed sales.
+ * Configures measurement ID G-1PZXYERJ4D and contact click tracking (WhatsApp, Phone)
+ * with the 'contact_click' event and channel parameter.
+ * Strictly avoids conversion inflation (no purchase, qualify_lead, or close_convert_lead on simple clicks).
  */
 
 declare global {
@@ -12,12 +13,14 @@ declare global {
   }
 }
 
-// Check for Measurement ID provided by environment or configuration
-const GA_MEASUREMENT_ID = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GA4_MEASUREMENT_ID) || '';
+// Measurement ID from env or verified production default
+export const GA_MEASUREMENT_ID =
+  (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GA4_MEASUREMENT_ID) ||
+  'G-1PZXYERJ4D';
 
 /**
- * Initializes Google Analytics 4 if a valid Measurement ID is supplied.
- * Safe to call multiple times (checks for existing scripts to avoid duplication).
+ * Initializes Google Analytics 4 tag cleanly and only once.
+ * Avoids multiple script insertions.
  */
 export function initAnalytics(): void {
   if (typeof window === 'undefined') return;
@@ -25,7 +28,7 @@ export function initAnalytics(): void {
   // Initialize dataLayer safely
   window.dataLayer = window.dataLayer || [];
 
-  // Check if GA4 script is already loaded to avoid duplication
+  // Check if GA4 script is already present in DOM to prevent duplicate tags
   const existingGtagScript = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
 
   if (GA_MEASUREMENT_ID && !existingGtagScript) {
@@ -40,9 +43,38 @@ export function initAnalytics(): void {
     window.gtag = gtag;
 
     gtag('js', new Date());
+    // send_page_view is false in config so SPA route listener sends a single page_view per URL transition
     gtag('config', GA_MEASUREMENT_ID, {
-      send_page_view: true,
+      send_page_view: false,
       anonymize_ip: true
+    });
+  }
+}
+
+/**
+ * Tracks a single page view on initial load and internal SPA navigation.
+ */
+export function trackPageView(path?: string, title?: string): void {
+  if (typeof window === 'undefined') return;
+
+  const pagePath = path || window.location.pathname;
+  const pageTitle = title || document.title;
+  const pageLocation = window.location.href;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'page_view',
+    page_path: pagePath,
+    page_title: pageTitle,
+    page_location: pageLocation,
+    timestamp: new Date().toISOString()
+  });
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', {
+      page_path: pagePath,
+      page_title: pageTitle,
+      page_location: pageLocation
     });
   }
 }
@@ -56,8 +88,8 @@ export interface ContactClickEventParams {
 
 /**
  * Tracks user contact actions (WhatsApp or Phone clicks).
- * Records them strictly as contact interaction events (e.g. 'contact_click' / 'contact'),
- * avoiding misclassification as confirmed sales or transactions.
+ * Records them strictly as contact interaction events ('contact_click'),
+ * differentiating by the 'contact_channel' parameter.
  */
 export function trackContactClick(params: ContactClickEventParams): void {
   if (typeof window === 'undefined') return;
@@ -80,11 +112,12 @@ export function trackContactClick(params: ContactClickEventParams): void {
   // Dispatch to GA4 via gtag if available
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'contact_click', {
-      event_category: 'Engagement',
-      event_label: params.location,
+      event_category: 'Contact',
       contact_channel: params.channel,
+      contact_location: params.location,
       page_location: window.location.href,
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      target_url: params.target || ''
     });
   }
 }
