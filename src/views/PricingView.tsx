@@ -115,14 +115,7 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
                   </span>
                 </div>
                 <button
-                  onClick={() => {
-                    trackContactClick({
-                      channel: 'whatsapp',
-                      location: `pricing_item_${idx}`,
-                      label: item.service
-                    });
-                    onOpenBookingModal(item.service);
-                  }}
+                  onClick={() => onOpenBookingModal(item.service)}
                   className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors flex items-center gap-2"
                 >
                   Solicitar Orçamento <ArrowRight className="w-3.5 h-3.5" />
@@ -230,10 +223,7 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
-              onClick={() => {
-                trackContactClick({ channel: 'whatsapp', location: 'pricing_footer_booking' });
-                onOpenBookingModal('Visita Técnica e Orçamento');
-              }}
+              onClick={() => onOpenBookingModal('Visita Técnica e Orçamento')}
               className="px-6 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4" /> Agendar Visita Técnica

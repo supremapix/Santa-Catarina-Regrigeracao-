@@ -244,14 +244,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
                 </a>
 
                 <button
-                  onClick={() => {
-                    trackContactClick({
-                      channel: 'whatsapp',
-                      location: `city_booking_${city.slug}`,
-                      label: `Agendar ${city.name}`
-                    });
-                    onOpenBookingModal(`Atendimento em ${matchedNeighborhood || city.name}`);
-                  }}
+                  onClick={() => onOpenBookingModal(`Atendimento em ${matchedNeighborhood || city.name}`)}
                   className="px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
                 >
                   <Calendar className="w-5 h-5 text-cyan-400" />

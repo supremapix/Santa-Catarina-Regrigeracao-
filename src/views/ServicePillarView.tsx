@@ -126,14 +126,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                 </a>
 
                 <button
-                  onClick={() => {
-                    trackContactClick({
-                      channel: 'whatsapp',
-                      location: `service_modal_${service.id}`,
-                      label: `Agendar ${service.shortTitle}`
-                    });
-                    onOpenBookingModal(service.shortTitle);
-                  }}
+                  onClick={() => onOpenBookingModal(service.shortTitle)}
                   className="px-6 py-4 rounded-xl bg-white hover:bg-slate-50 text-cyan-900 border border-cyan-300 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
                 >
                   <Calendar className="w-5 h-5 text-cyan-700" />

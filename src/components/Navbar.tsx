@@ -324,14 +324,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             {/* Desktop Quick Contact Actions */}
             <div className="hidden sm:flex items-center space-x-2.5">
               <button
-                onClick={() => {
-                  trackContactClick({
-                    channel: 'whatsapp',
-                    location: 'navbar_desktop_booking_modal',
-                    label: 'Navbar Agendar Visita'
-                  });
-                  onOpenBookingModal();
-                }}
+                onClick={() => onOpenBookingModal()}
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 shadow-sm transition-transform active:scale-95 min-h-[44px]"
               >
                 <Calendar className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -423,7 +416,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    trackContactClick({
+                      channel: 'whatsapp',
+                      location: 'navbar_mobile_drawer_whatsapp',
+                      target: COMPANY_INFO.whatsappUrl
+                    });
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -432,7 +432,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
                 <a
                   href={`tel:${COMPANY_INFO.phoneClean}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    trackContactClick({
+                      channel: 'phone',
+                      location: 'navbar_mobile_drawer_phone',
+                      target: `tel:${COMPANY_INFO.phoneClean}`
+                    });
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
                 >
                   <Phone className="w-5 h-5" />

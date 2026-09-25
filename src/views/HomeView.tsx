@@ -60,10 +60,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
                 Solicitar Orçamento Grátis no WhatsApp
               </a>
               <button
-                onClick={() => {
-                  trackContactClick({ channel: 'whatsapp', location: 'home_footer_booking_btn' });
-                  onOpenBookingModal();
-                }}
+                onClick={() => onOpenBookingModal()}
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-base transition-all"
               >
                 Agendar Horário Online

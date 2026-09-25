@@ -1,9 +1,11 @@
 /**
  * Centralized Analytics Utility for Google Analytics 4 (GA4) and Google Tag Manager (GTM)
  *
- * Configures measurement ID G-1PZXYERJ4D and contact click tracking (WhatsApp, Phone)
- * with the 'contact_click' event and channel parameter.
- * Strictly avoids conversion inflation (no purchase, qualify_lead, or close_convert_lead on simple clicks).
+ * Configures measurement ID G-1PZXYERJ4D using GA4 standard tag initialization.
+ * Page views (initial load and browser history changes) are measured automatically by GA4 Enhanced Measurement.
+ *
+ * Contact clicks (WhatsApp, Phone) are tracked via 'contact_click' with 'contact_channel'.
+ * Strictly avoids conversion inflation (no purchase, qualify_lead, or close_convert_lead).
  */
 
 declare global {
@@ -20,7 +22,7 @@ export const GA_MEASUREMENT_ID =
 
 /**
  * Initializes Google Analytics 4 tag cleanly and only once.
- * Avoids multiple script insertions.
+ * Does not suppress initial page_view; relies on GA4 Enhanced Measurement for automatic page & history tracking.
  */
 export function initAnalytics(): void {
   if (typeof window === 'undefined') return;
@@ -43,38 +45,9 @@ export function initAnalytics(): void {
     window.gtag = gtag;
 
     gtag('js', new Date());
-    // send_page_view is false in config so SPA route listener sends a single page_view per URL transition
+    // GA4 standard config: initial page_view and browser history changes are handled automatically by Enhanced Measurement
     gtag('config', GA_MEASUREMENT_ID, {
-      send_page_view: false,
       anonymize_ip: true
-    });
-  }
-}
-
-/**
- * Tracks a single page view on initial load and internal SPA navigation.
- */
-export function trackPageView(path?: string, title?: string): void {
-  if (typeof window === 'undefined') return;
-
-  const pagePath = path || window.location.pathname;
-  const pageTitle = title || document.title;
-  const pageLocation = window.location.href;
-
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'page_view',
-    page_path: pagePath,
-    page_title: pageTitle,
-    page_location: pageLocation,
-    timestamp: new Date().toISOString()
-  });
-
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'page_view', {
-      page_path: pagePath,
-      page_title: pageTitle,
-      page_location: pageLocation
     });
   }
 }
@@ -87,9 +60,9 @@ export interface ContactClickEventParams {
 }
 
 /**
- * Tracks user contact actions (WhatsApp or Phone clicks).
- * Records them strictly as contact interaction events ('contact_click'),
- * differentiating by the 'contact_channel' parameter.
+ * Tracks real user contact actions (WhatsApp or Phone link clicks).
+ * Fired exclusively when the user actually engages a direct contact channel.
+ * Opening booking/modal dialogs is not treated as a contact click.
  */
 export function trackContactClick(params: ContactClickEventParams): void {
   if (typeof window === 'undefined') return;

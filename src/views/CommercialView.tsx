@@ -82,14 +82,7 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
               <MessageCircle className="w-4 h-4" /> Solicitar Atendimento no WhatsApp
             </a>
             <button
-              onClick={() => {
-                trackContactClick({
-                  channel: 'whatsapp',
-                  location: 'commercial_hero_booking',
-                  label: 'Agendar Comercial'
-                });
-                onOpenBookingModal(service.title);
-              }}
+              onClick={() => onOpenBookingModal(service.title)}
               className="px-6 py-3.5 bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4" /> Agendar Visita Técnica Comercial

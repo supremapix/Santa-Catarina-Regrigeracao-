@@ -160,14 +160,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               </a>
               <button
                 type="button"
-                onClick={() => {
-                  trackContactClick({
-                    channel: 'whatsapp',
-                    location: 'hero_booking_button',
-                    label: 'Hero Agendar Online'
-                  });
-                  onOpenBookingModal();
-                }}
+                onClick={() => onOpenBookingModal()}
                 className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl border border-slate-700 flex items-center justify-center gap-2 text-sm transition-all"
               >
                 <Wrench className="w-4 h-4 text-cyan-400" />

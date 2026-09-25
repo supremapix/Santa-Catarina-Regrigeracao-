@@ -25,20 +25,14 @@ import { SitemapView } from './views/SitemapView';
 import { NotFoundView } from './views/NotFoundView';
 import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
 import { SEARCH_INTENTS } from './data/searchIntents';
-import { trackPageView } from './utils/analytics';
 
-// ScrollToTop and Analytics RouteTracker on route change
-const RouteTrackerAndScroll = () => {
-  const { pathname, search } = useLocation();
+// ScrollToTop component to reset scroll on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Allow react-helmet-async to apply page title changes before recording page_view
-    const timer = setTimeout(() => {
-      trackPageView(pathname + (search || ''), document.title);
-    }, 50);
-    return () => clearTimeout(timer);
-  }, [pathname, search]);
+  }, [pathname]);
 
   return null;
 };
@@ -447,7 +441,7 @@ export function App() {
 
   return (
     <BrowserRouter>
-      <RouteTrackerAndScroll />
+      <ScrollToTop />
       <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
         <Navbar onOpenBookingModal={handleOpenBookingModal} />
 
