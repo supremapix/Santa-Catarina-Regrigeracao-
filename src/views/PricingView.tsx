@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Clock, CheckCircle2, AlertCircle, PhoneCall, HelpCircle, ArrowRight, DollarSign, CreditCard } from 'lucide-react';
+import { ShieldCheck, Clock, CheckCircle2, AlertCircle, PhoneCall, HelpCircle, ArrowRight, DollarSign, CreditCard, MessageCircle } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { PRICING_DATA, PAYMENT_METHODS } from '../data/pricing';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface PricingViewProps {
   onOpenBookingModal: (serviceName?: string) => void;
@@ -13,8 +14,8 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       <EnhancedSEO
-        title="Tabela de Preços de Conserto de Geladeira e Refrigeração | SC Refrigeração"
-        description="Confira nossa tabela de preços transparente para conserto de geladeira, kit degelo, termostato, carga de gás e lava e seca. Orçamento sem surpresas e garantia 90 dias."
+        title="Tabela de Preços de Conserto de Geladeira | SC Refrigeração"
+        description="Confira a tabela de preços de referência para conserto de geladeiras, kit degelo, compressores e recarga de gás em SC. Orçamento no local e garantia de 90 dias."
         canonicalUrl="/precos"
         breadcrumbs={[
           { name: "Início", item: "/" },
@@ -32,7 +33,7 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
             Tabela de Preços & Prazos Estimados
           </h1>
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            Sem pegadinhas ou valores ocultos. Avaliação técnica no local com multímetro digital, orçamento prévio antes da execução, peças originais e <strong className="text-cyan-400">garantia formal de 90 dias</strong> por escrito.
+            Sem cobranças ocultas. Avaliação técnica presencial com multímetro digital, orçamento prévio antes da execução, peças originais e <strong className="text-cyan-400">garantia formal de 90 dias</strong> por escrito.
           </p>
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
@@ -68,7 +69,7 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
             Valores Médios dos Principais Serviços
           </h2>
           <p className="text-slate-600 mt-2 text-sm sm:text-base">
-            Valores de referência para modelos residenciais e comerciais. O valor exato é informado pelo técnico no laudo presencial.
+            Valores médios de referência para modelos residenciais e comerciais. O orçamento definitivo é emitido pelo responsável técnico após o laudo presencial no equipamento.
           </p>
         </div>
 
@@ -114,7 +115,14 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
                   </span>
                 </div>
                 <button
-                  onClick={() => onOpenBookingModal(item.service)}
+                  onClick={() => {
+                    trackContactClick({
+                      channel: 'whatsapp',
+                      location: `pricing_item_${idx}`,
+                      label: item.service
+                    });
+                    onOpenBookingModal(item.service);
+                  }}
                   className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors flex items-center gap-2"
                 >
                   Solicitar Orçamento <ArrowRight className="w-3.5 h-3.5" />
@@ -153,7 +161,7 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
             <div className="bg-white p-6 rounded-xl border border-slate-200">
               <h3 className="font-bold text-slate-900 text-base mb-2">4. Deslocamento & Região</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Atendemos o Anel 1 (Penha, Navegantes, Piçarras, Itajaí, BC, Itapema) com valor de visita reduzido devido à proximidade contínua de nossas viaturas técnicas.
+                Atendemos o Anel 1 (Penha, Navegantes, Piçarras, Itajaí, BC, Itapema) com rotas diárias estruturadas e sem custos adicionais abusivos.
               </p>
             </div>
           </div>
@@ -218,11 +226,14 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
             Precisa de um Diagnóstico Hoje Mesmo?
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto text-sm sm:text-base mb-6">
-            Nossos técnicos de plantão estão prontos para atender você em Penha, Navegantes, Itajaí, Balneário Camboriú e região.
+            Nossa equipe técnica atende em Navegantes, Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e região.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
-              onClick={() => onOpenBookingModal('Visita Técnica e Orçamento')}
+              onClick={() => {
+                trackContactClick({ channel: 'whatsapp', location: 'pricing_footer_booking' });
+                onOpenBookingModal('Visita Técnica e Orçamento');
+              }}
               className="px-6 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4" /> Agendar Visita Técnica
@@ -231,9 +242,10 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackContactClick({ channel: 'whatsapp', location: 'pricing_footer_whatsapp', target: COMPANY_INFO.whatsappUrl })}
               className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
             >
-              Falar no WhatsApp: {COMPANY_INFO.phone}
+              <MessageCircle className="w-4 h-4" /> Falar no WhatsApp: {COMPANY_INFO.phone}
             </a>
           </div>
         </div>
@@ -241,3 +253,4 @@ export const PricingView: React.FC<PricingViewProps> = ({ onOpenBookingModal }) 
     </main>
   );
 };
+

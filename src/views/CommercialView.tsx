@@ -1,9 +1,10 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { Building2, ShieldCheck, Clock, CheckCircle2, PhoneCall, ArrowRight, FileText, Wrench } from 'lucide-react';
+import { Building2, ShieldCheck, Clock, CheckCircle2, PhoneCall, ArrowRight, FileText, Wrench, MessageCircle } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMMERCIAL_SERVICES, getCommercialServiceBySlug } from '../data/commercial';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface CommercialViewProps {
   onOpenBookingModal: (serviceName?: string) => void;
@@ -16,12 +17,36 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
   const slug = serviceSlugParam || slugFromPath || 'refrigeracao-comercial';
   const service = getCommercialServiceBySlug(slug) || COMMERCIAL_SERVICES[0];
 
+  const commercialSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "serviceType": "Refrigeração Comercial e Industrial",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": COMPANY_INFO.name,
+      "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
+        "addressLocality": COMPANY_INFO.address.city,
+        "addressRegion": COMPANY_INFO.address.state,
+        "postalCode": COMPANY_INFO.address.zipCode,
+        "addressCountry": "BR"
+      }
+    },
+    "areaServed": "Litoral Norte e Vale do Itajaí - SC",
+    "description": service.description
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       <EnhancedSEO
-        title={service.metaTitle}
-        description={service.metaDescription}
+        title="Refrigeração Comercial em SC | SC Refrigeração"
+        description="Assistência técnica especializada em refrigeração comercial para restaurantes, supermercados, hotéis e peixarias no Litoral de SC. Plantão e garantia de 90 dias."
         canonicalUrl={`/${service.slug}`}
+        schemas={[commercialSchema]}
         breadcrumbs={[
           { name: "Início", item: "/" },
           { name: "Comercial & B2B", item: "/refrigeracao-comercial" },
@@ -43,11 +68,31 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href={COMPANY_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackContactClick({
+                channel: 'whatsapp',
+                location: 'commercial_hero_whatsapp',
+                label: 'WhatsApp Refrigeração Comercial'
+              })}
+              className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
+            >
+              <MessageCircle className="w-4 h-4" /> Solicitar Atendimento no WhatsApp
+            </a>
             <button
-              onClick={() => onOpenBookingModal(service.title)}
+              onClick={() => {
+                trackContactClick({
+                  channel: 'whatsapp',
+                  location: 'commercial_hero_booking',
+                  label: 'Agendar Comercial'
+                });
+                onOpenBookingModal(service.title);
+              }}
               className="px-6 py-3.5 bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
             >
-              <PhoneCall className="w-4 h-4" /> Solicitar Atendimento Comercial 24h
+              <PhoneCall className="w-4 h-4" /> Agendar Visita Técnica Comercial
             </button>
             <Link
               to="/precos"
@@ -128,17 +173,22 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
           {/* Sidebar */}
           <div className="space-y-6">
             <div className="bg-indigo-950 text-white p-6 rounded-2xl border border-indigo-800">
-              <h3 className="font-bold text-lg mb-2">Plantão Técnico 24h</h3>
+              <h3 className="font-bold text-lg mb-2">Plantão Comercial</h3>
               <p className="text-xs text-indigo-200 leading-relaxed mb-4">
-                Problema com câmara fria ou balcão de carnes no fim de semana? Nossa equipe de emergência atende no local.
+                Problema com câmara fria ou balcão de carnes no fim de semana? Nossa equipe técnica atende estabelecimentos comerciais.
               </p>
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({
+                  channel: 'whatsapp',
+                  location: 'commercial_sidebar_whatsapp',
+                  label: 'WhatsApp Plantão Comercial'
+                })}
                 className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
               >
-                Chamar Plantão: {COMPANY_INFO.phone}
+                Chamar no WhatsApp: {COMPANY_INFO.phone}
               </a>
             </div>
 
@@ -166,3 +216,4 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
     </main>
   );
 };
+

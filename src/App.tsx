@@ -14,6 +14,7 @@ import { SamsungAssistenciaView } from './views/SamsungAssistenciaView';
 import { BrandDetailView } from './views/BrandDetailView';
 import { RegionsHubView } from './views/RegionsHubView';
 import { PricingView } from './views/PricingView';
+import { CommercialView } from './views/CommercialView';
 import { BlogIndexView } from './views/BlogIndexView';
 import { BlogArticleView } from './views/BlogArticleView';
 import { BlogGuideView } from './views/BlogGuideView';
@@ -287,11 +288,11 @@ function AppRoutes({ handleOpenBookingModal }: { handleOpenBookingModal: (servic
 
           <Route
             path="/refrigeracao-comercial"
-            element={<ServicePillarView serviceIdParam="refrigeracao-comercial" onOpenBookingModal={handleOpenBookingModal} />}
+            element={<CommercialView onOpenBookingModal={handleOpenBookingModal} />}
           />
           <Route
             path="/refrigeracao-comercial/"
-            element={<ServicePillarView serviceIdParam="refrigeracao-comercial" onOpenBookingModal={handleOpenBookingModal} />}
+            element={<CommercialView onOpenBookingModal={handleOpenBookingModal} />}
           />
 
           <Route

@@ -12,6 +12,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 export const SEMANTIC_SHARE_TEXTS = [
   "Estou indicando a Santa Catarina Refrigeração em Navegantes SC! Assistência técnica de geladeira, freezer e cervejeiras com garantia.",
@@ -300,6 +301,11 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenBookingM
         <a
           href={`tel:${COMPANY_INFO.phoneClean}`}
           aria-label="Ligar Agora para Assistência Técnica"
+          onClick={() => trackContactClick({
+            channel: 'phone',
+            location: 'floating_phone_button',
+            label: `Call ${COMPANY_INFO.phone}`
+          })}
           className="group flex items-center gap-1.5 p-2.5 sm:px-3 sm:py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/60 shadow-md backdrop-blur-md pointer-events-auto transition-all hover:scale-105 active:scale-95 text-xs font-medium"
         >
           <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
@@ -312,6 +318,11 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenBookingM
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Atendimento WhatsApp"
+          onClick={() => trackContactClick({
+            channel: 'whatsapp',
+            location: 'floating_whatsapp_button',
+            label: 'WhatsApp Floating Action'
+          })}
           className="group flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2 rounded-full bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-xs shadow-md border border-emerald-500/50 backdrop-blur-md pointer-events-auto transition-all hover:scale-105 active:scale-95"
         >
           <MessageCircle className="w-3.5 h-3.5 shrink-0" />

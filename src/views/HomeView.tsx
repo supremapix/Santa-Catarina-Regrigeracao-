@@ -12,6 +12,7 @@ import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FaqAccordion } from '../components/FaqAccordion';
 import { SearchIntentsSection } from '../components/SearchIntentsSection';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface HomeViewProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -21,8 +22,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
   return (
     <>
       <EnhancedSEO
-        title="Santa Catarina Refrigeração | Conserto de Geladeira, Freezer, Câmara Fria e Lava e Seca"
-        description="Assistência técnica especializada em refrigeração em Penha, Piçarras, Itajaí, Balneário Camboriú e região. Conserto no mesmo dia com garantia de 90 dias e peças originais."
+        title="Santa Catarina Refrigeração | Conserto de Geladeira em SC"
+        description="Assistência técnica e conserto de geladeira, freezer, câmara fria e lava e seca em SC. Atendimento domiciliar com garantia de 90 dias e peças originais."
         canonicalUrl={COMPANY_INFO.subdomainUrl}
       />
 
@@ -53,12 +54,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({ channel: 'whatsapp', location: 'home_footer_cta', target: COMPANY_INFO.whatsappUrl })}
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-base shadow-xl transition-all"
               >
                 Solicitar Orçamento Grátis no WhatsApp
               </a>
               <button
-                onClick={() => onOpenBookingModal()}
+                onClick={() => {
+                  trackContactClick({ channel: 'whatsapp', location: 'home_footer_booking_btn' });
+                  onOpenBookingModal();
+                }}
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-base transition-all"
               >
                 Agendar Horário Online
@@ -70,3 +75,4 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
     </>
   );
 };
+

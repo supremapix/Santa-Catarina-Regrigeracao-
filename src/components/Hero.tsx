@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Clock, MapPin, Wrench, CheckCircle2, Phone, ExternalLink } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface HeroProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -147,13 +148,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({
+                  channel: 'whatsapp',
+                  location: 'hero_primary_whatsapp',
+                  label: 'Hero WhatsApp CTA'
+                })}
                 className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-xl shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2 text-sm transition-all"
               >
                 <span>Solicitar Técnico no WhatsApp</span>
               </a>
               <button
                 type="button"
-                onClick={() => onOpenBookingModal()}
+                onClick={() => {
+                  trackContactClick({
+                    channel: 'whatsapp',
+                    location: 'hero_booking_button',
+                    label: 'Hero Agendar Online'
+                  });
+                  onOpenBookingModal();
+                }}
                 className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl border border-slate-700 flex items-center justify-center gap-2 text-sm transition-all"
               >
                 <Wrench className="w-4 h-4 text-cyan-400" />

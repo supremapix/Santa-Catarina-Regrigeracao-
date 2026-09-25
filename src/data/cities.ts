@@ -64,8 +64,8 @@ export const CITIES_DATA: CityLocalSEO[] = [
     name: "Navegantes",
     state: "SC",
     ring: 1,
-    distanceKm: 12,
-    estimatedMinutes: 20,
+    distanceKm: 0,
+    estimatedMinutes: 0,
     coordinates: {
       latitude: -26.8986,
       longitude: -48.6534
@@ -74,14 +74,14 @@ export const CITIES_DATA: CityLocalSEO[] = [
       "Centro", "Gravatá", "São Pedro", "Meia Praia", "São Domingos",
       "Machados", "Volta Grande", "Pedreiras", "Escalvados", "Porto Escalvado"
     ],
-    popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave (Ponto de Referência)", "Ferry Boat", "Molhe Norte"],
-    customSnippet: "Endereço comercial da Santa Catarina Refrigeração no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191). Atendimento técnico ágil em Gravatá, Centro, Meia Praia e Machados com garantia de 90 dias.",
-    longDescription: "Sede de nosso endereço comercial no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191, CEP 88370-232). Navegantes é o polo principal de nossa operação em Santa Catarina. Com atendimento móvel nas avenidas de Gravatá, Meia Praia e Centro, atendemos com máxima agilidade moradores locais, proprietários de imóveis na orla e estabelecimentos comerciais locais. Nossos técnicos realizam consertos de geladeiras Frost Free, refrigeradores Inverse, cervejeiras, freezers, máquinas Lava e Seca e câmaras frias comerciais com rapidez e diagnóstico transparente.",
+    popularLandmarks: ["Aeroporto Internacional de Navegantes", "Praia de Gravatá", "Portonave", "Ferry Boat Navegantes-Itajaí", "Molhe Norte"],
+    customSnippet: "Assistência técnica de geladeiras e refrigeradores em Navegantes/SC. Atendimento no local no Centro, Gravatá e Meia Praia com peças originais e garantia 90 dias.",
+    longDescription: "A Santa Catarina Refrigeração conta com endereço físico no Centro de Navegantes (Rua Vereador Nereu Liberato Nunes, 191, CEP 88370-232). Prestamos assistência técnica em domicílio e no comércio para conserto de geladeiras Frost Free, refrigeradores Inverse, side by side, cervejeiras, freezers e lava e seca. Nossos técnicos realizam diagnósticos minuciosos no local com instrumentos de teste elétrico e manifold digital, identificando falhas de degelo, compressores danificados, vazamentos de gás e defeitos em placas eletrônicas.",
     highlights: [
-      "Endereço comercial em Navegantes: Rua Vereador Nereu Liberato Nunes, 191 - Centro",
-      "Atendimento prioritário na orla de Gravatá, Meia Praia e Centro de Navegantes",
-      "Equipe técnica equipada para reparos no mesmo dia em Navegantes e região",
-      "Especialistas em refrigeração comercial e residencial com garantia de 90 dias"
+      "Endereço físico no Centro de Navegantes: Rua Vereador Nereu Liberato Nunes, 191",
+      "Rotas diárias de atendimento no Centro, Gravatá, Meia Praia, São Pedro e Machados",
+      "Diagnóstico presencial com instrumentos de teste e orçamento prévio transparente",
+      "Peças originais de reposição com garantia formal de 90 dias por escrito"
     ]
   },
   {

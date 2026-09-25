@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, MapPin, User, Phone, CheckCircle2, MessageSquare, Wrench } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { trackContactClick } from '../utils/analytics';
 
 interface WhatsAppBookingModalProps {
   isOpen: boolean;
@@ -30,6 +31,12 @@ export const WhatsAppBookingModal: React.FC<WhatsAppBookingModalProps> = ({
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
+
+    trackContactClick({
+      channel: 'whatsapp',
+      location: 'booking_modal_submit',
+      label: `Booking Form (${equipment} - ${cityName})`
+    });
 
     const formattedMessage = `*AGENDAMENTO ONLINE - SANTA CATARINA REFRIGERAÇÃO*%0A%0A` +
       `*Cliente:* ${encodeURIComponent(clientName)}%0A` +

@@ -5,6 +5,7 @@ import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Clock, ChevronDown, Chev
 import { COMPANY_INFO } from '../data/company';
 import { CITIES_DATA } from '../data/cities';
 import { AnimatedFrostLogo } from './AnimatedFrostLogo';
+import { trackContactClick } from '../utils/analytics';
 
 interface NavbarProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -119,6 +120,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </span>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({
+                  channel: 'phone',
+                  location: 'navbar_topbar_phone',
+                  label: `Call ${COMPANY_INFO.phone}`
+                })}
                 className="text-cyan-300 hover:underline font-bold text-sm"
               >
                 Ligar: {COMPANY_INFO.phone}
@@ -318,7 +324,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             {/* Desktop Quick Contact Actions */}
             <div className="hidden sm:flex items-center space-x-2.5">
               <button
-                onClick={() => onOpenBookingModal()}
+                onClick={() => {
+                  trackContactClick({
+                    channel: 'whatsapp',
+                    location: 'navbar_desktop_booking_modal',
+                    label: 'Navbar Agendar Visita'
+                  });
+                  onOpenBookingModal();
+                }}
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 shadow-sm transition-transform active:scale-95 min-h-[44px]"
               >
                 <Calendar className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -329,6 +342,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({
+                  channel: 'whatsapp',
+                  location: 'navbar_desktop_whatsapp_btn',
+                  label: 'Navbar WhatsApp Direct'
+                })}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-transform active:scale-95 min-h-[44px]"
                 aria-label="Conversar pelo WhatsApp"
               >

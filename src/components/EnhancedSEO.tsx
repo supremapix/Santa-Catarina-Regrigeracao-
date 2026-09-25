@@ -34,7 +34,35 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   neighborhood,
   faqList = [],
 }) => {
-  const fullCanonical = canonicalUrl || `${COMPANY_INFO.subdomainUrl}${typeof window !== 'undefined' ? window.location.pathname : ''}`;
+  // Compute absolute canonical URL without trailing slashes (except root)
+  const computeFullCanonical = (url?: string): string => {
+    if (!url) {
+      const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+      if (currentPath === '/' || !currentPath) {
+        return `${COMPANY_INFO.subdomainUrl}/`;
+      }
+      const cleanPath = currentPath.replace(/\/+$/, '');
+      return `${COMPANY_INFO.subdomainUrl}${cleanPath.startsWith('/') ? '' : '/'}${cleanPath}`;
+    }
+
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.pathname === '/' || !parsed.pathname) {
+          return `${parsed.origin}/`;
+        }
+        const cleanPath = parsed.pathname.replace(/\/+$/, '');
+        return `${parsed.origin}${cleanPath}`;
+      } catch {
+        return url;
+      }
+    }
+
+    const clean = url.replace(/^\/+/, '').replace(/\/+$/, '');
+    return clean ? `${COMPANY_INFO.subdomainUrl}/${clean}` : `${COMPANY_INFO.subdomainUrl}/`;
+  };
+
+  const fullCanonical = computeFullCanonical(canonicalUrl);
 
   // Build Connected @graph JSON-LD
   const graphEntities: any[] = [

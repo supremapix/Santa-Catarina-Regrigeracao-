@@ -5,6 +5,7 @@ import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
 import { Check, ShieldCheck, Calendar, MessageCircle, ChevronRight, Phone, Wrench, AlertTriangle, Cpu, DollarSign, HelpCircle, List, ArrowRight } from 'lucide-react';
 import { FaqAccordion } from '../components/FaqAccordion';
+import { trackContactClick } from '../utils/analytics';
 
 interface ServicePillarViewProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -50,9 +51,9 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
   };
 
   const breadcrumbItems = [
-    { name: "Início", item: COMPANY_INFO.subdomainUrl },
-    { name: "Serviços", item: `${COMPANY_INFO.subdomainUrl}/#servicos` },
-    { name: service.title, item: `${COMPANY_INFO.subdomainUrl}/${service.slug}/` }
+    { name: "Início", item: "/" },
+    { name: "Serviços", item: "/#servicos" },
+    { name: service.title, item: `/${service.slug}` }
   ];
 
   return (
@@ -60,7 +61,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
       <EnhancedSEO
         title={service.metaTitle}
         description={service.metaDescription}
-        canonicalUrl={`${COMPANY_INFO.subdomainUrl}/${service.slug}/`}
+        canonicalUrl={`/${service.slug}`}
         ogImage={service.image}
         schemas={[serviceSchema]}
         breadcrumbs={breadcrumbItems}
@@ -113,6 +114,11 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                   href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackContactClick({
+                    channel: 'whatsapp',
+                    location: `service_hero_${service.id}`,
+                    label: `WhatsApp ${service.shortTitle}`
+                  })}
                   className="px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base shadow-md flex items-center justify-center gap-2 min-h-[48px]"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -120,7 +126,14 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                 </a>
 
                 <button
-                  onClick={() => onOpenBookingModal(service.shortTitle)}
+                  onClick={() => {
+                    trackContactClick({
+                      channel: 'whatsapp',
+                      location: `service_modal_${service.id}`,
+                      label: `Agendar ${service.shortTitle}`
+                    });
+                    onOpenBookingModal(service.shortTitle);
+                  }}
                   className="px-6 py-4 rounded-xl bg-white hover:bg-slate-50 text-cyan-900 border border-cyan-300 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
                 >
                   <Calendar className="w-5 h-5 text-cyan-700" />
@@ -265,12 +278,22 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
                 href={`${COMPANY_INFO.whatsappUrl}%20para%20${encodeURIComponent(service.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackContactClick({
+                  channel: 'whatsapp',
+                  location: `service_bottom_whatsapp_${service.id}`,
+                  label: `WhatsApp ${service.shortTitle}`
+                })}
                 className="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md min-h-[48px] flex items-center justify-center"
               >
                 Chamar no WhatsApp Agora
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({
+                  channel: 'phone',
+                  location: `service_bottom_phone_${service.id}`,
+                  label: `Phone ${service.shortTitle}`
+                })}
                 className="px-6 py-4 rounded-xl bg-white border border-slate-300 text-slate-900 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xs min-h-[48px]"
               >
                 <Phone className="w-4 h-4 text-blue-600" />
