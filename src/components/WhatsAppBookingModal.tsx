@@ -66,7 +66,7 @@ export const WhatsAppBookingModal: React.FC<WhatsAppBookingModalProps> = ({
               <Calendar className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="font-extrabold text-lg text-slate-900">Agendamento Online 24h</h3>
+              <h3 className="font-extrabold text-lg text-slate-900">Agendar Visita Técnica</h3>
               <p className="text-xs text-slate-600 font-medium">Atendimento em Domicílio com Garantia</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ export const WhatsAppBookingModal: React.FC<WhatsAppBookingModalProps> = ({
                     <Clock className="w-4 h-4 text-cyan-700" /> Turno de Preferência:
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    {['Manhã (08h às 12h)', 'Tarde (13h às 18h)', 'Plantão Emergencial'].map((shiftOption) => (
+                    {['Manhã (08h às 12h)', 'Tarde (13h às 18h)', 'Atendimento Rápido'].map((shiftOption) => (
                       <button
                         key={shiftOption}
                         type="button"

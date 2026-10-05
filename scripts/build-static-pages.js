@@ -37,7 +37,7 @@ function renderHeaderHtml() {
       <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <span>Santa Catarina Refrigeração • Atendimento Domiciliar e Comercial em SC</span>
-          <span>Plantão: <a href="tel:${COMPANY_INFO.phoneClean}" class="text-cyan-300 font-bold">${COMPANY_INFO.phone}</a></span>
+          <span>Ligar: <a href="tel:${COMPANY_INFO.phoneClean}" class="text-cyan-300 font-bold">${COMPANY_INFO.phone}</a></span>
         </div>
       </div>
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -355,11 +355,11 @@ function addSitemapUrl(urlPath, priority = '0.8', changefreq = 'weekly') {
 // 3. Commercial Hub (/refrigeracao-comercial)
 {
   const title = "Refrigeração Comercial, Câmaras Frias e Contratos PMOC em SC";
-  const description = "Assistência técnica de refrigeração para restaurantes, peixarias, supermercados e hotéis em Navegantes, Penha, Itajaí e Balneário Camboriú. Atendimento 24h.";
+  const description = "Assistência técnica de refrigeração para restaurantes, peixarias, supermercados e hotéis em Navegantes, Penha, Itajaí e Balneário Camboriú. Atendimento de Segunda a Sábado com garantia.";
   const bodyHtml = `
     <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Refrigeração Comercial e Manutenção PMOC</h1>
-      <p class="text-slate-600 text-base max-w-3xl">Atendimento emergencial 24 horas para comércios que não podem perder mercadoria perecível.</p>
+      <p class="text-slate-600 text-base max-w-3xl">Atendimento ágil para comércios que não podem perder mercadoria perecível.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         ${COMMERCIAL_SERVICES.map(cp => `
           <div class="p-6 bg-slate-50 border rounded-2xl space-y-3">
@@ -782,7 +782,7 @@ for (const city of CITIES_DATA) {
 
 // 10. High-Volume Neighborhoods
 for (const nb of HIGH_VOLUME_NEIGHBORHOODS) {
-  const title = `Conserto de Geladeira no Bairro ${nb.name} (${nb.cityName}/SC) | Assistência 24h`;
+  const title = `Conserto de Geladeira no Bairro ${nb.name} (${nb.cityName}/SC) | Santa Catarina Refrigeração`;
   const description = `Atendimento domiciliar rápido no bairro ${nb.name} em ${nb.cityName}/SC. Conserto de geladeiras, lava e seca, freezers e câmaras frias com peças originais e garantia 90 dias.`;
   const canonicalUrl = `/conserto-de-geladeira-${nb.slug}`;
   const bodyHtml = `

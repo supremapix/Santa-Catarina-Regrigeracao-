@@ -25,7 +25,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     title: "Conserto de Geladeira e Refrigeradores",
     shortTitle: "Geladeiras",
     metaTitle: "Conserto de Geladeira em Penha e Região | Santa Catarina Refrigeração",
-    metaDescription: "Assistência técnica especializada no conserto de geladeiras Frost Free, Duplex, Inverse e Side by Side. Atendimento 24h em domicílio com garantia de 90 dias.",
+    metaDescription: "Assistência técnica especializada no conserto de geladeiras Frost Free, Duplex, Inverse e Side by Side. Atendimento em domicílio com garantia de 90 dias.",
     h1: "Conserto e Assistência Técnica de Geladeiras em Penha e Região",
     summary: "Conserto rápido e especializado de geladeiras de todas as marcas (Brastemp, Electrolux, Consul, Samsung, LG). Atendimento domiciliar no mesmo dia com peças originais.",
     image: COMPANY_INFO.assets.serviceGeladeira,
@@ -64,7 +64,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       },
       {
         question: "Vocês atendem nos finais de semana e feriados?",
-        answer: "Sim. Oferecemos atendimento aos sábados das 07h às 20h, domingos das 07h às 12h e plantão emergencial 24 horas para casos onde a perda de alimentos ou insumos comerciais é iminente."
+        answer: "Sim. Oferecemos atendimento de segunda a sábado das 08h às 18h com agendamento rápido no mesmo dia."
       }
     ]
   },
@@ -114,7 +114,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     metaTitle: "Conserto de Frigobar em Penha e Região | Santa Catarina Refrigeração",
     metaDescription: "Manutenção de frigobares de hotéis, pousadas, escritórios e residências em Penha, Piçarras, Itajaí e região. Conserto rápido com garantia de 90 dias.",
     h1: "Assistência Técnica e Conserto de Frigobar em Domicílio",
-    summary: "Atendimento para frigobares de pousadas, hotéis, escritórios e residências. Troca de gás, conserto de termostato, borracha e motor com agilidade.",
+    summary: "Atendimento para frigobares de pousadas, hotéis, escritórios e residências. Troca de gás, conserto de termostato, borracha e motor no mesmo dia.",
     image: COMPANY_INFO.assets.serviceFrigobar,
     video: "https://img.supremasite.com.br/frigobares.mp4",
     category: "Residencial",
@@ -176,9 +176,9 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     title: "Conserto e Manutenção de Câmara Fria e Frigorífica",
     shortTitle: "Câmaras Frias",
     metaTitle: "Conserto de Câmara Fria em Penha e Região SC | Santa Catarina Refrigeração",
-    metaDescription: "Assistência técnica de câmaras frias de resfriados e congelados em Penha, Itajaí, Piçarras e raio de 200km. Atendimento de emergência 24h para comércios.",
+    metaDescription: "Assistência técnica de câmaras frias de resfriados e congelados em Penha, Itajaí, Piçarras e raio de 200km. Atendimento rápido para comércios.",
     h1: "Assistência Técnica de Câmaras Frias Resfriadas e Congeladas",
-    summary: "Manutenção preventiva e emergencial 24h em câmaras frigoríficas para restaurantes, peixarias, supermercados, açougues e distribuidoras da região.",
+    summary: "Manutenção preventiva e corretiva em câmaras frigoríficas para restaurantes, peixarias, supermercados, açougues e distribuidoras da região.",
     image: COMPANY_INFO.assets.serviceCamaraFria,
     video: "https://img.supremasite.com.br/frigor%C3%ADfica.mp4",
     category: "Comercial",
@@ -195,7 +195,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       "Limpeza química de condensadores e evaporadores",
       "Recarga de fluido refrigerante (R404A, R22, R134a, R410A)"
     ],
-    fullDescription: "Câmaras frias são o coração financeiro de peixarias, marisqueiras, supermercados e cozinhas industriais na região costeira e no interior de Santa Catarina. Uma falha na refrigeração comercial pode significar prejuízos astronômicos. Oferecemos atendimento prioritário emergencial 24 horas para restabelecer a temperatura ideal do seu estoque.",
+    fullDescription: "Câmaras frias são o coração financeiro de peixarias, marisqueiras, supermercados e cozinhas industriais na região costeira e no interior de Santa Catarina. Uma falha na refrigeração comercial pode significar prejuízos astronômicos. Oferecemos atendimento prioritário de segunda a sábado para restabelecer a temperatura ideal do seu estoque.",
     faqs: [
       {
         question: "Vocês fazem contrato de manutenção preventiva para câmaras frias?",
@@ -295,7 +295,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       "Substituição de bomba de drenagem e eletroválvula de entrada de água",
       "Higienização completa do tambor e remoção de resíduos de sabão/amaciante"
     ],
-    fullDescription: "A lava e seca é um eletrodoméstico indispensável no litoral catarinense devido à alta umidade relativa do ar. Diagnosticar falhas em motores Direct Drive e placas Inverter exige conhecimento especializado em eletrônica embarcada. Nossa equipe realiza o conserto no seu imóvel com agilidade e peças originais de fábrica.",
+    fullDescription: "A lava e seca é um eletrodoméstico indispensável no litoral catarinense devido à alta umidade relativa do ar. Diagnosticar falhas em motores Direct Drive e placas Inverter exige conhecimento especializado em eletrônica embarcada. Nossa equipe realiza o conserto no seu imóvel no próprio local e com peças originais de fábrica.",
     faqs: [
       {
         question: "Quanto custa uma visita técnica para avaliar minha lava e seca?",
@@ -321,7 +321,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
     title: "Assistência Técnica em Refrigeração Residencial, Comercial e Industrial",
     shortTitle: "Assistência Refrigeração",
     metaTitle: "Assistência Técnica em Refrigeração em SC | Santa Catarina Refrigeração",
-    metaDescription: "Assistência técnica especializada em refrigeração comercial, industrial e residencial em Navegantes, Penha, Itajaí, Balneário Camboriú e região. Atendimento 24h.",
+    metaDescription: "Assistência técnica especializada em refrigeração comercial, industrial e residencial em Navegantes, Penha, Itajaí, Balneário Camboriú e região.",
     h1: "Assistência Técnica em Refrigeração Comercial, Industrial e Residencial em SC",
     summary: "Serviço completo de manutenção corretiva, preventiva e instalação de equipamentos de refrigeração para residências e empresas de Santa Catarina.",
     image: COMPANY_INFO.assets.serviceRefrigeracaoComercial,
@@ -368,7 +368,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       "Substituição de gaxetas magnéticas de vedação",
       "Instalação e parametrização de controladores Full Gauge/Carel"
     ],
-    fullDescription: "Sua empresa não pode parar por falha no sistema de frio. Atendemos supermercados, padarias, peixarias e restaurantes em todo o Litoral Norte Catarinense com contratos flexíveis e suporte 24h.",
+    fullDescription: "Sua empresa não pode parar por falha no sistema de frio. Atendemos supermercados, padarias, peixarias e restaurantes em todo o Litoral Norte Catarinense com contratos flexíveis e suporte de segunda a sábado.",
     faqs: [
       {
         question: "Vocês emitem laudo e ART para fiscalização sanitária?",
@@ -484,11 +484,11 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       "Troca de raspadores de teflon e vedações de gaxeta",
       "Revisão do sistema elétrico e motores de raspagem"
     ],
-    fullDescription: "Sua sorveteria ou quiosque no litoral catarinense precisa de equipamentos perfeitamente regulados na alta temporada. Atendemos com agilidade e peças de reposição.",
+    fullDescription: "Sua sorveteria ou quiosque no litoral catarinense precisa de equipamentos perfeitamente regulados na alta temporada. Atendemos prontamente com peças de reposição.",
     faqs: [
       {
         question: "Vocês atendem sorveterias na praia no verão?",
-        answer: "Sim, temos plantão técnico rápido para quiosques e sorveterias em Penha, Piçarras, BC, Itajaí e região."
+        answer: "Sim, temos atendimento técnico rápido para quiosques e sorveterias em Penha, Piçarras, BC, Itajaí e região."
       }
     ]
   },
@@ -513,7 +513,7 @@ export const PILLAR_SERVICES: ServicePillar[] = [
       "Troca de agitadores, bombas de glicol e termostatos",
       "Recarga de gás e substituição de compressores de chopeira"
     ],
-    fullDescription: "Chopp trincando de gelado exige chopeira com banco de gelo perfeito e linhas limpas. Atendemos pubs, cervejarias e restaurantes em toda a região com suporte ágil.",
+    fullDescription: "Chopp trincando de gelado exige chopeira com banco de gelo perfeito e linhas limpas. Atendemos pubs, cervejarias e restaurantes em toda a região com suporte técnico no local.",
     faqs: [
       {
         question: "Por que a chopeira está soltando só espuma?",

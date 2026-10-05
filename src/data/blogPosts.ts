@@ -429,7 +429,7 @@ export const BLOG_POSTS: BlogPost[] = [
     faqs: [
       {
         question: "O que fazer imediatamente quando a câmara fria para de gelar?",
-        answer: "Mantenha as portas estritamente fechadas para conservar o frio residual, verifique se o disjuntor do quadro elétrico não caiu e chame imediatamente assistência técnica com plantão de urgência."
+        answer: "Mantenha as portas estritamente fechadas para conservar o frio residual, verifique se o disjuntor do quadro elétrico não caiu e chame imediatamente assistência técnica especializada."
       }
     ],
     contentHtml: `

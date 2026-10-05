@@ -86,7 +86,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
     metaDescription: "Conserto de geladeiras Consul Facilite, Bem Estar, Freezers e Cervejeiras Titanium em Penha, Navegantes, Piçarras e região. Garantia de 90 dias.",
     h1: "Assistência Técnica em Geladeiras e Cervejeiras Consul",
     badge: "Especialistas Facilite & Cervejeiras",
-    description: "Geladeiras e cervejeiras Consul são sinônimo de praticidade e eficiência. Atendemos com agilidade toda a linha de refrigeradores Consul Facilite, Bem Estar, Duplex Frost Free, Freezers verticais e horizontais, além das consagradas Cervejeiras Consul Titanium e Smart.",
+    description: "Geladeiras e cervejeiras Consul são sinônimo de praticidade e eficiência. Atendemos no mesmo dia toda a linha de refrigeradores Consul Facilite, Bem Estar, Duplex Frost Free, Freezers verticais e horizontais, além das consagradas Cervejeiras Consul Titanium e Smart.",
     commonModels: [
       "Geladeira Consul Frost Free 342L / 386L / 405L / 440L (CRB36, CRB39, CRM39, CRM43, CRM44, CRM54)",
       "Geladeira Consul Bem Estar com horta em casa e filtro antiodor",

@@ -29,7 +29,7 @@ export const REAL_TESTIMONIALS: Testimonial[] = [
     city: "Balneário Piçarras - SC",
     rating: 5,
     date: "Junho de 2026",
-    comment: "Meu freezer horizontal e dois frigobares das suítes pararam de funcionar na véspera do feriado. Pensei que teria que comprar novos. A equipe veio com agilidade e consertou com peças originais e garantia formal de 90 dias!",
+    comment: "Meu freezer horizontal e dois frigobares das suítes pararam de funcionar na véspera do feriado. Pensei que teria que comprar novos. A equipe veio no mesmo dia e consertou com peças originais e garantia formal de 90 dias!",
     service: "Freezer & Frigobares",
     avatarBg: "bg-cyan-600"
   },
@@ -51,7 +51,7 @@ export const REAL_TESTIMONIALS: Testimonial[] = [
     city: "Balneário Camboriú - SC",
     rating: 5,
     date: "Maio de 2026",
-    comment: "A câmara fria de congelados do restaurante em BC apresentou ruído e perda de temperatura. O plantão 24h nos atendeu de madrugada e salvou todo o estoque de frutos do mar. Profissionalismo exemplar!",
+    comment: "A câmara fria de congelados do restaurante em BC apresentou ruído e perda de temperatura. A equipe nos atendeu prontamente no mesmo dia e salvou todo o estoque de frutos do mar. Profissionalismo exemplar!",
     service: "Câmara Fria Comercial",
     avatarBg: "bg-teal-600"
   },

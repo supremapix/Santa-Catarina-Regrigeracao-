@@ -861,12 +861,12 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
   {
     slug: 'camara-fria-cervejeira-perdendo-temperatura',
     category: 'comercial',
-    badge: 'Comercial 24h',
+    badge: 'Comercial',
     badgeColor: 'bg-indigo-500/20 text-indigo-700 border-indigo-500/40',
     title: 'Câmara Fria ou Cervejeira perdendo temperatura',
     metaTitle: 'Câmara Fria e Cervejeira Perdendo Temperatura: conserto urgente | SC Refrigeração',
-    metaDescription: 'Cervejeira ou câmara frigorífica esquentando e perdendo bebidas e mercadorias? Atendimento emergencial 24h para bares, mercados e restaurantes de SC.',
-    h1: 'Câmara Fria e Cervejeira Comercial Perdendo Temperatura: Socorro 24h',
+    metaDescription: 'Cervejeira ou câmara frigorífica esquentando e perdendo bebidas e mercadorias? Atendimento para bares, mercados e restaurantes de SC.',
+    h1: 'Câmara Fria e Cervejeira Comercial Perdendo Temperatura: Conserto Rápido',
     intentQuery: 'camara fria cervejeira comercial perdendo temperatura esquentando',
     pain: 'Bebidas quentes gerando reclamações de clientes, perda de carnes e pescados e risco de fechamento pela vigilância sanitária.',
     rootCause: 'Condensador com sujeira espessa bloqueando a troca térmica, vazamento de refrigerante, ventilador queimado ou microcontrolador descalibrado.',
@@ -881,7 +881,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
       'Confira se a porta ou cortina de ar está fechando adequadamente.',
       'Veja qual a temperatura indicada no controlador digital.'
     ],
-    urgencyWarning: 'Plantão emergencial 24h com prioridade para estabelecimentos gastronômicos e comerciais em todo o Litoral Norte de SC.',
+    urgencyWarning: 'Atendimento no mesmo dia com prioridade para estabelecimentos gastronômicos e comerciais em todo o Litoral Norte de SC.',
     effectiveSolution: 'Limpeza química com ar pressurizado, troca de micromotores, calibração do controlador Full Gauge e recarga de gás.',
     timeToSolve: 'Atendimento imediato (chegada em 30 a 60 min)',
     prefillMsg: 'Olá! Sou de um comércio / restaurante e minha câmara fria / cervejeira está perdendo temperatura. Preciso de socorro emergencial!',
@@ -899,7 +899,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
     faqs: [
       {
         question: 'Vocês atendem emergências em fins de semana e madrugadas?',
-        answer: 'Sim! Possuímos equipe de plantão técnico 24h para atender comércios, peixarias, hotéis e restaurantes em Penha, Piçarras, Navegantes, Itajaí e BC.'
+        answer: 'Sim! Possuímos equipe de atendimento de segunda a sábado para comércios, peixarias, hotéis e restaurantes em Penha, Piçarras, Navegantes, Itajaí e BC.'
       }
     ]
   },
@@ -942,7 +942,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
     faqs: [
       {
         question: 'Vocês oferecem contrato de manutenção preventiva mensal (PMOC)?',
-        answer: 'Sim! Oferecemos planos de manutenção preventiva com visitas regulares, laudo PMOC, higienização e prioridade no atendimento emergencial 24h.'
+        answer: 'Sim! Oferecemos planos de manutenção preventiva com visitas regulares, laudo PMOC, higienização e prioridade no atendimento comercial.'
       }
     ]
   },
@@ -1143,7 +1143,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
     badgeColor: 'bg-amber-500/20 text-amber-700 border-amber-500/40',
     title: 'Beer Cave, Balcões Expositores e Cervejeiras Comercial: Conserto',
     metaTitle: 'Beer Cave, Expositores de Bebidas & Cervejeiras Comercial | SC Refrigeração',
-    metaDescription: 'Conserto de Beer Cave, balcões expositores, cervejeiras de conveniência e expositores de bebidas. Atendimento urgente 24h para comércios e bares em SC.',
+    metaDescription: 'Conserto de Beer Cave, balcões expositores, cervejeiras de conveniência e expositores de bebidas. Atendimento urgente para comércios e bares em SC.',
     h1: 'Conserto de Beer Cave, Expositores de Bebidas e Cervejeiras Comerciais',
     intentQuery: 'beer cave traducao conserto de expositor de bebidas refrigeração comercial',
     pain: 'Cervejas e bebidas quentes em dias de pico comercial, Beer Cave não baixando para -4°C e prejuízos com perda de clientes e vendas.',
@@ -1158,7 +1158,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
       'Confira se o controlador digital de temperatura (TC-900 / Full Gauge) exibe mensagens de alarme (HI / LO).',
       'Desentupa as entradas de ar do condensador traseiro ou inferior.'
     ],
-    urgencyWarning: 'Manter a Beer Cave trabalhando quente pode queimar compressores trifásicos/monofásicos de alto valor comercial. Solicite plantão técnico imediato.',
+    urgencyWarning: 'Manter a Beer Cave trabalhando quente pode queimar compressores trifásicos/monofásicos de alto valor comercial. Solicite atendimento técnico imediato.',
     effectiveSolution: 'Higienização química de condensadores, carga de gás com balança de precisão, troca de micromotores e regulagem de controladores eletrônicos.',
     timeToSolve: 'Atendimento de emergência comercial no mesmo dia',
     prefillMsg: 'Olá! Preciso de assistência urgente para Beer Cave / expositor de bebidas comercial.',
@@ -1182,7 +1182,7 @@ export const SEARCH_INTENTS: SearchIntentItem[] = [
       },
       {
         question: 'Vocês atendem emergências de bares e restaurantes aos finais de semana?',
-        answer: 'Sim! Possuímos plantão comercial de urgência para atendimento imediato em Balneário Camboriú, Itajaí, Penha, Navegantes, Piçarras, Itapema e toda a região.'
+        answer: 'Sim! Possuímos atendimento comercial direto de segunda a sábado em Balneário Camboriú, Itajaí, Penha, Navegantes, Piçarras, Itapema e toda a região.'
       }
     ]
   },

@@ -5,8 +5,8 @@ export const DifferentialsBar: React.FC = () => {
   const differentials = [
     {
       icon: Clock,
-      title: "Atendimento 24h",
-      description: "Plantão emergencial todos os dias, incluindo domingos e feriados",
+      title: "Atendimento Agendado",
+      description: "De segunda a sábado das 08h às 18h com agendamento no mesmo dia",
       color: "text-amber-700 bg-amber-50 border-amber-200"
     },
     {
@@ -46,7 +46,7 @@ export const DifferentialsBar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <span className="text-cyan-700 font-bold text-xs uppercase tracking-widest">Por Que Escolher Nossos Serviços</span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Diferenciais que Garantem Sua Tranquilidade</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Atendimento Local e Transparente</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

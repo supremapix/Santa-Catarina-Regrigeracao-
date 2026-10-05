@@ -72,7 +72,7 @@ export const QuickDiagnosisTool: React.FC = () => {
       {
         symptom: 'Perda de temperatura / evaporador virando um bloco de gelo',
         probableCause: 'Falha na resistência de degelo forçado ou desconfiguração do controlador Full Gauge/Carel.',
-        recommendation: 'Atendimento emergencial 24h para parametrização do controlador e degelo forçado.'
+        recommendation: 'Atendimento rápido para parametrização do controlador e degelo forçado.'
       }
     ],
     'Balcão / Cervejeira': [

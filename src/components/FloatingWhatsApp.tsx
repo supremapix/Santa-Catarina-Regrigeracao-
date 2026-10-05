@@ -45,7 +45,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenBookin
         className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 text-xs font-bold shadow-xl backdrop-blur-md pointer-events-auto transition-all hover:scale-105"
       >
         <Calendar className="w-4 h-4 text-cyan-400" />
-        <span>Agendar Visita 24h</span>
+        <span>Agendar Visita Técnica</span>
       </button>
 
       {/* Floating WhatsApp CTA */}

@@ -51,7 +51,7 @@ export const CITIES_DATA: CityLocalSEO[] = [
     ],
     popularLandmarks: ["Beto Carrero World", "Praia da Armação", "Praia Grande", "Capela de São João Batista", "Ponta da Vigia"],
     customSnippet: "Atendimento técnico em domicílio da Santa Catarina Refrigeração em Penha-SC. Atendimento rápido em todos os bairros com peças originais e garantia formal de 90 dias.",
-    longDescription: "Atendimento técnico em domicílio para moradores e estabelecimentos de Penha/SC. Oferecemos suporte ágil em toda a região, cobrindo residências, condomínios fechados, pousadas e o forte comércio gastronômico do entorno do Parque Beto Carrero World e das praias. Nossas vans de oficina móvel circulam diariamente por Armação, Praia Grande, Santa Lídia, Gravatá de Penha e Centro com estoque de kits de degelo, placas eletrônicas, sensores e compressores para solucionar defeitos no mesmo dia sem necessidade de retirar o eletrodoméstico da sua residência.",
+    longDescription: "Atendimento técnico em domicílio para moradores e estabelecimentos de Penha/SC. Oferecemos suporte rápido em toda a região, cobrindo residências, condomínios fechados, pousadas e o comércio gastronômico do entorno do Parque Beto Carrero World e das praias. Nossos técnicos atendem diariamente por Armação, Praia Grande, Santa Lídia, Gravatá de Penha e Centro com estoque de peças e componentes para solucionar defeitos no mesmo dia sem necessidade de retirar o eletrodoméstico da sua residência.",
     highlights: [
       "Atendimento diário em Penha com agendamento e chegada rápida",
       "Especialistas em conserto de geladeiras de pousadas e casas de temporada",
@@ -152,7 +152,7 @@ export const CITIES_DATA: CityLocalSEO[] = [
     ],
     popularLandmarks: ["Praia Brava", "Porto de Itajaí", "Mercado Público de Itajaí", "Igreja Matriz do Santíssimo Sacramento", "Beira-Rio", "Bico do Papagaio"],
     customSnippet: "Técnicos especializados em Itajaí para conserto de geladeiras, Side by Side e lava e seca na Praia Brava, Fazenda, Cordeiros, São Vicente e Centro.",
-    longDescription: "Principal polo econômico da foz do Rio Itajaí, a cidade conta com rota diária de nossa frota técnica. Atendemos com máxima pontualidade os sofisticados apartamentos da Praia Brava e Cabeçudas, assim como os populosos bairros de São Vicente, Cordeiros, Vila Operária e Fazenda. Temos ampla expertise em equipamentos inverter de alta tecnologia das marcas Samsung, LG, Electrolux e Brastemp, além de suporte robusto a estabelecimentos comerciais da Beira-Rio.",
+    longDescription: "Principal polo econômico da foz do Rio Itajaí, a cidade conta com atendimento diário de nossa equipe técnica. Atendemos com máxima pontualidade os apartamentos da Praia Brava e Cabeçudas, assim como os bairros de São Vicente, Cordeiros, Vila Operária e Fazenda. Temos ampla expertise em equipamentos inverter de alta tecnologia das marcas Samsung, LG, Electrolux e Brastemp, além de suporte a estabelecimentos comerciais da Beira-Rio.",
     highlights: [
       "Equipe dedicada para a região nobre da Praia Brava e Fazenda",
       "Atendimento comercial para supermercados, peixarias e restaurantes",
@@ -826,7 +826,7 @@ export const HIGH_VOLUME_NEIGHBORHOODS: NeighborhoodHighVolume[] = [
       longitude: -48.6012
     },
     snippet: "Assistência técnica rápida em Meia Praia, Itapema. Conserto de geladeiras, freezers e cervejeiras para condomínios, imóveis de temporada e restaurantes com garantia de 90 dias.",
-    longDescription: "Meia Praia é o coração pulsante de Itapema, com milhares de apartamentos na orla e nas avenidas Nereu Ramos e Segunda Avenida. Oferecemos atendimento expresso para resolver problemas de geladeiras que pararam de gelar, motores desarmando disjuntor, vazamentos de água no chão e refrigeradores de imóveis alugados na temporada de verão. Nosso plantão atende no mesmo dia com orçamentos transparentes.",
+    longDescription: "Meia Praia é o coração pulsante de Itapema, com milhares de apartamentos na orla e nas avenidas Nereu Ramos e Segunda Avenida. Oferecemos atendimento expresso para resolver problemas de geladeiras que pararam de gelar, motores desarmando disjuntor, vazamentos de água no chão e refrigeradores de imóveis alugados na temporada de verão. Nosso atendimento realiza visitas no mesmo dia de segunda a sábado com orçamentos transparentes.",
     popularPlaces: ["Avenida Nereu Ramos", "Segunda Avenida", "Parque das Capivaras", "Calçadão Beira-Mar de Meia Praia"]
   },
   {

@@ -23,7 +23,6 @@ import { SearchIntentView } from './views/SearchIntentView';
 import { CervejeiraNavegantesView } from './views/CervejeiraNavegantesView';
 import { SitemapView } from './views/SitemapView';
 import { NotFoundView } from './views/NotFoundView';
-import { SantaCatarinaVideoBanner } from './components/SantaCatarinaVideoBanner';
 import { SEARCH_INTENTS } from './data/searchIntents';
 
 // ScrollToTop component to reset scroll on route change
@@ -448,8 +447,6 @@ export function App() {
         <div className="flex-grow">
           <AppRoutes handleOpenBookingModal={handleOpenBookingModal} />
         </div>
-
-        <SantaCatarinaVideoBanner />
 
         <Footer />
 

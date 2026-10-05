@@ -56,52 +56,8 @@ export const Footer: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
-        {/* Prominent High-Contrast Contact Card */}
-        <div className="bg-white border-2 border-cyan-600 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            
-            {/* Direct Contact Info */}
-            <div className="space-y-2 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase tracking-wider">
-                <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Atendimento Domiciliar com Plantão 24h</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                Precisa de Conserto Urgente de Geladeira?
-              </h3>
-              <p className="text-slate-600 text-base max-w-2xl font-medium">
-                Atendimento rápido em Penha, Navegantes, Itajaí, Balneário Camboriú e região. Orçamento transparente no local com garantia de 90 dias por escrito.
-              </p>
-            </div>
-
-            {/* High Impact Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackContactClick({ channel: 'whatsapp', location: 'footer_cta_whatsapp', target: COMPANY_INFO.whatsappUrl })}
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 transition-transform active:scale-95 min-h-[52px]"
-              >
-                <MessageCircle className="w-6 h-6 shrink-0" />
-                <span>Falar no WhatsApp</span>
-              </a>
-
-              <a
-                href={`tel:${COMPANY_INFO.phoneClean}`}
-                onClick={() => trackContactClick({ channel: 'phone', location: 'footer_cta_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base shadow-lg shadow-blue-600/20 transition-transform active:scale-95 min-h-[52px]"
-              >
-                <Phone className="w-6 h-6 shrink-0" />
-                <span>Ligar: {COMPANY_INFO.phone}</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-
         {/* 4 Main Footer Columns (Block C Specification) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Col 1: Serviços & Especialidades */}
           <div className="space-y-3">
@@ -310,19 +266,13 @@ export const Footer: React.FC = () => {
                   {COMPANY_INFO.phone}
                 </a>
               </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-blue-600 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-slate-900 font-medium">
-                  {COMPANY_INFO.email}
-                </a>
-              </p>
               
               <div className="p-3 rounded-xl bg-white border border-slate-300 shadow-xs space-y-1 text-xs">
                 <p className="font-bold text-cyan-800 flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Garantia de 90 Dias com Nota
                 </p>
                 <p className="text-slate-600 font-medium">Atendimento de Segunda a Sábado das 08h às 18h</p>
-                <p className="text-emerald-700 font-extrabold">Plantão Emergencial 24h para Restaurantes e B2B</p>
+                <p className="text-emerald-700 font-extrabold">Atendimento em domicílio</p>
               </div>
             </div>
           </div>
@@ -331,7 +281,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright and Technical Links */}
         <div className="pt-8 border-t border-slate-300 text-center md:flex md:justify-between md:items-center text-xs text-slate-500 space-y-3 md:space-y-0 font-medium">
-          <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Penha & Navegantes, SC.</p>
+          <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Navegantes – SC.</p>
           <div className="flex justify-center space-x-6">
             <Link to="/mapa-do-site" className="hover:text-cyan-800 font-bold text-slate-700">Mapa do Site</Link>
             <a href="/sitemap.xml" target="_blank" className="hover:text-slate-800">Sitemap XML</a>

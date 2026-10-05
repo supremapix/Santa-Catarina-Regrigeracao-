@@ -32,7 +32,7 @@ export const FaqAccordion: React.FC = () => {
     },
     {
       question: "Vocês atendem emergências de câmaras frias comerciais nos finais de semana?",
-      answer: "Sim! Dispomos de plantão emergencial 24 horas todos os dias da semana para atender peixarias, restaurantes, supermercados e pátios logísticos com câmaras frigoríficas ou balcões com perda de temperatura."
+      answer: "Sim! Dispomos de atendimento rápido de segunda a sábado para atender peixarias, restaurantes, supermercados e pátios logísticos com câmaras frigoríficas ou balcões com perda de temperatura."
     },
     {
       question: "Quais as formas de pagamento aceitas?",

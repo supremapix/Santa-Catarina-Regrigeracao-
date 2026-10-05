@@ -68,109 +68,99 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
         breadcrumbs={breadcrumbItems}
       />
 
-      <main className="bg-slate-950 text-white min-h-screen py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <main className="bg-slate-50 text-slate-900 min-h-screen py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center space-x-2 text-xs text-slate-400">
-            <Link to="/" className="hover:text-cyan-400 transition-colors">Início</Link>
-            <ChevronRight className="w-3 h-3 text-slate-600" />
-            <a href="/#solucoes-buscas" className="hover:text-cyan-400 transition-colors">Problemas Comuns</a>
-            <ChevronRight className="w-3 h-3 text-slate-600" />
-            <span className="text-cyan-300 font-bold truncate max-w-xs">{intent.title}</span>
+          <nav className="flex items-center space-x-2 text-xs text-slate-500">
+            <Link to="/" className="hover:text-[#0B3C5D] transition-colors">Início</Link>
+            <ChevronRight className="w-3 h-3 text-slate-400" />
+            <a href="/#problemas-comuns" className="hover:text-[#0B3C5D] transition-colors">Problemas Comuns</a>
+            <ChevronRight className="w-3 h-3 text-slate-400" />
+            <span className="text-slate-800 font-bold truncate max-w-xs">{intent.title}</span>
           </nav>
 
-          {/* Hero Header with Dark Glass Gradient */}
-          <div className="relative bg-slate-900 border-2 border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden">
-            {intent.videoUrl && (
-              <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src={intent.videoUrl} type="video/mp4" />
-                </video>
-              </div>
-            )}
-            <div className="relative z-10 space-y-6 max-w-4xl">
+          {/* Hero Header */}
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
+            <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className={`px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider border ${intent.badgeColor}`}>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#0B3C5D]/10 text-[#0B3C5D] border border-[#0B3C5D]/20">
                   {intent.badge}
-                </span>
-                <span className="text-xs text-slate-400 font-mono italic">
-                  Busca frequente: {intent.intentQuery}
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B3C5D] leading-tight">
                 {intent.h1}
               </h1>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-                <div className="p-4 rounded-2xl bg-slate-950/80 border-2 border-red-500/50 space-y-1">
-                  <div className="flex items-center gap-1.5 text-red-400 font-black text-xs uppercase tracking-wider">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-amber-700 font-bold text-xs uppercase">
                     <AlertTriangle className="w-4 h-4 shrink-0" />
-                    <span>Sintoma & Dor do Cliente:</span>
+                    <span>Sintoma Observado:</span>
                   </div>
-                  <p className="text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{intent.pain}</p>
+                  <p className="text-slate-700 text-xs sm:text-sm font-normal leading-relaxed">{intent.pain}</p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-950/80 border-2 border-cyan-500/50 space-y-1">
-                  <div className="flex items-center gap-1.5 text-cyan-300 font-black text-xs uppercase tracking-wider">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[#0B3C5D] font-bold text-xs uppercase">
                     <Zap className="w-4 h-4 shrink-0" />
-                    <span>Causa Técnica Comum:</span>
+                    <span>Causa Frequente:</span>
                   </div>
-                  <p className="text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{intent.rootCause}</p>
+                  <p className="text-slate-700 text-xs sm:text-sm font-normal leading-relaxed">{intent.rootCause}</p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-950/80 border-2 border-emerald-500/50 space-y-1">
-                  <div className="flex items-center gap-1.5 text-emerald-400 font-black text-xs uppercase tracking-wider">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-xs uppercase">
                     <Check className="w-4 h-4 shrink-0" />
-                    <span>Solução SC Refrigeração:</span>
+                    <span>Como Resolver:</span>
                   </div>
-                  <p className="text-emerald-200 text-xs sm:text-sm font-bold leading-relaxed">{intent.effectiveSolution}</p>
+                  <p className="text-slate-700 text-xs sm:text-sm font-semibold leading-relaxed">{intent.effectiveSolution}</p>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                 <a
                   href={`${COMPANY_INFO.whatsappUrl}?text=${encodeURIComponent(intent.prefillMsg)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-base transition-all shadow-xl shadow-emerald-500/20 hover:scale-105 active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition-colors shadow-xs"
                 >
-                  <MessageCircle className="w-5 h-5 fill-current" />
+                  <MessageCircle className="w-5 h-5 shrink-0" />
                   <span>Pedir Orçamento no WhatsApp</span>
                 </a>
 
-                <button
-                  onClick={() => onOpenBookingModal(intent.tagService)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/50 font-extrabold text-sm transition-all"
+                <a
+                  href={`tel:${COMPANY_INFO.phoneClean}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#F28C28] hover:bg-[#e07b1a] text-white font-extrabold text-sm transition-colors shadow-xs"
                 >
-                  <Calendar className="w-4 h-4 text-cyan-400" />
-                  <span>Agendar Visita Técnica</span>
-                </button>
+                  <Phone className="w-5 h-5 shrink-0" />
+                  <span>Ligar: {COMPANY_INFO.phone}</span>
+                </a>
 
                 <Link
                   to="/precos"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-extrabold text-sm transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-bold text-sm transition-colors"
                 >
-                  <DollarSign className="w-4 h-4 text-cyan-400" />
+                  <DollarSign className="w-4 h-4 text-[#0B3C5D]" />
                   <span>Ver Tabela de Preços</span>
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Details Section: Symptoms & Steps to Solve */}
+          {/* Details Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Column: Symptoms & Repair Process */}
-            <div className="lg:col-span-8 space-y-8">
+            {/* Left Column */}
+            <div className="lg:col-span-8 space-y-6">
               
               {/* Urgency Warning Banner */}
               {intent.urgencyWarning && (
-                <div className="bg-amber-950/60 border border-amber-500/50 p-5 rounded-3xl flex items-start gap-3 text-amber-200 text-xs sm:text-sm">
-                  <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-start gap-3 text-amber-900 text-xs sm:text-sm">
+                  <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-amber-300 block mb-1 font-bold uppercase tracking-wider">Aviso de Segurança Técnica:</strong>
+                    <strong className="text-amber-900 block mb-0.5 font-bold">Orientação Importante:</strong>
                     <span>{intent.urgencyWarning}</span>
                   </div>
                 </div>
@@ -178,24 +168,21 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
 
               {/* Causes Hierarchy */}
               {intent.causesList && intent.causesList.length > 0 && (
-                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
-                    <Zap className="w-6 h-6 text-cyan-400" />
-                    Causas Principais em Ordem de Probabilidade
+                <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
+                  <h2 className="text-lg sm:text-xl font-extrabold text-[#0B3C5D] flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-[#0B3C5D]" />
+                    Causas Prováveis
                   </h2>
                   <div className="space-y-3">
                     {intent.causesList.map((c, idx) => (
-                      <div key={idx} className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
+                      <div key={idx} className="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-1">
                         <div className="flex items-center justify-between">
-                          <h3 className="text-sm font-bold text-cyan-300">{idx + 1}. {c.title}</h3>
-                          <span className="text-[10px] font-bold px-2 py-0.5 bg-cyan-950 text-cyan-400 rounded border border-cyan-800">
+                          <h3 className="text-sm font-bold text-slate-900">{idx + 1}. {c.title}</h3>
+                          <span className="text-[11px] font-semibold text-[#0B3C5D] bg-[#0B3C5D]/10 px-2 py-0.5 rounded">
                             {c.level}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-300 leading-relaxed">{c.desc}</p>
-                        {c.priceRange && (
-                          <span className="inline-block text-[11px] text-emerald-400 font-semibold pt-1">Faixa estimada: {c.priceRange}</span>
-                        )}
+                        <p className="text-xs text-slate-600 leading-relaxed">{c.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -204,15 +191,15 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
 
               {/* Before Calling Checklist */}
               {intent.beforeCallingChecklist && intent.beforeCallingChecklist.length > 0 && (
-                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
-                    <ListChecks className="w-6 h-6 text-emerald-400" />
-                    O Que Você Pode Testar Antes de Chamar o Técnico
+                <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
+                  <h2 className="text-lg sm:text-xl font-extrabold text-[#0B3C5D] flex items-center gap-2">
+                    <ListChecks className="w-5 h-5 text-emerald-600" />
+                    O Que Você Pode Verificar Antes de Chamar
                   </h2>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2">
                     {intent.beforeCallingChecklist.map((chk, idx) => (
-                      <li key={idx} className="flex items-start gap-3 p-3 rounded-2xl bg-slate-950/80 border border-slate-800 text-xs sm:text-sm text-slate-200">
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700">
+                        <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{chk}</span>
                       </li>
                     ))}
@@ -221,15 +208,15 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
               )}
 
               {/* Symptoms List */}
-              <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-                <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
-                  <AlertTriangle className="w-6 h-6 text-amber-400" />
-                  Sinais e Sintomas Observados
+              <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#0B3C5D] flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                  Sinais do Problema
                 </h2>
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 gap-2.5">
                   {intent.symptoms.map((symptom, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 text-slate-200 text-sm font-medium">
-                      <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0 mt-2" />
+                    <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-1.5" />
                       <span>{symptom}</span>
                     </div>
                   ))}
@@ -237,59 +224,50 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
               </div>
 
               {/* Steps to Solve */}
-              <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-                <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2.5">
-                  <Wrench className="w-6 h-6 text-emerald-400" />
-                  Como Nosso Técnico Resolve no Local
+              <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#0B3C5D] flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-[#0B3C5D]" />
+                  Como o Técnico Resolve no Local
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {intent.stepsToSolve.map((step, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                      <span className="w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 font-black text-sm flex items-center justify-center shrink-0 border border-emerald-500/40">
+                    <div key={idx} className="flex items-start gap-3 p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+                      <span className="w-6 h-6 rounded-md bg-[#0B3C5D] text-white font-extrabold text-xs flex items-center justify-center shrink-0">
                         {idx + 1}
                       </span>
-                      <p className="text-slate-200 text-sm font-medium leading-relaxed pt-0.5">{step}</p>
+                      <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed pt-0.5">{step}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* FAQ Section */}
-              {intent.faqs && intent.faqs.length > 0 && (
-                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-white">
-                    Dúvidas Frequentes sobre este Defeito
-                  </h2>
-                  <FaqAccordion faqs={intent.faqs} />
-                </div>
-              )}
             </div>
 
-            {/* Right Column: Trust Badge Card */}
+            {/* Right Column: Trust Card */}
             <div className="lg:col-span-4 space-y-6">
-              <div className="bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-cyan-500/50 rounded-3xl p-6 space-y-6 sticky top-24 shadow-2xl">
-                <div className="text-center space-y-3">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-cyan-500/10 border border-cyan-500/40 flex items-center justify-center">
-                    <ShieldCheck className="w-8 h-8 text-cyan-400" />
+              <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-5 sticky top-24 shadow-xs">
+                <div className="space-y-2">
+                  <div className="w-12 h-12 rounded-lg bg-[#0B3C5D]/10 text-[#0B3C5D] flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 text-[#0B3C5D]" />
                   </div>
-                  <h3 className="text-lg font-black text-white">Garantia Formal de 90 Dias</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                    Todos os serviços executados pela Santa Catarina Refrigeração acompanham ordem de serviço detalhada com garantia de 90 dias por escrito.
+                  <h3 className="text-base font-extrabold text-slate-900">Garantia de 90 Dias com Nota</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    Serviço realizado no local com peças de qualidade e garantia por escrito.
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-3 border-t border-slate-800 text-xs text-slate-200 font-semibold">
+                <div className="space-y-2.5 pt-3 border-t border-slate-200 text-xs text-slate-700 font-semibold">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Tempo de Chegada: ~30 a 60 min</span>
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Orçamento antes do conserto</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Peças 100% Originais de Fábrica</span>
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Atendimento em domicílio</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Atendimento no Local em SC</span>
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Segunda a Sábado das 08h às 18h</span>
                   </div>
                 </div>
 
@@ -297,10 +275,10 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
                   href={`${COMPANY_INFO.whatsappUrl}?text=${encodeURIComponent(intent.prefillMsg)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-lg"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition-colors shadow-xs"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
-                  <span>Falar com Técnico Agora</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chamar no WhatsApp</span>
                 </a>
               </div>
             </div>

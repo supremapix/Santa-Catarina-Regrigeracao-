@@ -125,7 +125,7 @@ export const PRICING_DATA: PriceItem[] = [
     startingPrice: "R$ 280 - R$ 850",
     averageTime: "1 a 3 horas",
     warranty: "90 dias por escrito",
-    description: "Atendimento emergencial 24h para supermercados, padarias, peixarias, restaurantes e hotéis. Troca de ventiladores, degelo forçado, limpeza de condensador e regulagem de válvula de expansão.",
+    description: "Atendimento rápido de segunda a sábado para supermercados, padarias, peixarias, restaurantes e hotéis. Troca de ventiladores, degelo forçado, limpeza de condensador e regulagem de válvula de expansão.",
     whatsIncluded: [
       "Revisão completa da unidade condensadora e evaporadora",
       "Limpeza química do condensador a ar comprimido",

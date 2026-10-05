@@ -25,21 +25,14 @@ export const COMPANY_INFO = {
     longitude: -48.6543,
   },
   businessHours: {
-    weekdays: "Segunda a Sábado: 07:00 às 20:00",
-    sunday: "Domingo: 07:00 às 12:00",
-    emergency: "Atendimento Emergencial 24h em Penha e Região",
+    weekdays: "Segunda a Sábado das 08h às 18h",
+    label: "Atendimento de Segunda a Sábado",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "07:00",
-        "closes": "20:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Sunday"],
-        "opens": "07:00",
-        "closes": "12:00"
+        "opens": "08:00",
+        "closes": "18:00"
       }
     ]
   },

@@ -1,16 +1,11 @@
 import React from 'react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { Hero } from '../components/Hero';
-import { DifferentialsBar } from '../components/DifferentialsBar';
 import { ServicesGrid } from '../components/ServicesGrid';
-import { RepairsSection } from '../components/RepairsSection';
-import { BrandsSection } from '../components/BrandsSection';
 import { HowItWorks } from '../components/HowItWorks';
-import { QuickDiagnosisTool } from '../components/QuickDiagnosisTool';
-import { CoverageMapSection } from '../components/CoverageMapSection';
-import { TestimonialsSection } from '../components/TestimonialsSection';
-import { FaqAccordion } from '../components/FaqAccordion';
 import { SearchIntentsSection } from '../components/SearchIntentsSection';
+import { CoverageMapSection } from '../components/CoverageMapSection';
 import { COMPANY_INFO } from '../data/company';
 import { trackContactClick } from '../utils/analytics';
 
@@ -28,43 +23,49 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
       />
 
       <main>
+        {/* a) Hero */}
         <Hero onOpenBookingModal={onOpenBookingModal} />
-        <DifferentialsBar />
-        <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
-        <SearchIntentsSection onOpenBookingModal={onOpenBookingModal} />
-        <RepairsSection />
-        <BrandsSection />
-        <QuickDiagnosisTool />
-        <HowItWorks onOpenBookingModal={onOpenBookingModal} />
-        <CoverageMapSection />
-        <TestimonialsSection />
-        <FaqAccordion />
 
-        {/* Final CTA Banner */}
-        <section className="bg-gradient-to-r from-blue-900 via-slate-900 to-cyan-950 py-16 text-center text-white border-t border-slate-800">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black">
-              Precisa de um Técnico em Refrigeração Agora?
+        {/* b) O que a gente conserta */}
+        <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
+
+        {/* c) Como funciona */}
+        <HowItWorks onOpenBookingModal={onOpenBookingModal} />
+
+        {/* d) Sua geladeira está assim? */}
+        <SearchIntentsSection onOpenBookingModal={onOpenBookingModal} />
+
+        {/* e) Cidades atendidas */}
+        <CoverageMapSection />
+
+        {/* f) CTA final */}
+        <section className="bg-[#0B3C5D] py-12 sm:py-16 text-center text-white border-t border-slate-200">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
+              Fale com um técnico agora
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-              Solicite seu orçamento gratuito e sem compromisso pelo WhatsApp. Atendemos no mesmo dia em Penha, Piçarras, Itajaí, Balneário Camboriú e em toda a região num raio de até 200 km.
+            <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto font-normal">
+              Mande uma foto do aparelho e o modelo pelo WhatsApp. A gente já te diz o que pode ser.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackContactClick({ channel: 'whatsapp', location: 'home_footer_cta', target: COMPANY_INFO.whatsappUrl })}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-base shadow-xl transition-all"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-sm transition-colors flex items-center justify-center gap-2"
               >
-                Solicitar Orçamento Grátis no WhatsApp
+                <MessageCircle className="w-5 h-5 shrink-0" />
+                <span>Chamar no WhatsApp</span>
               </a>
-              <button
-                onClick={() => onOpenBookingModal()}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-base transition-all"
+              <a
+                href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({ channel: 'phone', location: 'home_footer_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#F28C28] hover:bg-[#e07b1a] text-white font-extrabold text-base shadow-sm transition-colors flex items-center justify-center gap-2"
               >
-                Agendar Horário Online
-              </button>
+                <Phone className="w-5 h-5 shrink-0" />
+                <span>Ligar {COMPANY_INFO.phone}</span>
+              </a>
             </div>
           </div>
         </section>
@@ -72,4 +73,3 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
     </>
   );
 };
-

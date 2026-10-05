@@ -102,21 +102,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
         }`}
       >
         {/* Top Info Bar */}
-        <div className="bg-slate-900 text-sm py-2 px-4 border-b border-slate-800 hidden sm:block">
-          <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-slate-200">
-            <div className="flex items-center space-x-6 font-semibold">
-              <span className="flex items-center gap-1.5 text-cyan-300">
-                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Navegantes, Penha, Itajaí, Baln. Camboriú & Região</span>
+        <div className="bg-[#0B3C5D] text-xs py-2 px-4 text-white hidden sm:block">
+          <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-white">
+            <div className="flex items-center space-x-6 font-medium">
+              <span className="flex items-center gap-1.5 text-cyan-200">
+                <MapPin className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
+                <span>Navegantes, Penha, Itajaí e região</span>
               </span>
-              <span className="flex items-center gap-1.5 text-slate-200">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Atendimento Domiciliar de Segunda a Sábado</span>
+              <span className="flex items-center gap-1.5 text-slate-100">
+                <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                <span>Atendimento de Segunda a Sábado das 08h às 18h</span>
               </span>
             </div>
-            <div className="flex items-center space-x-5">
-              <span className="flex items-center gap-1.5 text-emerald-300 font-bold">
-                <ShieldCheck className="w-4 h-4" /> Garantia 90 Dias
+            <div className="flex items-center space-x-5 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-300">
+                <ShieldCheck className="w-3.5 h-3.5" /> Garantia de 90 Dias
               </span>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   location: 'navbar_topbar_phone',
                   label: `Call ${COMPANY_INFO.phone}`
                 })}
-                className="text-cyan-300 hover:underline font-bold text-sm"
+                className="text-amber-300 hover:underline text-xs"
               >
                 Ligar: {COMPANY_INFO.phone}
               </a>
@@ -322,14 +322,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             </nav>
 
             {/* Desktop Quick Contact Actions */}
-            <div className="hidden sm:flex items-center space-x-2.5">
-              <button
-                onClick={() => onOpenBookingModal()}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 shadow-sm transition-transform active:scale-95 min-h-[44px]"
+            <div className="hidden sm:flex items-center space-x-2">
+              <a
+                href={`tel:${COMPANY_INFO.phoneClean}`}
+                onClick={() => trackContactClick({
+                  channel: 'phone',
+                  location: 'navbar_desktop_phone_btn',
+                  label: `Call ${COMPANY_INFO.phone}`
+                })}
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#F28C28] hover:bg-[#e07b1a] text-white font-bold text-xs shadow-xs transition-colors min-h-[40px]"
               >
-                <Calendar className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Agendar Visita</span>
-              </button>
+                <Phone className="w-3.5 h-3.5 shrink-0" />
+                <span>{COMPANY_INFO.phone}</span>
+              </a>
 
               <a
                 href={COMPANY_INFO.whatsappUrl}
@@ -340,10 +345,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   location: 'navbar_desktop_whatsapp_btn',
                   label: 'Navbar WhatsApp Direct'
                 })}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-transform active:scale-95 min-h-[44px]"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-colors min-h-[40px]"
                 aria-label="Conversar pelo WhatsApp"
               >
-                <MessageCircle className="w-4.5 h-4.5 shrink-0" />
+                <MessageCircle className="w-4 h-4 shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </div>

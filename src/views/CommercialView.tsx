@@ -44,7 +44,7 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
     <main className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       <EnhancedSEO
         title="Refrigeração Comercial em SC | SC Refrigeração"
-        description="Assistência técnica especializada em refrigeração comercial para restaurantes, supermercados, hotéis e peixarias no Litoral de SC. Plantão e garantia de 90 dias."
+        description="Assistência técnica especializada em refrigeração comercial para restaurantes, supermercados, hotéis e peixarias no Litoral de SC. Garantia de 90 dias e nota."
         canonicalUrl={`/${service.slug}`}
         schemas={[commercialSchema]}
         breadcrumbs={[
@@ -165,10 +165,10 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-indigo-950 text-white p-6 rounded-2xl border border-indigo-800">
-              <h3 className="font-bold text-lg mb-2">Plantão Comercial</h3>
-              <p className="text-xs text-indigo-200 leading-relaxed mb-4">
-                Problema com câmara fria ou balcão de carnes no fim de semana? Nossa equipe técnica atende estabelecimentos comerciais.
+            <div className="bg-[#0B3C5D] text-white p-6 rounded-2xl border border-slate-700">
+              <h3 className="font-bold text-lg mb-2">Atendimento Comercial</h3>
+              <p className="text-xs text-slate-200 leading-relaxed mb-4">
+                Problema com câmara fria ou balcão de carnes? Nossa equipe técnica atende estabelecimentos comerciais de segunda a sábado.
               </p>
               <a
                 href={COMPANY_INFO.whatsappUrl}
@@ -177,7 +177,7 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
                 onClick={() => trackContactClick({
                   channel: 'whatsapp',
                   location: 'commercial_sidebar_whatsapp',
-                  label: 'WhatsApp Plantão Comercial'
+                  label: 'WhatsApp Atendimento Comercial'
                 })}
                 className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
               >

@@ -18,11 +18,11 @@ export const COMMERCIAL_SERVICES: CommercialService[] = [
   {
     slug: "refrigeracao-comercial",
     title: "Refrigeração Comercial: Manutenção e Instalação Especializada",
-    metaTitle: "Refrigeração Comercial em SC: Manutenção e Assistência Técnica 24h",
-    metaDescription: "Assistência técnica especializada em refrigeração comercial para supermercados, restaurantes, padarias, peixarias e hotéis no Litoral de SC. Plantão 24h.",
+    metaTitle: "Refrigeração Comercial em SC: Manutenção e Assistência Técnica",
+    metaDescription: "Assistência técnica especializada em refrigeração comercial para supermercados, restaurantes, padarias, peixarias e hotéis no Litoral de SC.",
     h1: "Refrigeração Comercial em Santa Catarina: Assistência Técnica Especializada",
     category: "Comercial / B2B",
-    badge: "Plantão Emergencial 24h",
+    badge: "Atendimento Comercial",
     summary: "Atendimento prioritário para o setor de alimentação fora do lar, redes hoteleiras e varejo alimentar em todo o Litoral Norte e Vale do Itajaí.",
     description: "A Santa Catarina Refrigeração oferece soluções de manutenção para sistemas frigoríficos comerciais. Atendemos estabelecimentos que dependem de temperatura controlada, como peixarias, cozinhas industriais, restaurantes e hotéis em Balneário Camboriú, Penha, Piçarras, Navegantes e Itajaí. Nossos técnicos realizam diagnósticos rápidos de compressores, unidades condensadoras remotas, válvulas de expansão e controladores digitais.",
     benefits: [
