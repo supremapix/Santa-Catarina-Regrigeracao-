@@ -5,8 +5,12 @@ export const COMPANY_INFO = {
   phone: "(47) 99224-5172",
   phoneClean: "47992245172",
   whatsappUrl: "https://wa.me/5547992245172?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20gratuito.",
-  email: "contato@santacatarina.com.br",
-  secondaryEmail: "sagazorcamento@gmail.com",
+  ogImage: "https://img.supremasite.com.br/refrigeracao-sc.webp",
+  ogImageSecureUrl: "https://img.supremasite.com.br/refrigeracao-sc.webp",
+  ogImageType: "image/webp",
+  ogImageWidth: 1731,
+  ogImageHeight: 909,
+  ogImageAlt: "Santa Catarina Refrigeração — conserto de geladeira, freezer e refrigeração comercial em Navegantes, Penha e Itajaí",
   address: {
     label: "Endereço da Loja",
     street: "Rua Vereador Nereu Liberato Nunes",
@@ -46,7 +50,7 @@ export const COMPANY_INFO = {
     heroEquipments: "https://img.supremasite.com.br/sc-consertos.png",
     heroCommercial: "/images/hero/refrigeracao-comercial-industrial.webp",
     warrantyBadge: "/selo-garantia-90-dias.svg",
-    socialPreview: "https://www.refrigeracaosc.com.br/images/og/santa-catarina-refrigeracao-og.webp",
+    socialPreview: "https://img.supremasite.com.br/refrigeracao-sc.webp",
     // Serviços com fotografias auditadas existentes
     serviceGeladeira: "https://img.supremasite.com.br/sc-consertos.png",
     serviceSideBySide: "https://img.supremasite.com.br/sc.png",

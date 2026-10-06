@@ -353,15 +353,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             <div className="flex items-center space-x-2 lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="px-3.5 py-2.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 hover:bg-slate-200 transition-all focus:outline-none flex items-center gap-1.5 font-bold text-xs min-h-[44px]"
+                className="px-3.5 py-2.5 rounded-none bg-[#FFFDF8] border-2 border-[#12324A] text-[#12324A] shadow-[2px_2px_0_#12324A] hover:bg-[#F4F1EA] transition-all focus:outline-none flex items-center gap-1.5 font-mono text-xs font-bold min-h-[44px]"
                 aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-cyan-600" />
+                  <X className="w-5 h-5 text-[#12324A]" />
                 ) : (
                   <>
-                    <Menu className="w-6 h-6 text-cyan-600" />
+                    <Menu className="w-5 h-5 text-[#12324A]" />
                     <span className="hidden min-[360px]:inline">MENU</span>
                   </>
                 )}
@@ -384,7 +384,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
+              className="fixed inset-0 bg-[#12324A]/60 backdrop-blur-sm"
               aria-hidden="true"
             />
 
@@ -394,25 +394,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 280 }}
-              className="relative w-full max-w-md bg-white border-l border-slate-200 h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto"
+              className="relative w-full max-w-md bg-[#F4F1EA] bg-paper-grid border-l-2 border-[#12324A] h-full flex flex-col justify-between shadow-2xl z-50 overflow-y-auto"
             >
               
               {/* Drawer Header */}
-              <div className="p-4 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/98 backdrop-blur-md z-10 shadow-sm">
+              <div className="p-4 border-b-2 border-[#12324A] flex items-center justify-between sticky top-0 bg-[#F4F1EA] z-10">
                 <AnimatedFrostLogo size="sm" />
 
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2.5 rounded-2xl bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-200 transition-colors flex items-center gap-1 font-bold text-xs min-h-[44px]"
+                  className="p-2 rounded-none bg-[#FFFDF8] border-2 border-[#12324A] text-[#12324A] shadow-[2px_2px_0_#12324A] hover:bg-[#F4F1EA] transition-colors flex items-center gap-1 font-mono text-xs font-bold min-h-[40px]"
                   aria-label="Fechar menu"
                 >
-                  <X className="w-6 h-6 text-cyan-600" />
+                  <X className="w-4 h-4 text-[#12324A]" />
                   <span>FECHAR</span>
                 </button>
               </div>
 
               {/* Quick Action Buttons inside Menu Top */}
-              <div className="p-4 bg-slate-50 border-b border-slate-200 grid grid-cols-2 gap-2.5">
+              <div className="p-4 bg-[#FFFDF8] border-b-2 border-[#12324A] grid grid-cols-2 gap-2.5">
                 <a
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
@@ -425,10 +425,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                     });
                     setIsMobileMenuOpen(false);
                   }}
-                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
+                  className="flex items-center justify-center gap-2 p-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#12324A] shadow-[3px_3px_0_#12324A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all min-h-[46px]"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>WhatsApp</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WHATSAPP</span>
                 </a>
 
                 <a
@@ -441,10 +441,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                     });
                     setIsMobileMenuOpen(false);
                   }}
-                  className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md min-h-[50px]"
+                  className="flex items-center justify-center gap-2 p-3 bg-[#D9682B] hover:bg-[#c35b22] text-white font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#12324A] shadow-[3px_3px_0_#12324A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all min-h-[46px]"
                 >
-                  <Phone className="w-5 h-5" />
-                  <span>Ligar Agora</span>
+                  <Phone className="w-4 h-4" />
+                  <span>LIGAR</span>
                 </a>
               </div>
 
@@ -456,100 +456,100 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   <Link
                     to="/"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center"
+                    className="p-3 bg-[#FFFDF8] hover:bg-[#BFE3F2]/40 text-[#12324A] font-mono text-xs font-bold uppercase tracking-wider text-center border border-[#12324A] shadow-[2px_2px_0_#12324A]"
                   >
-                    Início
+                    INÍCIO
                   </Link>
 
                   <Link
                     to="/precos"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                    className="p-3 bg-[#FFFDF8] hover:bg-[#BFE3F2]/40 text-[#12324A] font-mono text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-1 border border-[#12324A] shadow-[2px_2px_0_#12324A]"
                   >
-                    <DollarSign className="w-4 h-4 text-cyan-600" />
-                    <span>Preços</span>
+                    <DollarSign className="w-3.5 h-3.5 text-[#D9682B]" />
+                    <span>PREÇOS</span>
                   </Link>
 
                   <Link
                     to="/regioes-atendidas"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                    className="p-3 bg-[#FFFDF8] hover:bg-[#BFE3F2]/40 text-[#12324A] font-mono text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-1 border border-[#12324A] shadow-[2px_2px_0_#12324A]"
                   >
-                    <MapPin className="w-4 h-4 text-cyan-600" />
-                    <span>Regiões</span>
+                    <MapPin className="w-3.5 h-3.5 text-[#D9682B]" />
+                    <span>REGIÕES</span>
                   </Link>
 
                   <Link
                     to="/blog"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-3 rounded-xl font-bold bg-slate-100 hover:bg-cyan-50 text-slate-900 text-sm text-center flex items-center justify-center gap-1"
+                    className="p-3 bg-[#FFFDF8] hover:bg-[#BFE3F2]/40 text-[#12324A] font-mono text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-1 border border-[#12324A] shadow-[2px_2px_0_#12324A]"
                   >
-                    <BookOpen className="w-4 h-4 text-cyan-600" />
-                    <span>Blog Técnico</span>
+                    <BookOpen className="w-3.5 h-3.5 text-[#D9682B]" />
+                    <span>BLOG</span>
                   </Link>
                 </div>
 
                 {/* Accordion 1: Nossos Serviços */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
+                <div className="border border-[#12324A] bg-[#FFFDF8] shadow-[2px_2px_0_#12324A]">
                   <button
                     onClick={() => setIsServicesAccordionOpen(!isServicesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-3.5 text-left text-[#12324A] font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#BFE3F2]/20 transition-colors min-h-[44px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-700">
-                      <Wrench className="w-4 h-4 text-cyan-600 shrink-0" />
+                    <span className="flex items-center gap-2">
+                      <Wrench className="w-4 h-4 text-[#D9682B] shrink-0" />
                       <span>Serviços Especializados</span>
                     </span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#12324A] ${isServicesAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isServicesAccordionOpen && (
-                    <div className="p-2 space-y-1 bg-white border-t border-slate-200 text-sm">
+                    <div className="p-2 space-y-1 bg-[#F4F1EA] border-t border-[#12324A] text-xs font-sans">
                       <Link
                         to="/conserto-de-geladeira"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Conserto de Geladeiras & Frost Free
                       </Link>
                       <Link
                         to="/conserto-de-side-by-side"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Side by Side & French Door
                       </Link>
                       <Link
                         to="/conserto-lava-e-seca-penha"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Conserto de Lava e Seca
                       </Link>
                       <Link
                         to="/refrigeracao-comercial"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Refrigeração Comercial & B2B
                       </Link>
                       <Link
                         to="/conserto-de-camara-fria"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Câmaras Frias & Balcões
                       </Link>
                       <Link
                         to="/conserto-de-cervejeira"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Conserto de Cervejeiras
                       </Link>
                       <Link
                         to="/conserto-de-freezer"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-2.5 rounded-xl text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-semibold text-xs sm:text-sm"
+                        className="block p-2 text-[#12324A] hover:bg-[#BFE3F2] font-medium"
                       >
                         Freezers Verticais e Horizontais
                       </Link>
@@ -558,26 +558,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 </div>
 
                 {/* Accordion 2: Marcas */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
+                <div className="border border-[#12324A] bg-[#FFFDF8] shadow-[2px_2px_0_#12324A]">
                   <button
                     onClick={() => setIsBrandsAccordionOpen(!isBrandsAccordionOpen)}
-                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-3.5 text-left text-[#12324A] font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#BFE3F2]/20 transition-colors min-h-[44px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-700">
-                      <ShieldCheck className="w-4 h-4 text-cyan-600 shrink-0" />
+                    <span className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-[#D9682B] shrink-0" />
                       <span>Marcas Atendidas</span>
                     </span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isBrandsAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#12324A] ${isBrandsAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isBrandsAccordionOpen && (
-                    <div className="p-2 grid grid-cols-2 gap-1.5 bg-white border-t border-slate-200 text-xs">
+                    <div className="p-2 grid grid-cols-2 gap-1.5 bg-[#F4F1EA] border-t border-[#12324A] text-xs font-mono">
                       {brandsList.map((brand) => (
                         <Link
                           key={brand.slug}
                           to={`/assistencia-tecnica-geladeira-${brand.slug}`}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="p-2 rounded-lg bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold"
+                          className="p-2 bg-[#FFFDF8] border border-[#12324A]/30 text-[#12324A] hover:bg-[#BFE3F2] font-bold"
                         >
                           {brand.name}
                         </Link>
@@ -587,27 +587,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 </div>
 
                 {/* Accordion 3: Cidades */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 shadow-sm">
+                <div className="border border-[#12324A] bg-[#FFFDF8] shadow-[2px_2px_0_#12324A]">
                   <button
                     onClick={() => setIsCitiesAccordionOpen(!isCitiesAccordionOpen)}
-                    className="w-full flex items-center justify-between p-3.5 text-left text-slate-900 font-bold text-sm uppercase tracking-wider bg-slate-100 hover:bg-slate-200 transition-colors min-h-[48px]"
+                    className="w-full flex items-center justify-between p-3.5 text-left text-[#12324A] font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#BFE3F2]/20 transition-colors min-h-[44px]"
                   >
-                    <span className="flex items-center gap-2 text-cyan-700">
-                      <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
+                    <span className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[#D9682B] shrink-0" />
                       <span>Cidades Principais</span>
                     </span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-cyan-600 ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#12324A] ${isCitiesAccordionOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isCitiesAccordionOpen && (
-                    <div className="p-2 space-y-2 bg-white border-t border-slate-200 text-sm">
+                    <div className="p-2 space-y-2 bg-[#F4F1EA] border-t border-[#12324A] text-xs font-sans">
                       <div className="grid grid-cols-2 gap-1.5 max-h-48 overflow-y-auto pr-1">
                         {featuredCities.slice(0, 10).map((c) => (
                           <Link
                             key={c.slug}
                             to={`/conserto-de-geladeira-${c.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2 rounded-lg bg-slate-50 text-slate-800 hover:bg-cyan-50 hover:text-cyan-800 font-bold truncate text-xs"
+                            className="p-2 bg-[#FFFDF8] border border-[#12324A]/30 text-[#12324A] hover:bg-[#BFE3F2] font-semibold truncate text-xs"
                           >
                             {c.name}
                           </Link>
@@ -617,9 +617,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       <Link
                         to="/regioes-atendidas"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-center py-2 font-bold text-cyan-700 hover:underline text-xs"
+                        className="block text-center py-2 font-mono text-xs font-bold text-[#D9682B] hover:underline"
                       >
-                        Ver todas as regiões atendidas →
+                        VER TODAS AS REGIÕES →
                       </Link>
                     </div>
                   )}
@@ -628,16 +628,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+              <div className="p-4 border-t-2 border-[#12324A] bg-[#FFFDF8] space-y-3">
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     onOpenBookingModal();
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm border border-slate-800 shadow-md min-h-[50px]"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#12324A] hover:bg-[#1a4463] text-white font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#12324A] shadow-[3px_3px_0_#D9682B] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all min-h-[48px]"
                 >
-                  <Calendar className="w-5 h-5 text-cyan-400" />
-                  <span>Agendar Visita Técnica</span>
+                  <Calendar className="w-4 h-4 text-[#BFE3F2]" />
+                  <span>AGENDAR VISITA TÉCNICA</span>
                 </button>
               </div>
 

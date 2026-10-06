@@ -104,28 +104,27 @@ export const QuickDiagnosisTool: React.FC = () => {
   const whatsappMessage = `${COMPANY_INFO.whatsappUrl}%20-%20Fiz%20o%20Diagn%C3%B3stico%20R%C3%A1pido%20no%20site:%0A-%20Equipamento:%20${encodeURIComponent(selectedEquipment)}%0A-%20Defeito:%20${encodeURIComponent(activeSymptomObj.symptom)}%0AQueria%20agendar%20o%20conserto%20em%20meu%20endere%C3%A7o.`;
 
   return (
-    <section className="bg-white py-12 sm:py-16 text-slate-900 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F4F1EA] py-12 sm:py-16 text-[#12324A] border-b-2 border-[#12324A] bg-paper-grid text-left">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        <div className="bg-slate-50 border-2 border-slate-200 rounded-3xl p-6 sm:p-10 shadow-md relative overflow-hidden">
+        <div>
+          <span className="font-mono text-xs text-[#D9682B] font-bold uppercase tracking-wider block mb-1">
+            03 / DIAGNÓSTICO INTERATIVO
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-[#12324A]">
+            Identifique o Defeito do Seu Aparelho
+          </h2>
+          <p className="text-xs sm:text-sm text-[#12324A]/80 font-sans max-w-xl mt-1">
+            Selecione o equipamento e o sintoma para entender a causa provável antes de solicitar o técnico.
+          </p>
+        </div>
 
-          <div className="max-w-3xl mx-auto text-center mb-8 space-y-2">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-100 text-cyan-900 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
-              <HelpCircle className="w-4 h-4 text-cyan-700" /> Diagnóstico Rápido Interativo
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              Descubra o Problema em 2 Cliques
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base font-normal max-w-xl mx-auto">
-              Selecione seu aparelho e o sintoma observado para entender a causa provável antes de agendar.
-            </p>
-          </div>
-
+        <div className="bg-white border-2 border-[#12324A] rounded-[4px] p-6 sm:p-8 shadow-stamped">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Step 1: Equipment Selection */}
-            <div className="lg:col-span-5 space-y-4">
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">
+            <div className="lg:col-span-5 space-y-3">
+              <label className="block font-mono text-xs font-bold text-[#12324A] uppercase">
                 1. Selecione o Equipamento:
               </label>
               <div className="grid grid-cols-1 gap-2">
@@ -137,13 +136,13 @@ export const QuickDiagnosisTool: React.FC = () => {
                       const newSymptoms = symptomsByEquipment[item.name] || symptomsByEquipment['Geladeira / Refrigerador'];
                       setSelectedSymptom(newSymptoms[0].symptom);
                     }}
-                    className={`flex items-center gap-3 p-3.5 rounded-2xl text-xs sm:text-sm font-bold transition-all text-left min-h-[48px] ${
+                    className={`flex items-center gap-3 p-3 rounded-[2px] font-mono text-xs font-bold transition-all text-left border-2 border-[#12324A] ${
                       selectedEquipment === item.name
-                        ? 'bg-cyan-700 text-white shadow-sm scale-[1.01]'
-                        : 'bg-white text-slate-800 border border-slate-300 hover:bg-slate-100'
+                        ? 'bg-[#12324A] text-white shadow-stamped'
+                        : 'bg-white text-[#12324A] hover:bg-[#BFE3F2]/30'
                     }`}
                   >
-                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-base">{item.icon}</span>
                     <span>{item.name}</span>
                   </button>
                 ))}
@@ -152,8 +151,8 @@ export const QuickDiagnosisTool: React.FC = () => {
 
             {/* Step 2: Symptom Selection & Result */}
             <div className="lg:col-span-7 space-y-6">
-              <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              <div className="space-y-2">
+                <label className="block font-mono text-xs font-bold text-[#12324A] uppercase">
                   2. Qual o Sintoma Observado?
                 </label>
                 <div className="space-y-2">
@@ -161,10 +160,10 @@ export const QuickDiagnosisTool: React.FC = () => {
                     <button
                       key={idx}
                       onClick={() => setSelectedSymptom(symObj.symptom)}
-                      className={`w-full text-left p-3.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all border min-h-[48px] ${
+                      className={`w-full text-left p-3 rounded-[2px] text-xs font-sans transition-all border-2 border-[#12324A] ${
                         selectedSymptom === symObj.symptom
-                          ? 'bg-cyan-50 border-cyan-300 text-cyan-900 font-bold shadow-sm'
-                          : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100'
+                          ? 'bg-[#BFE3F2]/40 font-bold text-[#12324A] shadow-xs'
+                          : 'bg-white text-[#12324A] hover:bg-[#F4F1EA]'
                       }`}
                     >
                       {symObj.symptom}
@@ -174,27 +173,27 @@ export const QuickDiagnosisTool: React.FC = () => {
               </div>
 
               {/* Result Box */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
-                <div className="flex items-center gap-2 text-cyan-800 font-bold text-sm">
-                  <Wrench className="w-4 h-4 text-cyan-700" />
-                  <span>Causa Provável e Diagnóstico:</span>
+              <div className="bg-[#F4F1EA] border-2 border-[#12324A] rounded-[2px] p-5 space-y-3">
+                <div className="flex items-center gap-2 text-[#D9682B] font-mono font-bold text-xs uppercase">
+                  <Wrench className="w-4 h-4 text-[#D9682B]" />
+                  <span>Diagnóstico Técnico Provável:</span>
                 </div>
-                <p className="text-slate-900 text-xs sm:text-sm font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm font-sans text-[#12324A] font-medium leading-relaxed">
                   {activeSymptomObj.probableCause}
                 </p>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Recomendação Técnica:</strong> {activeSymptomObj.recommendation}</span>
+                <div className="p-3 bg-white border border-[#12324A]/20 text-xs text-[#12324A] flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#16a34a] shrink-0 mt-0.5" />
+                  <span><strong>Recomendação:</strong> {activeSymptomObj.recommendation}</span>
                 </div>
 
                 <a
                   href={whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md transition-all pt-2 min-h-[48px]"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-[4px] bg-[#16a34a] hover:bg-[#15803d] text-white font-mono font-bold text-xs uppercase border-2 border-[#12324A] shadow-stamped transition-all"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Falar no WhatsApp com este Diagnóstico</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Enviar Diagnóstico no WhatsApp</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -202,7 +201,6 @@ export const QuickDiagnosisTool: React.FC = () => {
             </div>
 
           </div>
-
         </div>
 
       </div>

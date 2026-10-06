@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { Building2, ShieldCheck, Clock, CheckCircle2, PhoneCall, ArrowRight, FileText, Wrench, MessageCircle } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMMERCIAL_SERVICES, getCommercialServiceBySlug } from '../data/commercial';
 import { COMPANY_INFO } from '../data/company';
-import { trackContactClick } from '../utils/analytics';
+import { PageHero, SectionHeader, TechCard, SpecList, TechFAQ, TechButton } from '../components/TechUI';
+import { HowItWorks } from '../components/HowItWorks';
+import { CoverageMapSection } from '../components/CoverageMapSection';
+import { MessageCircle, Phone } from 'lucide-react';
 
 interface CommercialViewProps {
   onOpenBookingModal: (serviceName?: string) => void;
@@ -26,7 +28,6 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
       "telephone": COMPANY_INFO.phone,
-      "email": COMPANY_INFO.email,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
@@ -40,8 +41,24 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
     "description": service.description
   };
 
+  const benefitList = service.benefits.map((b, i) => ({
+    title: b,
+    desc: 'Assistência técnica preventiva e corretiva com garantia por escrito de 90 dias.'
+  }));
+
+  const commercialFaqs = [
+    {
+      question: 'Vocês atendem comércios em caso de perda de temperatura?',
+      answer: 'Sim, realizamos atendimento prioritário para supermercados, restaurantes, peixarias e padarias com perda de temperatura no estoque.'
+    },
+    {
+      question: 'Fornecem nota técnica e contrato PMOC?',
+      answer: 'Emitimos laudo técnico, nota fiscal e formulamos o plano de manutenção PMOC conforme exigência da Anvisa.'
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 pb-20">
+    <main className="min-h-screen bg-[#F4F1EA] text-[#12324A] pb-16">
       <EnhancedSEO
         title="Refrigeração Comercial em SC | SC Refrigeração"
         description="Assistência técnica especializada em refrigeração comercial para restaurantes, supermercados, hotéis e peixarias no Litoral de SC. Garantia de 90 dias e nota."
@@ -54,158 +71,93 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
         ]}
       />
 
-      {/* Hero Header */}
-      <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950 text-white py-16 px-4 border-b border-indigo-900/30">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Building2 className="w-3.5 h-3.5" /> {service.badge}
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-            {service.h1}
-          </h1>
-          <p className="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            {service.summary}
-          </p>
+      {/* Page Hero */}
+      <PageHero
+        badge={`01 / ${service.badge.toUpperCase()}`}
+        title={service.h1}
+        subtitle={service.summary}
+        breadcrumbs={[{ label: "Refrigeração Comercial", path: "/refrigeracao-comercial" }]}
+        equipmentType="camara-fria"
+      />
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackContactClick({
-                channel: 'whatsapp',
-                location: 'commercial_hero_whatsapp',
-                label: 'WhatsApp Refrigeração Comercial'
-              })}
-              className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
-            >
-              <MessageCircle className="w-4 h-4" /> Solicitar Atendimento no WhatsApp
-            </a>
-            <button
-              onClick={() => onOpenBookingModal(service.title)}
-              className="px-6 py-3.5 bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center gap-2"
-            >
-              <PhoneCall className="w-4 h-4" /> Agendar Visita Técnica Comercial
-            </button>
-            <Link
-              to="/precos"
-              className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl border border-slate-600 transition-all flex items-center gap-2"
-            >
-              Ver Tabela de Preços <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
+      {/* Section 02 / Benefícios e Soluções B2B */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-6">
+        <SectionHeader
+          step="02 / Especialidades comerciais"
+          title={service.title}
+          subtitle="Manutenção especializada para equipamentos de refrigeração que não podem parar."
+        />
+
+        <SpecList items={benefitList} />
       </section>
 
-      {/* Main Content */}
-      <section className="max-w-5xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Column */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Atendimento Especializado para o Setor Produtivo</h2>
-              <p className="text-slate-700 leading-relaxed mb-6">
-                {service.description}
-              </p>
+      {/* Section 03 / Outros Serviços Comerciais */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-6">
+        <SectionHeader
+          step="03 / Outras modalidades"
+          title="Equipamentos comerciais atendidos"
+        />
 
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Vantagens para sua Empresa:</h3>
-              <div className="space-y-3 mb-6">
-                {service.benefits.map((b, i) => (
-                  <div key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
-                    <span>{b}</span>
-                  </div>
-                ))}
-              </div>
-
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Equipamentos Atendidos:</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-50 p-4 rounded-xl">
-                {service.equipmentServiced.map((eq, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                    <Wrench className="w-4 h-4 text-indigo-600 shrink-0" />
-                    <span>{eq}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* PMOC Plan Details */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-indigo-600" /> Itens Inclusos na Manutenção Preventiva
-              </h2>
-              <div className="space-y-3">
-                {service.preventivePlanIncluded.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* FAQs with details / summary */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <h2 className="text-xl font-bold text-slate-900 mb-4">Dúvidas Frequentes</h2>
-              <div className="space-y-4">
-                {service.faqs.map((faq, i) => (
-                  <details key={i} className="bg-slate-50 p-4 rounded-xl border border-slate-200 group">
-                    <summary className="font-bold text-slate-900 cursor-pointer flex items-center justify-between list-none text-sm">
-                      <span>{faq.question}</span>
-                      <span className="text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <div className="bg-[#0B3C5D] text-white p-6 rounded-2xl border border-slate-700">
-              <h3 className="font-bold text-lg mb-2">Atendimento Comercial</h3>
-              <p className="text-xs text-slate-200 leading-relaxed mb-4">
-                Problema com câmara fria ou balcão de carnes? Nossa equipe técnica atende estabelecimentos comerciais de segunda a sábado.
-              </p>
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackContactClick({
-                  channel: 'whatsapp',
-                  location: 'commercial_sidebar_whatsapp',
-                  label: 'WhatsApp Atendimento Comercial'
-                })}
-                className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
-              >
-                Chamar no WhatsApp: {COMPANY_INFO.phone}
-              </a>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-base mb-3">Outros Serviços Comerciais</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {COMMERCIAL_SERVICES.map((cp, idx) => (
+            <TechCard key={idx} stamped={true} hoverable={true} className="flex flex-col justify-between space-y-3">
               <div className="space-y-2">
-                {COMMERCIAL_SERVICES.map((cs, i) => (
-                  <Link
-                    key={i}
-                    to={`/${cs.slug}`}
-                    className={`block p-3 rounded-lg text-xs font-semibold transition-colors ${
-                      cs.slug === service.slug
-                        ? 'bg-indigo-50 text-indigo-700 border border-indigo-200'
-                        : 'text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    {cs.title}
-                  </Link>
-                ))}
+                <span className="font-mono text-[10px] font-bold text-[#D9682B] uppercase">{cp.badge}</span>
+                <h3 className="text-lg font-extrabold text-[#12324A] font-display">{cp.title}</h3>
+                <p className="text-xs text-[#12324A]/80 font-sans">{cp.description}</p>
               </div>
-            </div>
+
+              <div className="pt-3 border-t border-[#12324A]/20">
+                <Link to={`/${cp.slug}`} className="font-mono text-xs font-bold text-[#12324A] hover:text-[#D9682B]">
+                  Ver detalhes de {cp.title} →
+                </Link>
+              </div>
+            </TechCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Section 04 / Como Funciona */}
+      <HowItWorks />
+
+      {/* Section 05 / Perguntas Frequentes */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-6">
+        <SectionHeader
+          step="05 / Perguntas frequentes"
+          title="Dúvidas sobre manutenção B2B e PMOC"
+        />
+
+        <TechFAQ items={commercialFaqs} />
+      </section>
+
+      {/* Section 06 / Onde Atendemos */}
+      <CoverageMapSection />
+
+      {/* Final CTA */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <div className="bg-[#12324A] text-white p-8 sm:p-10 border-2 border-[#12324A] shadow-stamped rounded-[4px] text-center space-y-4">
+          <span className="font-mono text-xs text-[#BFE3F2] font-bold uppercase tracking-wider block">
+            07 / ATENDIMENTO B2B
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display">
+            Precisa de suporte comercial urgente?
+          </h2>
+          <p className="text-[#BFE3F2] text-sm sm:text-base max-w-xl mx-auto font-sans">
+            Atendimento para supermercados, peixarias, restaurantes e hotéis em Navegantes, Penha, Itajaí e região.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <TechButton variant="whatsapp" href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-4 h-4 shrink-0" />
+              <span>CHAMAR TÉCNICO NO WHATSAPP</span>
+            </TechButton>
+            <TechButton variant="phone" href={`tel:${COMPANY_INFO.phoneClean}`}>
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>LIGAR: {COMPANY_INFO.phone}</span>
+            </TechButton>
           </div>
         </div>
       </section>
+
     </main>
   );
 };

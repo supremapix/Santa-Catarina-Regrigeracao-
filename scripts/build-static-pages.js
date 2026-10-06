@@ -113,13 +113,7 @@ function renderFooterHtml() {
           </div>
         </div>
         <div class="pt-6 border-t border-slate-300 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-          <p>© ${new Date().getFullYear()} ${COMPANY_INFO.name}. Todos os direitos reservados. Penha & Navegantes - SC.</p>
-          <div class="flex gap-4">
-            <a href="/mapa-do-site" class="hover:text-slate-900 font-bold">Mapa do Site</a>
-            <a href="/sitemap.xml" target="_blank" class="hover:text-slate-900">Sitemap XML</a>
-            <a href="/robots.txt" target="_blank" class="hover:text-slate-900">robots.txt</a>
-            <a href="/llms.txt" target="_blank" class="hover:text-slate-900">llms.txt</a>
-          </div>
+          <p>© ${new Date().getFullYear()} ${COMPANY_INFO.name}. Todos os direitos reservados. Navegantes – SC. <span class="mx-2 text-slate-400">·</span> <a href="/mapa-do-site" class="text-[11px] text-slate-500 hover:text-slate-700">Mapa do site</a></p>
         </div>
         <div class="pt-4 border-t border-slate-200 flex justify-center items-center text-xs text-slate-600">
           <span>Desenvolvido com carinho por <a href="https://supremasite.com.br" target="_blank" rel="noopener noreferrer" class="text-yellow-600 hover:text-yellow-700 font-bold underline">Suprema Sites Express / Suprema Mídia</a></span>
@@ -129,9 +123,9 @@ function renderFooterHtml() {
   `;
 }
 
-function buildFullHtml({ title, description, canonicalUrl, schemas = [], breadcrumbs = [], bodyHtml = '' }) {
+function buildFullHtml({ title, description, canonicalUrl, type = 'website', schemas = [], breadcrumbs = [], bodyHtml = '' }) {
   const fullCanonical = canonicalUrl.startsWith('http') ? canonicalUrl : `${COMPANY_INFO.subdomainUrl}${canonicalUrl}`;
-  const ogImage = COMPANY_INFO.assets.socialPreview;
+  const ogImage = COMPANY_INFO.ogImage;
 
   const defaultLocalBusinessSchema = {
     "@context": "https://schema.org",
@@ -141,9 +135,8 @@ function buildFullHtml({ title, description, canonicalUrl, schemas = [], breadcr
     "legalName": COMPANY_INFO.legalName,
     "url": COMPANY_INFO.subdomainUrl,
     "logo": COMPANY_INFO.assets.logo,
-    "image": COMPANY_INFO.assets.socialPreview,
+    "image": COMPANY_INFO.ogImage,
     "telephone": COMPANY_INFO.phone,
-    "email": COMPANY_INFO.email,
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -191,11 +184,18 @@ function buildFullHtml({ title, description, canonicalUrl, schemas = [], breadcr
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <link rel="canonical" href="${fullCanonical}" />
+    <meta property="og:type" content="${type}" />
+    <meta property="og:site_name" content="${escapeHtml(COMPANY_INFO.name)}" />
+    <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${fullCanonical}" />
     <meta property="og:image" content="${ogImage}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:secure_url" content="${ogImage}" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Santa Catarina Refrigeração — conserto de geladeira, freezer e refrigeração comercial em Navegantes, Penha e Itajaí" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
@@ -739,7 +739,7 @@ for (const post of BLOG_POSTS) {
       </div>
     </article>
   `;
-  const html = buildFullHtml({ title, description, canonicalUrl, schemas: [articleSchema], bodyHtml });
+  const html = buildFullHtml({ title, description, canonicalUrl, type: 'article', schemas: [articleSchema], bodyHtml });
   createPageFile(`blog/${post.slug}`, html);
   addSitemapUrl(canonicalUrl, '0.8', 'monthly');
 }

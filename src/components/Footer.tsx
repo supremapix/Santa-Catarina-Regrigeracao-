@@ -8,15 +8,15 @@ import { trackContactClick } from '../utils/analytics';
 
 export function SupremaCredit() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-4 border-t border-slate-300 flex justify-center items-center">
-      <div className="bg-slate-950/90 border border-slate-800 rounded-full px-6 py-2.5 shadow-lg flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-        <p className="text-slate-200 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-bold flex flex-wrap items-center justify-center gap-2">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-4 border-t border-[#BFE3F2]/20 flex justify-center items-center">
+      <div className="bg-[#12324A] border border-[#BFE3F2]/30 px-6 py-2.5 shadow-[2px_2px_0_#0a1c2a] flex items-center justify-center transition-all">
+        <p className="text-white/90 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-mono flex flex-wrap items-center justify-center gap-2">
           <span className="opacity-90">Desenvolvido com</span> 
           
           {/* Coração pulsante com efeito de sombra */}
           <Heart 
             size={14} 
-            className="text-red-500 animate-[pulse_1.5s_infinite] shrink-0 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.7)]" 
+            className="text-red-400 animate-[pulse_1.5s_infinite] shrink-0" 
           /> 
           
           <span className="opacity-90">por</span>
@@ -27,15 +27,15 @@ export function SupremaCredit() {
             href="https://supremasite.com.br" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-yellow-400 hover:text-yellow-300 transition-all font-black inline-flex items-center gap-2 cursor-pointer border-b border-dashed border-yellow-400/50 hover:border-yellow-300"
+            className="text-yellow-400 hover:text-yellow-300 transition-all font-bold inline-flex items-center gap-2 cursor-pointer border-b border-dashed border-yellow-400/50 hover:border-yellow-300"
           >
             Suprema Sites Express
             
-            {/* Logotipo oficial com efeito de iluminação */}
+            {/* Logotipo oficial */}
             <img 
               src="https://img.supremamidia.com/suprema-img.png" 
               alt="Suprema" 
-              className="h-[18px] w-auto inline select-none shrink-0 filter drop-shadow-[0_0_2px_rgba(250,204,21,0.5)] transition-transform duration-300 hover:scale-110" 
+              className="h-[18px] w-auto inline select-none shrink-0 transition-transform duration-300 hover:scale-110" 
               referrerPolicy="no-referrer"
             />
           </a>
@@ -280,13 +280,15 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright and Technical Links */}
-        <div className="pt-8 border-t border-[#BFE3F2]/20 text-center md:flex md:justify-between md:items-center text-xs font-mono text-white/70 space-y-3 md:space-y-0">
+        <div className="pt-8 border-t border-[#BFE3F2]/20 text-center flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-white/70 space-y-2 sm:space-y-0">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. Todos os direitos reservados. Navegantes – SC.</p>
-          <div className="flex justify-center space-x-6">
-            <Link to="/mapa-do-site" className="hover:text-[#D9682B] text-white/90">Mapa do Site</Link>
-            <a href="/sitemap.xml" target="_blank" className="hover:text-[#D9682B]">Sitemap XML</a>
-            <a href="/robots.txt" target="_blank" className="hover:text-[#D9682B]">robots.txt</a>
-            <a href="/llms.txt" target="_blank" className="hover:text-[#D9682B]">llms.txt</a>
+          <div>
+            <Link
+              to="/mapa-do-site"
+              className="text-[11px] font-mono text-[#BFE3F2]/55 hover:text-[#BFE3F2] transition-colors"
+            >
+              Mapa do site
+            </Link>
           </div>
         </div>
 

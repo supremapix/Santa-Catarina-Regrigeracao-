@@ -3,9 +3,9 @@ import { useLocation, Link } from 'react-router-dom';
 import { CITIES_DATA, CityLocalSEO, getNeighborhoodBySlug, normalizeSlug } from '../data/cities';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { COMPANY_INFO } from '../data/company';
-import { MapPin, Clock, CheckCircle2, MessageCircle, Calendar, Phone, ChevronRight, Navigation, ShieldCheck, DollarSign, Wrench, AlertCircle, Sparkles } from 'lucide-react';
-import { FaqAccordion } from '../components/FaqAccordion';
+import { MapPin, Clock, CheckCircle2, MessageCircle, Phone, ShieldCheck, Wrench, AlertCircle } from 'lucide-react';
 import { trackContactClick } from '../utils/analytics';
+import { PageHero, SectionHeader, TechCard, TechButton, TechFAQ } from '../components/TechUI';
 
 interface CityLocalSeoViewProps {
   onOpenBookingModal: (preselectedService?: string) => void;
@@ -93,9 +93,8 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": `${COMPANY_INFO.name} - ${matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name}/${city.state}`,
-    "image": COMPANY_INFO.assets.socialPreview,
+    "image": COMPANY_INFO.ogImage,
     "telephone": COMPANY_INFO.phone,
-    "email": COMPANY_INFO.email,
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -155,6 +154,21 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     }
   ];
 
+  const cityFaqs = [
+    {
+      question: `Qual o valor da visita técnica em ${city.name}?`,
+      answer: `O orçamento é avaliado e informado diretamente no local após verificação do aparelho. Caso aprovado, o valor da avaliação é abatido do conserto.`
+    },
+    {
+      question: `Atendem no mesmo dia em ${matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name}?`,
+      answer: `Sim, possuímos técnicos itinerantes que realizam atendimentos domiciliares em ${city.name} e municípios vizinhos de segunda a sábado.`
+    },
+    {
+      question: `Qual a garantia do conserto de geladeira?`,
+      answer: `Todos os serviços e peças substituídas contam com garantia legal por escrito de 90 dias e emissão de comprovante.`
+    }
+  ];
+
   return (
     <>
       <EnhancedSEO
@@ -167,230 +181,130 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
         neighborhood={matchedNeighborhood}
       />
 
-      <main className="bg-white text-slate-900 min-h-screen py-10 space-y-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <main className="bg-[#F4F1EA] text-[#12324A] min-h-screen pb-16">
+        
+        {/* Page Hero */}
+        <PageHero
+          badge={`01 / COBERTURA ${city.name.toUpperCase()}`}
+          title={matchedNeighborhood
+            ? `Conserto de Geladeira no Bairro ${matchedNeighborhood} (${city.name})`
+            : `Conserto de Geladeira em ${city.name} — Atendimento no Local`}
+          subtitle={city.longDescription || city.customSnippet}
+          breadcrumbs={[
+            { label: "Regiões Atendidas", path: "/regioes-atendidas" },
+            { label: city.name, path: canonicalUrl }
+          ]}
+          equipmentType="geladeira"
+        />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 text-left">
           
-          {/* Breadcrumbs */}
-          <nav className="flex flex-wrap items-center space-x-2 text-xs text-slate-500">
-            <Link to="/" className="hover:text-cyan-800">Início</Link>
-            <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <Link to="/regioes-atendidas" className="hover:text-cyan-800">Regiões Atendidas</Link>
-            <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <Link to={city.slug === 'navegantes' ? '/conserto-de-geladeira-em-navegantes' : `/conserto-de-geladeira-${city.slug}`} className="hover:text-cyan-800">{city.name}</Link>
-            {matchedNeighborhood && (
-              <>
-                <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-                <span className="text-cyan-800 font-bold">Bairro {matchedNeighborhood}</span>
-              </>
-            )}
-          </nav>
-
-          {/* City Hero Banner with Video Background */}
-          <div className="bg-slate-950 text-white border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-xl space-y-6 relative overflow-hidden">
-            {/* Background Video Layer */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-80 sm:opacity-85 scale-105"
-              >
-                <source src="https://img.supremasite.com.br/santa-catarina.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/40" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50" />
-            </div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-700/80 text-xs font-bold uppercase flex items-center gap-1 backdrop-blur-md">
-                  <MapPin className="w-3.5 h-3.5 text-cyan-400" /> {matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name} / {city.state}
-                </span>
-                {isNavegantesPage && (
-                  <span className="px-3.5 py-1.5 rounded-full bg-blue-950/80 text-blue-300 border border-blue-700 text-xs font-bold flex items-center gap-1 backdrop-blur-md">
-                    <ShieldCheck className="w-3.5 h-3.5 text-blue-400" /> Loja Física: Rua Ver. Nereu Liberato Nunes, 191
-                  </span>
-                )}
-                <span className="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-700 text-xs font-bold flex items-center gap-1 backdrop-blur-md">
-                  <Clock className="w-3 h-3 text-emerald-400" /> Atendimento Domiciliar e Comercial
-                </span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-                {matchedNeighborhood
-                  ? `Conserto de Geladeira no Bairro ${matchedNeighborhood} (${city.name})`
-                  : `Conserto de Geladeira em ${city.name} — Assistência Técnica no Local`}
-              </h1>
-
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal max-w-4xl">
-                {city.longDescription || city.customSnippet}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <a
-                  href={`${COMPANY_INFO.whatsappUrl}%20para%20atendimento%20em%20${encodeURIComponent(matchedNeighborhood ? `${matchedNeighborhood} - ${city.name}` : city.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackContactClick({
-                    channel: 'whatsapp',
-                    location: `city_hero_${city.slug}`,
-                    label: `WhatsApp ${city.name}`
-                  })}
-                  className="px-7 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 min-h-[48px]"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Solicitar Técnico em {matchedNeighborhood || city.name}</span>
-                </a>
-
-                <button
-                  onClick={() => onOpenBookingModal(`Atendimento em ${matchedNeighborhood || city.name}`)}
-                  className="px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
-                >
-                  <Calendar className="w-5 h-5 text-cyan-400" />
-                  <span>Agendar Visita</span>
-                </button>
-
-                <Link
-                  to="/precos"
-                  className="px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
-                >
-                  <DollarSign className="w-5 h-5 text-cyan-400" />
-                  <span>Tabela de Preços</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
           {/* Store Address Verification Banner for Navegantes */}
           {isNavegantesPage && (
-            <div className="bg-gradient-to-r from-cyan-950 via-slate-900 to-slate-900 border border-cyan-800/60 rounded-3xl p-6 sm:p-8 text-white space-y-4 shadow-md">
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-cyan-600/30 border border-cyan-500/40 rounded-2xl text-cyan-400">
-                  <MapPin className="w-6 h-6" />
+            <TechCard stamped={true} className="bg-white border-2 border-[#12324A]">
+              <div className="flex items-center gap-3 border-b border-[#12324A]/20 pb-4 mb-4">
+                <div className="p-2.5 bg-[#BFE3F2] border border-[#12324A] text-[#12324A]">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-white">Endereço Físico em Navegantes</h2>
-                  <p className="text-xs sm:text-sm text-cyan-200">Localização e suporte técnico oficial da Santa Catarina Refrigeração</p>
+                  <span className="font-mono text-xs text-[#D9682B] font-bold block">BASE TÉCNICA PRINCIPAL</span>
+                  <h2 className="text-xl font-bold font-display text-[#12324A]">Endereço Físico em Navegantes</h2>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs sm:text-sm">
-                <div className="p-4 bg-slate-950/70 border border-slate-800 rounded-xl">
-                  <span className="text-slate-400 block text-xs font-semibold mb-1">Endereço Completo</span>
-                  <strong className="text-white font-bold">{COMPANY_INFO.address.full}</strong>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-[#12324A]">
+                <div className="p-3 bg-[#F4F1EA] border border-[#12324A]/20">
+                  <span className="text-[#12324A]/60 block text-[10px] uppercase">Endereço</span>
+                  <strong className="font-bold">{COMPANY_INFO.address.full}</strong>
                 </div>
-                <div className="p-4 bg-slate-950/70 border border-slate-800 rounded-xl">
-                  <span className="text-slate-400 block text-xs font-semibold mb-1">Horário de Atendimento</span>
-                  <strong className="text-white font-bold">{COMPANY_INFO.businessHours.weekdays}</strong>
+                <div className="p-3 bg-[#F4F1EA] border border-[#12324A]/20">
+                  <span className="text-[#12324A]/60 block text-[10px] uppercase">Horário</span>
+                  <strong className="font-bold">{COMPANY_INFO.businessHours.weekdays}</strong>
                 </div>
-                <div className="p-4 bg-slate-950/70 border border-slate-800 rounded-xl">
-                  <span className="text-slate-400 block text-xs font-semibold mb-1">Telefone & WhatsApp Direto</span>
-                  <strong className="text-emerald-400 font-bold">{COMPANY_INFO.phone}</strong>
+                <div className="p-3 bg-[#F4F1EA] border border-[#12324A]/20">
+                  <span className="text-[#12324A]/60 block text-[10px] uppercase">Telefone / WhatsApp</span>
+                  <strong className="text-[#16a34a] font-bold">{COMPANY_INFO.phone}</strong>
                 </div>
               </div>
-            </div>
+            </TechCard>
           )}
 
-          {/* Diagnostic Methodology & Technical Protocol */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-cyan-100 text-cyan-800 rounded-xl">
-                <Wrench className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  Como Funciona Nosso Diagnóstico em {city.name}
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600">
-                  Procedimento técnico padronizado com transparência antes de qualquer conserto
-                </p>
-              </div>
-            </div>
+          {/* Diagnostic Methodology */}
+          <div className="space-y-6">
+            <SectionHeader
+              step="02 / PROTOCOLO TÉCNICO"
+              title={`Como Funciona Nosso Atendimento em ${city.name}`}
+              subtitle="Procedimento técnico padronizado com laudo prévio antes de qualquer serviço."
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-                <span className="px-2.5 py-1 bg-cyan-50 text-cyan-800 rounded font-black text-xs">Etapa 1</span>
-                <h3 className="font-bold text-slate-900 text-sm">Inspeção Técnica no Local</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  O técnico comparece à sua residência ou comércio com ferramental de medição digital (multímetro, termômetro infravermelho e manifold) para identificar a causa raiz do problema.
+              <TechCard stamped={true}>
+                <span className="font-mono text-xs font-bold text-[#D9682B] px-2 py-0.5 bg-[#F4F1EA] border border-[#12324A]/30">
+                  PASSO 01
+                </span>
+                <h3 className="font-bold text-base text-[#12324A] font-display mt-2 mb-1">Inspeção In Loco</h3>
+                <p className="text-xs text-[#12324A]/80 font-sans leading-relaxed">
+                  O técnico comparece à sua residência ou comércio com ferramental de medição digital (multímetro, termômetro e manifold) para identificar a falha.
                 </p>
-              </div>
+              </TechCard>
 
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-                <span className="px-2.5 py-1 bg-cyan-50 text-cyan-800 rounded font-black text-xs">Etapa 2</span>
-                <h3 className="font-bold text-slate-900 text-sm">Orçamento Prévio e Transparente</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Apresentamos o laudo com detalhamento exato das peças necessárias e valor total antes de iniciar qualquer serviço. Nenhum conserto é feito sem a sua aprovação formal.
+              <TechCard stamped={true}>
+                <span className="font-mono text-xs font-bold text-[#D9682B] px-2 py-0.5 bg-[#F4F1EA] border border-[#12324A]/30">
+                  PASSO 02
+                </span>
+                <h3 className="font-bold text-base text-[#12324A] font-display mt-2 mb-1">Orçamento Transparente</h3>
+                <p className="text-xs text-[#12324A]/80 font-sans leading-relaxed">
+                  Apresentamos o laudo com detalhamento exato das peças necessárias e valor total antes de iniciar qualquer serviço.
                 </p>
-              </div>
+              </TechCard>
 
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
-                <span className="px-2.5 py-1 bg-cyan-50 text-cyan-800 rounded font-black text-xs">Etapa 3</span>
-                <h3 className="font-bold text-slate-900 text-sm">Reparo com Peças e Garantia de 90 Dias</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Instalação de peças originais com nota e certificado de garantia por escrito de 90 dias, assegurando durabilidade e suporte técnico pós-atendimento.
+              <TechCard stamped={true}>
+                <span className="font-mono text-xs font-bold text-[#D9682B] px-2 py-0.5 bg-[#F4F1EA] border border-[#12324A]/30">
+                  PASSO 03
+                </span>
+                <h3 className="font-bold text-base text-[#12324A] font-display mt-2 mb-1">Garantia de 90 Dias</h3>
+                <p className="text-xs text-[#12324A]/80 font-sans leading-relaxed">
+                  Instalação de peças qualificadas com comprovante por escrito de 90 dias, assegurando durabilidade e suporte técnico.
                 </p>
-              </div>
+              </TechCard>
             </div>
           </div>
 
-          {/* Common Failures Repaired in this Region */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <AlertCircle className="w-6 h-6 text-cyan-700" />
-              <span>Principais Tipos de Defeito Atendidos em {city.name}</span>
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm">
-              Trabalhamos com refrigeradores Frost Free, Inverse, Side by Side, French Door e cervejeiras multimarcas (Brastemp, Electrolux, Consul, Samsung, LG, Panasonic e Midea):
-            </p>
+          {/* Common Failures */}
+          <div className="space-y-6">
+            <SectionHeader
+              step="03 / DEFEITOS RECORRENTES"
+              title={`Defeitos Frequentes em ${city.name}`}
+              subtitle="Trabalhamos com geladeiras Frost Free, Inverse, Side by Side, French Door e cervejeiras multimarcas."
+            />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {commonFaults.map((fault, i) => (
-                <div key={i} className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2 shadow-xs">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <h3 className="font-bold text-slate-900 text-sm">{fault.title}</h3>
+                <TechCard key={i} stamped={false}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="font-mono text-xs text-[#D9682B] font-bold">[{i + 1}]</span>
+                    <h3 className="font-bold text-sm text-[#12324A] font-display">{fault.title}</h3>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-[#12324A]/80 font-sans leading-relaxed">
                     {fault.desc}
                   </p>
-                </div>
+                </TechCard>
               ))}
             </div>
           </div>
 
-          {/* City Highlights */}
-          {city.highlights && city.highlights.length > 0 && (
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
-              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-cyan-700" />
-                <span>Destaques da Nossa Cobertura em {city.name}</span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {city.highlights.map((hl, idx) => (
-                  <div key={idx} className="p-3.5 bg-white rounded-xl border border-slate-200 text-xs text-slate-800 flex items-center gap-2.5 font-medium shadow-xs">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>{hl}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Neighborhoods Coverage Card */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-cyan-700" />
-              <span>Bairros Atendidos em {city.name}/{city.state}</span>
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm font-medium">
-              Sua casa ou comércio fica em {city.name}? Nossos técnicos realizam visitas no mesmo dia ou agendadas nos seguintes bairros:
-            </p>
+          <div className="space-y-6">
+            <SectionHeader
+              step="04 / COBERTURA GEOGRÁFICA"
+              title={`Bairros Atendidos em ${city.name}/${city.state}`}
+              subtitle="Nossos técnicos realizam visitas no mesmo dia ou agendadas nos seguintes locais:"
+            />
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {city.neighborhoods.map((bairro, idx) => (
-                <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-800 flex items-center gap-2 font-bold shadow-xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <div key={idx} className="p-3 bg-white border border-[#12324A]/30 rounded-[4px] font-mono text-xs font-bold text-[#12324A] flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#16a34a] shrink-0" />
                   <span>{bairro}</span>
                 </div>
               ))}
@@ -398,40 +312,40 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
           </div>
 
           {/* FAQ */}
-          <FaqAccordion />
+          <div className="space-y-6">
+            <SectionHeader
+              step="05 / DÚVIDAS LOCAIS"
+              title="Perguntas Frequentes"
+            />
+            <TechFAQ items={cityFaqs} />
+          </div>
 
           {/* Bottom Action */}
-          <div className="bg-gradient-to-r from-blue-50 to-slate-50 border border-slate-200 rounded-3xl p-8 text-center space-y-4 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900">Precisa de Técnico em {city.name}?</h2>
-            <p className="text-slate-600 text-sm max-w-xl mx-auto font-medium">
-              Fale com nossa equipe técnica pelo WhatsApp ou telefone. Avaliação no local com preço transparente e garantia de 90 dias.
+          <div className="bg-[#12324A] text-white p-8 border-2 border-[#12324A] rounded-[4px] shadow-stamped text-center space-y-4">
+            <h2 className="text-2xl font-bold font-display text-white">Precisa de Técnico em {city.name}?</h2>
+            <p className="text-[#BFE3F2] text-sm max-w-xl mx-auto font-sans">
+              Fale com nossa equipe técnica pelo WhatsApp ou telefone. Avaliação no local com preço justo e garantia de 90 dias.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <TechButton
+                variant="whatsapp"
                 href={`${COMPANY_INFO.whatsappUrl}%20para%20atendimento%20em%20${encodeURIComponent(city.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackContactClick({
-                  channel: 'whatsapp',
-                  location: `city_bottom_whatsapp_${city.slug}`,
-                  label: `WhatsApp ${city.name}`
-                })}
-                className="px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-md min-h-[48px] flex items-center justify-center"
+                location={`city_bottom_whatsapp_${city.slug}`}
               >
-                Chamar no WhatsApp
-              </a>
-              <a
+                <MessageCircle className="w-4 h-4" />
+                <span>CHAMAR NO WHATSAPP</span>
+              </TechButton>
+
+              <TechButton
+                variant="phone"
                 href={`tel:${COMPANY_INFO.phoneClean}`}
-                onClick={() => trackContactClick({
-                  channel: 'phone',
-                  location: `city_bottom_call_${city.slug}`,
-                  label: `Telefone ${city.name}`
-                })}
-                className="px-6 py-4 rounded-2xl bg-white border border-slate-300 text-slate-900 font-bold text-sm sm:text-base flex items-center gap-2 shadow-xs min-h-[48px]"
+                location={`city_bottom_phone_${city.slug}`}
               >
-                <Phone className="w-4 h-4 text-blue-600" />
-                Ligar {COMPANY_INFO.phone}
-              </a>
+                <Phone className="w-4 h-4" />
+                <span>LIGAR: {COMPANY_INFO.phone}</span>
+              </TechButton>
             </div>
           </div>
 
@@ -440,4 +354,5 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     </>
   );
 };
+
 

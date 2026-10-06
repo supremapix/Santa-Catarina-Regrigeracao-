@@ -1,38 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BRAND_DETAILS, BrandDetail } from '../data/brands';
-import { AlertTriangle, Wrench, CheckCircle, ArrowRight } from 'lucide-react';
+import { AlertTriangle, ArrowRight, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import { SectionHeader, TechCard, TechButton } from './TechUI';
 
 export const BrandsSection: React.FC = () => {
   const [selectedBrand, setSelectedBrand] = useState<BrandDetail>(BRAND_DETAILS[0]);
 
   return (
-    <section className="bg-slate-50 py-16 lg:py-24 text-slate-900 border-b border-slate-200" id="marcas">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F4F1EA] py-12 sm:py-16 text-[#12324A] border-b-2 border-[#12324A] bg-paper-grid text-left" id="marcas">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 font-bold text-xs uppercase tracking-wider">
-            Especialidade Multimarcas
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
-            Atendemos Todas as Marcas e Modelos do Mercado
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal">
-            Peças originais, instrumentação digital e garantia formal de 90 dias em todas as intervenções.
-          </p>
-        </div>
+        <SectionHeader
+          step="04 / MULTIMARCAS"
+          title="Atendemos as Principais Marcas do Mercado"
+          subtitle="Peças originais de reposição, instrumentos digitais e garantia formal de 90 dias com nota."
+        />
 
         {/* Brand Selector Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="flex flex-wrap gap-2">
           {BRAND_DETAILS.map((brand) => (
             <button
               key={brand.brandName}
               onClick={() => setSelectedBrand(brand)}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+              className={`px-3.5 py-2 font-mono text-xs font-bold border-2 border-[#12324A] rounded-[2px] transition-all ${
                 selectedBrand.brandName === brand.brandName
-                  ? 'bg-cyan-700 text-white shadow-md scale-105'
-                  : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-100'
+                  ? 'bg-[#12324A] text-white shadow-stamped'
+                  : 'bg-white text-[#12324A] hover:bg-[#BFE3F2]/30'
               }`}
             >
               {brand.brandName}
@@ -41,70 +36,69 @@ export const BrandsSection: React.FC = () => {
         </div>
 
         {/* Active Brand Detailed Card */}
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto shadow-md space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-slate-200 pb-6 gap-4">
-            <div>
-              <span className="px-3 py-1 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 text-xs font-bold">
-                {selectedBrand.badge}
+        <TechCard stamped={true} className="bg-white border-2 border-[#12324A] space-y-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-[#12324A]/20 pb-5 gap-4">
+            <div className="space-y-1">
+              <span className="font-mono text-xs text-[#D9682B] font-bold uppercase">
+                [{selectedBrand.badge}]
               </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+              <h3 className="text-xl sm:text-2xl font-bold font-display text-[#12324A]">
                 Assistência Técnica {selectedBrand.brandName}
               </h3>
-              <p className="text-slate-600 text-sm mt-1 max-w-2xl">
+              <p className="text-xs sm:text-sm text-[#12324A]/80 font-sans max-w-xl">
                 {selectedBrand.description}
               </p>
             </div>
 
             <div className="flex flex-col gap-2 shrink-0 w-full md:w-auto">
-              <a
+              <TechButton
+                variant="whatsapp"
                 href={`${COMPANY_INFO.whatsappUrl}%20para%20equipamento%20da%20marca%20${encodeURIComponent(selectedBrand.brandName)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-all shadow-sm min-h-[44px]"
+                className="justify-center"
               >
-                <Wrench className="w-4 h-4" />
-                Conserto {selectedBrand.brandName} no WhatsApp
-              </a>
+                <MessageCircle className="w-4 h-4" />
+                <span>CHAMAR NO WHATSAPP</span>
+              </TechButton>
 
               <Link
                 to={`/${selectedBrand.slug}`}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 text-cyan-800 font-bold text-xs border border-slate-200 transition-colors"
+                className="font-mono text-xs font-bold text-[#12324A] hover:text-[#D9682B] flex items-center justify-center gap-1 pt-1"
               >
-                <span>Ver página técnica da {selectedBrand.brandName}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Ver página técnica {selectedBrand.brandName}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D9682B]" />
               </Link>
             </div>
           </div>
 
-          {/* Error Codes & Symptoms Table */}
+          {/* Error Codes Table */}
           {selectedBrand.errorCodes && selectedBrand.errorCodes.length > 0 && (
-            <div className="space-y-4">
-              <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-600" />
-                Sintomas e Códigos de Erro Comuns da {selectedBrand.brandName}:
+            <div className="space-y-3">
+              <h4 className="font-mono text-xs font-bold text-[#12324A] uppercase flex items-center gap-1.5">
+                <AlertTriangle className="w-4 h-4 text-[#D9682B]" />
+                Códigos de Erro Comuns — {selectedBrand.brandName}:
               </h4>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {selectedBrand.errorCodes.map((err, idx) => (
-                  <div key={idx} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+                  <div key={idx} className="bg-[#F4F1EA] border border-[#12324A]/30 p-3 space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-extrabold text-cyan-800 text-sm">{err.code}</span>
-                      <span className="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full border border-slate-300 font-bold">
-                        Diagnóstico
+                      <span className="font-mono font-bold text-xs text-[#D9682B]">{err.code}</span>
+                      <span className="font-mono text-[9px] uppercase px-1.5 py-0.5 bg-white border border-[#12324A]/20">
+                        DIAGNÓSTICO
                       </span>
                     </div>
-                    <p className="text-slate-900 font-bold text-xs">{err.meaning}</p>
-                    <p className="text-slate-600 text-xs flex items-start gap-1.5 pt-1">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>{err.solution}</span>
+                    <p className="font-bold text-xs text-[#12324A]">{err.meaning}</p>
+                    <p className="text-xs text-[#16a34a] font-mono font-bold pt-0.5">
+                      ✓ {err.solution}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
           )}
-
-        </div>
+        </TechCard>
 
       </div>
     </section>

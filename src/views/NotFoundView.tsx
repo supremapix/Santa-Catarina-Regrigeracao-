@@ -1,7 +1,8 @@
 import React from 'react';
 import { SeoHead } from '../components/SeoHead';
 import { COMPANY_INFO } from '../data/company';
-import { Home, MessageCircle, ShieldAlert } from 'lucide-react';
+import { Home, MessageCircle, AlertTriangle } from 'lucide-react';
+import { TechButton, TechCard } from '../components/TechUI';
 
 export const NotFoundView: React.FC = () => {
   return (
@@ -12,38 +13,47 @@ export const NotFoundView: React.FC = () => {
         canonicalUrl={COMPANY_INFO.subdomainUrl}
       />
 
-      <main className="bg-white text-slate-900 min-h-[70vh] flex items-center justify-center p-6 text-center">
-        <div className="max-w-md space-y-6">
-          <div className="w-16 h-16 bg-slate-100 border border-slate-200 text-amber-600 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-            <ShieldAlert className="w-8 h-8" />
+      <main className="bg-[#F4F1EA] text-[#12324A] min-h-[75vh] flex items-center justify-center p-6 text-center bg-paper-grid">
+        <TechCard stamped={true} className="max-w-md w-full space-y-6 bg-white border-2 border-[#12324A] p-8">
+          <div className="w-14 h-14 bg-[#BFE3F2] border-2 border-[#12324A] text-[#12324A] flex items-center justify-center mx-auto shadow-stamped">
+            <AlertTriangle className="w-7 h-7 text-[#D9682B]" />
           </div>
 
-          <h1 className="text-4xl font-black text-slate-900">Página Não Encontrada (404)</h1>
+          <div>
+            <span className="font-mono text-xs font-bold text-[#D9682B] uppercase tracking-wider block mb-1">
+              ERRO 404 // CIRCUITO INTERROMPIDO
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-[#12324A]">
+              Página Não Encontrada
+            </h1>
+          </div>
 
-          <p className="text-slate-600 text-base leading-relaxed">
-            A página que você tentou acessar não existe ou foi movida. Mas nós podemos te ajudar a encontrar o conserto certo para seu aparelho!
+          <p className="text-xs sm:text-sm text-[#12324A]/80 font-sans leading-relaxed">
+            A URL solicitada não está disponível ou foi movida. Nossa equipe técnica está pronta para atendê-lo pelo WhatsApp ou na página principal.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <a
+            <TechButton
+              variant="outline"
               href="/"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-700 hover:bg-cyan-800 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
+              className="w-full sm:w-auto"
             >
-              <Home className="w-5 h-5" />
-              <span>Ir para a Página Inicial</span>
-            </a>
+              <Home className="w-4 h-4" />
+              <span>PÁGINA INICIAL</span>
+            </TechButton>
 
-            <a
+            <TechButton
+              variant="whatsapp"
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm min-h-[48px]"
+              className="w-full sm:w-auto"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>Chamar no WhatsApp</span>
-            </a>
+              <MessageCircle className="w-4 h-4" />
+              <span>CHAMAR NO WHATSAPP</span>
+            </TechButton>
           </div>
-        </div>
+        </TechCard>
       </main>
     </>
   );

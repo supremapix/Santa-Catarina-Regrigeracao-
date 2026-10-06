@@ -1,72 +1,74 @@
 import React from 'react';
 import { Clock, Home, ShieldCheck, CreditCard, Award, Zap } from 'lucide-react';
+import { SectionHeader, TechCard } from './TechUI';
 
 export const DifferentialsBar: React.FC = () => {
   const differentials = [
     {
       icon: Clock,
-      title: "Atendimento Agendado",
-      description: "De segunda a sábado das 08h às 18h com agendamento no mesmo dia",
-      color: "text-amber-700 bg-amber-50 border-amber-200"
+      num: "01",
+      title: "Atendimento em Domicílio",
+      description: "De segunda a sábado das 08h às 18h com agendamento direto e sem enrolação."
     },
     {
       icon: Home,
-      title: "100% Domiciliar",
-      description: "Técnicos vão até sua residência, comércio ou pousada com toda estrutura",
-      color: "text-cyan-700 bg-cyan-50 border-cyan-200"
+      num: "02",
+      title: "Conserto no Local",
+      description: "Técnicos realizam o conserto no seu endereço, sem retirar seu aparelho."
     },
     {
       icon: Zap,
-      title: "Orçamento Grátis",
-      description: "Sem taxa de visita para avaliação com aprovação do orçamento",
-      color: "text-emerald-700 bg-emerald-50 border-emerald-200"
+      num: "03",
+      title: "Orçamento no Local",
+      description: "Avaliação técnica presencial com laudo prévio e preço fechado antes da execução."
     },
     {
       icon: ShieldCheck,
+      num: "04",
       title: "Garantia de 90 Dias",
-      description: "Garantia formal por escrito em todas as peças e mão de obra executada",
-      color: "text-blue-700 bg-blue-50 border-blue-200"
+      description: "Garantia legal formal por escrito com comprovante em todas as peças e serviços."
     },
     {
       icon: Award,
-      title: "Técnicos Certificados",
-      description: "Treinamento especializado em Inverter, sensores e refrigeração comercial",
-      color: "text-indigo-700 bg-indigo-50 border-indigo-200"
+      num: "05",
+      title: "Técnicos Qualificados",
+      description: "Especialistas em sistemas Frost Free, Inverter, sensores e refrigeração comercial."
     },
     {
       icon: CreditCard,
-      title: "Várias Formas de Pagamento",
-      description: "Facilidade de pagamento no cartão de crédito, débito, PIX e dinheiro",
-      color: "text-purple-700 bg-purple-50 border-purple-200"
+      num: "06",
+      title: "Pagamento Facilitado",
+      description: "Facilidade de pagamento no cartão de crédito parcelado, débito, PIX ou dinheiro."
     }
   ];
 
   return (
-    <section className="bg-slate-50 py-10 border-b border-slate-200" id="diferenciais">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <span className="text-cyan-700 font-bold text-xs uppercase tracking-widest">Por Que Escolher Nossos Serviços</span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Atendimento Local e Transparente</h2>
-        </div>
+    <section className="bg-[#F4F1EA] py-12 border-b-2 border-[#12324A] bg-paper-grid text-left" id="diferenciais">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <SectionHeader
+          step="03 / PADRÃO OPERACIONAL"
+          title="Por Que Escolher Nossos Serviços"
+          subtitle="Atendimento local, transparente e com garantia documentada em Santa Catarina."
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {differentials.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div 
+              <TechCard 
                 key={index} 
-                className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-slate-300 shadow-sm transition-all group"
+                stamped={true}
+                hoverable={true}
+                className="bg-white border-2 border-[#12324A] p-5 space-y-3"
               >
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-xl border ${item.color} shrink-0 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">{item.title}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.description}</p>
-                  </div>
+                <div className="flex items-center justify-between border-b border-[#12324A]/20 pb-2">
+                  <span className="font-mono text-xs font-bold text-[#D9682B]">[{item.num}]</span>
+                  <Icon className="w-4 h-4 text-[#12324A]" />
                 </div>
-              </div>
+                <h3 className="font-bold text-base text-[#12324A] font-display">{item.title}</h3>
+                <p className="text-xs text-[#12324A]/80 font-sans leading-relaxed">{item.description}</p>
+              </TechCard>
             );
           })}
         </div>

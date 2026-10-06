@@ -25,7 +25,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   title,
   description,
   canonicalUrl,
-  ogImage = COMPANY_INFO.assets.socialPreview,
+  ogImage = COMPANY_INFO.ogImage,
   keywords = "conserto de geladeira, assistência técnica geladeira, conserto lava e seca, manutenção câmara fria, conserto freezer, penha sc, itajaí, balneário camboriú, navegantes",
   type = "website",
   schemas = [],
@@ -74,9 +74,8 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       "legalName": COMPANY_INFO.legalName,
       "url": COMPANY_INFO.subdomainUrl,
       "logo": COMPANY_INFO.assets.logo,
-      "image": COMPANY_INFO.assets.socialPreview,
+      "image": COMPANY_INFO.ogImage,
       "telephone": COMPANY_INFO.phone,
-      "email": COMPANY_INFO.email,
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -129,8 +128,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
         ]
       },
       "sameAs": [
-        COMPANY_INFO.whatsappUrl,
-        `mailto:${COMPANY_INFO.email}`
+        COMPANY_INFO.whatsappUrl
       ]
     },
     // 2. WebSite Entity
@@ -239,13 +237,18 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <link rel="dns-prefetch" href="https://img.supremasite.com.br" />
 
       {/* Open Graph Tags */}
+      <meta property="og:type" content={type} />
+      <meta property="og:site_name" content={COMPANY_INFO.name} />
+      <meta property="og:locale" content="pt_BR" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={fullCanonical} />
-      <meta property="og:type" content={type} />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:site_name" content={COMPANY_INFO.name} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta property="og:image:type" content="image/webp" />
+      <meta property="og:image:width" content="1731" />
+      <meta property="og:image:height" content="909" />
+      <meta property="og:image:alt" content="Santa Catarina Refrigeração — conserto de geladeira, freezer e refrigeração comercial em Navegantes, Penha e Itajaí" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />

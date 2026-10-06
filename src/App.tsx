@@ -441,7 +441,7 @@ export function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
+      <div className="min-h-screen bg-[#F4F1EA] text-[#12324A] flex flex-col font-sans selection:bg-[#BFE3F2] selection:text-[#12324A]">
         <Navbar onOpenBookingModal={handleOpenBookingModal} />
 
         <div className="flex-grow">

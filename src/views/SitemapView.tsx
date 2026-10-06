@@ -5,7 +5,8 @@ import { COMPANY_INFO } from '../data/company';
 import { PILLAR_SERVICES } from '../data/services';
 import { SEARCH_INTENTS } from '../data/searchIntents';
 import { CITIES_DATA, getAllNeighborhoods } from '../data/cities';
-import { MapPin, Search, Wrench, ShieldCheck, FileText, ChevronRight, CheckCircle2, Flame, AlertTriangle, Building2 } from 'lucide-react';
+import { Search, ArrowRight } from 'lucide-react';
+import { PageHero, SectionHeader, TechCard } from '../components/TechUI';
 
 export const SitemapView: React.FC = () => {
   const [filterQuery, setFilterQuery] = useState('');
@@ -54,202 +55,177 @@ export const SitemapView: React.FC = () => {
         schemas={[sitemapSchema]}
       />
 
-      <main className="bg-slate-950 text-white min-h-screen py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-black uppercase tracking-wider">
-              <FileText className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Navegação & SEO Local</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Mapa do Site Completo
-            </h1>
-            <p className="text-slate-300 text-sm sm:text-base font-normal">
-              Explore todos os nossos serviços de assistência técnica, marcas atendidas, soluções para defeitos frequentes e cobertura em cidades de Santa Catarina.
-            </p>
+      <main className="bg-[#F4F1EA] text-[#12324A] min-h-screen pb-16 text-left">
+        
+        {/* Page Hero */}
+        <PageHero
+          badge="01 / ÍNDICE GERAL DO PORTAL"
+          title="Mapa do Site Completo"
+          subtitle="Explore todas as páginas de serviços, marcas, diagnósticos e cidades atendidas pela Santa Catarina Refrigeração."
+          breadcrumbs={[{ label: "Mapa do Site", path: "/mapa-do-site" }]}
+          equipmentType="geladeira"
+        />
 
-            {/* Quick Search Box */}
-            <div className="relative max-w-md mx-auto pt-2">
-              <Search className="w-5 h-5 absolute left-4 top-5 text-slate-400" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+          
+          {/* Quick Filter Box */}
+          <div className="bg-white border-2 border-[#12324A] p-4 rounded-[4px] shadow-stamped">
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#12324A]/50" />
               <input
                 type="text"
                 placeholder="Filtrar por serviço, defeito ou cidade..."
                 value={filterQuery}
                 onChange={(e) => setFilterQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-900 border-2 border-slate-800 text-white text-sm focus:border-cyan-400 focus:outline-none transition-all placeholder:text-slate-500 font-medium shadow-inner"
+                className="w-full pl-9 pr-3 py-2 bg-[#F4F1EA] border border-[#12324A] text-xs font-mono text-[#12324A] focus:outline-none placeholder-[#12324A]/50"
               />
             </div>
           </div>
 
           {/* Section 1: Principais Serviços */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-              <Wrench className="w-6 h-6 text-cyan-400 shrink-0" />
-              <h2 className="text-2xl font-black text-white">Principais Serviços & Equipamentos</h2>
-            </div>
+            <SectionHeader
+              step="02 / SERVIÇOS & EQUIPAMENTOS"
+              title="Equipamentos Atendidos"
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {filteredServices.map((service) => (
-                <Link
+                <TechCard
                   key={service.id}
-                  to={`/${service.slug}`}
-                  className="group bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border-2 border-slate-800 hover:border-cyan-400 transition-all flex flex-col justify-between space-y-3 shadow-lg"
+                  stamped={true}
+                  hoverable={true}
+                  className="bg-white border-2 border-[#12324A] flex flex-col justify-between space-y-3"
                 >
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 inline-block">
-                      {service.category}
+                  <div className="space-y-1.5">
+                    <span className="font-mono text-[10px] font-bold text-[#D9682B] uppercase">
+                      [{service.category}]
                     </span>
-                    <h3 className="text-base font-extrabold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                    <h3 className="font-bold text-sm text-[#12324A] font-display">
                       {service.title}
                     </h3>
-                    <p className="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#12324A]/80 font-sans line-clamp-2">
                       {service.summary}
                     </p>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-bold text-cyan-400 pt-2 border-t border-slate-800/80">
-                    <span>Acessar Página</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <div className="pt-2 border-t border-[#12324A]/20">
+                    <Link
+                      to={`/${service.slug}`}
+                      className="font-mono text-xs font-bold text-[#12324A] hover:text-[#D9682B] flex items-center justify-between"
+                    >
+                      <span>Ver serviço</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#D9682B]" />
+                    </Link>
                   </div>
-                </Link>
+                </TechCard>
               ))}
             </div>
           </div>
 
           {/* Section 2: Assistência por Marcas */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-              <Building2 className="w-6 h-6 text-emerald-400 shrink-0" />
-              <h2 className="text-2xl font-black text-white">Assistência Técnica por Marca</h2>
-            </div>
+            <SectionHeader
+              step="03 / FABRICANTES"
+              title="Assistência Técnica por Marca"
+            />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {brandServices.map((brand, idx) => (
-                <Link
-                  key={idx}
-                  to={brand.path}
-                  className="group bg-slate-900 hover:bg-slate-850 p-4 rounded-2xl border border-slate-800 hover:border-emerald-400 transition-all flex items-center justify-between"
-                >
-                  <span className="text-xs sm:text-sm font-bold text-slate-200 group-hover:text-emerald-300">
-                    {brand.title}
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-emerald-400 shrink-0 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <TechCard key={idx} stamped={false} hoverable={true}>
+                  <Link
+                    to={brand.path}
+                    className="font-mono text-xs font-bold text-[#12324A] hover:text-[#D9682B] flex items-center justify-between"
+                  >
+                    <span>{brand.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#D9682B]" />
+                  </Link>
+                </TechCard>
               ))}
             </div>
           </div>
 
-          {/* Section 3: Intenções de Busca e Soluções por Defeito */}
+          {/* Section 3: Intenções de Busca */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-              <AlertTriangle className="w-6 h-6 text-amber-400 shrink-0" />
-              <h2 className="text-2xl font-black text-white">Soluções por Intenção de Busca & Defeitos</h2>
-            </div>
+            <SectionHeader
+              step="04 / DIAGNÓSTICOS FREQUENTES"
+              title="Soluções por Sintoma e Falha"
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredIntents.map((intent) => (
-                <Link
+                <TechCard
                   key={intent.slug}
-                  to={`/problemas/${intent.slug}`}
-                  className="group bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border-2 border-slate-800 hover:border-amber-400 transition-all space-y-3 shadow-lg flex flex-col justify-between"
+                  stamped={true}
+                  hoverable={true}
+                  className="bg-white border-2 border-[#12324A] flex flex-col justify-between space-y-3"
                 >
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-mono italic text-slate-400 block">
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] text-[#D9682B] font-bold uppercase">
                       {intent.intentQuery}
                     </span>
-                    <h3 className="text-sm sm:text-base font-black text-white group-hover:text-amber-300 transition-colors leading-snug">
+                    <h3 className="font-bold text-sm text-[#12324A] font-display">
                       {intent.title}
                     </h3>
-                    <p className="text-slate-300 text-xs leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#12324A]/80 font-sans line-clamp-2">
                       {intent.pain}
                     </p>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-bold text-amber-400 pt-2 border-t border-slate-800">
-                    <span>Ver Solução Técnica</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <div className="pt-2 border-t border-[#12324A]/20">
+                    <Link
+                      to={`/problemas/${intent.slug}`}
+                      className="font-mono text-xs font-bold text-[#12324A] hover:text-[#D9682B] flex items-center justify-between"
+                    >
+                      <span>Ver solução</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#D9682B]" />
+                    </Link>
                   </div>
-                </Link>
+                </TechCard>
               ))}
             </div>
           </div>
 
-          {/* Section 4: Cidades Atendidas em Santa Catarina */}
+          {/* Section 4: Cidades Atendidas */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-              <MapPin className="w-6 h-6 text-sky-400 shrink-0" />
-              <h2 className="text-2xl font-black text-white">Cidades Atendidas em Santa Catarina ({filteredCities.length})</h2>
-            </div>
+            <SectionHeader
+              step="05 / COBERTURA LOCAL"
+              title={`Cidades Atendidas (${filteredCities.length})`}
+            />
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
               {filteredCities.map((city) => (
                 <Link
                   key={city.slug}
                   to={`/conserto-de-geladeira-em-${city.slug}`}
-                  className="group bg-slate-900 hover:bg-slate-800 p-3 rounded-xl border border-slate-800 hover:border-sky-400 transition-all text-xs font-bold text-slate-200 flex items-center justify-between"
+                  className="p-2.5 bg-white border border-[#12324A]/30 rounded-[4px] font-mono text-xs font-bold text-[#12324A] hover:bg-[#BFE3F2]/30 hover:border-[#12324A] transition-all flex items-center justify-between group"
                 >
-                  <span className="truncate group-hover:text-sky-300">{city.name}</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-sky-400 opacity-60 group-hover:opacity-100 shrink-0" />
+                  <span className="truncate">{city.name}</span>
+                  <ArrowRight className="w-3 h-3 text-[#D9682B] shrink-0" />
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Section 5: Bairros em Destaque */}
+          {/* Section 5: Bairros */}
           {filteredNeighborhoods.length > 0 && (
             <div className="space-y-6">
-              <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-                <Building2 className="w-6 h-6 text-emerald-400 shrink-0" />
-                <h2 className="text-2xl font-black text-white">Bairros Atendidos em Destaque</h2>
-              </div>
+              <SectionHeader
+                step="06 / BAIRROS"
+                title="Bairros em Destaque"
+              />
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                 {filteredNeighborhoods.slice(0, 48).map((nb) => (
                   <Link
                     key={nb.slug}
                     to={`/bairros/${nb.slug}`}
-                    className="group bg-slate-900 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800/80 hover:border-emerald-400 transition-all text-[11px] font-semibold text-slate-300 flex items-center justify-between"
+                    className="p-2 bg-white border border-[#12324A]/20 rounded-[4px] font-mono text-[11px] text-[#12324A] hover:bg-[#BFE3F2]/30 truncate block"
                   >
-                    <span className="truncate group-hover:text-emerald-300">{nb.name} ({nb.cityName})</span>
+                    {nb.name} ({nb.cityName})
                   </Link>
                 ))}
               </div>
             </div>
           )}
-
-          {/* Section 6: Blog & Informações Institucionais */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
-              <FileText className="w-6 h-6 text-purple-400 shrink-0" />
-              <h2 className="text-2xl font-black text-white">Blog & Guias Técnicos</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Link
-                to="/blog/lava-e-seca-penha-guia-completo"
-                className="group bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border border-slate-800 hover:border-purple-400 transition-all space-y-2"
-              >
-                <h3 className="text-base font-extrabold text-white group-hover:text-purple-300">
-                  Guia Completo: Manutenção e Conserto de Lava e Seca em Penha e Litoral Norte
-                </h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Artigo educativo com dicas de prevenção contra ferrugem em regiões praianas, erros comuns OE e 5E, e como aumentar a vida útil da sua máquina.
-                </p>
-              </Link>
-
-              <Link
-                to="/"
-                className="group bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border border-slate-800 hover:border-purple-400 transition-all space-y-2"
-              >
-                <h3 className="text-base font-extrabold text-white group-hover:text-purple-300">
-                  Página Inicial - Santa Catarina Refrigeração
-                </h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Visão geral da empresa, formas de pagamento, garantia formal de 90 dias, depoimentos e formulário de agendamento online.
-                </p>
-              </Link>
-            </div>
-          </div>
 
         </div>
       </main>

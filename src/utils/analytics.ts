@@ -94,3 +94,34 @@ export function trackContactClick(params: ContactClickEventParams): void {
     });
   }
 }
+
+/**
+ * Tracks user content share actions to social networks or copy link.
+ * Dispatches standard GA4 'share' event with method parameter.
+ */
+export function trackShareEvent(method: string): void {
+  if (typeof window === 'undefined') return;
+
+  const eventPayload = {
+    event: 'share',
+    method: method,
+    content_type: 'page',
+    item_id: window.location.href,
+    page_path: window.location.pathname,
+    page_title: document.title,
+    timestamp: new Date().toISOString()
+  };
+
+  // Push to GTM dataLayer if available
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(eventPayload);
+
+  // Dispatch to GA4 via gtag if available
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'share', {
+      method: method,
+      content_type: 'page',
+      item_id: window.location.href
+    });
+  }
+}
