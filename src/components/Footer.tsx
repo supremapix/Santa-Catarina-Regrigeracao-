@@ -248,7 +248,7 @@ export const Footer: React.FC = () => {
               Empresa & Contato
             </h4>
             <div className="space-y-3 text-xs text-white/90">
-              <AnimatedFrostLogo size="sm" />
+              <AnimatedFrostLogo size="sm" variant="dark" />
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D9682B] shrink-0 mt-0.5" />
                 <span className="font-sans">

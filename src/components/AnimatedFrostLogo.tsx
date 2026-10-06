@@ -15,8 +15,8 @@ export const AnimatedFrostLogo: React.FC<AnimatedFrostLogoProps> = ({
   const [isFrozen, setIsFrozen] = useState(false);
 
   const logoHeight = size === 'sm' ? 'h-8 sm:h-10' : size === 'lg' ? 'h-11 sm:h-14' : 'h-9 sm:h-12';
-  const textColor = variant === 'dark' ? 'text-blue-400' : 'text-[#002b75]';
-  const subtextColor = variant === 'dark' ? 'text-cyan-400' : 'text-[#0092d8]';
+  const textColor = variant === 'dark' ? 'text-white' : 'text-[#12324A]';
+  const subtextColor = variant === 'dark' ? 'text-[#BFE3F2]' : 'text-[#D9682B]';
 
   const handleInteract = () => {
     setIsFrozen(true);

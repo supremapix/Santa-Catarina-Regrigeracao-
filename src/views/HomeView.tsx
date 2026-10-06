@@ -30,11 +30,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
         {/* b) 02 / Como o frio funciona — Seção de Animações em JS */}
         <RefrigerationCycleAnimation />
 
-        {/* c) 03 / O que a gente conserta */}
-        <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
-
-        {/* d) 04 / Como funciona */}
+        {/* c) 03 / Como funciona */}
         <HowItWorks onOpenBookingModal={onOpenBookingModal} />
+
+        {/* d) 04 / O que a gente conserta */}
+        <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
 
         {/* e) 05 / Sua geladeira está assim? */}
         <SearchIntentsSection onOpenBookingModal={onOpenBookingModal} />

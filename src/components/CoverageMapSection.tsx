@@ -49,7 +49,7 @@ export const CoverageMapSection: React.FC = () => {
         {/* Header */}
         <div className="space-y-1 border-b-2 border-[#12324A] pb-4">
           <span className="font-mono text-xs text-[#D9682B] font-bold tracking-wider uppercase">
-            05 / Onde atendemos
+            06 / Onde atendemos
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12324A] font-display">
             Onde atendemos
