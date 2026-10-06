@@ -2,6 +2,7 @@ import React from 'react';
 import { MessageCircle, Phone } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { Hero } from '../components/Hero';
+import { RefrigerationCycleAnimation } from '../components/RefrigerationCycleAnimation';
 import { ServicesGrid } from '../components/ServicesGrid';
 import { HowItWorks } from '../components/HowItWorks';
 import { SearchIntentsSection } from '../components/SearchIntentsSection';
@@ -22,29 +23,35 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
         canonicalUrl={COMPANY_INFO.subdomainUrl}
       />
 
-      <main>
+      <main className="bg-[#F4F1EA]">
         {/* a) Hero */}
         <Hero onOpenBookingModal={onOpenBookingModal} />
 
-        {/* b) O que a gente conserta */}
+        {/* b) 02 / Como o frio funciona — Seção de Animações em JS */}
+        <RefrigerationCycleAnimation />
+
+        {/* c) 03 / O que a gente conserta */}
         <ServicesGrid onOpenBookingModal={onOpenBookingModal} />
 
-        {/* c) Como funciona */}
+        {/* d) 04 / Como funciona */}
         <HowItWorks onOpenBookingModal={onOpenBookingModal} />
 
-        {/* d) Sua geladeira está assim? */}
+        {/* e) 05 / Sua geladeira está assim? */}
         <SearchIntentsSection onOpenBookingModal={onOpenBookingModal} />
 
-        {/* e) Cidades atendidas */}
+        {/* f) 06 / Onde atendemos */}
         <CoverageMapSection />
 
-        {/* f) CTA final */}
-        <section className="bg-[#0B3C5D] py-12 sm:py-16 text-center text-white border-t border-slate-200">
+        {/* g) CTA final */}
+        <section className="bg-[#12324A] py-12 sm:py-16 text-center text-white border-t-2 border-[#12324A]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
+            <span className="font-mono text-xs text-[#BFE3F2] font-bold tracking-widest uppercase">
+              07 — CONTATO DIRETO COM TÉCNICO
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display">
               Fale com um técnico agora
             </h2>
-            <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto font-normal">
+            <p className="text-[#BFE3F2] text-sm sm:text-base max-w-xl mx-auto font-sans">
               Mande uma foto do aparelho e o modelo pelo WhatsApp. A gente já te diz o que pode ser.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -53,18 +60,18 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackContactClick({ channel: 'whatsapp', location: 'home_footer_cta', target: COMPANY_INFO.whatsappUrl })}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-sm transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#16a34a] hover:bg-[#15803d] text-white font-mono font-bold text-sm border-2 border-white shadow-stamped hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#ffffff] transition-all flex items-center justify-center gap-2"
               >
-                <MessageCircle className="w-5 h-5 shrink-0" />
-                <span>Chamar no WhatsApp</span>
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span>CHAMAR NO WHATSAPP</span>
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
                 onClick={() => trackContactClick({ channel: 'phone', location: 'home_footer_phone', target: `tel:${COMPANY_INFO.phoneClean}` })}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#F28C28] hover:bg-[#e07b1a] text-white font-extrabold text-base shadow-sm transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#D9682B] hover:bg-[#c45a24] text-white font-mono font-bold text-sm border-2 border-white shadow-stamped hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#ffffff] transition-all flex items-center justify-center gap-2"
               >
-                <Phone className="w-5 h-5 shrink-0" />
-                <span>Ligar {COMPANY_INFO.phone}</span>
+                <Phone className="w-4 h-4 shrink-0" />
+                <span>LIGAR: {COMPANY_INFO.phone}</span>
               </a>
             </div>
           </div>

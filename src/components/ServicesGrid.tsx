@@ -25,187 +25,181 @@ export const ServicesGrid: React.FC<ServicesGridProps> = () => {
   const [activeCategory, setActiveCategory] = useState<'casa' | 'comercio' | 'industria'>('casa');
 
   const categories = [
-    { id: 'casa', label: 'Para sua Casa', icon: Home },
-    { id: 'comercio', label: 'Para seu Comércio', icon: Store },
-    { id: 'industria', label: 'Indústria & Logística', icon: Factory },
+    { id: 'casa', label: '01 / RESIDENCIAL' },
+    { id: 'comercio', label: '02 / COMERCIAL & BARES' },
+    { id: 'industria', label: '03 / INDÚSTRIA & REEFER' },
   ] as const;
 
   const servicesData = {
     casa: [
       {
+        num: '01',
         title: 'Geladeira & Frost Free',
         slug: 'conserto-de-geladeira',
-        desc: 'Geladeira queimada, que vazou gás ou parou de gelar na parte de baixo.',
-        icon: Refrigerator
+        desc: 'Geladeira queimada, que vazou gás R-600a ou parou de gelar na parte de baixo.',
       },
       {
+        num: '02',
         title: 'Side by Side & French Door',
         slug: 'conserto-de-side-by-side',
-        desc: 'Troca de motor, placa inverter, duto obstruído e vazamento de água.',
-        icon: Layers
+        desc: 'Troca de motor compressor Inverter, placa principal, duto e vazamento de água.',
       },
       {
+        num: '03',
         title: 'Freezer Vertical & Horizontal',
         slug: 'conserto-de-freezer',
         desc: 'Freezer desarmando disjuntor, acumulando gelo em excesso ou sem congelar.',
-        icon: Snowflake
       },
       {
+        num: '04',
         title: 'Frigobar',
         slug: 'conserto-de-frigobar',
-        desc: 'Não gela, faz barulho ou desarma. Atendemos casas, pousadas e escritórios.',
-        icon: Flame
+        desc: 'Não gela, faz ruído ou desarma. Atendemos casas, pousadas e escritórios.',
       },
       {
+        num: '05',
         title: 'Adega Climatizada',
         slug: 'conserto-de-adega',
-        desc: 'Adega esquentando, com vibração excessiva ou falha no sensor de temperatura.',
-        icon: Wine
+        desc: 'Adega esquentando, com vibração ou falha no sensor NTC de precisão.',
       },
       {
+        num: '06',
         title: 'Lava e Seca',
         slug: 'conserto-lava-e-seca-penha',
-        desc: 'Barulho no centrifugado, erro no painel ou máquina que não solta água.',
-        icon: Zap
+        desc: 'Barulho no centrifugado, erros no painel (OE/5E) ou máquina que não seca.',
       },
     ],
     comercio: [
       {
-        title: 'Cervejeira',
+        num: '01',
+        title: 'Cervejeira Comercial',
         slug: 'conserto-de-cervejeira',
-        desc: 'Cerveja que não gela ou congela demais? Ajuste de termostato, ventilador e gás.',
-        icon: Coffee
+        desc: 'Cerveja não atinge -4°C? Ajuste de termostato, micromotor ventilador e carga de gás.',
       },
       {
+        num: '02',
         title: 'Expositor & Balcão Refrigerado',
         slug: 'conserto-de-balcao-refrigerado',
-        desc: 'Balcão de açougue ou padaria embaçado ou sem manter a temperatura.',
-        icon: ShoppingBag
+        desc: 'Balcão de açougue ou padaria embaçado, com vazamento ou sem manter temperatura.',
       },
       {
+        num: '03',
         title: 'Máquina de Gelo',
         slug: 'maquina-de-gelo',
-        desc: 'Produção lenta ou máquina que travou e não solta os cubos de gelo.',
-        icon: Snowflake
+        desc: 'Produção lenta de cubos/escama ou máquina travada que não solta o gelo.',
       },
       {
+        num: '04',
         title: 'Máquina de Sorvete & Açaí',
         slug: 'maquina-de-sorvete',
-        desc: 'Higienização, carga de gás e manutenção em batedores e cilindros.',
-        icon: Flame
+        desc: 'Higienização, carga de gás R-404a e manutenção em batedores e cilindros.',
       },
       {
+        num: '05',
         title: 'Chopeira Comercial',
         slug: 'chopeiras',
-        desc: 'Chope saindo só com espuma, sem gelar ou com vazamento na torneira Naja.',
-        icon: Coffee
+        desc: 'Chope saindo com espuma, banco de gelo derretido ou vazamento na torre Naja.',
       },
     ],
     industria: [
       {
-        title: 'Câmara Fria',
+        num: '01',
+        title: 'Câmara Fria Resfriados & Congelados',
         slug: 'conserto-de-camara-fria',
-        desc: 'Manutenção e reparo para frigoríficos, pescados e centrais de distribuição.',
-        icon: Factory
+        desc: 'Manutenção em compressores e evaporadores para frigoríficos e pescados.',
       },
       {
-        title: 'PMOC & Manutenção Preventiva',
+        num: '02',
+        title: 'Contrato de Manutenção PMOC',
         slug: 'refrigeracao-comercial',
-        desc: 'Contrato mensal de manutenção preventiva para comércios e estabelecimentos.',
-        icon: FileText
+        desc: 'Plano mensal preventivo para comércios e estabelecimentos em conformidade com Anvisa.',
       },
       {
-        title: 'Contêiner Reefer',
+        num: '03',
+        title: 'Contêiner Reefer Estático',
         slug: 'manutencao-container-reefer',
-        desc: 'Assistência técnica em unidades de refrigeração estática e logística.',
-        icon: Container
+        desc: 'Assistência técnica em unidades frigoríficas de armazenagem estática e logística.',
       },
     ]
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-[#F7F8FA] border-b border-slate-200" id="servicos">
+    <section className="py-12 lg:py-16 bg-[#F4F1EA] border-b-2 border-[#12324A]" id="servicos">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Header */}
-        <div className="text-center sm:text-left space-y-2">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B3C5D]">
+        <div className="space-y-1">
+          <span className="font-mono text-xs text-[#D9682B] font-bold tracking-wider uppercase">
+            03 / ÍNDICE DE SERVIÇOS & EQUIPAMENTOS
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12324A]">
             O que a gente conserta
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal">
-            Atendimento residencial, comercial e industrial no mesmo dia em Navegantes, Penha e região.
+          <p className="font-sans text-[#12324A]/80 text-sm sm:text-base max-w-2xl">
+            Atendimento residencial, comercial e industrial em Navegantes, Penha e região.
           </p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex items-center gap-2 p-1.5 bg-slate-200/80 rounded-xl w-full sm:w-auto overflow-x-auto">
+        {/* Category Underlined Links (No Pill Badges) */}
+        <div className="flex flex-wrap items-center gap-6 border-b-2 border-[#12324A] pb-3">
           {categories.map((cat) => {
-            const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-colors whitespace-nowrap shrink-0 ${
+                className={`font-mono text-xs sm:text-sm font-bold transition-all py-1 border-b-2 ${
                   isActive
-                    ? 'bg-[#0B3C5D] text-white shadow-sm'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-300/60'
+                    ? 'border-[#D9682B] text-[#D9682B]'
+                    : 'border-transparent text-[#12324A]/70 hover:text-[#12324A]'
                 }`}
               >
-                <Icon className="w-4 h-4 shrink-0" />
-                <span>{cat.label}</span>
+                {cat.label}
               </button>
             );
           })}
         </div>
 
-        {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {servicesData[activeCategory].map((service, idx) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
-              >
-                <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#0B3C5D]/10 text-[#0B3C5D] flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
-                      {service.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-100">
-                  <a
-                    href={`/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0B3C5D] hover:text-[#e07b1a] transition-colors"
-                  >
-                    <span>Ver detalhes</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+        {/* Editorial Index List */}
+        <div className="border-t-2 border-[#12324A] divide-y-2 divide-[#12324A]/20 bg-white shadow-stamped">
+          {servicesData[activeCategory].map((service) => (
+            <a
+              key={service.slug}
+              href={`/${service.slug}`}
+              className="group flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 hover:bg-[#BFE3F2] transition-colors gap-3"
+            >
+              <div className="flex items-start sm:items-center gap-4 sm:gap-6">
+                <span className="font-mono font-bold text-sm text-[#D9682B] shrink-0 pt-0.5 sm:pt-0">
+                  {service.num} —
+                </span>
+                <div className="space-y-0.5">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-[#12324A] group-hover:text-[#12324A] font-display">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-sans text-[#12324A]/70 max-w-2xl">
+                    {service.desc}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#12324A] shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#12324A]/10">
+                <span>VER FICHA TÉCNICA</span>
+                <ArrowRight className="w-4 h-4 text-[#D9682B] group-hover:translate-x-1.5 transition-transform" />
+              </div>
+            </a>
+          ))}
         </div>
 
-        {/* Direct Callout Note */}
-        <div className="p-4 rounded-xl bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-700">
-          <span>Não encontrou seu equipamento na lista? A gente atende quase todo tipo de sistema de frio.</span>
+        {/* Note Box */}
+        <div className="p-4 bg-white border-2 border-[#12324A] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[#12324A]">
+          <span>Não encontrou seu equipamento na lista? Consulte nosso técnico direto pelo WhatsApp.</span>
           <a
             href={COMPANY_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-extrabold text-emerald-700 hover:underline shrink-0"
+            className="font-bold text-[#16a34a] hover:underline shrink-0"
           >
-            Perguntar no WhatsApp →
+            PERGUNTAR NO WHATSAPP →
           </a>
         </div>
 
