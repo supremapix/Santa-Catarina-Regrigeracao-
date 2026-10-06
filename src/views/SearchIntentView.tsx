@@ -28,6 +28,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
     "@type": "Service",
     "name": intent.title,
     "serviceType": intent.title,
+    "image": COMPANY_INFO.ogImage,
     "provider": {
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,

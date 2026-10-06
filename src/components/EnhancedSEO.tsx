@@ -163,6 +163,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       "@id": `${fullCanonical}#service`,
       "name": title,
       "description": description,
+      "image": COMPANY_INFO.ogImage,
       "provider": {
         "@id": `${COMPANY_INFO.subdomainUrl}/#organization`
       },
@@ -245,7 +246,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:secure_url" content={ogImage} />
-      <meta property="og:image:type" content="image/webp" />
+      <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="1731" />
       <meta property="og:image:height" content="909" />
       <meta property="og:image:alt" content="Santa Catarina Refrigeração — conserto de geladeira, freezer e refrigeração comercial em Navegantes, Penha e Itajaí" />

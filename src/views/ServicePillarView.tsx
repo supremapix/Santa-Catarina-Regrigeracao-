@@ -29,6 +29,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
     "@type": "Service",
     "name": service.title,
     "serviceType": service.title,
+    "image": COMPANY_INFO.ogImage,
     "provider": {
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
@@ -85,7 +86,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
         title={service.metaTitle}
         description={service.metaDescription}
         canonicalUrl={`/${service.slug}`}
-        ogImage={service.image}
+        ogImage={COMPANY_INFO.ogImage}
         schemas={[serviceSchema]}
         breadcrumbs={breadcrumbItems}
       />

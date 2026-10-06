@@ -131,18 +131,47 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
   };
 
   const handleNativeShare = async () => {
-    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
-      trackShareEvent('native');
-      try {
+    if (typeof navigator === 'undefined' || typeof navigator.share !== 'function') return;
+
+    trackShareEvent('native');
+    try {
+      let sharedWithFile = false;
+
+      // Check if navigator.canShare with files is supported
+      if (typeof navigator.canShare === 'function') {
+        try {
+          const response = await fetch(COMPANY_INFO.ogImage, { mode: 'cors' });
+          if (response.ok) {
+            const blob = await response.blob();
+            const file = new File([blob], 'refrigeracao-sc.jpg', { type: 'image/jpeg' });
+            const shareDataWithFile = {
+              title: currentTitle,
+              text: shareText,
+              url: currentUrl,
+              files: [file]
+            };
+            if (navigator.canShare(shareDataWithFile)) {
+              await navigator.share(shareDataWithFile);
+              sharedWithFile = true;
+              setIsShareOpen(false);
+            }
+          }
+        } catch {
+          // fetch or canShare failed, fallback below
+        }
+      }
+
+      // If not shared with file, fallback to text/url without breaking
+      if (!sharedWithFile) {
         await navigator.share({
           title: currentTitle,
           text: shareText,
           url: currentUrl
         });
         setIsShareOpen(false);
-      } catch {
-        // User cancelled or share failed
       }
+    } catch {
+      // User cancelled or share dismissed
     }
   };
 

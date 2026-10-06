@@ -24,6 +24,7 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
     "@type": "Service",
     "name": service.title,
     "serviceType": "Refrigeração Comercial e Industrial",
+    "image": COMPANY_INFO.ogImage,
     "provider": {
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
