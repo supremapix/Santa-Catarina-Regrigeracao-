@@ -266,6 +266,15 @@ export const Footer: React.FC = () => {
                   {COMPANY_INFO.phone}
                 </a>
               </p>
+              <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#D9682B] shrink-0" />
+                <a
+                  href={`mailto:${COMPANY_INFO.email}`}
+                  className="hover:underline font-mono text-xs text-white/90 hover:text-white"
+                >
+                  {COMPANY_INFO.email}
+                </a>
+              </p>
               
               <div className="p-3 rounded-[4px] bg-white/10 border border-[#BFE3F2]/20 space-y-1 text-[11px] font-mono">
                 <p className="font-bold text-[#BFE3F2] flex items-center gap-1">

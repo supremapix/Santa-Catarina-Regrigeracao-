@@ -76,6 +76,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       "logo": COMPANY_INFO.assets.logo,
       "image": COMPANY_INFO.ogImage,
       "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -128,7 +129,8 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
         ]
       },
       "sameAs": [
-        COMPANY_INFO.whatsappUrl
+        COMPANY_INFO.whatsappUrl,
+        `mailto:${COMPANY_INFO.email}`
       ]
     },
     // 2. WebSite Entity

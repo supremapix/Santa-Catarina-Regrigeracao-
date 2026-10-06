@@ -29,6 +29,7 @@ export const CommercialView: React.FC<CommercialViewProps> = ({ onOpenBookingMod
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
       "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,

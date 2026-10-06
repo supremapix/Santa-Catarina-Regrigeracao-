@@ -95,6 +95,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
     "name": `${COMPANY_INFO.name} - ${matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name}/${city.state}`,
     "image": COMPANY_INFO.ogImage,
     "telephone": COMPANY_INFO.phone,
+    "email": COMPANY_INFO.email,
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

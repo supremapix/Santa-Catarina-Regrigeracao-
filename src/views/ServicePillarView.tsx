@@ -34,6 +34,7 @@ export const ServicePillarView: React.FC<ServicePillarViewProps> = ({
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
       "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
       "address": COMPANY_INFO.address.full
     },
     "areaServed": "Penha, Balneário Piçarras, Itajaí, Balneário Camboriú, Navegantes e Litoral de SC",

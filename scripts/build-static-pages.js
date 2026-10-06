@@ -106,6 +106,7 @@ function renderFooterHtml() {
             <h4 class="font-black text-slate-900 uppercase text-xs tracking-wider mb-3">Empresa & Contato</h4>
             <p class="text-xs text-slate-600 mb-2">${COMPANY_INFO.address.full}</p>
             <p class="text-xs text-slate-800 font-bold mb-1">Telefone: <a href="tel:${COMPANY_INFO.phoneClean}" class="text-emerald-700">${COMPANY_INFO.phone}</a></p>
+            <p class="text-xs text-slate-700 font-semibold mb-2">E-mail: <a href="mailto:${COMPANY_INFO.email}" class="text-cyan-800 hover:underline">${COMPANY_INFO.email}</a></p>
             <p class="text-xs text-slate-600 mb-3">Garantia formal de 90 dias por escrito.</p>
             <a href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-emerald-600 text-white rounded-xl font-bold text-xs shadow">
               Atendimento no WhatsApp
@@ -137,6 +138,7 @@ function buildFullHtml({ title, description, canonicalUrl, type = 'website', sch
     "logo": COMPANY_INFO.assets.logo,
     "image": COMPANY_INFO.ogImage,
     "telephone": COMPANY_INFO.phone,
+    "email": COMPANY_INFO.email,
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

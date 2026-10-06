@@ -33,6 +33,7 @@ export const SearchIntentView: React.FC<SearchIntentViewProps> = ({
       "@type": "LocalBusiness",
       "name": COMPANY_INFO.name,
       "telephone": COMPANY_INFO.phone,
+      "email": COMPANY_INFO.email,
       "address": COMPANY_INFO.address.full
     },
     "areaServed": "Navegantes, Penha, Balneário Piçarras, Itajaí, Balneário Camboriú e Litoral de SC",

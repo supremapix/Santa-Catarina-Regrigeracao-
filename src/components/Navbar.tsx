@@ -119,6 +119,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 <ShieldCheck className="w-3.5 h-3.5" /> Garantia 90 Dias
               </span>
               <a
+                href={`mailto:${COMPANY_INFO.email}`}
+                className="text-[#BFE3F2] hover:underline hidden lg:inline"
+              >
+                {COMPANY_INFO.email}
+              </a>
+              <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
                 onClick={() => trackContactClick({
                   channel: 'phone',
@@ -639,6 +645,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   <Calendar className="w-4 h-4 text-[#BFE3F2]" />
                   <span>AGENDAR VISITA TÉCNICA</span>
                 </button>
+                <div className="text-center pt-1">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="font-mono text-xs text-[#12324A]/70 hover:text-[#12324A] hover:underline"
+                  >
+                    E-mail: {COMPANY_INFO.email}
+                  </a>
+                </div>
               </div>
 
             </motion.div>
