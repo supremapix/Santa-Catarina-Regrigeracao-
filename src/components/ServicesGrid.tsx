@@ -36,7 +36,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = () => {
         num: '01',
         title: 'Geladeira & Frost Free',
         slug: 'conserto-de-geladeira',
-        desc: 'Geladeira queimada, que vazou gás R-600a ou parou de gelar na parte de baixo.',
+        desc: 'Parou de gelar embaixo, vazou gás ou não liga mais.',
       },
       {
         num: '02',

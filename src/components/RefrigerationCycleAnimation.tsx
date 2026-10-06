@@ -225,16 +225,13 @@ export const RefrigerationCycleAnimation: React.FC = () => {
                   <circle
                     cx="60"
                     cy="200"
-                    r="24"
-                    fill={activeComponent.id === 'compressor' ? '#BFE3F2' : '#white'}
+                    r="26"
+                    fill="#12324A"
                     stroke="#12324A"
                     strokeWidth="2.5"
                   />
-                  <text x="60" y="196" textAnchor="middle" fontSize="9" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
-                    COMP
-                  </text>
-                  <text x="60" y="208" textAnchor="middle" fontSize="7" fontFamily="IBM Plex Mono" fill="#12324A">
-                    01
+                  <text x="60" y="203" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#FFFFFF">
+                    COMPRESSOR
                   </text>
                 </g>
 
@@ -244,20 +241,21 @@ export const RefrigerationCycleAnimation: React.FC = () => {
                   onClick={() => setActiveComponent(COMPONENTS.condensador)}
                 >
                   <rect
-                    x="160"
-                    y="24"
-                    width="80"
-                    height="32"
-                    fill={activeComponent.id === 'condensador' ? '#BFE3F2' : '#white'}
-                    stroke="#12324A"
+                    x="150"
+                    y="22"
+                    width="100"
+                    height="36"
+                    fill="#F6D3BE"
+                    stroke="#D9682B"
                     strokeWidth="2.5"
-                    rx="2"
+                    rx="3"
                   />
                   {/* Coils */}
-                  <line x1="180" y1="24" x2="180" y2="56" stroke="#D9682B" strokeWidth="1.5" />
-                  <line x1="200" y1="24" x2="200" y2="56" stroke="#D9682B" strokeWidth="1.5" />
-                  <line x1="220" y1="24" x2="220" y2="56" stroke="#D9682B" strokeWidth="1.5" />
-                  <text x="200" y="44" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
+                  <line x1="170" y1="22" x2="170" y2="58" stroke="#D9682B" strokeWidth="1.5" />
+                  <line x1="190" y1="22" x2="190" y2="58" stroke="#D9682B" strokeWidth="1.5" />
+                  <line x1="210" y1="22" x2="210" y2="58" stroke="#D9682B" strokeWidth="1.5" />
+                  <line x1="230" y1="22" x2="230" y2="58" stroke="#D9682B" strokeWidth="1.5" />
+                  <text x="200" y="44" textAnchor="middle" fontSize="9" fontWeight="extrabold" fontFamily="IBM Plex Mono" fill="#12324A">
                     CONDENSADOR
                   </text>
                 </g>
@@ -268,13 +266,13 @@ export const RefrigerationCycleAnimation: React.FC = () => {
                   onClick={() => setActiveComponent(COMPONENTS.valvula)}
                 >
                   <polygon
-                    points="328,30 352,40 328,50 352,30 328,40 352,50"
+                    points="328,28 352,40 328,52 352,28 328,40 352,52"
                     fill={activeComponent.id === 'valvula' ? '#BFE3F2' : '#D9682B'}
                     stroke="#12324A"
                     strokeWidth="2"
                   />
-                  <text x="340" y="20" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
-                    CAPILAR
+                  <text x="340" y="18" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
+                    EXPANSÃO
                   </text>
                 </g>
 
@@ -284,20 +282,21 @@ export const RefrigerationCycleAnimation: React.FC = () => {
                   onClick={() => setActiveComponent(COMPONENTS.evaporador)}
                 >
                   <rect
-                    x="160"
-                    y="184"
-                    width="80"
-                    height="32"
-                    fill={activeComponent.id === 'evaporador' ? '#BFE3F2' : '#white'}
+                    x="150"
+                    y="182"
+                    width="100"
+                    height="36"
+                    fill={activeComponent.id === 'evaporador' ? '#BFE3F2' : '#FFFFFF'}
                     stroke="#12324A"
                     strokeWidth="2.5"
-                    rx="2"
+                    rx="3"
                   />
                   {/* Cold Coils */}
-                  <line x1="180" y1="184" x2="180" y2="216" stroke="#0284c7" strokeWidth="1.5" />
-                  <line x1="200" y1="184" x2="200" y2="216" stroke="#0284c7" strokeWidth="1.5" />
-                  <line x1="220" y1="184" x2="220" y2="216" stroke="#0284c7" strokeWidth="1.5" />
-                  <text x="200" y="204" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
+                  <line x1="170" y1="182" x2="170" y2="218" stroke="#0284c7" strokeWidth="1.5" />
+                  <line x1="190" y1="182" x2="190" y2="218" stroke="#0284c7" strokeWidth="1.5" />
+                  <line x1="210" y1="182" x2="210" y2="218" stroke="#0284c7" strokeWidth="1.5" />
+                  <line x1="230" y1="182" x2="230" y2="218" stroke="#0284c7" strokeWidth="1.5" />
+                  <text x="200" y="204" textAnchor="middle" fontSize="9" fontWeight="extrabold" fontFamily="IBM Plex Mono" fill="#12324A">
                     EVAPORADOR
                   </text>
                 </g>
@@ -401,21 +400,25 @@ export const RefrigerationCycleAnimation: React.FC = () => {
               className="bg-white border-2 border-[#12324A] p-4 shadow-stamped hover:bg-[#BFE3F2]/20 transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="h-28 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
-                  <svg viewBox="0 0 100 100" className="w-20 h-20" role="img" aria-label="Animação técnica de geladeira com fluxo de vapor frio">
-                    <rect x="25" y="15" width="50" height="70" fill="none" stroke="#12324A" strokeWidth="2" rx="2" />
-                    <line x1="25" y1="42" x2="75" y2="42" stroke="#12324A" strokeWidth="1.5" />
-                    {/* Door slightly open effect */}
-                    <path d="M 75 15 L 85 10 L 85 80 L 75 85" fill="none" stroke="#D9682B" strokeWidth="1.5" />
-                    {/* Cold vapor lines */}
+                <div className="h-36 sm:h-40 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
+                  <svg viewBox="0 0 100 100" className="w-28 h-28 sm:w-32 sm:h-32" role="img" aria-label="Animação técnica de geladeira com porta abrindo e neve caindo">
+                    {/* Refrigerator Body */}
+                    <rect x="20" y="10" width="60" height="80" fill="none" stroke="#12324A" strokeWidth="2.5" rx="3" />
+                    <line x1="20" y1="40" x2="80" y2="40" stroke="#12324A" strokeWidth="2" />
+                    {/* Open Door Swinging */}
+                    <path d="M 80 10 L 96 4 L 96 86 L 80 90" fill="none" stroke="#D9682B" strokeWidth="2" />
+                    {/* Falling Snowflakes Animation */}
                     {!isReducedMotion && (
-                      <g className="animate-pulse opacity-80">
-                        <path d="M 80 30 Q 85 35 80 40" fill="none" stroke="#0284c7" strokeWidth="1.5" />
-                        <path d="M 82 50 Q 87 55 82 60" fill="none" stroke="#0284c7" strokeWidth="1.5" />
+                      <g className="animate-pulse">
+                        <text x="32" y="30" fontSize="12" fill="#0284c7">❄</text>
+                        <text x="52" y="60" fontSize="14" fill="#0284c7">❄</text>
+                        <text x="38" y="75" fontSize="10" fill="#0284c7">❄</text>
+                        {/* Cold vapor waves */}
+                        <path d="M 75 25 Q 85 30 78 38 Q 85 45 76 52" fill="none" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="2 1" />
                       </g>
                     )}
                   </svg>
-                  <span className="absolute top-1 right-1 font-mono text-[9px] bg-[#BFE3F2] text-[#12324A] px-1 font-bold">
+                  <span className="absolute top-1.5 right-1.5 font-mono text-[10px] bg-[#BFE3F2] text-[#12324A] px-1.5 py-0.5 border border-[#12324A] font-bold">
                     −18 °C
                   </span>
                 </div>
@@ -443,17 +446,27 @@ export const RefrigerationCycleAnimation: React.FC = () => {
               className="bg-white border-2 border-[#12324A] p-4 shadow-stamped hover:bg-[#BFE3F2]/20 transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="h-28 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
-                  <svg viewBox="0 0 100 100" className="w-20 h-20" role="img" aria-label="Animação técnica de lavadora com tambor em rotação">
-                    <rect x="20" y="15" width="60" height="70" fill="none" stroke="#12324A" strokeWidth="2" rx="3" />
-                    <circle cx="50" cy="52" r="22" fill="none" stroke="#12324A" strokeWidth="2" />
-                    {/* Inner rotating drum pattern */}
+                <div className="h-36 sm:h-40 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
+                  <svg viewBox="0 0 100 100" className="w-28 h-28 sm:w-32 sm:h-32" role="img" aria-label="Animação técnica de lavadora com tambor girando e bolhas subindo">
+                    <rect x="15" y="10" width="70" height="80" fill="none" stroke="#12324A" strokeWidth="2.5" rx="4" />
+                    <circle cx="50" cy="52" r="26" fill="none" stroke="#12324A" strokeWidth="2.5" />
+                    {/* Rotating Inner Drum */}
                     <g className={!isReducedMotion ? "animate-spin origin-center" : ""} style={{ transformOrigin: '50px 52px' }}>
-                      <line x1="50" y1="32" x2="50" y2="72" stroke="#D9682B" strokeWidth="1.5" />
-                      <line x1="30" y1="52" x2="70" y2="52" stroke="#D9682B" strokeWidth="1.5" />
+                      <line x1="50" y1="28" x2="50" y2="76" stroke="#D9682B" strokeWidth="2" />
+                      <line x1="26" y1="52" x2="74" y2="52" stroke="#D9682B" strokeWidth="2" />
+                      <circle cx="36" cy="38" r="2" fill="#D9682B" />
+                      <circle cx="64" cy="66" r="2" fill="#D9682B" />
                     </g>
+                    {/* Rising Bubbles */}
+                    {!isReducedMotion && (
+                      <g className="animate-pulse">
+                        <circle cx="30" cy="78" r="3" fill="none" stroke="#0284c7" strokeWidth="1" />
+                        <circle cx="70" cy="72" r="2.5" fill="none" stroke="#0284c7" strokeWidth="1" />
+                        <circle cx="45" cy="84" r="3.5" fill="none" stroke="#0284c7" strokeWidth="1" />
+                      </g>
+                    )}
                   </svg>
-                  <span className="absolute top-1 right-1 font-mono text-[9px] bg-[#12324A] text-white px-1 font-bold">
+                  <span className="absolute top-1.5 right-1.5 font-mono text-[10px] bg-[#12324A] text-white px-1.5 py-0.5 font-bold">
                     INVERTER
                   </span>
                 </div>
@@ -481,17 +494,26 @@ export const RefrigerationCycleAnimation: React.FC = () => {
               className="bg-white border-2 border-[#12324A] p-4 shadow-stamped hover:bg-[#BFE3F2]/20 transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="h-28 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
-                  <svg viewBox="0 0 100 100" className="w-20 h-20" role="img" aria-label="Animação técnica de cervejeira com termostato digital">
-                    <rect x="25" y="15" width="50" height="70" fill="none" stroke="#12324A" strokeWidth="2" />
-                    <rect x="35" y="25" width="12" height="35" fill="none" stroke="#12324A" strokeWidth="1" />
-                    <rect x="53" y="25" width="12" height="35" fill="none" stroke="#12324A" strokeWidth="1" />
-                    {/* Condensation drips */}
+                <div className="h-36 sm:h-40 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
+                  <svg viewBox="0 0 100 100" className="w-28 h-28 sm:w-32 sm:h-32" role="img" aria-label="Animação técnica de cervejeira com gotas escorrendo nas garrafas">
+                    <rect x="20" y="10" width="60" height="80" fill="none" stroke="#12324A" strokeWidth="2.5" />
+                    {/* Bottle 1 */}
+                    <rect x="30" y="24" width="16" height="50" fill="none" stroke="#12324A" strokeWidth="1.5" rx="2" />
+                    <line x1="38" y1="24" x2="38" y2="18" stroke="#12324A" strokeWidth="2" />
+                    {/* Bottle 2 */}
+                    <rect x="54" y="24" width="16" height="50" fill="none" stroke="#12324A" strokeWidth="1.5" rx="2" />
+                    <line x1="62" y1="24" x2="62" y2="18" stroke="#12324A" strokeWidth="2" />
+                    {/* Condensation Drips Dripping Down */}
                     {!isReducedMotion && (
-                      <circle cx="41" cy="40" r="1" fill="#0284c7" className="animate-ping" />
+                      <g>
+                        <circle cx="38" cy="35" r="1.5" fill="#0284c7" className="animate-ping" />
+                        <circle cx="38" cy="55" r="2" fill="#0284c7" />
+                        <circle cx="62" cy="42" r="1.5" fill="#0284c7" className="animate-ping" />
+                        <circle cx="62" cy="62" r="2" fill="#0284c7" />
+                      </g>
                     )}
                   </svg>
-                  <span className="absolute top-1 right-1 font-mono text-[9px] bg-[#D9682B] text-white px-1 font-bold">
+                  <span className="absolute top-1.5 right-1.5 font-mono text-[10px] bg-[#D9682B] text-white px-1.5 py-0.5 font-bold">
                     −4.0 °C
                   </span>
                 </div>
@@ -519,17 +541,22 @@ export const RefrigerationCycleAnimation: React.FC = () => {
               className="bg-white border-2 border-[#12324A] p-4 shadow-stamped hover:bg-[#BFE3F2]/20 transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="h-28 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
-                  <svg viewBox="0 0 100 100" className="w-20 h-20" role="img" aria-label="Animação técnica de câmara fria industrial com cortina de PVC">
-                    <rect x="20" y="15" width="60" height="70" fill="none" stroke="#12324A" strokeWidth="2.5" />
-                    {/* Heavy Door Handle */}
-                    <rect x="25" y="45" width="5" height="15" fill="#12324A" />
-                    {/* PVC Strips */}
-                    <line x1="38" y1="15" x2="38" y2="85" stroke="#BFE3F2" strokeWidth="2" />
-                    <line x1="48" y1="15" x2="48" y2="85" stroke="#BFE3F2" strokeWidth="2" />
-                    <line x1="58" y1="15" x2="58" y2="85" stroke="#BFE3F2" strokeWidth="2" />
+                <div className="h-36 sm:h-40 bg-[#F4F1EA] border border-[#12324A]/30 p-2 flex items-center justify-center relative overflow-hidden">
+                  <svg viewBox="0 0 100 100" className="w-28 h-28 sm:w-32 sm:h-32" role="img" aria-label="Animação técnica de câmara fria com cortina de PVC balançando">
+                    <rect x="15" y="10" width="70" height="80" fill="none" stroke="#12324A" strokeWidth="2.5" />
+                    {/* Swinging PVC Strips */}
+                    <g className={!isReducedMotion ? "animate-pulse" : ""}>
+                      <line x1="30" y1="10" x2="28" y2="90" stroke="#0284c7" strokeWidth="3" opacity="0.7" />
+                      <line x1="42" y1="10" x2="44" y2="90" stroke="#0284c7" strokeWidth="3" opacity="0.8" />
+                      <line x1="54" y1="10" x2="52" y2="90" stroke="#0284c7" strokeWidth="3" opacity="0.7" />
+                      <line x1="66" y1="10" x2="68" y2="90" stroke="#0284c7" strokeWidth="3" opacity="0.8" />
+                    </g>
+                    {/* Cold breeze arrows */}
+                    {!isReducedMotion && (
+                      <path d="M 20 50 Q 50 40 80 50" fill="none" stroke="#D9682B" strokeWidth="1.5" strokeDasharray="3 2" />
+                    )}
                   </svg>
-                  <span className="absolute top-1 right-1 font-mono text-[9px] bg-[#0284c7] text-white px-1 font-bold">
+                  <span className="absolute top-1.5 right-1.5 font-mono text-[10px] bg-[#0284c7] text-white px-1.5 py-0.5 font-bold">
                     PMOC / B2B
                   </span>
                 </div>

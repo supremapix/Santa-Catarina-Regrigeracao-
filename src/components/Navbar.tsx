@@ -97,26 +97,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm transition-all duration-300 ${
-          isScrolled ? 'py-1 shadow-slate-200/50' : 'py-2'
+        className={`sticky top-0 z-40 bg-[#F4F1EA] border-b-[1.5px] border-[#12324A] text-[#12324A] shadow-xs transition-all duration-300 ${
+          isScrolled ? 'py-1' : 'py-1.5'
         }`}
       >
         {/* Top Info Bar */}
-        <div className="bg-[#0B3C5D] text-xs py-2 px-4 text-white hidden sm:block">
+        <div className="bg-[#12324A] text-[11px] font-mono py-1.5 px-4 text-white hidden sm:block border-b border-[#12324A]/30">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-white">
-            <div className="flex items-center space-x-6 font-medium">
-              <span className="flex items-center gap-1.5 text-cyan-200">
-                <MapPin className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
+            <div className="flex items-center space-x-6">
+              <span className="flex items-center gap-1.5 text-[#BFE3F2]">
+                <MapPin className="w-3.5 h-3.5 text-[#BFE3F2] shrink-0" />
                 <span>Navegantes, Penha, Itajaí e região</span>
               </span>
-              <span className="flex items-center gap-1.5 text-slate-100">
-                <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                <span>Atendimento de Segunda a Sábado das 08h às 18h</span>
+              <span className="flex items-center gap-1.5 text-slate-200">
+                <Clock className="w-3.5 h-3.5 text-[#D9682B] shrink-0" />
+                <span>Segunda a Sábado: 08h às 18h</span>
               </span>
             </div>
             <div className="flex items-center space-x-5 font-bold">
-              <span className="flex items-center gap-1.5 text-emerald-300">
-                <ShieldCheck className="w-3.5 h-3.5" /> Garantia de 90 Dias
+              <span className="flex items-center gap-1.5 text-emerald-400">
+                <ShieldCheck className="w-3.5 h-3.5" /> Garantia 90 Dias
               </span>
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   location: 'navbar_topbar_phone',
                   label: `Call ${COMPANY_INFO.phone}`
                 })}
-                className="text-amber-300 hover:underline text-xs"
+                className="text-[#D9682B] hover:underline"
               >
                 Ligar: {COMPANY_INFO.phone}
               </a>
@@ -135,19 +135,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
         {/* Main Navbar Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             
             {/* Animated Frost Logo */}
             <AnimatedFrostLogo />
 
             {/* Desktop Nav Links */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm xl:text-base font-bold">
+            <nav className="hidden lg:flex items-center space-x-5 font-mono text-xs font-bold uppercase tracking-wider text-[#12324A]">
               <Link
                 to="/"
-                className={`transition-colors py-2 border-b-2 ${
+                className={`transition-colors py-1 ${
                   isCurrentRoute('/') && location.pathname === '/'
-                    ? 'border-cyan-600 text-cyan-700 font-black'
-                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                    ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                    : 'text-[#12324A] hover:text-[#D9682B]'
                 }`}
               >
                 Início
@@ -158,15 +158,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 <button
                   onClick={() => setIsDesktopServicesOpen(!isDesktopServicesOpen)}
                   onMouseEnter={() => setIsDesktopServicesOpen(true)}
-                  className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                  className={`flex items-center gap-1 py-1 transition-colors ${
                     isCurrentRoute('/conserto-') || isCurrentRoute('/refrigeracao-comercial')
-                      ? 'border-cyan-600 text-cyan-700 font-black'
-                      : 'border-transparent text-slate-800 hover:text-cyan-600'
+                      ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                      : 'text-[#12324A] hover:text-[#D9682B]'
                   }`}
                 >
-                  <Wrench className="w-4 h-4 text-cyan-600 shrink-0" />
                   <span>Serviços</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopServicesOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isDesktopServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -177,62 +176,62 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.15 }}
                       onMouseLeave={() => setIsDesktopServicesOpen(false)}
-                      className="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 mt-1 space-y-1 z-50"
+                      className="absolute top-full left-0 w-64 bg-[#F4F1EA] border-2 border-[#12324A] shadow-stamped p-3 mt-1 space-y-1 z-50 rounded-[4px]"
                     >
                       <Link
                         to="/conserto-de-geladeira"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                        <span className="w-1.5 h-1.5 bg-[#12324A]" />
                         <span>Geladeiras Frost Free</span>
                       </Link>
                       <Link
                         to="/conserto-de-side-by-side"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-indigo-500" />
+                        <span className="w-1.5 h-1.5 bg-[#12324A]" />
                         <span>Side by Side & French Door</span>
                       </Link>
                       <Link
                         to="/conserto-lava-e-seca-penha"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <span className="w-1.5 h-1.5 bg-[#12324A]" />
                         <span>Lava e Seca</span>
                       </Link>
                       <Link
                         to="/refrigeracao-comercial"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-amber-500" />
-                        <span>Refrigeração Comercial & B2B</span>
+                        <span className="w-1.5 h-1.5 bg-[#D9682B]" />
+                        <span>Refrigeração Comercial & PMOC</span>
                       </Link>
                       <Link
                         to="/conserto-de-balcao-refrigerado"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-blue-500" />
+                        <span className="w-1.5 h-1.5 bg-[#12324A]" />
                         <span>Câmaras Frias & Balcões</span>
                       </Link>
                       <Link
                         to="/conserto-de-cervejeira"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-amber-600" />
+                        <span className="w-1.5 h-1.5 bg-[#D9682B]" />
                         <span>Conserto de Cervejeiras</span>
                       </Link>
                       <Link
                         to="/conserto-de-freezer"
                         onClick={() => setIsDesktopServicesOpen(false)}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                        className="flex items-center gap-2 p-2 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                       >
-                        <span className="w-2 h-2 rounded-full bg-purple-500" />
+                        <span className="w-1.5 h-1.5 bg-[#12324A]" />
                         <span>Freezers Verticais & Horizontais</span>
                       </Link>
                     </motion.div>
@@ -243,13 +242,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               {/* Preços Link */}
               <Link
                 to="/precos"
-                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                className={`transition-colors py-1 ${
                   isCurrentRoute('/precos')
-                    ? 'border-cyan-600 text-cyan-700 font-black'
-                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                    ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                    : 'text-[#12324A] hover:text-[#D9682B]'
                 }`}
               >
-                <DollarSign className="w-4 h-4 text-cyan-600 shrink-0" />
                 <span>Preços</span>
               </Link>
 
@@ -258,14 +256,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 <button
                   onClick={() => setIsDesktopBrandsOpen(!isDesktopBrandsOpen)}
                   onMouseEnter={() => setIsDesktopBrandsOpen(true)}
-                  className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                  className={`flex items-center gap-1 py-1 transition-colors ${
                     isCurrentRoute('/assistencia-tecnica-geladeira-')
-                      ? 'border-cyan-600 text-cyan-700 font-black'
-                      : 'border-transparent text-slate-800 hover:text-cyan-600'
+                      ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                      : 'text-[#12324A] hover:text-[#D9682B]'
                   }`}
                 >
                   <span>Marcas</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isDesktopBrandsOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isDesktopBrandsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -276,16 +274,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.15 }}
                       onMouseLeave={() => setIsDesktopBrandsOpen(false)}
-                      className="absolute top-full left-0 w-60 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 mt-1 space-y-1 z-50"
+                      className="absolute top-full left-0 w-56 bg-[#F4F1EA] border-2 border-[#12324A] shadow-stamped p-3 mt-1 space-y-1 z-50 rounded-[4px]"
                     >
                       {brandsList.map((brand) => (
                         <Link
                           key={brand.slug}
                           to={`/assistencia-tecnica-geladeira-${brand.slug}`}
                           onClick={() => setIsDesktopBrandsOpen(false)}
-                          className="flex items-center gap-2 p-2 rounded-xl hover:bg-cyan-50 text-slate-800 hover:text-cyan-800 font-bold text-xs sm:text-sm transition-colors"
+                          className="flex items-center gap-2 p-1.5 hover:bg-[#BFE3F2]/40 text-[#12324A] font-bold text-xs transition-colors"
                         >
-                          <ChevronRight className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                          <ChevronRight className="w-3.5 h-3.5 text-[#D9682B] shrink-0" />
                           <span>Assistência {brand.name}</span>
                         </Link>
                       ))}
@@ -297,32 +295,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               {/* Regiões Hub Link */}
               <Link
                 to="/regioes-atendidas"
-                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                className={`transition-colors py-1 ${
                   isCurrentRoute('/regioes-atendidas')
-                    ? 'border-cyan-600 text-cyan-700 font-black'
-                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                    ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                    : 'text-[#12324A] hover:text-[#D9682B]'
                 }`}
               >
-                <MapPin className="w-4 h-4 text-cyan-600 shrink-0" />
                 <span>Regiões</span>
               </Link>
 
               {/* Blog Link */}
               <Link
                 to="/blog"
-                className={`flex items-center gap-1 border-b-2 py-2 transition-colors ${
+                className={`transition-colors py-1 ${
                   isCurrentRoute('/blog')
-                    ? 'border-cyan-600 text-cyan-700 font-black'
-                    : 'border-transparent text-slate-800 hover:text-cyan-600'
+                    ? 'text-[#D9682B] border-b-2 border-[#D9682B] font-black'
+                    : 'text-[#12324A] hover:text-[#D9682B]'
                 }`}
               >
-                <BookOpen className="w-4 h-4 text-cyan-600 shrink-0" />
                 <span>Blog</span>
               </Link>
             </nav>
 
             {/* Desktop Quick Contact Actions */}
-            <div className="hidden sm:flex items-center space-x-2">
+            <div className="hidden sm:flex items-center space-x-2 font-mono">
               <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
                 onClick={() => trackContactClick({
@@ -330,10 +326,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   location: 'navbar_desktop_phone_btn',
                   label: `Call ${COMPANY_INFO.phone}`
                 })}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#F28C28] hover:bg-[#e07b1a] text-white font-bold text-xs shadow-xs transition-colors min-h-[40px]"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-[4px] bg-[#D9682B] hover:bg-[#c45a24] text-white font-bold text-xs border-2 border-[#12324A] shadow-stamped transition-all hover:translate-x-[2px] hover:translate-y-[2px]"
               >
                 <Phone className="w-3.5 h-3.5 shrink-0" />
-                <span>{COMPANY_INFO.phone}</span>
+                <span>LIGAR: {COMPANY_INFO.phone}</span>
               </a>
 
               <a
@@ -345,11 +341,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   location: 'navbar_desktop_whatsapp_btn',
                   label: 'Navbar WhatsApp Direct'
                 })}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-colors min-h-[40px]"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-[4px] bg-[#16a34a] hover:bg-[#15803d] text-white font-bold text-xs border-2 border-[#12324A] shadow-stamped transition-all hover:translate-x-[2px] hover:translate-y-[2px]"
                 aria-label="Conversar pelo WhatsApp"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
-                <span>WhatsApp</span>
+                <span>WHATSAPP</span>
               </a>
             </div>
 

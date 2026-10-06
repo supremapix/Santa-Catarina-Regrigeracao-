@@ -33,49 +33,50 @@ export const SearchIntentsSection: React.FC<SearchIntentsSectionProps> = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-[#F7F8FA] border-b border-slate-200" id="problemas-comuns">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section className="py-12 sm:py-16 bg-[#F4F1EA] border-b-2 border-[#12324A] bg-paper-grid" id="problemas-comuns">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-left">
         
         {/* Header */}
-        <div className="text-center sm:text-left space-y-2">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B3C5D]">
+        <div className="space-y-1 border-b-2 border-[#12324A] pb-4">
+          <span className="font-mono text-xs text-[#D9682B] font-bold tracking-wider uppercase">
+            04 / Defeitos comuns
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#12324A] font-display">
             Sua geladeira está assim?
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-normal">
-            Veja os problemas mais frequentes que a gente resolve no dia a dia.
+          <p className="text-[#12324A]/80 text-sm sm:text-base font-sans">
+            Veja os sintomas mais frequentes que a gente resolve no dia a dia.
           </p>
         </div>
 
-        {/* Accordion / FAQ List */}
-        <div className="space-y-3">
+        {/* Editorial Accordion List */}
+        <div className="divide-y border-t border-b border-[#12324A]/30 divide-[#12324A]/20">
           {problems.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div
-                key={idx}
-                className="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all shadow-xs"
-              >
+              <div key={idx} className="transition-colors">
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-sm sm:text-base hover:text-[#0B3C5D]"
+                  className="w-full py-4 text-left flex items-center justify-between gap-4 font-bold text-[#12324A] text-sm sm:text-base hover:text-[#D9682B] transition-colors"
                 >
-                  <span>{item.question}</span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-[#0B3C5D] shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
-                  )}
+                  <span className="flex items-start gap-3">
+                    <span className="font-mono text-xs text-[#D9682B] shrink-0 mt-0.5">[{idx + 1}]</span>
+                    <span>{item.question}</span>
+                  </span>
+                  <span className="font-mono text-lg font-bold text-[#12324A] px-2 py-0.5 bg-white border border-[#12324A] shrink-0">
+                    {isOpen ? '−' : '+'}
+                  </span>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3 bg-slate-50/50">
-                    <p>{item.answer}</p>
-                    <div className="pt-3">
+                  <div className="pb-5 pl-7 pr-4 text-[#12324A]/80 text-xs sm:text-sm leading-relaxed space-y-3 font-sans">
+                    <p className="bg-white p-3 border border-[#12324A]/20">{item.answer}</p>
+                    <div>
                       <a
                         href={`${COMPANY_INFO.whatsappUrl}%20-%20Estou%20com%20o%20problema:%20${encodeURIComponent(item.question)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-700 hover:underline"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-[#16a34a] hover:underline"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
                         <span>Falar com o técnico no WhatsApp sobre este defeito →</span>

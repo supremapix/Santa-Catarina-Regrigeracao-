@@ -95,30 +95,31 @@ export const Hero: React.FC<HeroProps> = () => {
           {/* Technical Blueprint SVG (Right 5 Columns) */}
           <div className="lg:col-span-5 relative">
             
-            {/* Circular Rubber Stamp Badge (1 time only, -8deg rotated) */}
-            <div className="absolute -top-6 -right-2 z-20 transform -rotate-12 pointer-events-none select-none">
-              <svg width="110" height="110" viewBox="0 0 120 120" className="w-24 sm:w-28 h-24 sm:h-28">
-                <circle cx="60" cy="60" r="54" fill="none" stroke="#D9682B" strokeWidth="2.5" strokeDasharray="4 2" />
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#D9682B" strokeWidth="1.5" />
-                
-                <path id="stampPath" d="M 22,60 A 38,38 0 1,1 98,60 A 38,38 0 1,1 22,60" fill="none" />
-                <text fontSize="8.5" fontFamily="IBM Plex Mono" fontWeight="bold" fill="#D9682B" letterSpacing="1.2">
-                  <textPath href="#stampPath">
-                    GARANTIA 90 DIAS · COM NOTA · SC REFRIGERAÇÃO ·
-                  </textPath>
-                </text>
-
-                <text x="60" y="58" textAnchor="middle" fontSize="13" fontWeight="extrabold" fontFamily="Bricolage Grotesque" fill="#D9682B">
-                  90 DIAS
-                </text>
-                <text x="60" y="70" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
-                  COM NOTA
-                </text>
-              </svg>
-            </div>
-
             {/* Technical Refrigerator Diagram Frame */}
             <div className="bg-white border-2 border-[#12324A] p-5 shadow-stamped relative">
+              
+              {/* Circular Rubber Stamp Badge (Moved to bottom-left sticking out, ~120px) */}
+              <div className="absolute -bottom-6 -left-6 z-20 transform -rotate-8 pointer-events-none select-none">
+                <svg width="120" height="120" viewBox="0 0 120 120" className="w-28 sm:w-32 h-28 sm:h-32">
+                  <circle cx="60" cy="60" r="56" fill="#F4F1EA" stroke="#D9682B" strokeWidth="2" strokeDasharray="5 3" />
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#D9682B" strokeWidth="1.5" />
+                  
+                  <path id="stampPath" d="M 18,60 A 42,42 0 1,1 102,60 A 42,42 0 1,1 18,60" fill="none" />
+                  <text fontSize="7.5" fontFamily="IBM Plex Mono" fontWeight="900" fill="#D9682B" letterSpacing="1.5">
+                    <textPath href="#stampPath">
+                      GARANTIA · 90 DIAS · COM NOTA ·
+                    </textPath>
+                  </text>
+
+                  <text x="60" y="58" textAnchor="middle" fontSize="28" fontWeight="900" fontFamily="Bricolage Grotesque" fill="#D9682B">
+                    90
+                  </text>
+                  <text x="60" y="73" textAnchor="middle" fontSize="8" fontWeight="bold" fontFamily="IBM Plex Mono" fill="#12324A">
+                    DIAS GARANTIA
+                  </text>
+                </svg>
+              </div>
+
               <div className="flex items-center justify-between border-b border-[#12324A]/20 pb-2 mb-3 font-mono text-[10px] text-[#12324A]">
                 <span className="font-bold">DESENHO TÉCNICO // FIG. 01</span>
                 <span>VISTA DE CORTE ESQUEMÁTICO</span>
@@ -178,7 +179,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
               <div className="mt-2 pt-2 border-t border-[#12324A]/20 flex items-center justify-between text-[10px] font-mono text-[#12324A]">
                 <span>SANTA CATARINA REFRIGERAÇÃO</span>
-                <span className="font-bold text-[#D9682B]">100% IN LOCO</span>
+                <span className="font-bold text-[#D9682B]">CONSERTO NO LOCAL</span>
               </div>
             </div>
 
