@@ -236,7 +236,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
   return (
     <>
       {/* CANTO INFERIOR ESQUERDO: Botão Compartilhar e Popover */}
-      <div className="fixed bottom-4 left-4 z-40">
+      <div className={`fixed bottom-4 left-4 ${isShareOpen ? 'z-50' : 'z-40'}`}>
         <button
           ref={shareBtnRef}
           type="button"
