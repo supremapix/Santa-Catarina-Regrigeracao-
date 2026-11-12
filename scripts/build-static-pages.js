@@ -116,9 +116,10 @@ function renderFooterHtml() {
         <div class="pt-6 border-t border-slate-300 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
           <p>© ${new Date().getFullYear()} ${COMPANY_INFO.name}. Todos os direitos reservados. Navegantes – SC. <span class="mx-2 text-slate-400">·</span> <a href="/mapa-do-site" class="text-[11px] text-slate-500 hover:text-slate-700">Mapa do site</a></p>
         </div>
-        <div class="pt-4 border-t border-slate-200 flex justify-center items-center text-xs text-slate-600">
-          <span>Desenvolvido com carinho por <a href="https://supremasite.com.br" target="_blank" rel="noopener noreferrer" class="text-yellow-600 hover:text-yellow-700 font-bold underline">Suprema Sites Express / Suprema Mídia</a></span>
-        </div>
+        <section class="suprema-credit" aria-label="Créditos do site">
+          <p>Desenvolvido com <span class="suprema-heart" aria-label="carinho">♥</span> por</p>
+          <a href="https://supremasite.com.br" target="_blank" rel="noopener noreferrer"><img src="/images/brand/suprema.png" alt="Suprema Mídia" width="649" height="185" loading="lazy"><strong>Suprema Sites Express</strong><span>Conheça nosso site →</span></a>
+        </section>
       </div>
     </footer>
   `;
@@ -203,7 +204,7 @@ function buildFullHtml({ title, description, canonicalUrl, type = 'website', sch
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${ogImage}" />
 ${jsonLdScripts}
-  `;
+  `.replace(/<(meta|link|script)\b/g, '<$1 data-rh="true"');
 
   let pageContent = baseHtml;
   pageContent = pageContent.replace(/<title>.*?<\/title>/gi, '');
@@ -216,7 +217,8 @@ ${jsonLdScripts}
   const fullAppBody = `
     <div id="root">
       ${renderHeaderHtml()}
-      <main>
+      <a class="skip-content" href="#conteudo">Pular para o conteúdo</a>
+      <main id="conteudo" tabindex="-1">
         ${bodyHtml}
       </main>
       ${renderFooterHtml()}
@@ -746,6 +748,11 @@ for (const post of BLOG_POSTS) {
   addSitemapUrl(canonicalUrl, '0.8', 'monthly');
 }
 
+
+function localContactHtml(locality) {
+  return `<section class="local-contact" aria-label="Atendimento em ${escapeHtml(locality)}"><div class="local-contact-visual"><img src="${COMPANY_INFO.assets.logo}" alt="Santa Catarina Refrigeração" width="160" height="142" loading="lazy"><strong>Conserto de geladeira</strong><span>${escapeHtml(locality)}</span><a href="tel:${COMPANY_INFO.phoneClean}">${COMPANY_INFO.phone}</a></div><div><h2>Converse sobre o atendimento em ${escapeHtml(locality)}</h2><p>Informe a marca, o modelo, o sintoma e o bairro do equipamento. A equipe confirma disponibilidade, avaliação e condições do serviço antes do agendamento.</p><a class="local-contact-cta" href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer">Consultar atendimento pelo WhatsApp</a></div></section>`;
+}
+
 // 9. City Pages & High-Volume Neighborhoods
 for (const city of CITIES_DATA) {
   const isNavegantes = city.slug === 'navegantes';
@@ -762,6 +769,7 @@ for (const city of CITIES_DATA) {
       <span class="px-3 py-1 bg-cyan-100 text-cyan-900 rounded-full font-bold text-xs">${city.name} - SC • Chegada em ~${city.estimatedMinutes} min</span>
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Geladeira em ${escapeHtml(city.name)} — Assistência Técnica em Domicílio</h1>
       <p class="text-slate-700 text-base max-w-3xl leading-relaxed">${escapeHtml(city.longDescription || city.customSnippet)}</p>
+      ${localContactHtml(city.name)}
       
       <div class="p-6 bg-slate-50 border rounded-2xl space-y-4">
         <h2 class="text-xl font-bold text-slate-900">Bairros Atendidos em ${escapeHtml(city.name)}:</h2>
@@ -792,6 +800,7 @@ for (const nb of HIGH_VOLUME_NEIGHBORHOODS) {
       <span class="px-3 py-1 bg-cyan-100 text-cyan-900 rounded-full font-bold text-xs">Bairro ${escapeHtml(nb.name)} (${escapeHtml(nb.cityName)}/SC)</span>
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Geladeira no Bairro ${escapeHtml(nb.name)}</h1>
       <p class="text-slate-700 text-base max-w-3xl leading-relaxed">${escapeHtml(nb.longDescription || nb.snippet)}</p>
+      ${localContactHtml(`${nb.name}, ${nb.cityName}`)}
       
       <div class="text-center pt-4">
         <a href="${COMPANY_INFO.whatsappUrl}" class="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-lg inline-block">Chamar Técnico no Bairro ${escapeHtml(nb.name)}</a>
@@ -828,7 +837,7 @@ for (const nb of HIGH_VOLUME_NEIGHBORHOODS) {
         <div>
           <h2 class="font-bold text-slate-900 text-lg mb-3">Cidades</h2>
           <ul class="space-y-1.5 text-xs text-cyan-800">
-            ${CITIES_DATA.map(c => `<li><a href="/conserto-de-geladeira-${c.slug}" class="hover:underline">${escapeHtml(c.name)}/SC</a></li>`).join('')}
+            ${CITIES_DATA.map(c => `<li><a href="/conserto-de-geladeira-${c.slug === 'navegantes' ? 'em-navegantes' : c.slug}" class="hover:underline">${escapeHtml(c.name)}/SC</a></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -853,7 +862,7 @@ ${allSitemapUrls.map(u => `  <url>
 
 fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
 const publicSitemapPath = path.resolve(__dirname, '../public/sitemap.xml');
-fs.writeFileSync(publicSitemapPath, sitemapXml, 'utf-8');
+// Build output only: do not rewrite tracked source files on every build.
 
 // 13. Ensure robots.txt in dist/
 const robotsTxt = `# robots.txt - Santa Catarina Refrigeração

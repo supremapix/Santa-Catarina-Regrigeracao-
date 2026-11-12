@@ -81,7 +81,7 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       "address": {
         "@type": "PostalAddress",
         "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
-        "addressLocality": city || COMPANY_INFO.address.city,
+        "addressLocality": COMPANY_INFO.address.city,
         "addressRegion": COMPANY_INFO.address.state,
         "postalCode": COMPANY_INFO.address.zipCode,
         "addressCountry": "BR"

@@ -24,6 +24,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState('');
   const [isOnline, setIsOnline] = useState(false);
   const [currentUrl, setCurrentUrl] = useState('');
   const [currentTitle, setCurrentTitle] = useState('');
@@ -57,7 +58,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
   // Update current URL and Title on route change
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setCurrentUrl(window.location.href);
+      setCurrentUrl(new URL(location.pathname, COMPANY_INFO.subdomainUrl).href);
       setCurrentTitle(document.title || COMPANY_INFO.name);
     }
   }, [location.pathname]);
@@ -71,43 +72,38 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Click outside to close share popover
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        isShareOpen &&
-        popoverRef.current &&
-        !popoverRef.current.contains(e.target as Node) &&
-        shareBtnRef.current &&
-        !shareBtnRef.current.contains(e.target as Node)
-      ) {
-        setIsShareOpen(false);
+    if (!isShareOpen) return;
+    const panel = popoverRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusable = (): HTMLElement[] => panel ? Array.from(panel.querySelectorAll('button, a[href], input')) as HTMLElement[] : [];
+    focusable()[0]?.focus();
+    const keyboard = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { event.preventDefault(); setIsShareOpen(false); }
+      if (event.key === 'Tab') {
+        const nodes = focusable(), first = nodes[0], last = nodes[nodes.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
       }
     };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isShareOpen) {
-        setIsShareOpen(false);
-        shareBtnRef.current?.focus();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', keyboard);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', keyboard);
+      shareBtnRef.current?.focus();
     };
   }, [isShareOpen]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
 
   const shareText = `Estou indicando a Santa Catarina Refrigeração, conserto de geladeira e refrigeração em Navegantes e região: ${currentTitle}`;
   const copyFullText = `Estou indicando a Santa Catarina Refrigeração, conserto de geladeira e refrigeração em Navegantes e região: ${currentTitle} (${currentUrl})`;
 
   const handleCopyLink = async () => {
+    setCopyError('');
     trackShareEvent('copy');
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -119,14 +115,14 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
         textArea.style.opacity = '0';
         document.body.appendChild(textArea);
         textArea.select();
-        document.execCommand('copy');
+        const success = document.execCommand('copy');
         document.body.removeChild(textArea);
+        if (!success) throw new Error('copy failed');
       }
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      setCopyError('Não foi possível copiar. Selecione o endereço abaixo para copiá-lo.');
     }
   };
 
@@ -156,7 +152,8 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
               setIsShareOpen(false);
             }
           }
-        } catch {
+        } catch (error) {
+          if (error instanceof Error && error.name === 'AbortError') return;
           // fetch or canShare failed, fallback below
         }
       }
@@ -246,32 +243,33 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
           onClick={() => setIsShareOpen(!isShareOpen)}
           aria-expanded={isShareOpen}
           aria-label="Compartilhar esta página"
-          className="relative inline-flex items-center justify-center p-3 rounded-[4px] bg-[#F4F1EA] text-[#12324A] border-2 border-[#12324A] shadow-[3px_3px_0_#12324A] hover:bg-[#BFE3F2]/40 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all ring-2 ring-[#D9682B]/60 ring-offset-2 ring-offset-[#F4F1EA] motion-safe:animate-pulse"
+          className="suprema-share-trigger"
         >
-          <Share2 className="w-5 h-5 text-[#12324A]" />
-          <span className="sr-only">Compartilhar</span>
+          <Share2 className="w-5 h-5" />
+          <span className="hidden sm:inline">Compartilhar</span>
         </button>
 
         {/* Popover de Compartilhamento */}
-        {isShareOpen && (
+        {isShareOpen && (<>
+          <div className="suprema-share-backdrop" onClick={() => setIsShareOpen(false)} aria-hidden="true" />
           <div
             ref={popoverRef}
             role="dialog"
             aria-modal="true"
             aria-label="Opções de compartilhamento"
-            className="absolute bottom-14 left-0 w-72 sm:w-80 bg-[#F4F1EA]/95 backdrop-blur-sm border-2 border-[#12324A] shadow-[6px_6px_0_#12324A] rounded-[4px] p-4 z-50 text-[#12324A]"
+            className="suprema-share-panel"
           >
             {/* Popover Header */}
             <div className="flex items-center justify-between pb-3 border-b-2 border-[#12324A]/20">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#D9682B] flex items-center gap-1.5">
                 <Share className="w-3.5 h-3.5" />
-                Compartilhar Página
+                Recomendar esta página
               </span>
               <button
                 type="button"
                 onClick={() => setIsShareOpen(false)}
                 aria-label="Fechar janela de compartilhamento"
-                className="p-1 hover:bg-[#12324A]/10 rounded-[2px] text-[#12324A] transition-colors"
+                className="min-w-12 min-h-12 flex items-center justify-center rounded-lg hover:bg-slate-100"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -289,7 +287,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
                     trackShareEvent(channel.method);
                     setIsShareOpen(false);
                   }}
-                  className={`flex items-center gap-2 p-2 border border-[#12324A]/30 rounded-[3px] bg-white font-bold transition-all active:scale-95 ${channel.bg}`}
+                  className={`min-h-12 flex items-center gap-2 p-2 border border-[#12324A]/30 rounded-[3px] bg-white font-bold transition-all active:scale-95 ${channel.bg}`}
                 >
                   <span className="shrink-0">{channel.icon}</span>
                   <span className="truncate">{channel.name}</span>
@@ -302,7 +300,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
               <button
                 type="button"
                 onClick={handleCopyLink}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-white hover:bg-[#BFE3F2]/30 border-2 border-[#12324A] shadow-[2px_2px_0_#12324A] rounded-[3px] font-mono text-xs font-bold active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+                className="suprema-share-copy"
               >
                 {copied ? (
                   <>
@@ -312,7 +310,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
                 ) : (
                   <>
                     <Copy className="w-4 h-4 text-[#12324A]" />
-                    <span>Copiar link da página</span>
+                    <span>Copiar texto e link</span>
                   </>
                 )}
               </button>
@@ -329,12 +327,16 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
                 </button>
               )}
 
+              <label className="block text-sm">Endereço da página<input aria-label="Endereço para copiar" readOnly value={currentUrl} onFocus={e => e.target.select()} className="w-full border border-slate-300 rounded-lg p-3 mt-1" /></label>
+              <img src={COMPANY_INFO.ogImage} alt={COMPANY_INFO.ogImageAlt} className="w-full rounded-lg" width={1731} height={909} loading="lazy" />
+              <a className="block text-center py-3 underline" href="/images/brand/refrigeracao-sc.jpg" download="santa-catarina-refrigeracao.jpg">Baixar imagem para compartilhar</a>
+              <p role="status" className="text-sm">{copyError}</p>
               {/* Accessible Live Region */}
               <div aria-live="polite" className="sr-only">
                 {copied ? 'Link copiado com sucesso!' : ''}
               </div>
             </div>
-          </div>
+          </div></>
         )}
       </div>
 
@@ -384,7 +386,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
             label: 'Floating WhatsApp Action',
             target: COMPANY_INFO.whatsappUrl
           })}
-          aria-label={`Conversar no WhatsApp — ${isOnline ? 'Online agora' : 'Deixe sua mensagem'}`}
+          aria-label={`Conversar no WhatsApp — ${isOnline ? 'Horário de atendimento' : 'Deixe sua mensagem'}`}
           className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-3 rounded-[4px] bg-[#25D366] hover:bg-[#20ba59] text-white border-2 border-[#12324A] shadow-[4px_4px_0_#12324A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none pointer-events-auto transition-all"
         >
           <span className="relative flex items-center justify-center">
@@ -402,7 +404,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
             </span>
             <span className="text-[10px] text-emerald-950 font-semibold flex items-center gap-1 mt-0.5">
               <span className={`w-1.5 h-1.5 rounded-full inline-block ${isOnline ? 'bg-emerald-950 animate-pulse' : 'bg-slate-700'}`} />
-              {isOnline ? 'Online agora' : 'Deixe sua mensagem'}
+              {isOnline ? 'Horário de atendimento' : 'Deixe sua mensagem'}
             </span>
           </div>
         </a>

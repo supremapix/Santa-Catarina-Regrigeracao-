@@ -442,9 +442,10 @@ export function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen bg-[#F4F1EA] text-[#12324A] flex flex-col font-sans selection:bg-[#BFE3F2] selection:text-[#12324A]">
+        <a className="skip-content" href="#conteudo">Pular para o conteúdo</a>
         <Navbar onOpenBookingModal={handleOpenBookingModal} />
 
-        <div className="flex-grow">
+        <div id="conteudo" tabIndex={-1} className="flex-grow">
           <AppRoutes handleOpenBookingModal={handleOpenBookingModal} />
         </div>
 

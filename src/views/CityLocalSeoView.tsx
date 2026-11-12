@@ -1,3 +1,4 @@
+import { LocalContactCard } from '../components/LocalContactCard';
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { CITIES_DATA, CityLocalSEO, getNeighborhoodBySlug, normalizeSlug } from '../data/cities';
@@ -91,25 +92,10 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
 
   const citySchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `${COMPANY_INFO.name} - ${matchedNeighborhood ? `Bairro ${matchedNeighborhood}` : city.name}/${city.state}`,
-    "image": COMPANY_INFO.ogImage,
-    "telephone": COMPANY_INFO.phone,
-    "email": COMPANY_INFO.email,
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.number}`,
-      "addressLocality": city.name,
-      "addressRegion": city.state,
-      "postalCode": COMPANY_INFO.address.zipCode,
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": city.coordinates?.latitude || COMPANY_INFO.geo.latitude,
-      "longitude": city.coordinates?.longitude || COMPANY_INFO.geo.longitude
-    },
+    "@type": "Service",
+    "name": `Conserto de geladeira em ${matchedNeighborhood ? `${matchedNeighborhood}, ` : ''}${city.name}`,
+    "url": `${COMPANY_INFO.subdomainUrl}${canonicalUrl}`,
+    "provider": { "@id": `${COMPANY_INFO.subdomainUrl}/#organization` },
     "areaServed": {
       "@type": matchedNeighborhood ? "AdministrativeArea" : "City",
       "name": matchedNeighborhood ? `${matchedNeighborhood}, ${city.name}` : city.name
@@ -200,6 +186,7 @@ export const CityLocalSeoView: React.FC<CityLocalSeoViewProps> = ({ onOpenBookin
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 text-left">
           
+          <LocalContactCard locality={matchedNeighborhood ? `${matchedNeighborhood}, ${city.name}` : city.name} />
           {/* Store Address Verification Banner for Navegantes */}
           {isNavegantesPage && (
             <TechCard stamped={true} className="bg-white border-2 border-[#12324A]">

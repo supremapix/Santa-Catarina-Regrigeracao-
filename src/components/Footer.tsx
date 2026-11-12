@@ -8,40 +8,13 @@ import { trackContactClick } from '../utils/analytics';
 
 export function SupremaCredit() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-4 border-t border-[#BFE3F2]/20 flex justify-center items-center">
-      <div className="bg-[#12324A] border border-[#BFE3F2]/30 px-6 py-2.5 shadow-[2px_2px_0_#0a1c2a] flex items-center justify-center transition-all">
-        <p className="text-white/90 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-mono flex flex-wrap items-center justify-center gap-2">
-          <span className="opacity-90">Desenvolvido com</span> 
-          
-          {/* Coração pulsante com efeito de sombra */}
-          <Heart 
-            size={14} 
-            className="text-red-400 animate-[pulse_1.5s_infinite] shrink-0" 
-          /> 
-          
-          <span className="opacity-90">por</span>
-          
-          {/* Link para o site da Suprema */}
-          <a 
-            id="developer-suprema-link"
-            href="https://supremasite.com.br" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-yellow-400 hover:text-yellow-300 transition-all font-bold inline-flex items-center gap-2 cursor-pointer border-b border-dashed border-yellow-400/50 hover:border-yellow-300"
-          >
-            Suprema Sites Express
-            
-            {/* Logotipo oficial */}
-            <img 
-              src="https://img.supremamidia.com/suprema-img.png" 
-              alt="Suprema" 
-              className="h-[18px] w-auto inline select-none shrink-0 transition-transform duration-300 hover:scale-110" 
-              referrerPolicy="no-referrer"
-            />
-          </a>
-        </p>
-      </div>
-    </div>
+    <section className="suprema-credit" aria-label="Créditos do site">
+      <p>Desenvolvido com <Heart className="suprema-heart" size={20} aria-label="carinho" /> por</p>
+      <a id="developer-suprema-link" href="https://supremasite.com.br" target="_blank" rel="noopener noreferrer">
+        <img src="/images/brand/suprema.png" alt="Suprema Mídia" width="649" height="185" loading="lazy" />
+        <strong>Suprema Sites Express</strong><span>Conheça nosso site →</span>
+      </a>
+    </section>
   );
 }
 
