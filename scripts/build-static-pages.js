@@ -766,7 +766,7 @@ for (const city of CITIES_DATA) {
 
   const bodyHtml = `
     <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
-      <span class="px-3 py-1 bg-cyan-100 text-cyan-900 rounded-full font-bold text-xs">${city.name} - SC • Chegada em ~${city.estimatedMinutes} min</span>
+      <span class="px-3 py-1 bg-cyan-100 text-cyan-900 rounded-full font-bold text-xs">${city.name} - SC • Disponibilidade mediante consulta</span>
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900">Conserto de Geladeira em ${escapeHtml(city.name)} — Assistência Técnica em Domicílio</h1>
       <p class="text-slate-700 text-base max-w-3xl leading-relaxed">${escapeHtml(city.longDescription || city.customSnippet)}</p>
       ${localContactHtml(city.name)}
