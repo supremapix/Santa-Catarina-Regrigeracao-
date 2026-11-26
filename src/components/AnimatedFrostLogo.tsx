@@ -14,7 +14,7 @@ export const AnimatedFrostLogo: React.FC<AnimatedFrostLogoProps> = ({
 }) => {
   const [isFrozen, setIsFrozen] = useState(false);
 
-  const logoHeight = size === 'sm' ? 'h-8 sm:h-10' : size === 'lg' ? 'h-11 sm:h-14' : 'h-9 sm:h-12';
+  const logoHeight = size === 'sm' ? 'h-8 sm:h-10' : size === 'lg' ? 'sc-header-logo' : 'h-9 sm:h-12';
   const textColor = variant === 'dark' ? 'text-white' : 'text-[#12324A]';
   const subtextColor = variant === 'dark' ? 'text-[#BFE3F2]' : 'text-[#D9682B]';
 
@@ -38,7 +38,7 @@ export const AnimatedFrostLogo: React.FC<AnimatedFrostLogoProps> = ({
           alt="Santa Catarina Refrigeração Logo"
           animate={
             isFrozen
-              ? { scale: [1, 1.2, 1.1], rotate: [0, -12, 12, 0], filter: ['brightness(1)', 'brightness(1.4) drop-shadow(0 0 12px #06b6d4)', 'brightness(1.1)'] }
+              ? { scale: [1, 1.08, 1], rotate: [0, -12, 12, 0], filter: ['brightness(1)', 'brightness(1.4) drop-shadow(0 0 12px #06b6d4)', 'brightness(1.1)'] }
               : { rotate: [0, 5, -5, 0], scale: 1 }
           }
           transition={
