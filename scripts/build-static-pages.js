@@ -33,16 +33,17 @@ function escapeHtml(str) {
 
 function renderHeaderHtml() {
   return `
-    <header class="bg-white border-b border-slate-200 text-slate-900 sticky top-0 z-40">
-      <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4">
+    <header class="sc-static-header bg-white border-b border-slate-200 text-slate-900 sticky top-0 z-40">
+      <div class="sc-static-topbar bg-slate-900 text-slate-200 text-xs py-2 px-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
           <span>Santa Catarina Refrigeração • Atendimento Domiciliar e Comercial em SC</span>
           <span>Ligar: <a href="tel:${COMPANY_INFO.phoneClean}" class="text-cyan-300 font-bold">${COMPANY_INFO.phone}</a></span>
         </div>
       </div>
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2 font-black text-lg text-slate-900">
-          <span class="text-cyan-700 font-extrabold">SANTA CATARINA</span> REFRIGERAÇÃO
+        <a href="/" aria-label="Santa Catarina Refrigeração - Início" class="sc-header-brand flex items-center gap-2 font-black text-slate-900">
+          <img src="${COMPANY_INFO.assets.logo}" alt="" width="160" height="142" class="sc-header-logo" />
+          <span class="sc-header-wordmark"><span class="block">SANTA CATARINA</span><span class="block text-cyan-700">REFRIGERAÇÃO</span></span>
         </a>
         <nav class="hidden md:flex items-center gap-5 text-sm font-bold text-slate-700">
           <a href="/" class="hover:text-cyan-700">Início</a>
@@ -52,8 +53,8 @@ function renderHeaderHtml() {
           <a href="/regioes-atendidas" class="hover:text-cyan-700">Regiões</a>
           <a href="/blog" class="hover:text-cyan-700">Blog</a>
         </nav>
-        <a href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow">
-          WhatsApp: ${COMPANY_INFO.phone}
+        <a href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="sc-contact-button px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow">
+          WhatsApp<span class="sc-short-phone">: ${COMPANY_INFO.phone}</span>
         </a>
       </div>
     </header>
@@ -274,19 +275,21 @@ function addSitemapUrl(urlPath, priority = '0.8', changefreq = 'weekly') {
     <div class="max-w-7xl mx-auto px-4 py-12 space-y-12">
       <div class="space-y-4 text-center sm:text-left">
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
-          Assistência Técnica em Refrigeração Residencial, Comercial e Industrial em SC
+          Geladeira parou de gelar? Peça assistência em Navegantes e região.
         </h1>
         <p class="text-lg text-slate-700 max-w-3xl leading-relaxed">
-          A <strong>Santa Catarina Refrigeração</strong> é especializada em manutenção preventiva e corretiva de equipamentos de frio com sede comercial em Navegantes/SC. Atendemos residências, restaurantes, comércios e indústrias em Navegantes, Penha, Balneário Piçarras, Itajaí, Barra Velha, Balneário Camboriú e região.
+          A <strong>Santa Catarina Refrigeração</strong> conserta geladeiras, freezers, lava e seca e equipamentos comerciais, na sua casa ou empresa. Atendimento em Navegantes, Penha, Itajaí, Balneário Piçarras e região.
         </p>
         <div class="flex flex-wrap gap-4 pt-2">
-          <a href="${COMPANY_INFO.whatsappUrl}" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-2xl shadow-lg transition-all inline-block">
-            Solicitar Atendimento no WhatsApp: ${COMPANY_INFO.phone}
+          <a href="${COMPANY_INFO.whatsappUrl.split('?')[0]}?text=${encodeURIComponent("Olá! Preciso de assistência em refrigeração.\nCidade e bairro: \nEquipamento, marca e modelo: \nO que aconteceu: ")}" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-2xl shadow-lg transition-all inline-block">
+            Pedir atendimento no WhatsApp
           </a>
-          <a href="/precos" class="px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl transition-all inline-block">
-            Ver Tabela de Preços
+          <a href="tel:${COMPANY_INFO.phoneClean}" class="sc-contact-button px-6 py-4 text-white font-bold rounded-2xl inline-block">
+            Ligar: ${COMPANY_INFO.phone}
           </a>
+          <a href="/precos" class="px-2 py-4 text-cyan-700 font-bold underline inline-block">Consultar valores de referência</a>
         </div>
+        <p class="text-slate-800 text-sm sm:text-base max-w-3xl">Para pedir a visita, informe sua cidade e bairro, a marca e o modelo do aparelho e o que aconteceu. A equipe confirma a disponibilidade e explica a avaliação antes de agendar.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -750,7 +753,7 @@ for (const post of BLOG_POSTS) {
 
 
 function localContactHtml(locality) {
-  return `<section class="local-contact" aria-label="Atendimento em ${escapeHtml(locality)}"><div class="local-contact-visual"><img src="${COMPANY_INFO.assets.logo}" alt="Santa Catarina Refrigeração" width="160" height="142" loading="lazy"><strong>Conserto de geladeira</strong><span>${escapeHtml(locality)}</span><a href="tel:${COMPANY_INFO.phoneClean}">${COMPANY_INFO.phone}</a></div><div><h2>Converse sobre o atendimento em ${escapeHtml(locality)}</h2><p>Informe a marca, o modelo, o sintoma e o bairro do equipamento. A equipe confirma disponibilidade, avaliação e condições do serviço antes do agendamento.</p><a class="local-contact-cta" href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer">Consultar atendimento pelo WhatsApp</a></div></section>`;
+  return `<section class="local-contact" aria-label="Atendimento em ${escapeHtml(locality)}"><div class="local-contact-visual"><img src="${COMPANY_INFO.assets.logo}" alt="Santa Catarina Refrigeração" width="160" height="142" loading="lazy"><strong>Conserto de geladeira</strong><span>${escapeHtml(locality)}</span><a href="tel:${COMPANY_INFO.phoneClean}">${COMPANY_INFO.phone}</a></div><div><h2>Converse sobre o atendimento em ${escapeHtml(locality)}</h2><p>Envie o bairro, a marca, o modelo e conte o que aconteceu. A equipe confirma se atende seu endereço e explica as condições da avaliação antes de marcar a visita.</p><a class="local-contact-cta" href="${COMPANY_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer">Consultar atendimento pelo WhatsApp</a></div></section>`;
 }
 
 // 9. City Pages & High-Volume Neighborhoods
