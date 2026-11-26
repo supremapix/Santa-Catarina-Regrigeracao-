@@ -24,19 +24,19 @@ export const Hero: React.FC<HeroProps> = () => {
 
             {/* Main Bricolage Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#12324A] tracking-tight leading-[1.05] font-display">
-              Geladeira parou? <br className="hidden sm:inline" />
-              A gente vai até você.
+              Geladeira parou de gelar? <br className="hidden sm:inline" />
+              Peça assistência em Navegantes e região.
             </h1>
 
             {/* Subtitle */}
             <p className="text-[#12324A]/80 text-base sm:text-lg font-sans max-w-xl leading-relaxed">
-              Conserto de geladeira, freezer, lava e seca e refrigeração comercial em Navegantes, Penha, Itajaí e região. Orçamento no local antes de qualquer serviço e 90 dias de garantia por escrito.
+              Conserto de geladeiras, freezers, lava e seca e equipamentos comerciais, na sua casa ou empresa. Atendimento em Navegantes, Penha, Itajaí, Balneário Piçarras e região.
             </p>
 
             {/* Action Buttons (Rectangular, 4px radius, stamped shadow) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
-                href={COMPANY_INFO.whatsappUrl}
+                href={`${COMPANY_INFO.whatsappUrl.split("?")[0]}?text=${encodeURIComponent("Olá! Preciso de assistência em refrigeração.\nCidade e bairro: \nEquipamento, marca e modelo: \nO que aconteceu: ")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackContactClick({
@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = () => {
                 className="px-6 py-3.5 rounded-[4px] bg-[#16a34a] hover:bg-[#15803d] text-white font-mono font-bold text-sm border-2 border-[#12324A] shadow-stamped hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#12324A] transition-all flex items-center justify-center gap-2 shrink-0"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
-                <span>CHAMAR NO WHATSAPP</span>
+                <span>PEDIR ATENDIMENTO NO WHATSAPP</span>
               </a>
 
               <a
@@ -63,6 +63,8 @@ export const Hero: React.FC<HeroProps> = () => {
                 <span>LIGAR: {COMPANY_INFO.phone}</span>
               </a>
             </div>
+
+            <p className="max-w-xl text-sm sm:text-base text-[#12324A] leading-relaxed">Para pedir a visita, informe sua cidade e bairro, a marca e o modelo do aparelho e o que aconteceu. A equipe confirma a disponibilidade e explica a avaliação antes de agendar.</p>
 
             {/* Technical Proofs Row */}
             <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono font-bold text-[#12324A]">
