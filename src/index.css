@@ -74,3 +74,73 @@ footer li{overflow-wrap:anywhere}footer h4{font-size:15px!important}
 @media(max-width:639px){.suprema-share-panel{top:auto;bottom:16px;transform:none}footer{padding-bottom:90px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .local-contact{display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:center;background:white;border:1px solid #12324a33;border-radius:16px;padding:24px}.local-contact-visual{width:250px;height:250px;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;background:#f4f1ea;border-radius:12px;padding:12px}.local-contact-visual img{width:130px;height:116px;object-fit:contain}.local-contact h2{font-size:24px;font-weight:700;margin-bottom:12px}.local-contact p{font-size:17px;line-height:1.7}.local-contact-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;background:#166534;color:white;border-radius:8px;margin-top:16px;font-weight:700}@media(max-width:639px){.local-contact{grid-template-columns:1fr;padding:20px}.local-contact-visual{margin:auto}}
+
+/* Contraste e chamadas de atendimento, no app e nas páginas pré-renderizadas. */
+:root {
+  --sc-contact-green: #08753d;
+  --sc-contact-green-dark: #00542f;
+  --sc-contact-orange: #b2440c;
+  --sc-contact-orange-dark: #873006;
+  --sc-ink: #12324a;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--sc-ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #fff;
+}
+[class~="text-[#12324A]/60"], [class~="text-[#12324A]/50"] { color: #4b5e69; }
+[class~="text-[#D9682B]"] { color: #a43c10; }
+[class~="hover:text-[#D9682B]"]:hover { color: #a43c10; }
+footer[class~="bg-[#12324A]"] [class~="text-[#D9682B]"],
+header [class~="bg-[#12324A]"] [class~="text-[#D9682B]"],
+footer[class~="bg-[#12324A]"] [class~="hover:text-[#D9682B]"]:hover { color: #ffb688; }
+
+/* Inline numbers stay inline. Only contact links already styled as buttons get the full treatment. */
+:is(a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/send"]):is(
+  [class~="bg-[#16a34a]"], [class~="bg-[#25D366]"], [class~="bg-[#128C7E]"],
+  [class~="bg-emerald-600"], [class~="bg-emerald-500"], [class~="bg-green-600"], .local-contact-cta, .sc-contact-button
+) {
+  color: #fff;
+  background: linear-gradient(135deg, var(--sc-contact-green), var(--sc-contact-green-dark));
+  border: 2px solid #28d779;
+  min-height: 46px;
+  align-content: center;
+  font-weight: 700;
+}
+:is(a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/send"]):is(
+  [class~="bg-[#16a34a]"], [class~="bg-[#25D366]"], [class~="bg-[#128C7E]"],
+  [class~="bg-emerald-600"], [class~="bg-emerald-500"], [class~="bg-green-600"], .local-contact-cta, .sc-contact-button
+):hover { background: var(--sc-contact-green-dark); }
+a[href^="tel:"]:is([class~="bg-[#D9682B]"], [class~="bg-slate-900"], .sc-contact-button) {
+  color: #fff;
+  background: linear-gradient(135deg, var(--sc-contact-orange), var(--sc-contact-orange-dark));
+  border: 2px solid #ffad73;
+  min-height: 46px;
+  align-content: center;
+  font-weight: 700;
+}
+a[href^="tel:"]:is([class~="bg-[#D9682B]"], [class~="bg-slate-900"], .sc-contact-button):hover {
+  background: var(--sc-contact-orange-dark);
+}
+a[href^="https://wa.me/"] [class~="text-emerald-950"] { color: #e6fff1; }
+.sc-header-brand { min-width: 0; }
+.sc-header-brand a { max-width: 100%; }
+.sc-header-logo {
+  display: block;
+  flex: none;
+  width: auto;
+  height: clamp(54px, 12vw, 76px);
+  object-fit: contain;
+  max-width: min(104px, 29vw);
+}
+.sc-static-header {
+  background: #f4f1ea;
+  color: var(--sc-ink);
+}
+.sc-static-header .sc-header-brand { max-width: 70%; }
+.sc-static-header .sc-contact-button { flex-shrink: 0; padding-inline: clamp(7px, 2.5vw, 16px); }
+.sc-static-header .sc-header-wordmark { font-size: clamp(10px, 2.6vw, 16px); line-height: 1.1; }
+@media (max-width: 419px) {
+  .sc-static-header .sc-short-phone { display: none; }
+  .sc-static-header .sc-static-topbar { display: none; }
+}
