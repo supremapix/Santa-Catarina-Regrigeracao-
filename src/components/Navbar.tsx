@@ -141,10 +141,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
 
         {/* Main Navbar Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+          <div className="flex items-center justify-between gap-2 min-h-[70px] sm:min-h-[90px]">
             
             {/* Animated Frost Logo */}
-            <AnimatedFrostLogo />
+            <div className="sc-header-brand"><AnimatedFrostLogo size="lg" /></div>
 
             {/* Desktop Nav Links */}
             <nav className="hidden lg:flex items-center space-x-5 font-mono text-xs font-bold uppercase tracking-wider text-[#12324A]">
