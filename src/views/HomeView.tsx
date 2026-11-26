@@ -52,7 +52,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenBookingModal }) => {
               Fale com um técnico agora
             </h2>
             <p className="text-[#BFE3F2] text-sm sm:text-base max-w-xl mx-auto font-sans">
-              Mande uma foto do aparelho e o modelo pelo WhatsApp. A gente já te diz o que pode ser.
+              Informe o bairro, a marca, o modelo e o que você percebeu. Uma foto da etiqueta pode ajudar. A equipe orienta o próximo passo e confirma as condições antes da visita.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
